@@ -1,12 +1,13 @@
 import React from "react";
-import { Switch, Route } from "react-router-dom";
+import { Switch } from "react-router-dom";
 
-import Home from "@pages/Home";
+import Router from "./Router";
+import Login from "@pages/Login";
 
 export default function Routes() {
     return (
         <Switch>
-            <Route path="/" exact component={Home} />
+            <Router path="/" exact component={Login} />
         </Switch>
     );
 }
