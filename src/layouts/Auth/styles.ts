@@ -18,7 +18,7 @@ export const Content = styled.div`
 `;
 
 export const Header = styled.div`
-    width: 45%;
+    width: 50%;
     background: var(--secondary100);
     display: flex;
     align-items: center;

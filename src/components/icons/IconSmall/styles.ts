@@ -1,10 +1,12 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-`;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-export const Content = styled.div`
-`;
-
-export const InputBox = styled.input`
+    svg {
+        width: 15px;
+        height: 15px;
+    }
 `;
