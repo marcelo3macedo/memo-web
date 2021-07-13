@@ -1,18 +1,21 @@
 import React from 'react';
+import { useTranslation } from 'react-multi-lang';
 
 import { Wrapper, Content, Title, ActionArea, Fields, Message } from './styles';
 import TextLinked from '@components/link/TextLinked';
 
 export default function Recovered() {
+  const t = useTranslation()
+
   return (
     <Wrapper>
         <Content>
-          <Title>Recuperar senha</Title>
+          <Title>{t('auth.recoverTitle')}</Title>
           <Fields>
-            <Message>Um e-mail com as intruções para recuperar a senha foi enviado para você</Message>
+            <Message>{t('auth.recoveredMessage')}</Message>
           </Fields>
           <ActionArea>
-              <TextLinked content="Ir para login" />
+              <TextLinked content={t('auth.goToLogin')} />
           </ActionArea>
         </Content>
     </Wrapper>

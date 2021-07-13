@@ -9,10 +9,10 @@ import Recovered from "@pages/Recovered";
 
 export default function Routes() {
     return (
-        <Switch>             
-            <Router path="/" exact component={Recovered} />
-            <Router path="/" exact component={Recover} />
-            <Router path="/" exact component={SignUp} />                 
+        <Switch>        
+            <Router path="/" exact component={Recovered} />                  
+            <Router path="/" exact component={Recover} />   
+            <Router path="/" exact component={SignUp} /> 
             <Router path="/" exact component={SignIn} />
         </Switch>
     );

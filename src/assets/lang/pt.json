@@ -1,0 +1,18 @@
+{
+    "auth": {
+        "loginTitle": "Login",
+        "registerTitle": "Registrar",
+        "recoverTitle": "Recuperar Senha",
+        "namePlaceholder": "Digite seu nome...",
+        "mailPlaceholder": "Digite seu e-mail...",
+        "passwordPlaceholder": "Digite sua senha...",
+        "confirmpasswordPlaceholder": "Confirme sua senha...",
+        "forgotPassword": "Esqueceu sua senha?",
+        "goToLogin": "Ir para login",
+        "enter": "Entrar",
+        "signUp": "Cadastrar",
+        "recover": "Recuperar",
+        "haveAccount": "Já tenho uma conta",
+        "recoveredMessage": "Uma senha foi enviada para o seu e-mail"
+    }
+}
