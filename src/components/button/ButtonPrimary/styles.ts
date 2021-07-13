@@ -5,6 +5,8 @@ export const Wrapper = styled.div`
     border-radius: 10px;
     background: var(--secondary100);
     color: var(--textSecondary100);
+    min-width: 100px;
+    text-align: center;
 
     &:hover {
         cursor: pointer;

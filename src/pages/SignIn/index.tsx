@@ -5,14 +5,14 @@ import InputIcon from '@components/input/InputIcon';
 import ButtonPrimary from '@components/button/ButtonPrimary';
 import TextLinked from '@components/link/TextLinked';
 
-export default function Login() {
+export default function SignIn() {
   return (
     <Wrapper>
         <Content>
           <Title>Login</Title>
           <Fields>
-            <InputIcon icon="user"/>
-            <InputIcon icon="password"/>
+            <InputIcon icon="user" placeholder="Digite seu e-mail..."/>
+            <InputIcon icon="password"  placeholder="Digite sua senha..."/>
           </Fields>
           <ActionArea>
               <TextLinked content="Esqueceu sua senha?" />
