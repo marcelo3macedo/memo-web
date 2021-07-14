@@ -7,6 +7,10 @@ export const Wrapper = styled.div`
     color: var(--textSecondary100);
     min-width: 100px;
     text-align: center;
+    
+    h5 {
+        font-weight: bold;
+    }
 
     &:hover {
         cursor: pointer;

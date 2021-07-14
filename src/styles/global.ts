@@ -20,6 +20,10 @@ export const GlobalStyle = createGlobalStyle`
         font-family: 'Montserrat', sans-serif;
     }
 
+    h4, h5, h6 {
+        font-weight: normal;
+    }
+
     textarea:focus, input:focus{
         outline: none;
     }
