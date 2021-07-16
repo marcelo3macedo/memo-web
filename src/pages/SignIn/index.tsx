@@ -18,8 +18,8 @@ export default function SignIn() {
             <InputIcon icon="password" placeholder={t('auth.passwordPlaceholder')}/>
           </Fields>
           <ActionArea>
-              <TextLinked content={t('auth.forgotPassword')} />
-              <ButtonPrimary content={t('auth.enter')} />
+              <TextLinked content={t('auth.forgotPassword')}/>
+              <ButtonPrimary content={t('auth.enter')}/>
           </ActionArea>
         </Content>
     </Wrapper>
