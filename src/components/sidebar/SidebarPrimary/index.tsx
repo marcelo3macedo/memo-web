@@ -1,7 +1,7 @@
 import React from 'react';
 
-import IconMedium from '@components/icons/IconMedium';
 import { Wrapper, Content } from './styles';
+import IconMedium from '@components/icons/IconMedium';
 
 export default function SidebarPrimary() {
   return (

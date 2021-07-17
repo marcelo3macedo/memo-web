@@ -1,7 +1,16 @@
 import React from 'react';
 
+import { Wrapper, Content } from './styles';
+import PendingDecks from '@components/blocks/PendingDecks';
+import WelcomeMessage from '@components/blocks/WelcomeMessage';
+
 export default function Home() {
   return (
-    <h1>Home</h1>
+    <Wrapper>
+      <Content>
+        <WelcomeMessage/>
+        <PendingDecks />
+      </Content>
+    </Wrapper>
   ); 
 }

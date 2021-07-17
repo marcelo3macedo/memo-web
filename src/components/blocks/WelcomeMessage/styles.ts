@@ -1,13 +1,15 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-    background: var(--secondary60);
-    min-height: 100vH;
+    padding: 10px;
 `;
 
 export const Content = styled.div`
 `;
 
-export const Section = styled.div`
-    
+export const Title = styled.h1`
+`;
+
+export const Message = styled.h4`
+    padding: 5px 0;
 `;

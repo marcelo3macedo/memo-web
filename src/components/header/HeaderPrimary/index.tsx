@@ -1,11 +1,15 @@
 import React from 'react';
 
-import { Wrapper, TextValue } from './styles';
+import { Wrapper, Content } from './styles';
+import IconMedium from '@components/icons/IconMedium';
 
 export default function HeaderPrimary() {
   return (
     <Wrapper>
-      <TextValue>teste</TextValue>
+      <Content>
+          <IconMedium name="home" />
+          <IconMedium name="home" />        
+      </Content>
     </Wrapper>
   );
 }

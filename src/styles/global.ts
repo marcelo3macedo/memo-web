@@ -11,6 +11,7 @@ export const GlobalStyle = createGlobalStyle`
         --neutral100: #333333;
         --neutral80: #8a9a9c;
         --neutral60: #c1c2c5;
+        --neutral30: #f9f9f9;
 
         --textSecondary100: #f7ffff;
     }

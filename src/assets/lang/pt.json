@@ -14,5 +14,12 @@
         "recover": "Recuperar",
         "haveAccount": "Já tenho uma conta",
         "recoveredMessage": "Uma senha foi enviada para o seu e-mail"
+    },
+    "welcome": {
+        "title": "Olá, ",
+        "message": "O que iremos estudar hoje?"
+    },
+    "decks": {
+        "title": "Blocos de Estudo"
     }
 }
