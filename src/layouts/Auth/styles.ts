@@ -40,8 +40,12 @@ export const Header = styled.div`
 `;
 
 export const Logo = styled.img`
-    width: 100px;
+    width: 150px;
     padding: 20px 0;
+
+    @media (max-width: 768px) {
+        width: 100px;
+    }
 `;
 
 export const Title = styled.h1`

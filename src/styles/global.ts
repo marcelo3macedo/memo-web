@@ -9,6 +9,7 @@ export const GlobalStyle = createGlobalStyle`
         --secondary10: #f7ffff;
 
         --neutral100: #333333;
+        --neutral80: #8a9a9c;
         --neutral60: #c1c2c5;
 
         --textSecondary100: #f7ffff;
