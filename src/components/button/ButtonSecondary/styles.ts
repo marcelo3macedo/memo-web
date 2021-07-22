@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-    padding: 10px 20px;
+    padding: 7px 15px;
     border-radius: 10px;
     background: var(--neutral30);
     color: var(--neutral80);
@@ -18,5 +18,6 @@ export const Wrapper = styled.div`
     }
 `;
 
-export const TextValue = styled.h5`
+export const TextValue = styled.h6`
+    font-weight: bold;
 `;

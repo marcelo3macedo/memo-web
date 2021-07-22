@@ -2,7 +2,7 @@ import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
     :root {
-        --primary: #33333;
+        --primary: #333333;
         --secondary100: #21b3af;
         --secondary80: #b6dddc;
         --secondary60: #d4f0f0;
@@ -28,5 +28,19 @@ export const GlobalStyle = createGlobalStyle`
 
     textarea:focus, input:focus{
         outline: none;
+    }
+
+    ::-webkit-scrollbar {
+        width: 5px;
+        height: 5px;
+    }
+    
+    ::-webkit-scrollbar-track {
+        background: rgba(255,255,255,0.6);
+    }
+    
+    ::-webkit-scrollbar-thumb {
+        background-color: var(--neutral100);
+        border-radius: 5px;
     }
 `;
