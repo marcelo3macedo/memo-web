@@ -14,7 +14,7 @@ export default function PendingDecks() {
         <DecksGallery />
         <Footer>
           <Block></Block>
-          <Block><ButtonSecondary content={ "Ver Mais" } /></Block>
+          <Block><ButtonSecondary content={t('decks.seeMore')} /></Block>
         </Footer>
       </Content>
     </Wrapper>

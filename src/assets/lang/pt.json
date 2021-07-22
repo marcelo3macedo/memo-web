@@ -20,6 +20,10 @@
         "message": "O que iremos estudar hoje?"
     },
     "decks": {
-        "title": "Baralhos"
+        "title": "Baralhos",
+        "seeMore": "Ver Mais"
+    },
+    "sessionReview": {
+        "title": "Última Sessão"
     }
 }

@@ -3,8 +3,7 @@ import { all, takeLatest } from "redux-saga/effects";
 import history from "@services/History";
 
 function* navigate() {
-    console.log("here");
-    history.push("/cart");
+    yield history.push("/cart");
 }
 
 export default all([

@@ -2,7 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Route } from "react-router-dom";
 
-import AuthLayout from "@layouts/Auth";
 import MainLayout from "@layouts/Main";
 
 export default function RouteWrapper({
