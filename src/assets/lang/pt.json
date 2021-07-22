@@ -21,9 +21,15 @@
     },
     "decks": {
         "title": "Baralhos",
-        "seeMore": "Ver Mais"
+        "seeMore": "Ver Mais",
+        "add": "Adicione um novo Deck para sua coleção",
+        "search": "Pesquise um Deck em nossa galeria",
+        "option": "ou"
     },
     "sessionReview": {
         "title": "Última Sessão"
+    },
+    "actions": {
+        "add": "Adicionar"
     }
 }
