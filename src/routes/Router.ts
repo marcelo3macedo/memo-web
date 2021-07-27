@@ -2,14 +2,14 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Route } from "react-router-dom";
 
-import MainLayout from "@layouts/Main";
+import AuthLayout from "@layouts/Auth";
 
 export default function RouteWrapper({
     component: Component,
     isPrivate = false,
     ...rest
 }){
-  const Layout = MainLayout;
+  const Layout = AuthLayout;
 
   return (React.createElement(Route, Object.assign({}, rest, { 
       render: props => (

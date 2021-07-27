@@ -1,0 +1,1 @@
+export const PATH_FORGOT_PASSWORD = "/forgotpassword"
