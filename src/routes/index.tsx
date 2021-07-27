@@ -8,10 +8,12 @@ import Recover from "@pages/auth/Recover";
 import Recovered from "@pages/auth/Recovered";
 
 import Home from "@pages/main/Home";
+import Deck from "@pages/main/Deck";
 
 export default function Routes() {
     return (
         <Switch>         
+            <Router path="/" exact component={Deck} />   
             <Router path="/" exact component={Home} />   
             <Router path="/" exact component={SignIn} />       
             <Router path="/" exact component={Recovered} />   
