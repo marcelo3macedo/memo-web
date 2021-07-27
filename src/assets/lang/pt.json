@@ -24,12 +24,16 @@
         "seeMore": "Ver Mais",
         "add": "Adicione um novo Deck para sua coleção",
         "search": "Pesquise um Deck em nossa galeria",
-        "option": "ou"
+        "option": "ou",
+        "featured": "Em Destaque"
     },
     "sessionReview": {
         "title": "Última Sessão"
     },
     "actions": {
         "add": "Adicionar"
+    },
+    "filter": {
+        "title": "Filtros"
     }
 }
