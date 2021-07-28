@@ -40,7 +40,7 @@ export default function Recover() {
               </Fields>
               <ActionArea>
                   <TextLinked content={t('auth.goToLogin')} action={signInClick} />
-                  <ButtonPrimary content={t('auth.recover')} />
+                  <ButtonPrimary type="submit" content={t('auth.recover')} />
               </ActionArea>
             </Form>
           </Formik>

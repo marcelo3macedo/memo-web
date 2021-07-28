@@ -11,6 +11,7 @@
         "goToLogin": "Ir para login",
         "enter": "Entrar",
         "signUp": "Cadastrar",
+        "register": "Quero participar!",
         "recover": "Recuperar",
         "haveAccount": "Já tenho uma conta",
         "recoveredMessage": "Uma senha foi enviada para o seu e-mail"
@@ -35,5 +36,9 @@
     },
     "filter": {
         "title": "Filtros"
+    },
+    "validation": {
+        "user.required": "O usuário é obrigatorio",
+        "password.required": "A senha é obrigatoria"
     }
 }

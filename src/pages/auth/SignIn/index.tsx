@@ -3,15 +3,16 @@ import { useDispatch } from "react-redux";
 import { useTranslation } from 'react-multi-lang';
 import { Formik, Form } from "formik";
 
-import { Wrapper, Content, Title, ActionArea, Fields } from './styles';
+import { Wrapper, Content, Title, ActionArea, Fields, NewUser } from './styles';
 import InputIcon from '@components/input/InputIcon';
 import ButtonPrimary from '@components/button/ButtonPrimary';
 import TextLinked from '@components/link/TextLinked';
 import ValidationMessage from '@components/validation/ValidationMessage';
 
 import { navigatePush } from '@store/modules/navigate/actions';
-import { PATH_FORGOT_PASSWORD } from '@services/Navigation';
-import { schema, initialValues } from '@services/Validation/signIn.schema';
+import { PATH_FORGOT_PASSWORD, PATH_SIGN_UP } from '@services/Navigation';
+import { initialValues, schema } from '@services/Validation/signIn.schema';
+import ButtonSecondary from '@components/button/ButtonSecondary';
 
 export default function SignIn() {
   const t = useTranslation()
@@ -21,8 +22,11 @@ export default function SignIn() {
     dispatch(navigatePush({ path: PATH_FORGOT_PASSWORD }));
   }
 
-  function handleSubmit() {
+  function signUpClick() {
+    dispatch(navigatePush({ path: PATH_SIGN_UP }));
+  }
 
+  function handleSubmit() {
   }
 
   return (
@@ -47,6 +51,10 @@ export default function SignIn() {
               </ActionArea>
             </Form>
           </Formik>
+
+          <NewUser>
+              <ButtonSecondary content={t('auth.register')} action={signUpClick}/>
+          </NewUser>
         </Content>
     </Wrapper>
   ); 

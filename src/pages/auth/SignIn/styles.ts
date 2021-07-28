@@ -49,3 +49,6 @@ export const ActionArea = styled.div`
     padding: 15px 0;
 `;
 
+export const NewUser = styled.div`
+    margin-top: 10px;
+`;

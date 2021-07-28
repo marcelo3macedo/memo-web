@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-    padding: 7px 15px;
+    padding: 10px 15px;
     border-radius: 10px;
     background: var(--neutral30);
-    color: var(--neutral80);
+    color: var(--neutral100);
     min-width: 100px;
     text-align: center;
     
