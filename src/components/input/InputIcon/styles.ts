@@ -14,15 +14,21 @@ export const Content = styled.div`
     svg {
         padding: 8px;
     }
-`;
 
-export const InputBox = styled.input`
-    padding: 10px 5px;
-    border: none;
-    color: var(--neutral100);
-    background: none;
+    input {
+        padding: 10px 5px;
+        border: none;
+        color: var(--neutral100);
+        background: none;
+    
+        &::placeholder {
+            color: var(--neutral60);
+        }
+    }
 
-    &::placeholder {
-        color: var(--neutral60);
+    span {
+        font-size: 8pt;
+        text-align: right;
+        color: var(--alert);
     }
 `;

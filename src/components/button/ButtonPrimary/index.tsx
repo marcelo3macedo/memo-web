@@ -2,9 +2,9 @@ import React from 'react';
 
 import { Wrapper, TextValue } from './styles';
 
-export default function ButtonPrimary({ content }) {
+export default function ButtonPrimary({ content, type=null }) {
   return (
-    <Wrapper>
+    <Wrapper type={type}>
       <TextValue>{content}</TextValue>
     </Wrapper>
   );
