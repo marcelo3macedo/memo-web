@@ -5,6 +5,11 @@ export const Wrapper = styled.div`
         width: 20px;
         height: 20px;
     }
+
+    &:hover {
+        cursor: pointer;
+        opacity: 0.8;
+    }
 `;
 
 export const TextValue = styled.h5`

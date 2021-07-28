@@ -9,14 +9,16 @@ import Recovered from "@pages/auth/Recovered";
 import Home from "@pages/main/Home";
 import Deck from "@pages/main/Deck";
 
-import { PATH_FORGOT_PASSWORD } from "@services/Navigation";
+import { PATH_FORGOT_PASSWORD, PATH_SIGN_IN } from "@services/Navigation";
 
 export default function Routes() {
     return (
         <Switch>         
+            <Router path="/" exact component={SignIn} />    
+            
+            <Router path={PATH_SIGN_IN} exact component={SignIn} />    
             <Router path={PATH_FORGOT_PASSWORD} component={Recover} />
 
-            <Router path="/" exact component={SignIn} />    
             <Router path="/signup" component={SignUp} />   
             <Router path="/recovered" component={Recovered} />    
 
