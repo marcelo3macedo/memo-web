@@ -9,8 +9,12 @@ import Recover from "@pages/auth/Recover";
 import Recovered from "@pages/auth/Recovered";
 import Home from "@pages/main/Home";
 import Deck from "@pages/main/Deck";
+import About from "@pages/main/About";
+import Help from "@pages/main/Help";
+import MyAccount from "@pages/main/MyAccount";
+import MyDecks from "@pages/main/MyDecks";
 
-import { PATH_FORGOT_PASSWORD, PATH_SIGN_IN, PATH_SIGN_UP, PATH_RECOVERED } from "@services/Navigation";
+import { PATH_FORGOT_PASSWORD, PATH_SIGN_IN, PATH_SIGN_UP, PATH_RECOVERED, PATH_ABOUT, PATH_HELP, PATH_MYACCOUNT, PATH_MYDECKS } from "@services/Navigation";
 
 export default function Routes() {
     return (
@@ -22,8 +26,12 @@ export default function Routes() {
             <Router path={PATH_SIGN_UP} component={SignUp} layout={Layouts.Auth}/>   
             <Router path={PATH_RECOVERED} component={Recovered} layout={Layouts.Auth}/>    
 
+            <Router path={PATH_ABOUT} exact component={About} layout={Layouts.Main}/>  
+            <Router path={PATH_HELP} exact component={Help} layout={Layouts.Main}/>  
+            <Router path={PATH_MYACCOUNT} exact component={MyAccount} layout={Layouts.Main}/>  
+            <Router path={PATH_MYDECKS} exact component={MyDecks} layout={Layouts.Main}/>  
             <Router path="/" exact component={Home} />     
-            <Router path="/" exact component={Deck} />   
+            <Router path="/" exact component={Deck} />    
         </Switch>
     );
 }
