@@ -2,27 +2,25 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Route } from "react-router-dom";
 
-import AuthLayout from "@layouts/Auth";
+import { Layouts } from "@config/Layouts";
 
 export default function RouteWrapper({
     component: Component,
-    isPrivate = false,
+    layout = Layouts.Main,
     ...rest
 }){
-  const Layout = AuthLayout;
-
   return (React.createElement(Route, Object.assign({}, rest, { 
       render: props => (
-        React.createElement(Layout, null,
+        React.createElement(layout, null,
         React.createElement(Component, Object.assign({}, props)))) 
   })));
 }
 
 RouteWrapper.propTypes = {
-    isPrivate: PropTypes.bool,
+    layout: Layouts,
     component: PropTypes.oneOfType([PropTypes.element, PropTypes.func]).isRequired
 }
 
 RouteWrapper.defaultProps = {
-    isPrivate: false,
+    layout: Layouts,
 }

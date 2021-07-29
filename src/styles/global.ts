@@ -16,6 +16,9 @@ export const GlobalStyle = createGlobalStyle`
         --textSecondary100: #f7ffff;
         
         --alert: #f7603e;
+
+        --alphaColor: 51, 51, 51;
+        --alpha: 0.3;
     }
 
     * {

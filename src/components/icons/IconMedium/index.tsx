@@ -1,20 +1,11 @@
 import React from 'react';
 
-import { ReactComponent as UserIcon } from "@assets/icons/user.svg";
-import { ReactComponent as PasswordIcon } from "@assets/icons/password.svg";
-import { ReactComponent as HomeIcon } from "@assets/icons/home.svg";
-
+import { Icons } from '@config/Icons';
 import { Wrapper } from './styles';
 
-const iconTypes = {
-  user: UserIcon,
-  password: PasswordIcon,
-  home: HomeIcon
-};
-
-const IconMedium = ({ name, ...props }) => {
-  let Icon = iconTypes[name];
-  return  <Wrapper>
+const IconMedium = ({ name, action=null, ...props }) => {
+  let Icon = Icons[name];
+  return  <Wrapper onClick={action}>
             <Icon {...props} />
           </Wrapper>;
 };
