@@ -1,11 +1,17 @@
 
 import { all, takeLatest } from "redux-saga/effects";
-import history from "@services/History";
 
-function* navigate() {
-    yield history.push("/cart");
+function signIn({ payload }:any) {    
+}
+
+function signUp({ payload }:any) {
+}
+
+function forgotPassword({ payload }:any) {
 }
 
 export default all([
-    takeLatest('@auth/NAVIGATE_FORGOT_PASSWORD', navigate),
+    takeLatest('@auth/SIGN_IN', signIn),
+    takeLatest('@auth/SIGN_UP', signUp),
+    takeLatest('@auth/FORGOT_PASSWORD', forgotPassword),
 ]);

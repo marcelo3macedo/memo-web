@@ -8,7 +8,7 @@ import InputIcon from '@components/input/InputIcon';
 import ButtonPrimary from '@components/button/ButtonPrimary';
 import TextLinked from '@components/link/TextLinked';
 import ValidationMessage from '@components/validation/ValidationMessage';
-
+import { signInAction } from '@store/modules/auth/actions';
 import { navigatePush } from '@store/modules/navigate/actions';
 import { PATH_FORGOT_PASSWORD, PATH_SIGN_UP } from '@services/Navigation';
 import { initialValues, schema } from '@services/Validation/signIn.schema';
@@ -26,7 +26,8 @@ export default function SignIn() {
     dispatch(navigatePush({ path: PATH_SIGN_UP }));
   }
 
-  function handleSubmit() {
+  function handleSubmit(data) {
+    dispatch(signInAction(data));
   }
 
   return (

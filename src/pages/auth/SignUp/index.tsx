@@ -7,10 +7,11 @@ import { Wrapper, Content, Title, ActionArea, Fields } from './styles';
 import InputIcon from '@components/input/InputIcon';
 import ButtonPrimary from '@components/button/ButtonPrimary';
 import TextLinked from '@components/link/TextLinked';
+import ValidationMessage from '@components/validation/ValidationMessage';
 import { initialValues, schema } from '@services/Validation/signUp.schema';
 import { PATH_SIGN_IN } from '@services/Navigation';
-
 import { navigatePush } from '@store/modules/navigate/actions';
+import { signUpAction } from '@store/modules/auth/actions';
 
 export default function SignUp() {
   const t = useTranslation();
@@ -20,8 +21,8 @@ export default function SignUp() {
     dispatch(navigatePush({ path: PATH_SIGN_IN }));
   }
 
-  function handleSubmit() {
-
+  function handleSubmit(data) {
+    dispatch(signUpAction(data));
   }
 
   return (
@@ -35,9 +36,13 @@ export default function SignUp() {
             <Form>
               <Fields>
                 <InputIcon name={"fullName"} icon="user" placeholder={t('auth.namePlaceholder')}/>
+                <ValidationMessage name="fullName" />
                 <InputIcon name={"user"} icon="user" placeholder={t('auth.mailPlaceholder')}/>
+                <ValidationMessage name="user" />
                 <InputIcon name={"password"} icon="password" placeholder={t('auth.passwordPlaceholder')}/>
+                <ValidationMessage name="password" />
                 <InputIcon name={"confirmPassword"} icon="password" placeholder={t('auth.confirmpasswordPlaceholder')}/>
+                <ValidationMessage name="confirmPassword" />
               </Fields>
               <ActionArea>
                   <TextLinked content={t('auth.haveAccount')} action={signUpClick} />
