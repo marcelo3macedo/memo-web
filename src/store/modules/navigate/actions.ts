@@ -5,3 +5,9 @@ export function navigatePush({ path }) {
         path
     }
 }
+
+export function backAction() {
+    return {
+        type: '@navigate/BACK_ACTION'
+    }
+}
