@@ -18,7 +18,8 @@
     },
     "welcome": {
         "title": "Olá, ",
-        "message": "O que iremos estudar hoje?"
+        "message": "O que iremos estudar hoje?",
+        "new": "Seja bem-vindo ao Memorizator!"
     },
     "decks": {
         "title": "Baralhos",

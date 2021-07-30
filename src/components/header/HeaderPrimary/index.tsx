@@ -5,6 +5,7 @@ import { Wrapper, Content, Header } from './styles';
 import IconMedium from '@components/icons/IconMedium';
 import MenuPrimary from '@components/menu/MenuPrimary';
 import { menuAction, searchAction } from '@store/modules/menu/actions';
+import SearchPrimary from '@components/search/SearchPrimary';
 
 export default function HeaderPrimary() {
   const dispatch = useDispatch();
@@ -25,6 +26,7 @@ export default function HeaderPrimary() {
             <IconMedium name="search" action={searchClick} />        
           </Header>
           <MenuPrimary/>
+          <SearchPrimary/>
       </Content>
     </Wrapper>
   );
