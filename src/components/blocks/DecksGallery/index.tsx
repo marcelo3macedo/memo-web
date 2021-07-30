@@ -8,7 +8,7 @@ export default function DecksGallery({decks=[]}) {
     <Wrapper>
       <Content>
         {decks.map(d=> (
-          <Deck data={d} />
+          <Deck key={d.id} data={d} />
         ))}
       </Content>
     </Wrapper>

@@ -29,6 +29,12 @@
         "option": "ou",
         "featured": "Em Destaque"
     },
+    "newDeck": {
+        "title": "Novo Deck"
+    },
+    "searchDeck": {
+        "title": "Pesquisar"
+    },
     "sessionReview": {
         "title": "Última Sessão"
     },

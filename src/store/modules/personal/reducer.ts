@@ -10,7 +10,8 @@ const INITIAL_STATE = {
           "active": true,
           "createdAt": "2021-06-12T06:19:25.642Z"
         }
-      ],
+    ],
+    lastSession: null
 };
 
 export default function personal(state = INITIAL_STATE, action) {

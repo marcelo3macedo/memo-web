@@ -2,13 +2,13 @@ import React from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import { useTranslation } from 'react-multi-lang';
 
-import { Wrapper, Content, Footer, Block } from './styles';
-
 import { RootState } from '@store/modules/rootReducer';
 import ButtonSecondary from '@components/button/ButtonSecondary';
 import DecksGallery from '@components/blocks/DecksGallery';
 import { navigatePush } from '@store/modules/navigate/actions';
 import { PATH_MYDECKS } from '@services/Navigation';
+
+import { Wrapper, Content, Footer, Block } from './styles';
 
 export default function PendingDecks() {
   const dispatch = useDispatch();
