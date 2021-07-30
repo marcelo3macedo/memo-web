@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Wrapper = styled.div`
     margin: 5px 0;
     padding: 15px 10px;
-    background: var(--secondary100);
+    background: var(--secondary80);
 `;
 
 export const Content = styled.div`

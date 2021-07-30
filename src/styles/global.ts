@@ -35,6 +35,10 @@ export const GlobalStyle = createGlobalStyle`
         outline: none;
     }
 
+    input {
+        background: transparent;
+    }
+
     ::-webkit-scrollbar {
         width: 5px;
         height: 5px;

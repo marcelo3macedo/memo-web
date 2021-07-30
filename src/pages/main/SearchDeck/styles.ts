@@ -11,7 +11,6 @@ export const Content = styled.div`
 export const Title = styled.h1`
 `;
 
-export const Paragraph = styled.h5`
-    padding: 10px 0;
+export const Term = styled.h3`
 `;
 

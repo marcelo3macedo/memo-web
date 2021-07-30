@@ -30,10 +30,10 @@
         "featured": "Em Destaque"
     },
     "newDeck": {
-        "title": "Novo Deck"
+        "title": "Criar Deck"
     },
     "searchDeck": {
-        "title": "Pesquisar"
+        "title": "Resultados de:"
     },
     "sessionReview": {
         "title": "Última Sessão"
