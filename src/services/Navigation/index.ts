@@ -7,5 +7,6 @@ export const PATH_HELP = "/help";
 export const PATH_MYACCOUNT = "/my-account";
 export const PATH_MYDECKS = "/my-decks";
 export const PATH_ADDDECK = "/add-deck";
+export const PATH_EDITDECK = "/edit-deck";
 export const PATH_SEARCHDECK = "/search-deck";
 export const PATH_HOME = "/";

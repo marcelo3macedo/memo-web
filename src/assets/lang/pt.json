@@ -30,7 +30,9 @@
         "featured": "Em Destaque"
     },
     "newDeck": {
-        "title": "Criar Deck"
+        "title": "Criar Deck",
+        "name": "Escolhe um nome para o seu deck...",
+        "save": "Salvar"
     },
     "searchDeck": {
         "title": "Resultados de:"
