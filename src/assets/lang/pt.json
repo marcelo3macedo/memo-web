@@ -41,7 +41,10 @@
         "title": "Última Sessão"
     },
     "actions": {
-        "add": "Adicionar"
+        "add": "Adicionar",
+        "addCard": "Adicionar Card",
+        "delete": "Deletar",
+        "edit": "Editar"
     },
     "filter": {
         "title": "Filtros"

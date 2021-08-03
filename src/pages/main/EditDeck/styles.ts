@@ -26,3 +26,15 @@ export const Block = styled.div`
     display: flex;
     flex-direction: column;
 `;
+
+export const Header = styled.div`
+`;
+
+export const Action = styled.div`
+    width: 50%;
+    margin: 10px auto;
+
+    button {
+        width: 100%;
+    }
+`;
