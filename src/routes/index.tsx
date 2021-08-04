@@ -17,7 +17,9 @@ import AddDeck from "@pages/main/AddDeck";
 import EditDeck from "@pages/main/EditDeck";
 import SearchDeck from "@pages/main/SearchDeck";
 
-import { PATH_FORGOT_PASSWORD, PATH_SIGN_IN, PATH_SIGN_UP, PATH_RECOVERED, PATH_ABOUT, PATH_HELP, PATH_MYACCOUNT, PATH_MYDECKS, PATH_ADDDECK, PATH_SEARCHDECK, PATH_EDITDECK } from "@services/Navigation";
+import { PATH_FORGOT_PASSWORD, PATH_SIGN_IN, PATH_SIGN_UP, PATH_RECOVERED, PATH_ABOUT, PATH_HELP, PATH_MYACCOUNT, PATH_MYDECKS, PATH_ADDDECK, PATH_SEARCHDECK, PATH_EDITDECK, PATH_ADDCARD, PATH_EDITCARD } from "@services/Navigation";
+import AddCard from "@pages/main/AddCard";
+import EditCard from "@pages/main/EditCard";
 
 export default function Routes() {
     return (
@@ -36,7 +38,9 @@ export default function Routes() {
             <Router path={PATH_ADDDECK} exact component={AddDeck} layout={Layouts.Main}/>  
             <Router path={PATH_EDITDECK} exact component={EditDeck} layout={Layouts.Main}/>              
             <Router path={PATH_SEARCHDECK} exact component={SearchDeck} layout={Layouts.Main}/>  
-
+            <Router path={PATH_ADDCARD} exact component={AddCard} layout={Layouts.Main}/>  
+            <Router path={PATH_EDITCARD} exact component={EditCard} layout={Layouts.Main}/>  
+            
             <Router path="/" exact component={Home} />     
             <Router path="/" exact component={Deck} />    
         </Switch>

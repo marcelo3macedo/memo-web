@@ -9,4 +9,6 @@ export const PATH_MYDECKS = "/my-decks";
 export const PATH_ADDDECK = "/add-deck";
 export const PATH_EDITDECK = "/edit-deck";
 export const PATH_SEARCHDECK = "/search-deck";
+export const PATH_ADDCARD = "/add-card";
+export const PATH_EDITCARD = "/edit-card";
 export const PATH_HOME = "/";

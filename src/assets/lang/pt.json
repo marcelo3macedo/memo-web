@@ -34,6 +34,15 @@
         "name": "Escolhe um nome para o seu deck...",
         "save": "Salvar"
     },
+    "newCard": {
+        "title": "Novo Card",
+        "content": "Escolha o conteúdo de seu card...",
+        "secretContent": "Escolha a resposta de seu card...",
+        "save": "Salvar"
+    },
+    "editCard": {
+        "title": "Editar Card"
+    },
     "searchDeck": {
         "title": "Resultados de:"
     },
