@@ -53,7 +53,8 @@
         "add": "Adicionar",
         "addCard": "Adicionar Card",
         "delete": "Deletar",
-        "edit": "Editar"
+        "edit": "Editar",
+        "review": "Revisar"
     },
     "filter": {
         "title": "Filtros"

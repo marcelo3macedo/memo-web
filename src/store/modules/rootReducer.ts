@@ -5,6 +5,7 @@ import deck from "./deck/reducer";
 import menu from "./menu/reducer";
 import navigate from "./navigate/reducer";
 import personal from "./personal/reducer";
+import review from "./review/reducer";
 import search from "./search/reducer";
 
 export const rootReducer = combineReducers({
@@ -14,6 +15,7 @@ export const rootReducer = combineReducers({
     menu,
     navigate,
     personal,
+    review,
     search
 })
 
