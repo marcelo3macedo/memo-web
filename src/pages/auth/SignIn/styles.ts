@@ -34,7 +34,6 @@ export const Title = styled.h2`
     @media (max-width: 768px) {
         margin-bottom: 10px;
         margin-top: 10px;
-        text-align: center;
     }
 `;
 
