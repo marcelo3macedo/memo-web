@@ -1,11 +1,11 @@
 
 import { all, takeLatest, put } from "redux-saga/effects";
 import { send } from "@services/Api/requester";
-import { API_SESSION } from "@services/Api/routes";
+import { API_SESSION, API_USERS } from "@services/Api/routes";
 import { LS_REFRESHTOKEN, LS_TOKEN } from "@services/LocalStorage";
 import { navigatePush } from "@store/modules/navigate/actions";
 import { PATH_HOME, PATH_SIGN_IN } from "@services/Navigation";
-import { signInSuccessAction } from "./actions";
+import { signInAction, signInSuccessAction } from "./actions";
 
 function* signIn({ payload }:any) {
     const response = yield send(API_SESSION, {
@@ -27,7 +27,18 @@ function* signIn({ payload }:any) {
     yield put(navigatePush({ path: PATH_HOME }));
 }
 
-function signUp({ payload }:any) {
+function* signUp({ payload }:any) {
+    const response = yield send(API_USERS, {
+        name: payload.fullName,
+        email: payload.user,
+        password: payload.password
+    });
+
+    if (response.status !== 201) {
+        return;
+    }
+
+    yield put(signInAction({ user: payload.user, password: payload.password }));
 }
 
 function forgotPassword({ payload }:any) {

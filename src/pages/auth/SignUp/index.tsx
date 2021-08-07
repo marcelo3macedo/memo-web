@@ -39,9 +39,9 @@ export default function SignUp() {
                 <ValidationMessage name="fullName" />
                 <InputIcon name={"user"} icon="user" placeholder={t('auth.mailPlaceholder')}/>
                 <ValidationMessage name="user" />
-                <InputIcon name={"password"} icon="password" placeholder={t('auth.passwordPlaceholder')}/>
+                <InputIcon name={"password"} icon="password" type="password" placeholder={t('auth.passwordPlaceholder')}/>
                 <ValidationMessage name="password" />
-                <InputIcon name={"confirmPassword"} icon="password" placeholder={t('auth.confirmpasswordPlaceholder')}/>
+                <InputIcon name={"confirmPassword"} icon="password" type="password" placeholder={t('auth.confirmpasswordPlaceholder')}/>
                 <ValidationMessage name="confirmPassword" />
               </Fields>
               <ActionArea>
