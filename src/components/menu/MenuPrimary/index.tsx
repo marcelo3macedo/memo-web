@@ -9,6 +9,7 @@ import { Wrapper, Content, Logo, Header, Title, Options } from './styles';
 import { menuAction } from '@store/modules/menu/actions';
 import { navigatePush } from '@store/modules/navigate/actions';
 import { PATH_HOME, PATH_HELP, PATH_ABOUT, PATH_MYACCOUNT, PATH_MYDECKS } from '@services/Navigation';
+import { logoutAction } from '@store/modules/auth/actions';
 
 export default function MenuPrimary() {
   const dispatch = useDispatch();
@@ -20,6 +21,10 @@ export default function MenuPrimary() {
 
   function navigate(path) {
     dispatch(navigatePush({ path: path }));
+  }
+
+  function logout() {
+    dispatch(logoutAction());
   }
 
   return (
@@ -34,6 +39,7 @@ export default function MenuPrimary() {
           <MenuOption icon="user" content={"Minha Conta"} action={() => { navigate(PATH_MYACCOUNT) } }/>
           <MenuOption icon="user" content={"Ajuda"} action={() => { navigate(PATH_HELP) } }/>
           <MenuOption icon="user" content={"Sobre"} action={() => { navigate(PATH_ABOUT) } }/>
+          <MenuOption icon="user" content={"Sair"} action={() => { logout() } }/>
         </Options>
       </Content>
     </Wrapper>
