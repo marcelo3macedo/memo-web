@@ -8,8 +8,8 @@ export default function DecksColumn({decks=[]}) {
     <Wrapper>
       <Content>
         {decks.map(d=> (
-          <DeckWrapper>
-            <Deck key={d.id} data={d} />
+          <DeckWrapper key={d.id}>
+            <Deck data={d} />
           </DeckWrapper>
         ))}
       </Content>

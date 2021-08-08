@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import { Wrapper, Content } from './styles';
 import PendingDecks from '@components/blocks/PendingDecks';
@@ -8,6 +8,9 @@ import AddOrSearchDecks from '@components/blocks/AddOrSearchDecks';
 import DecksFeatured from '@components/blocks/DecksFeatured';
 
 export default function Home() {
+  useEffect(() => {
+  }, []);
+
   return (
     <Wrapper>
       <Content>

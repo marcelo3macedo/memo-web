@@ -1,5 +1,7 @@
-import api from ".";
 import { call } from "redux-saga/effects";
+
+import api from ".";
+import { LS_REFRESHTOKEN, LS_TOKEN } from "@services/LocalStorage";
 
 export function* retrieve(method) {
     return yield call(api.get, method);
@@ -20,4 +22,9 @@ export function* send(method, data=null) {
             data: e.response.data
         };
     }    
+}
+export function authenticate({ token, refreshToken }) {
+    localStorage.setItem(LS_TOKEN, token);
+    localStorage.setItem(LS_REFRESHTOKEN, refreshToken);
+    api.defaults.headers.common = {'Authorization': `bearer ${token}`}
 }

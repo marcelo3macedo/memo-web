@@ -4,14 +4,12 @@ export function saveAction({ name }) {
         name
     }
 }
-
 export function openAction(deck) {
     return {
         type: '@deck/OPEN',
         deck
     }
 }
-
 export function reviewAction() {
     return {
         type: '@deck/REVIEW'

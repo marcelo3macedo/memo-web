@@ -14,13 +14,14 @@ export default function PendingDecks() {
   const dispatch = useDispatch();
   const t = useTranslation();
   const decks = useSelector((state:RootState) => state.personal.decks);
+  const show = decks.length > 0;
 
   function seeMoreClick() {
     dispatch(navigatePush({ path: PATH_MYDECKS }));
   }
 
   return (
-    <Wrapper>
+    <Wrapper show={show}>
       <Content>
         <DecksGallery decks={decks} />
         <Footer>

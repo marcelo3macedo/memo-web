@@ -1,8 +1,7 @@
 
 import { all, takeLatest, put } from "redux-saga/effects";
-import { send } from "@services/Api/requester";
+import { authenticate, send } from "@services/Api/requester";
 import { API_SESSION, API_USERS } from "@services/Api/routes";
-import { LS_REFRESHTOKEN, LS_TOKEN } from "@services/LocalStorage";
 import { navigatePush } from "@store/modules/navigate/actions";
 import { PATH_HOME, PATH_SIGN_IN } from "@services/Navigation";
 import { signInAction, signInSuccessAction } from "./actions";
@@ -20,9 +19,8 @@ function* signIn({ payload }:any) {
     const { token, refreshToken, user } = response.data;
     const { name, email } = user;
 
-    localStorage.setItem(LS_TOKEN, token);
-    localStorage.setItem(LS_REFRESHTOKEN, refreshToken);
-    
+    authenticate({ token, refreshToken});
+
     yield put(signInSuccessAction({ name, email }));
     yield put(navigatePush({ path: PATH_HOME }));
 }

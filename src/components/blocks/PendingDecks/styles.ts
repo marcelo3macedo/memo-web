@@ -1,9 +1,11 @@
 import styled from "styled-components";
+import { PendingDecks } from "@interfaces/Deck/pendingDecks.interface";
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div<PendingDecks>`
     margin: 5px 0;
     padding: 15px 10px;
     background: var(--secondary80);
+    display: ${props => props.show ? "block": "none"};
 `;
 
 export const Content = styled.div`
