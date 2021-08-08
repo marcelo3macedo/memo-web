@@ -16,10 +16,9 @@ export function* send(method, data=null) {
             data: response.data
         };
     } catch (e) {
-        console.log(e.response.data);        
         return {
             status: 401,
-            data: e.response.data
+            data: e.response ?? e.response.data
         };
     }    
 }

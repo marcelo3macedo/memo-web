@@ -1,10 +1,12 @@
 
-import { all, takeLatest, put } from "redux-saga/effects";
+import { all, takeLatest, put, select } from "redux-saga/effects";
 import { authenticate, send } from "@services/Api/requester";
-import { API_SESSION, API_USERS } from "@services/Api/routes";
+import { API_REFRESHTOKEN, API_SESSION, API_USERS } from "@services/Api/routes";
 import { navigatePush } from "@store/modules/navigate/actions";
 import { PATH_HOME, PATH_SIGN_IN } from "@services/Navigation";
-import { signInAction, signInSuccessAction } from "./actions";
+import { refreshTokenAction, signInAction, signInSuccessAction } from "./actions";
+import { LS_REFRESHTOKEN, LS_TOKEN } from "@services/LocalStorage";
+import * as selectors from './selectors';
 
 function* signIn({ payload }:any) {
     const response = yield send(API_SESSION, {
@@ -43,7 +45,43 @@ function forgotPassword({ payload }:any) {
 }
 
 function* logout() {
+    localStorage.removeItem(LS_REFRESHTOKEN);
+    localStorage.removeItem(LS_TOKEN);
+
     yield put(navigatePush({ path: PATH_SIGN_IN }));
+}
+
+function* checkAuth() {
+    const signed = yield select(selectors.signed);
+    
+    if (signed) {
+        return true;
+    }
+
+    const refreshToken = localStorage.getItem(LS_REFRESHTOKEN);
+    if (refreshToken) {
+        yield put(refreshTokenAction({ refreshToken }));
+    }
+
+    if (!signed) {
+        yield put(navigatePush({ path: PATH_SIGN_IN }));
+    }
+}
+
+function* refreshToken({ payload }:any) {
+    const response = yield send(API_REFRESHTOKEN, {
+        token: payload.refreshToken
+    });
+
+    if (response.status !== 200) {
+        return;
+    }
+
+    const { token, refreshToken } = response.data;
+
+    authenticate({ token, refreshToken});
+
+    yield put(signInSuccessAction({ name: 'teste', email: 'teste' }));
 }
 
 export default all([
@@ -51,4 +89,6 @@ export default all([
     takeLatest('@auth/SIGN_UP', signUp),
     takeLatest('@auth/LOGOUT', logout),
     takeLatest('@auth/FORGOT_PASSWORD', forgotPassword),
+    takeLatest('@auth/CHECK_AUTH', checkAuth),
+    takeLatest('@auth/REFRESH_TOKEN', refreshToken),
 ]);

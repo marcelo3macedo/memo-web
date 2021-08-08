@@ -27,3 +27,14 @@ export function signInSuccessAction({ name, email }) {
         payload: { name, email }
     }
 }
+export function checkAuthAction() {
+    return {
+        type: '@auth/CHECK_AUTH'
+    }
+}
+export function refreshTokenAction({ refreshToken }) {
+    return {
+        type: '@auth/REFRESH_TOKEN',
+        payload: { refreshToken }
+    }
+}
