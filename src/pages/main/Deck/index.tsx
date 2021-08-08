@@ -13,7 +13,7 @@ import { reviewAction } from '@store/modules/deck/actions';
 export default function Deck() {
   const dispatch = useDispatch();
   const t = useTranslation();
-  const deck = useSelector((state:RootState) => state.deck.deck);
+  const deck:any = useSelector((state:RootState) => state.deck.deck);
 
   function reviewClick() {
     dispatch(reviewAction());
@@ -21,16 +21,18 @@ export default function Deck() {
 
   return (
     <Wrapper>
-      <Content>
-        <Header>
-          <Title>{deck.name}</Title>
-          <CardsTotal size={deck.cards.length}/>
-        </Header>
-        <Action>
-          <ButtonPrimary content={t('actions.review')} action={reviewClick}/>
-        </Action>
-        <CardsList cards={deck.cards}/>     
-      </Content>
+      {deck ? (
+        <Content>
+          <Header>
+            <Title>{deck.name}</Title>
+            <CardsTotal size={deck.cards ? deck.cards.length : 0}/>
+          </Header>
+          <Action>
+            <ButtonPrimary content={t('actions.review')} action={reviewClick}/>
+          </Action>
+          <CardsList cards={deck.cards}/>     
+        </Content>
+      ): <></>}      
     </Wrapper>
   ); 
 }

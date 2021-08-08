@@ -12,7 +12,7 @@ export default function Deck({ data }) {
   const icon = "user";
 
   function openDeckClick() {
-    dispatch(openAction(data));
+    dispatch(openAction({ deck: data }));
   }
 
   return (

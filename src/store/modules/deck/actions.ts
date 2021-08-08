@@ -4,10 +4,20 @@ export function saveAction({ name }) {
         name
     }
 }
-export function openAction(deck) {
+export function openAction({ deck }) {
     return {
         type: '@deck/OPEN',
-        deck
+        payload: {
+            deck
+        }
+    }
+}
+export function openSuccessAction({ deck }) {
+    return {
+        type: '@deck/OPEN_SUCCESS',
+        payload: {
+            deck
+        }
     }
 }
 export function reviewAction() {

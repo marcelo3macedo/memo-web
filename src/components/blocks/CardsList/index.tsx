@@ -7,9 +7,9 @@ export default function CardsList({ cards=[] }) {
   return (
     <Wrapper>
       <Content>
-        {cards.map(c => (
+        {cards ? cards.map(c => (
           <Card key={c.id} card={c} />
-        ))}
+        )) : <></>}
       </Content>
     </Wrapper>
   );

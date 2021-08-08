@@ -5,7 +5,7 @@ import { API_DECKS } from "@services/Api/routes";
 import { loadDecksSuccess } from "./actions";
 
 function* loadDecks() {
-    const response = yield retrieve(API_DECKS);
+    const response = yield retrieve({ method: API_DECKS });
     
     if (response.status !== 200) {
         return;

@@ -4,13 +4,13 @@ import api from ".";
 import { LS_REFRESHTOKEN, LS_TOKEN } from "@services/LocalStorage";
 import { checkAuthAction } from "@store/modules/auth/actions";
 
-export function* retrieve(method, force=false) {
+export function* retrieve({ method, force=false }) {
     try {
         return yield call(api.get, method);
     } catch (e) {
         if (e.response && e.response.status === 401 && !force) {
             yield put(checkAuthAction(true));
-            yield retrieve(method, true);
+            yield retrieve({ method, force:true });
         }
 
         return {
