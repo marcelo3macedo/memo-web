@@ -51,10 +51,10 @@ function* logout() {
     yield put(navigatePush({ path: PATH_SIGN_IN }));
 }
 
-function* checkAuth() {
+function* checkAuth({ payload }:any) {
     const signed = yield select(selectors.signed);
     
-    if (signed) {
+    if (signed && !payload.force) {
         return true;
     }
 

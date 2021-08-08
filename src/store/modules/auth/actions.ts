@@ -27,9 +27,12 @@ export function signInSuccessAction({ name, email }) {
         payload: { name, email }
     }
 }
-export function checkAuthAction() {
+export function checkAuthAction(force=false) {
     return {
-        type: '@auth/CHECK_AUTH'
+        type: '@auth/CHECK_AUTH',
+        payload: {
+            force
+        }
     }
 }
 export function refreshTokenAction({ refreshToken }) {
