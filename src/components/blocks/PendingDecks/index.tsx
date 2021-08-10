@@ -13,7 +13,7 @@ import { Wrapper, Content, Footer, Block } from './styles';
 export default function PendingDecks() {
   const dispatch = useDispatch();
   const t = useTranslation();
-  const decks = useSelector((state:RootState) => state.personal.decks);
+  const decks = useSelector((state:RootState) => state.resume.decks);
   const show = decks.length > 0;
 
   function seeMoreClick() {

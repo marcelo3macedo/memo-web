@@ -1,14 +1,17 @@
 import React, { useEffect } from 'react';
+import { useDispatch } from "react-redux";
 
 import { Wrapper, Content } from './styles';
 import PendingDecks from '@components/blocks/PendingDecks';
-import SessionReview from '@components/blocks/SessionReview';
 import WelcomeMessage from '@components/blocks/WelcomeMessage';
 import AddOrSearchDecks from '@components/blocks/AddOrSearchDecks';
-import DecksFeatured from '@components/blocks/DecksFeatured';
+import { loadAction } from '@store/modules/resume/actions';
 
 export default function Home() {
+  const dispatch = useDispatch();
+
   useEffect(() => {
+    dispatch(loadAction());    
   }, []);
 
   return (
@@ -17,8 +20,6 @@ export default function Home() {
         <WelcomeMessage/>
         <PendingDecks />
         <AddOrSearchDecks />
-        <DecksFeatured />
-        <SessionReview />
       </Content>
     </Wrapper>
   ); 
