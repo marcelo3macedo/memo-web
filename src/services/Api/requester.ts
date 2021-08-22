@@ -30,7 +30,7 @@ export function* send({ method, data=null }) {
         };
     }    
 }
-export function authenticate({ token, refreshToken }) {
+export function* authenticate({ token, refreshToken }) {
     localStorage.setItem(LS_TOKEN, token);
     localStorage.setItem(LS_REFRESHTOKEN, refreshToken);
     api.defaults.headers.common = {'Authorization': `bearer ${token}`};

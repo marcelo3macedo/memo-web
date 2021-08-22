@@ -26,7 +26,7 @@ export default function RouteWrapper({
 }
 
 RouteWrapper.propTypes = {
-    layout: Layouts,
+    layout: PropTypes.func,
     component: PropTypes.oneOfType([PropTypes.element, PropTypes.func]).isRequired
 }
 

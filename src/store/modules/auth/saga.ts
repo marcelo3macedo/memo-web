@@ -53,7 +53,7 @@ function* logout() {
 
 function* checkAuth({ payload }:any) {
     const signed = yield select(selectors.signed);
-    
+
     if (signed && !payload.force) {
         return true;
     }
@@ -61,10 +61,6 @@ function* checkAuth({ payload }:any) {
     const refreshToken = localStorage.getItem(LS_REFRESHTOKEN);
     if (refreshToken) {
         yield put(refreshTokenAction({ refreshToken }));
-    }
-
-    if (!signed) {
-        yield put(navigatePush({ path: PATH_SIGN_IN }));
     }
 }
 
@@ -74,14 +70,16 @@ function* refreshToken({ payload }:any) {
     }});
 
     if (response.status !== 200) {
+        yield put(navigatePush({ path: PATH_SIGN_IN }));
         return;
     }
 
-    const { token, refreshToken } = response.data;
+    const { token, refreshToken, user } = response.data;
+    const { name, email } = user;
 
-    authenticate({ token, refreshToken});
+    yield authenticate({ token, refreshToken});
 
-    yield put(signInSuccessAction({ name: 'teste', email: 'teste' }));
+    yield put(signInSuccessAction({ name, email }));
 }
 
 export default all([
