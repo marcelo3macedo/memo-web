@@ -9,6 +9,7 @@ export const Content = styled.div`
 `;
 
 export const Title = styled.h1`
+    color: var(--neutral90);
 `;
 
 export const Paragraph = styled.h5`

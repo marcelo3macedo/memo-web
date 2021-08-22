@@ -4,6 +4,7 @@ export const Wrapper = styled.div`
     padding: 10px 15px;
     border-radius: 10px;
     background: var(--neutral30);
+    background: linear-gradient(0deg, var(--neutral30) 0%, var(--neutral30) 50%, var(--neutral10) 100%);
     color: var(--neutral100);
     border: 1px solid var(--neutral60);
     min-width: 100px;

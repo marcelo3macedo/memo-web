@@ -20,14 +20,9 @@ export function* retrieve({ method, force=false }) {
     }
 }
 
-export function* send(method, data=null) {
+export function* send({ method, data=null }) {
     try {
-        const response = yield call(api.post, method, data);
-        
-        return {
-            status: response.status,
-            data: response.data
-        };
+        return yield call(api.post, method, data);
     } catch (e) {
         return {
             status: 401,
@@ -38,4 +33,5 @@ export function* send(method, data=null) {
 export function authenticate({ token, refreshToken }) {
     localStorage.setItem(LS_TOKEN, token);
     localStorage.setItem(LS_REFRESHTOKEN, refreshToken);
+    api.defaults.headers.common = {'Authorization': `bearer ${token}`};
 }

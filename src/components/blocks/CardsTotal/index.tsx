@@ -7,7 +7,7 @@ export default function CardsTotal({ size=0 }) {
   return (
     <Wrapper>
       <Content>
-        <IconSmall name="user"/>
+        <IconSmall name="card"/>
         <Total>{size}</Total>
       </Content>
     </Wrapper>

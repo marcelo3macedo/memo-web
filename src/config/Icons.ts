@@ -5,6 +5,9 @@ import { ReactComponent as ListIcon } from "@assets/icons/list.svg";
 import { ReactComponent as SearchIcon } from "@assets/icons/search.svg";
 import { ReactComponent as EditIcon } from "@assets/icons/edit.svg";
 import { ReactComponent as DeleteIcon } from "@assets/icons/delete.svg";
+import { ReactComponent as CardIcon } from "@assets/icons/cards.svg";
+import { ReactComponent as BackIcon } from "@assets/icons/back.svg";
+import { ReactComponent as RotateIcon } from "@assets/icons/rotate.svg";
 
 export const Icons = {
     user: UserIcon,
@@ -13,5 +16,8 @@ export const Icons = {
     list: ListIcon,
     search: SearchIcon,
     edit: EditIcon,
-    delete: DeleteIcon
+    delete: DeleteIcon,
+    card: CardIcon,
+    back: BackIcon,
+    rotate: RotateIcon
 }

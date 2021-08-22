@@ -9,10 +9,10 @@ import { LS_REFRESHTOKEN, LS_TOKEN } from "@services/LocalStorage";
 import * as selectors from './selectors';
 
 function* signIn({ payload }:any) {
-    const response = yield send(API_SESSION, {
+    const response = yield send({ method: API_SESSION, data: {
         email: payload.user,
         password: payload.password
-    });
+    } });
 
     if (response.status !== 200) {
         return;
@@ -28,11 +28,11 @@ function* signIn({ payload }:any) {
 }
 
 function* signUp({ payload }:any) {
-    const response = yield send(API_USERS, {
+    const response = yield send({ method: API_USERS, data: {
         name: payload.fullName,
         email: payload.user,
         password: payload.password
-    });
+    }});
 
     if (response.status !== 201) {
         return;
@@ -69,9 +69,9 @@ function* checkAuth({ payload }:any) {
 }
 
 function* refreshToken({ payload }:any) {
-    const response = yield send(API_REFRESHTOKEN, {
+    const response = yield send({ method: API_REFRESHTOKEN, data: {
         token: payload.refreshToken
-    });
+    }});
 
     if (response.status !== 200) {
         return;

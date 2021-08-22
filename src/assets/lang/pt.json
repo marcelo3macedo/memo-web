@@ -34,6 +34,9 @@
         "name": "Escolhe um nome para o seu deck...",
         "save": "Salvar"
     },
+    "myDeck": {
+        "title": "Meus Decks"
+    },
     "newCard": {
         "title": "Novo Card",
         "content": "Escolha o conteúdo de seu card...",

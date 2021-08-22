@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from "react-redux";
 
 import IconSmall from '@components/icons/IconSmall';
-import { Wrapper, Content, Title, SubTitle, Search, SearchInput } from './styles';
+import { Wrapper, Content, Title, SubTitle, Search, SearchInput, SearchIcon } from './styles';
 import { searchAction } from '@store/modules/search/actions';
 
 export default function SearchDecks({ title, subTitle }) {
@@ -21,7 +21,9 @@ export default function SearchDecks({ title, subTitle }) {
 
         <Search>
           <SearchInput onChange={e=>setTerm(e.target.value)}/>
-          <IconSmall name={"search"} action={searchClick} />
+          <SearchIcon>
+            <IconSmall name={"search"} action={searchClick} />
+          </SearchIcon>
         </Search>
       </Content>
     </Wrapper>

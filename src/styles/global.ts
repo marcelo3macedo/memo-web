@@ -4,14 +4,22 @@ export const GlobalStyle = createGlobalStyle`
     :root {
         --primary: #333333;
         --secondary100: #21b3af;
+        --secondary90: #5ee4e1;
         --secondary80: #b6dddc;
         --secondary60: #d4f0f0;
+        --secondary30: #eefbfb;
         --secondary10: #f7ffff;
 
         --neutral100: #333333;
+        --neutral90: #646f71;
         --neutral80: #8a9a9c;
         --neutral60: #c1c2c5;
+        --neutral50: #dfe0e2;
         --neutral30: #f9f9f9;
+        --neutral10: #f7ffff;
+
+        --warm01: #fee1e8;
+        --purple: #cbaacb;
 
         --textSecondary100: #f7ffff;
         
@@ -51,5 +59,11 @@ export const GlobalStyle = createGlobalStyle`
     ::-webkit-scrollbar-thumb {
         background-color: var(--neutral100);
         border-radius: 5px;
+    }
+
+    @media (max-width: 768px) {
+        ::-webkit-scrollbar {
+            display: none;
+        }
     }
 `;

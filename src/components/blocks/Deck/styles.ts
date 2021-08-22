@@ -4,11 +4,11 @@ import { DeckCard } from "@interfaces/Deck/deckCard.interface";
 export const Wrapper = styled.div`
     margin-right: 10px;
     position: relative;
-    width: 120px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
     position:relative;
     background: var(--primary);
-    border-radius: 5px;
+    border-radius: 20px;
     overflow: hidden;
 `;
 
@@ -25,7 +25,7 @@ export const Content = styled.div<DeckCard>`
 `;
 
 export const Info = styled.div`
-    padding: 5px;
+    padding: 10px;
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -36,14 +36,14 @@ export const Info = styled.div`
     }
 `;
 
-export const Quantity = styled.h4`
+export const Quantity = styled.h3`
     color: var(--secondary10);
     font-weight: bold;
     padding-left: 5px;
 `;
 
-export const Title = styled.h4`
-    padding: 5px;
+export const Title = styled.h3`
+    padding: 10px;
     font-weight: bold;
     color: var(--secondary10);
 `;
@@ -61,7 +61,7 @@ export const Data = styled.div `
     height: 100%;
     display: flex;
     align-items: flex-end;
-    justify-content: space-between;
+    justify-content: flex-end;
     flex-direction: column;
 `;
 

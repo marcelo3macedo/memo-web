@@ -2,11 +2,19 @@
 import { all, put, takeLatest } from "redux-saga/effects";
 import { navigatePush } from "@store/modules/navigate/actions";
 import { PATH_EDITDECK, PATH_DECK, PATH_REVIEW } from '@services/Navigation';
-import { retrieve } from "@services/Api/requester";
+import { send, retrieve } from "@services/Api/requester";
 import { API_DECKS } from "@services/Api/routes";
 import { openSuccessAction } from "./actions";
 
 function* save({ name }:any) {
+    const data = { name };
+    const response = yield send({ method: `${API_DECKS}`, data});
+    //console.log(response.headers.location);
+
+    if (response.status !== 200) {
+        return;
+    }
+
     yield put(navigatePush({ path: PATH_EDITDECK }));    
 }
 

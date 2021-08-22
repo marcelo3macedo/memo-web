@@ -14,14 +14,18 @@ export const Header = styled.div`
     padding: 5px;
     display: flex;
     align-items: center;   
+
+    svg path {
+        fill: var(--neutral90);
+    }
 `;
 
 export const Info = styled.div`
     padding: 10px;
 `;
 
-export const Title = styled.h5`
-    
+export const Title = styled.h5`    
+    color: var(--neutral90);
 `;
 
 export const Value = styled.h2`

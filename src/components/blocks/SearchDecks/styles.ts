@@ -27,5 +27,9 @@ export const Search = styled.div`
 export const SearchInput = styled.input`
     padding: 5px;
     border: none;
+    width: 100%;
 `;
 
+export const SearchIcon = styled.div`
+    padding: 0 10px;
+`;

@@ -3,8 +3,7 @@ import { PendingDecks } from "@interfaces/Deck/pendingDecks.interface";
 
 export const Wrapper = styled.div<PendingDecks>`
     margin: 5px 0;
-    padding: 15px 10px;
-    background: var(--secondary80);
+    padding: 0px 10px;
     display: ${props => props.show ? "block": "none"};
 `;
 

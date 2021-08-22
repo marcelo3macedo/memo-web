@@ -9,6 +9,7 @@ export const Content = styled.div`
 `;
 
 export const Title = styled.h1`
+    color: var(--neutral90);    
 `;
 
 export const Paragraph = styled.h5`
@@ -28,6 +29,13 @@ export const Block = styled.div`
 `;
 
 export const Header = styled.div`
+    h3 {
+        color: var(--neutral90);
+    }
+
+    svg path {        
+        fill: var(--neutral90);
+    }
 `;
 
 export const Action = styled.div`

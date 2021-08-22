@@ -35,7 +35,7 @@ export default function MenuPrimary() {
             <Title>memorizator</Title>
         </Header>
         <Options>
-          <MenuOption icon="user" content={"Meus Decks"} action={() => { navigate(PATH_MYDECKS) } }/>
+          <MenuOption icon="card" content={"Meus Decks"} action={() => { navigate(PATH_MYDECKS) } }/>
           <MenuOption icon="user" content={"Minha Conta"} action={() => { navigate(PATH_MYACCOUNT) } }/>
           <MenuOption icon="user" content={"Ajuda"} action={() => { navigate(PATH_HELP) } }/>
           <MenuOption icon="user" content={"Sobre"} action={() => { navigate(PATH_ABOUT) } }/>

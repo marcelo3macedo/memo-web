@@ -9,6 +9,6 @@ export const Content = styled.div`
     align-items: center;
 `;
 
-export const Total = styled.h4`
+export const Total = styled.h3`
     padding: 0 5px;
 `;

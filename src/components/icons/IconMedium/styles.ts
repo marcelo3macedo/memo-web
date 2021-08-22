@@ -6,7 +6,7 @@ export const Wrapper = styled.div`
     justify-content: center;
 
     svg {
-        width: 30px;
-        height: 30px;
+        width: 25px;
+        height: 25px;
     }
 `;

@@ -19,6 +19,10 @@ export const Content = styled.div`
     width: 70%;
     background: var(--secondary10);
     height: 100vH;
+
+    @media (min-width: 768px) {
+        max-width: 300px;
+    }
 `;
 
 export const Header = styled.div`    

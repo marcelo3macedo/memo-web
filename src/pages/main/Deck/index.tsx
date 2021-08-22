@@ -30,7 +30,6 @@ export default function Deck() {
           <Action>
             <ButtonPrimary content={t('actions.review')} action={reviewClick}/>
           </Action>
-          <CardsList cards={deck.cards}/>     
         </Content>
       ): <></>}      
     </Wrapper>
