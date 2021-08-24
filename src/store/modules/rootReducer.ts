@@ -6,7 +6,7 @@ import menu from "./menu/reducer";
 import navigate from "./navigate/reducer";
 import personal from "./personal/reducer";
 import resume from "./resume/reducer";
-import review from "./review/reducer";
+import session from "./session/reducer";
 import search from "./search/reducer";
 
 export const rootReducer = combineReducers({
@@ -17,7 +17,7 @@ export const rootReducer = combineReducers({
     navigate,
     personal,
     resume,
-    review,
+    session,
     search
 })
 

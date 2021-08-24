@@ -7,30 +7,32 @@ import CardsTotal from '@components/blocks/CardsTotal';
 import { Wrapper, Content, Title, Header, Action } from './styles';
 import ButtonPrimary from '@components/button/ButtonPrimary';
 import { RootState } from '@store/modules/rootReducer';
-import { reviewAction } from '@store/modules/deck/actions';
+import { reviewAction } from '@store/modules/session/actions';
 
-export default function Deck() {
+export default function Session() {
   const dispatch = useDispatch();
   const t = useTranslation();
-  const deck:any = useSelector((state:RootState) => state.deck.deck);
+  const session:any = useSelector((state:RootState) => state.session.session);
 
   function reviewClick() {
     dispatch(reviewAction());
   }
 
+  if (!session || !session.deck) {
+    return <></>;
+  }
+
   return (
     <Wrapper>
-      {deck ? (
-        <Content>
-          <Header>
-            <Title>{deck.name}</Title>
-            <CardsTotal size={deck.cards ? deck.cards.length : 0}/>
-          </Header>
-          <Action>
-            <ButtonPrimary content={t('actions.review')} action={reviewClick}/>
-          </Action>
-        </Content>
-      ): <></>}      
+      <Content>
+        <Header>
+          <Title>{session.deck.name}</Title>
+          <CardsTotal size={session.cards ? session.cards.length : 0}/>
+        </Header>
+        <Action>
+          <ButtonPrimary content={t('actions.review')} action={reviewClick}/>
+        </Action>
+      </Content>
     </Wrapper>
   ); 
 }

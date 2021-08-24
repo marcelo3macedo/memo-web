@@ -6,7 +6,7 @@ export default reducers => {
         key: "memo",
         storage,
         whitelist: [
-            'auth', 'user', 'resume'
+            'auth', 'user', 'resume', 'session'
         ],
     }, reducers);
 

@@ -14,5 +14,6 @@ export const Title = styled.h1`
 
 export const Paragraph = styled.h5`
     padding: 10px 0;
+    line-height: 20px;
 `;
 

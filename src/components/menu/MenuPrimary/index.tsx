@@ -8,7 +8,7 @@ import MenuOption from '../MenuOption';
 import { Wrapper, Content, Logo, Header, Title, Options } from './styles';
 import { menuAction } from '@store/modules/menu/actions';
 import { navigatePush } from '@store/modules/navigate/actions';
-import { PATH_HOME, PATH_HELP, PATH_ABOUT, PATH_MYACCOUNT, PATH_MYDECKS } from '@services/Navigation';
+import { PATH_HOME, PATH_HELP, PATH_ABOUT, PATH_MYACCOUNT, PATH_MYDECKS, PATH_PRIVACY_POLICY } from '@services/Navigation';
 import { logoutAction } from '@store/modules/auth/actions';
 
 export default function MenuPrimary() {
@@ -37,9 +37,10 @@ export default function MenuPrimary() {
         <Options>
           <MenuOption icon="card" content={"Meus Decks"} action={() => { navigate(PATH_MYDECKS) } }/>
           <MenuOption icon="user" content={"Minha Conta"} action={() => { navigate(PATH_MYACCOUNT) } }/>
-          <MenuOption icon="user" content={"Ajuda"} action={() => { navigate(PATH_HELP) } }/>
-          <MenuOption icon="user" content={"Sobre"} action={() => { navigate(PATH_ABOUT) } }/>
-          <MenuOption icon="user" content={"Sair"} action={() => { logout() } }/>
+          <MenuOption icon="question" content={"Ajuda"} action={() => { navigate(PATH_HELP) } }/>
+          <MenuOption icon="info" content={"Sobre"} action={() => { navigate(PATH_ABOUT) } }/>
+          <MenuOption icon="privacy" content={"Políticas de Privacidade"} action={() => { navigate(PATH_PRIVACY_POLICY) } }/>
+          <MenuOption icon="signOut" content={"Sair"} action={() => { logout() } }/>
         </Options>
       </Content>
     </Wrapper>

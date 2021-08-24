@@ -9,8 +9,7 @@ import { openSuccessAction } from "./actions";
 function* save({ name }:any) {
     const data = { name };
     const response = yield send({ method: `${API_DECKS}`, data});
-    //console.log(response.headers.location);
-
+    
     if (response.status !== 200) {
         return;
     }
@@ -33,7 +32,7 @@ function* openSuccess() {
 }
 
 function* review() {
-    yield put(navigatePush({ path: PATH_REVIEW }));
+    
 }
 
 export default all([

@@ -3,27 +3,27 @@ import { useDispatch } from "react-redux";
 
 import IconSmall from "@components/icons/IconSmall";
 import { Wrapper, Content, Info, Quantity, Title, Opacity, Data } from './styles';
-import { openAction } from '@store/modules/deck/actions';
+import { openAction } from '@store/modules/session/actions';
 import { randomBackground } from '@config/Backgrounds';
 
-export default function Deck({ data, sessionCards=null }) {
+export default function Session({ data }) {
   const dispatch = useDispatch();
   const background = randomBackground();
   const icon = "card";
 
-  function openDeckClick() {
-    dispatch(openAction({ deck: data }));
+  function openSessionClick() {
+    dispatch(openAction({ sessionId: data.id }));
   }
 
   return (
-    <Wrapper onClick={openDeckClick}>
+    <Wrapper onClick={openSessionClick}>
       <Content background={background}>
         <Opacity></Opacity>
         <Data>
-          <Title>{data.name}</Title>
+          <Title>{data.deck.name}</Title>
           <Info>
             <IconSmall name={icon} />
-            <Quantity>{sessionCards ? (sessionCards + "/") : null }{data.cardsCount}</Quantity>
+            <Quantity>{data.sessionCards}/{data.deck.cardsCount}</Quantity>
           </Info>
         </Data>
       </Content>

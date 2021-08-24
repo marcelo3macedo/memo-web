@@ -19,7 +19,6 @@ export function* retrieve({ method, force=false }) {
         };
     }
 }
-
 export function* send({ method, data=null }) {
     try {
         return yield call(api.post, method, data);
@@ -30,8 +29,18 @@ export function* send({ method, data=null }) {
         };
     }    
 }
+export function* update({ method, data=null }) {
+    try {
+        return yield call(api.put, method, data);
+    } catch (e) {
+        return {
+            status: 401,
+            data: e ?? e.response ?? e.response.data
+        };
+    }    
+}
 export function* authenticate({ token, refreshToken }) {
     localStorage.setItem(LS_TOKEN, token);
     localStorage.setItem(LS_REFRESHTOKEN, refreshToken);
-    api.defaults.headers.common = {'Authorization': `bearer ${token}`};
+    api.defaults.headers.Authorization = `Bearer ${token}`;
 }

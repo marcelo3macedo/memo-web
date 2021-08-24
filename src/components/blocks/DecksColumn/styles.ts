@@ -18,3 +18,7 @@ export const DeckWrapper = styled.div`
     margin: 10px 0;
     text-align: center;
 `;
+
+export const DeckComponent = styled.div`
+    padding: 0 10px;
+`;

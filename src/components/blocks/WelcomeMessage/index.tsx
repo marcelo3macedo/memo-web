@@ -8,13 +8,13 @@ import { Wrapper, Content, Title, Message } from './styles';
 export default function WelcomeMessage() {
   const t = useTranslation()
   const userName = useSelector((state:RootState) => state.auth.name);
-  const decks = useSelector((state:RootState) => state.resume.decks);
+  const sessions = useSelector((state:RootState) => state.resume.sessions);
 
   return (
     <Wrapper>
       <Content>
         <Title>{t('welcome.title')} {userName}!</Title>
-        <Message>{ decks.length === 0 ? t('welcome.new') : t('welcome.message')}</Message>
+        <Message>{ !sessions || sessions.length === 0 ? t('welcome.new') : t('welcome.message')}</Message>
       </Content>
     </Wrapper>
   );

@@ -8,6 +8,10 @@ import { ReactComponent as DeleteIcon } from "@assets/icons/delete.svg";
 import { ReactComponent as CardIcon } from "@assets/icons/cards.svg";
 import { ReactComponent as BackIcon } from "@assets/icons/back.svg";
 import { ReactComponent as RotateIcon } from "@assets/icons/rotate.svg";
+import { ReactComponent as PrivacyIcon } from "@assets/icons/privacy.svg";
+import { ReactComponent as InfoIcon } from "@assets/icons/info.svg";
+import { ReactComponent as QuestionIcon } from "@assets/icons/question.svg";
+import { ReactComponent as SignOutIcon } from "@assets/icons/sign-out.svg";
 
 export const Icons = {
     user: UserIcon,
@@ -19,5 +23,9 @@ export const Icons = {
     delete: DeleteIcon,
     card: CardIcon,
     back: BackIcon,
-    rotate: RotateIcon
+    rotate: RotateIcon,
+    privacy: PrivacyIcon,
+    info: InfoIcon,
+    question: QuestionIcon,
+    signOut: SignOutIcon
 }

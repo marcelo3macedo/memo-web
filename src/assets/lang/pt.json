@@ -65,5 +65,8 @@
     "validation": {
         "user.required": "O usuário é obrigatorio",
         "password.required": "A senha é obrigatoria"
+    },
+    "privacyPolicy": {
+        "title": "Politicas de Privacidade"
     }
 }

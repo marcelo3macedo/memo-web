@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { IActions } from "@interfaces/Card/actions.interface";
+import { ICard } from "@interfaces/Card/card.interface";
 
 export const Wrapper = styled.div`
     display: flex;
@@ -49,11 +50,15 @@ export const Title = styled.h5`
     padding: 10px 0;
 `;
 
-export const Card = styled.div`
+export const Card = styled.div<ICard>`
+    display: ${props => props.show ? "block": "none"};
     text-align: center;
     padding: 80px 0;
     border-radius: 10px;
     margin: 10px 0;
+`;
+
+export const CardArea = styled.div`
 `;
 
 export const Message = styled.h3`

@@ -4,27 +4,31 @@ import { useDispatch, useSelector } from "react-redux";
 import IconMedium from '@components/icons/IconMedium';
 import { RootState } from '@store/modules/rootReducer';
 
-import { Wrapper, Body, Content, Position, Header, Title, Info, Card, Flip, Message, Actions, Action, ActionValue } from './styles';
-import { flipAction, optionAction } from '@store/modules/review/actions';
+import { Wrapper, Body, Content, Position, Header, Title, Info, Card, CardArea, Flip, Message, Actions, Action, ActionValue } from './styles';
 import { backAction } from '@store/modules/navigate/actions';
+import { flipAction, optionAction } from '@store/modules/session/actions';
 
 export default function Review() {
   const dispatch = useDispatch();
-  const { isFlipped, cards, cardPosition, selectedCard, options } = useSelector((state:RootState) => state.review);
+  const { element, session } = useSelector((state:RootState) => state.session);
   
   function flipClick() {
     dispatch(flipAction());
   }
 
-  function optionClick(key) {
-    dispatch(optionAction({ key }));    
+  function optionClick(option) {
+    dispatch(optionAction({ option }));    
   }
 
   function backClick() {
     dispatch(backAction());
   }
 
-  return (
+  if (!element || !element.selectedCard) {
+    return <></>;
+  }
+
+  return ( 
     <Wrapper>
       <Content>
         <Header>
@@ -32,23 +36,28 @@ export default function Review() {
         </Header>
         <Body>
           <Position>
-            <Info>{cardPosition}/{cards.length}</Info>
+            <Info>{element.cardPosition}/{session.cards.length}</Info>
           </Position>
-          <Card>
-            <Message>{ isFlipped ? selectedCard.secretContent : selectedCard.content}</Message>
-          </Card>
-          <Flip onClick={flipClick}>
-            <IconMedium name={"rotate"}/>
-          </Flip>
-          <Actions show={isFlipped}>
-            {options.map(o => (
-              <Action key={o.key} onClick={() => optionClick(o.key)}>
-                <ActionValue>{o.value}</ActionValue>
+          <CardArea onClick={flipClick}>
+            <Card show={!element.isFlipped}>
+              <Message>{element.selectedCard.content}</Message>
+            </Card>
+            <Card show={element.isFlipped}>
+              <Message>{element.selectedCard.secretContent}</Message>
+            </Card>
+            <Flip>
+              <IconMedium name={"rotate"}/>
+            </Flip>
+          </CardArea>
+          <Actions show={element.isFlipped}>
+            {element.options.map(o => (
+              <Action key={o.id} onClick={() => optionClick(o)}>
+                <ActionValue>{o.name}</ActionValue>
               </Action>
             ))}
           </Actions>
         </Body>
       </Content>
     </Wrapper>
-  ); 
+  );
 }

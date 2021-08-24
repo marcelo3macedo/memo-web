@@ -21,8 +21,7 @@ function* signIn({ payload }:any) {
     const { token, refreshToken, user } = response.data;
     const { name, email } = user;
 
-    authenticate({ token, refreshToken});
-
+    yield authenticate({ token, refreshToken});
     yield put(signInSuccessAction({ name, email }));
     yield put(navigatePush({ path: PATH_HOME }));
 }
