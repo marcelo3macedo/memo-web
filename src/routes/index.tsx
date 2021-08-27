@@ -41,9 +41,9 @@ export default function Routes() {
             <Router path={PATH_EDITCARD} component={EditCard} layout={Layouts.Main}/>  
             <Router path={PATH_PRIVACY_POLICY} component={PrivacyPolicy} layout={Layouts.Main}/>  
             <Router path={PATH_SESSION} component={Session} layout={Layouts.Main}/>     
-            <Router path={PATH_SESSION_COMPLETED} component={SessionCompleted} layout={Layouts.Main}/>                          
             <Router path={PATH_REVIEW} component={Review} layout={Layouts.Full}/>              
-
+            <Router path={PATH_SESSION_COMPLETED} component={SessionCompleted} layout={Layouts.Full}/>                          
+            
             <Router path={PATH_SIGN_IN} component={SignIn} layout={Layouts.Auth}/>    
             <Router path={PATH_FORGOT_PASSWORD} component={Recover} layout={Layouts.Auth}/>
             <Router path={PATH_SIGN_UP} component={SignUp} layout={Layouts.Auth}/>   
