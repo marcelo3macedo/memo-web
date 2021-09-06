@@ -15,7 +15,7 @@ export default function MyDecks() {
 
   useEffect(() => {
     dispatch(loadDecks());
-  }, []);
+  }, [dispatch]);
 
   return (
     <Wrapper>

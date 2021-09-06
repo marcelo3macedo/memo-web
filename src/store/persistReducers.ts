@@ -1,7 +1,7 @@
 import { persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 
-export default reducers => {
+const persistor = reducers => {
     const persistedReducer = persistReducer({
         key: "memo",
         storage,
@@ -12,3 +12,5 @@ export default reducers => {
 
     return persistedReducer;
 }
+
+export default persistor;

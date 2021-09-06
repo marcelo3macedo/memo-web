@@ -4,7 +4,7 @@ import { authenticate, send } from "@services/Api/requester";
 import { API_REFRESHTOKEN, API_SESSION, API_USERS } from "@services/Api/routes";
 import { navigatePush } from "@store/modules/navigate/actions";
 import { PATH_HOME, PATH_SIGN_IN } from "@services/Navigation";
-import { refreshTokenAction, signInAction, signInSuccessAction } from "./actions";
+import { refreshTokenAction, signInAction, signInFailureAction, signInSuccessAction } from "./actions";
 import { LS_REFRESHTOKEN, LS_TOKEN } from "@services/LocalStorage";
 import * as selectors from './selectors';
 
@@ -13,6 +13,11 @@ function* signIn({ payload }:any) {
         email: payload.user,
         password: payload.password
     } });
+
+    if (response.status === 401) {
+        yield put(signInFailureAction({ type: 'auth.invalidAuth' }));
+        return;
+    }
 
     if (response.status !== 200) {
         return;

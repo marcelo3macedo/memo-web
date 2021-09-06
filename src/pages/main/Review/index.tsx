@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import IconMedium from '@components/icons/IconMedium';
 import { RootState } from '@store/modules/rootReducer';
 
-import { Wrapper, Body, Content, Position, Header, Title, Info, Card, CardArea, Flip, Message, Actions, Action, ActionValue } from './styles';
+import { Wrapper, Body, Content, Position, Header, Info, Card, CardArea, Flip, Message, Actions, Action, ActionValue } from './styles';
 import { backAction } from '@store/modules/navigate/actions';
 import { flipAction, optionAction } from '@store/modules/session/actions';
 

@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 
 import logo from '../../assets/logo.png';
 import { Wrapper, Content, Header, Logo, Title } from './styles';
+import ValidationAlert from '@components/validation/ValidationAlert';
 
 export default function AuthLayout ({ children }) {
   return (
@@ -13,6 +14,7 @@ export default function AuthLayout ({ children }) {
             <Title>memorizator</Title>
           </Header>
           {children}
+          <ValidationAlert/>
         </Content>
     </Wrapper>
   );

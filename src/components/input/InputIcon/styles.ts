@@ -20,6 +20,7 @@ export const Content = styled.div`
         border: none;
         color: var(--neutral100);
         background: none;
+        width: 100%;
     
         &::placeholder {
             color: var(--neutral60);

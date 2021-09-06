@@ -27,6 +27,12 @@ export function signInSuccessAction({ name, email }) {
         payload: { name, email }
     }
 }
+export function signInFailureAction({ type }) {
+    return {
+        type: '@auth/SIGN_IN_FAILURE',
+        payload: { type }
+    }
+}
 export function checkAuthAction(force=false) {
     return {
         type: '@auth/CHECK_AUTH',
@@ -39,5 +45,10 @@ export function refreshTokenAction({ refreshToken }) {
     return {
         type: '@auth/REFRESH_TOKEN',
         payload: { refreshToken }
+    }
+}
+export function closeAlertAction() {
+    return {
+        type: '@auth/CLOSE_ALERT'
     }
 }

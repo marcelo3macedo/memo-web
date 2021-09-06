@@ -1,4 +1,7 @@
 {
+    "alert": {
+        "title": "Alerta"
+    },
     "auth": {
         "loginTitle": "Login",
         "registerTitle": "Registrar",
@@ -14,7 +17,9 @@
         "register": "Quero participar!",
         "recover": "Recuperar",
         "haveAccount": "Já tenho uma conta",
-        "recoveredMessage": "Uma senha foi enviada para o seu e-mail"
+        "recoveredMessage": "Uma senha foi enviada para o seu e-mail",
+        "invalidAuth": "Usuário ou senha inválidos.",
+        "tryAgain": "Por favor, tente novamente."
     },
     "welcome": {
         "title": "Olá, ",

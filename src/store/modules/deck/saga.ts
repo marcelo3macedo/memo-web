@@ -1,7 +1,7 @@
 
 import { all, put, takeLatest } from "redux-saga/effects";
 import { navigatePush } from "@store/modules/navigate/actions";
-import { PATH_EDITDECK, PATH_DECK, PATH_REVIEW } from '@services/Navigation';
+import { PATH_EDITDECK, PATH_DECK } from '@services/Navigation';
 import { send, retrieve } from "@services/Api/requester";
 import { API_DECKS } from "@services/Api/routes";
 import { openSuccessAction } from "./actions";

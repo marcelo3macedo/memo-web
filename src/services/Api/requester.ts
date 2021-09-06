@@ -43,4 +43,5 @@ export function* authenticate({ token, refreshToken }) {
     localStorage.setItem(LS_TOKEN, token);
     localStorage.setItem(LS_REFRESHTOKEN, refreshToken);
     api.defaults.headers.Authorization = `Bearer ${token}`;
+    return yield;
 }

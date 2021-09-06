@@ -49,5 +49,5 @@ export const ActionArea = styled.div`
 `;
 
 export const NewUser = styled.div`
-    margin-top: 10px;
+    margin: 10px 0;
 `;
