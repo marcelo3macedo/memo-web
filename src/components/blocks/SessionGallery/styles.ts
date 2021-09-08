@@ -2,8 +2,7 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div`
     width: 100%;
-    overflow-x: scroll;
-    margin-bottom: 10px;
+    overflow-x: auto;
 `;
 
 export const Content = styled.div`

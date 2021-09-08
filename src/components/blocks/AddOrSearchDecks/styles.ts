@@ -6,8 +6,8 @@ export const Wrapper = styled.div`
 
 export const Content = styled.div`
     padding: 20px 10px;
-    background: var(--secondary10);
     text-align: center;
+    margin: auto;
 `;
 
 export const Title = styled.h5`

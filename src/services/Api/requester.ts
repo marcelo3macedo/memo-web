@@ -15,7 +15,7 @@ export function* retrieve({ method, force=false }) {
 
         return {
             status: 401,
-            data: e.response ?? e.response.data
+            data: e.response ? e.response.data : null
         };
     }
 }
@@ -25,7 +25,7 @@ export function* send({ method, data=null }) {
     } catch (e) {
         return {
             status: 401,
-            data: e.response ?? e.response.data
+            data: e.response ? e.response.data : null
         };
     }    
 }
@@ -35,7 +35,7 @@ export function* update({ method, data=null }) {
     } catch (e) {
         return {
             status: 401,
-            data: e ?? e.response ?? e.response.data
+            data: e ?? e.response ? e.response.data : null
         };
     }    
 }

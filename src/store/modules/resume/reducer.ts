@@ -2,7 +2,8 @@ import produce from "immer";
 
 const INITIAL_STATE = {
     sessions: [],
-    lastSession: null
+    lastSession: null,
+    featuredDecks: []
 };
 
 export default function personal(state = INITIAL_STATE, action) {
@@ -11,6 +12,7 @@ export default function personal(state = INITIAL_STATE, action) {
             case "@resume/LOAD_SUCCESS": {
                 draft.sessions = action.payload.data.sessions;
                 draft.lastSession = action.payload.data.lastSession;
+                draft.featuredDecks = action.payload.data.featuredDecks;
                 break;
             }     
             default:

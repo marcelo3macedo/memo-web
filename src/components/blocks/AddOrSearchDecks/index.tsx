@@ -20,12 +20,14 @@ export default function AddOrSearchDecks() {
   return (
     <Wrapper>
       <Content>
-        <Title>{t('decks.add')}</Title>
-        <AddArea>
-          <ButtonPrimary content={t('actions.add')} action={addClick}/>
-        </AddArea>
-        <SearchDecks title={t('decks.option')} subTitle={t('decks.search')}/>
+        <SearchDecks title="" subTitle={t('decks.search')}/>
       </Content>
     </Wrapper>
   );
+
+  /*<Title>{t('decks.add')}</Title>
+        <AddArea>
+          <ButtonPrimary content={t('actions.add')} action={addClick}/>
+        </AddArea>
+        */
 }

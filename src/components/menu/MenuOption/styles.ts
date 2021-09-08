@@ -2,6 +2,11 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div`
     padding: 8px 0;
+
+    &:hover {
+        cursor: pointer;
+        opacity: 0.8;
+    }
 `;
 
 export const Content = styled.div`

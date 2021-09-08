@@ -30,7 +30,8 @@
         "title": "Baralhos",
         "seeMore": "Ver Mais",
         "add": "Adicione um novo Deck para sua coleção",
-        "search": "Pesquise um Deck em nossa galeria",
+        "search": "Pesquise um tema para estudar em nossa galeria",
+        "searchPlaceholder": "Digite um nome, categoria ou tema...",
         "option": "ou",
         "featured": "Em Destaque"
     },

@@ -10,6 +10,8 @@ export const Title = styled.h5`
 `;
 
 export const SubTitle = styled.h5`
+    font-weight: bold;
+    color: var(--neutral90);
 `;
 
 export const Search = styled.div`
@@ -22,12 +24,14 @@ export const Search = styled.div`
     width: 70%;
     margin: auto;
     margin-top: 10px;
+    max-width: 500px;
 `;
 
 export const SearchInput = styled.input`
-    padding: 5px;
+    padding: 5px 10px;
     border: none;
     width: 100%;
+    font-size: 9pt;
 `;
 
 export const SearchIcon = styled.div`

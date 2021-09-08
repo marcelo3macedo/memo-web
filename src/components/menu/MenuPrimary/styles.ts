@@ -5,23 +5,27 @@ type WrapperProps = {
 }
 
 export const Wrapper = styled.div<WrapperProps>`
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vH;
-    background: rgba(var(--alphaColor), var(--alpha));
-    z-index: 999;
-    display: ${props => props.show ? "block": "none"};
+    background: var(--secondary10);
+    
+    @media (max-width:768px) {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vH;
+        background: rgba(var(--alphaColor), var(--alpha));
+        z-index: 999;
+        display: ${props => props.show ? "block": "none"};
+    }    
 `;
 
 export const Content = styled.div`
     width: 70%;
-    background: var(--secondary10);
     height: 100vH;
 
     @media (min-width: 768px) {
         max-width: 300px;
+        width: 100%;
     }
 `;
 

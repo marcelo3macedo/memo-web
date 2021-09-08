@@ -5,7 +5,7 @@ import { Wrapper, Content, Header, Info, Title } from './styles';
 
 export default function MenuOption({ icon, content, action=null }) {
   return (
-    <Wrapper onClick={action}>
+    <Wrapper className="no-select" onClick={action}>
       <Content>
         <Header>
           <IconSmall name={icon}/>
