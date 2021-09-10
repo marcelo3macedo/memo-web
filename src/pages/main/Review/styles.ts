@@ -14,6 +14,8 @@ export const Content = styled.div`
     height: 100vH;
     width: 100%;
     padding: 10px;
+    max-width: 1100px;
+    margin: auto;
 `;
 
 export const Header = styled.div`

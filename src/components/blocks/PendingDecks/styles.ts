@@ -18,9 +18,14 @@ export const Title = styled.h3`
 
 export const Footer = styled.div`
     display: flex;
+    justify-content: space-between;
 `;
 
 export const Block = styled.div`
     width: 100%;
+
+    @media (min-width: 768px) {
+        max-width: 200px;
+    }
 `;
 

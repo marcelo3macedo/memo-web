@@ -10,6 +10,11 @@ export const Wrapper = styled.div`
     background: var(--primary);
     border-radius: 20px;
     overflow: hidden;
+
+    &:hover {
+        cursor: pointer;
+        opacity: 0.8;
+    }
 `;
 
 export const Content = styled.div<DeckCard>`
