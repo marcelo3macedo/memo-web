@@ -44,7 +44,8 @@ export const Logo = styled.img`
     padding: 20px 0;
 
     @media (max-width: 768px) {
-        width: 100px;
+        width: 80px;
+        padding: 10px 0;
     }
 `;
 

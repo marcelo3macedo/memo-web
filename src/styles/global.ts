@@ -75,5 +75,13 @@ export const GlobalStyle = createGlobalStyle`
         ::-webkit-scrollbar {
             display: none;
         }
+
+        h1 {
+            font-size: 1.5em;
+        }
+
+        h2 {
+            font-size: 1.3em;
+        }
     }
 `;

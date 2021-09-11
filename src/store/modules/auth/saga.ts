@@ -57,7 +57,7 @@ function* logout() {
 
 function* checkAuth({ payload }:any) {
     const signed = yield select(selectors.signed);
-
+    
     if (signed && !payload.force) {
         return true;
     }
@@ -65,7 +65,11 @@ function* checkAuth({ payload }:any) {
     const refreshToken = localStorage.getItem(LS_REFRESHTOKEN);
     if (refreshToken) {
         yield put(refreshTokenAction({ refreshToken }));
+        return;
     }
+    
+    yield put(navigatePush({ path: PATH_SIGN_IN }));
+    return;
 }
 
 function* refreshToken({ payload }:any) {
