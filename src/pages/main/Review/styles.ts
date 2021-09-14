@@ -63,7 +63,7 @@ export const Card = styled.div<ICard>`
 export const CardArea = styled.div`
 `;
 
-export const Message = styled.h3`
+export const Message = styled.h1`
     color: var(--neutral80);
 `;
 

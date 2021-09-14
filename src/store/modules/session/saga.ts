@@ -21,6 +21,10 @@ function* openSuccess() {
     yield put(navigatePush({ path: PATH_SESSION }));  
 }
 
+function* openDeckSuccess() {
+    yield put(navigatePush({ path: PATH_REVIEW })); 
+}
+
 function* review() {
     yield put(navigatePush({ path: PATH_REVIEW })); 
 }
@@ -50,6 +54,7 @@ function* optionSuccess() {
 export default all([
     takeLatest('@session/OPEN', open),
     takeLatest('@session/OPEN_SUCCESS', openSuccess),
+    takeLatest('@session/OPEN_DECK_SUCCESS', openDeckSuccess),
     takeLatest('@session/REVIEW', review),
     takeLatest('@session/OPTION', option),    
     takeLatest('@session/OPTION_SUCCESS', optionSuccess),

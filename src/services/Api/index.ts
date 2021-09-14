@@ -2,7 +2,7 @@ import axios from "axios";
 import { LS_TOKEN } from "@services/LocalStorage";
 
 const api = axios.create({
-    baseURL: "http://localhost:3333",
+    baseURL: process.env.API_URL,
     withCredentials: true,
     headers: {
         Authorization: `Bearer ${localStorage.getItem(LS_TOKEN)}`,

@@ -14,6 +14,14 @@ export function openSuccessAction({ session }) {
         }
     }
 }
+export function openDeckSuccessAction({ session }) {
+    return {
+        type: '@session/OPEN_DECK_SUCCESS',
+        payload: {
+            session
+        }
+    }
+}
 export function reviewAction() {
     return {
         type: '@session/REVIEW'

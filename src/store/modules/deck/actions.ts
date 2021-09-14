@@ -20,8 +20,11 @@ export function openSuccessAction({ deck }) {
         }
     }
 }
-export function reviewAction() {
+export function reviewAction({ deck }) {
     return {
-        type: '@deck/REVIEW'
+        type: '@deck/REVIEW',
+        payload: {
+            deck
+        }
     }
 }

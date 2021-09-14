@@ -34,7 +34,7 @@ export default function SessionCompleted() {
         <h1>Sessão completa</h1>
 
         {element.options.map(o => (
-          <InfoWithIcon data={ generateInfoData(o) } />
+          <InfoWithIcon key={o.id} data={ generateInfoData(o) } />
         ))}
       </Content>
     </Wrapper>

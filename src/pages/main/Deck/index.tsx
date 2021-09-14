@@ -14,8 +14,8 @@ export default function Deck() {
   const t = useTranslation();
   const deck:any = useSelector((state:RootState) => state.deck.deck);
 
-  function reviewClick() {
-    dispatch(reviewAction());
+  function reviewClick({ deck }) {
+    dispatch(reviewAction({ deck }));
   }
 
   return (
@@ -27,7 +27,7 @@ export default function Deck() {
             <CardsTotal size={deck.cards ? deck.cards.length : 0}/>
           </Header>
           <Action>
-            <ButtonPrimary content={t('actions.review')} action={reviewClick}/>
+            <ButtonPrimary content={t('actions.review')} action={() => { reviewClick({ deck })} }/>
           </Action>
         </Content>
       ): <></>}      

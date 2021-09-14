@@ -19,6 +19,11 @@ export default function navigate(state = INITIAL_STATE, action) {
                 draft.element.options = action.payload.session.difficulties;
                 break;
             } 
+            case "@session/OPEN_DECK_SUCCESS": {
+                draft.session = action.payload.session;
+                draft.element.options = action.payload.session.difficulties;
+                break;
+            } 
             case "@session/REVIEW": {
                 draft.element.cardPosition = 0;
                 draft.element.isFlipped = false;
@@ -33,16 +38,17 @@ export default function navigate(state = INITIAL_STATE, action) {
                 break;
             }
             case "@session/OPTION": {
+                if (draft.element.cardPosition >= draft.session.cards.length) {
+                    return;
+                }
+                
                 draft.element.isFlipped = false;
                 draft.element.cardPosition++;
 
                 let newCard = draft.element.selectedCard;
                 newCard.difficultyId = action.payload.option.id;
                 draft.answered.push(newCard);
-
-                if (draft.session.cards.length < draft.element.cardPosition) {
-                    draft.element.selectedCard = draft.session.cards[draft.element.cardPosition];                
-                } 
+                draft.element.selectedCard = draft.session.cards[draft.element.cardPosition];                
                 break;
             }
             case "@session/OPTION_SUCCESS": {
