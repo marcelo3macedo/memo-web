@@ -32,7 +32,7 @@
   },
   "scripts": {
     "start": "react-app-rewired start",
-    "build": "react-app-rewired build",
+    "build": "env-cmd -f ./.env react-app-rewired build",
     "test": "react-app-rewired test",
     "eject": "react-app-rewired eject"
   },
@@ -59,6 +59,7 @@
     "@types/styled-components": "^5.1.11",
     "babel-plugin-root-import": "^6.6.0",
     "customize-cra": "^1.0.0",
+    "env-cmd": "^10.1.0",
     "react-app-rewired": "^2.1.8",
     "tsconfig-paths": "^3.10.1"
   }
