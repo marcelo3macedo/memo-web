@@ -19,5 +19,11 @@ export const AddArea = styled.div`
     margin: auto;
 `;
 
+export const SubTitle = styled.h5`
+    font-weight: bold;
+    color: var(--neutral90);
+`;
 
-
+export const Actions = styled.div`
+    padding-top: 10px;
+`;

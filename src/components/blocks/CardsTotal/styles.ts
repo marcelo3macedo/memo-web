@@ -7,8 +7,13 @@ export const Wrapper = styled.div`
 export const Content = styled.div`
     display: flex;
     align-items: center;
+
+    svg path {
+        fill: var(--neutral90); 
+    }
 `;
 
 export const Total = styled.h3`
     padding: 0 5px;
+    color: var(--neutral90);
 `;

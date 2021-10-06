@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.div`
     padding: 10px;
+    min-height: 100vH;
 `;
 
 export const Content = styled.div`
@@ -9,6 +10,7 @@ export const Content = styled.div`
 `;
 
 export const Title = styled.h1`
+    color: var(--neutral90);
 `;
 
 export const Paragraph = styled.h5`
@@ -21,8 +23,8 @@ export const Block = styled.div`
 
     input {
         margin: 20px 0 10px 0;
-        padding: 10px;
+        padding: 15px 10px;
         border-radius: 10px;
-        border: 1px solid var(--neutral80);
+        border: 1px solid var(--neutral60);
     }
 `;

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { ICard } from "@interfaces/Card/card.interface";
 
 export const Wrapper = styled.div`
     width: 100%;
@@ -11,13 +12,16 @@ export const Content = styled.div`
     padding: 10px;
 `;
 
-export const CardArea = styled.div`
+export const CardArea = styled.div<ICard>`
     border: 1px solid var(--neutral60);
     width: 100%;
     padding: 10px;
     border-radius: 10px;
     display: flex;
     flex-direction: row;
+    overflow: hidden;
+    background-image: url('${props => props.background}');
+    background-size: cover;
 `;
 
 export const Header = styled.div`
@@ -41,9 +45,16 @@ export const Action = styled.div`
     margin-bottom: 10px;
     padding: 5px 10px;
     align-items: center;
+    background: var(--neutral10);
+    color: var(--primary);
 
     svg {
         width: 10px;
+    }
+
+    &:hover {
+        cursor: pointer;
+        opacity: 0.8;
     }
 `;
 

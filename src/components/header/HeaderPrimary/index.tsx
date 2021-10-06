@@ -2,12 +2,13 @@ import React from 'react';
 import { useDispatch } from "react-redux";
 import { useLocation } from 'react-router-dom';
 
+import logo from '@assets/logoHorizontal.png';
 import IconMedium from '@components/icons/IconMedium';
 import { menuAction, searchAction } from '@store/modules/menu/actions';
 import { backAction } from '@store/modules/navigate/actions';
 import SearchPrimary from '@components/search/SearchPrimary';
 
-import { Wrapper, Content, Header } from './styles';
+import { Wrapper, Content, Header, Logo } from './styles';
 
 export default function HeaderPrimary() {
   const dispatch = useDispatch();
@@ -31,7 +32,8 @@ export default function HeaderPrimary() {
           <Header>
             {location.pathname === "/" ? (
               <>
-                <IconMedium name="list" action={menuClick} />
+                <IconMedium className="list" name="list" action={menuClick} />
+                <Logo src={logo}></Logo>
                 <IconMedium name="search" action={searchClick} />        
               </>
             ): (

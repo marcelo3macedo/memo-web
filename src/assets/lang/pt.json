@@ -23,22 +23,22 @@
     },
     "welcome": {
         "title": "Olá, ",
-        "message": "O que iremos estudar hoje?",
-        "new": "Seja bem-vindo ao Memorizator!"
+        "message": "Suas sessões de estudos de hoje",
+        "new": "Inicie uma sessão de estudos"
     },
     "decks": {
-        "title": "Baralhos",
+        "title": "Sessão",
         "seeMore": "Ver Mais",
-        "add": "Adicione um novo Deck para sua coleção",
-        "search": "Pesquise um tema para estudar em nossa galeria",
-        "searchPlaceholder": "Digite um nome, categoria ou tema...",
+        "add": "ou crie a sua própria sessão de estudos",
+        "search": "Pesquise um tema em nossa galeria",
+        "searchPlaceholder": "Pesquise por nome, categoria ou tema...",
         "option": "ou",
         "featured": "Em Destaque"
     },
     "newDeck": {
-        "title": "Criar Deck",
-        "name": "Escolhe um nome para o seu deck...",
-        "save": "Salvar"
+        "title": "Nova Sessão",
+        "name": "Escolha um nome para a sua sessão...",
+        "save": "Criar"
     },
     "myDeck": {
         "title": "Meus Decks"
@@ -50,7 +50,8 @@
         "save": "Salvar"
     },
     "editCard": {
-        "title": "Editar Card"
+        "title": "Cards",
+        "notFound": "Nenhum card encontrado"
     },
     "searchDeck": {
         "title": "Resultados de:"
@@ -63,7 +64,10 @@
         "addCard": "Adicionar Card",
         "delete": "Deletar",
         "edit": "Editar",
-        "review": "Revisar"
+        "save": "Salvar",
+        "review": "Revisar",
+        "createSession": "Criar Minha Sessão",
+        "finishSession": "Concluir Sessão"
     },
     "filter": {
         "title": "Filtros"

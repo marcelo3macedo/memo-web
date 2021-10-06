@@ -29,10 +29,18 @@ export const Header = styled.div`
     @media (min-width: 768px) {
         width: 100%;
         padding: 10px;
-        padding-bottom: 15px;
+
+        .list { 
+            display: none;
+        }
     }
 `;
 
 export const Logo = styled.img`
-    height: 40px;
+    display: none;
+
+    @media (max-width: 768px) {
+        display: block;
+        height: 32px;
+    }
 `;

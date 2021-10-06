@@ -22,6 +22,7 @@ export const Wrapper = styled.div<WrapperProps>`
 export const Content = styled.div`
     width: 70%;
     height: 100vH;
+    background: var(--neutral10);
 
     @media (min-width: 768px) {
         max-width: 300px;

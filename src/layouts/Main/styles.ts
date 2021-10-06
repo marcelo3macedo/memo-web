@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div`
     background: var(--secondary80);
-    min-height: 100vH;
+    min-height: 90vH;
 
     @media (min-width: 768px) {
         padding: 10px 0;

@@ -39,6 +39,16 @@ export function* update({ method, data=null }) {
         };
     }    
 }
+export function* remove({ method }) {
+    try {
+        return yield call(api.delete, method);
+    } catch (e) {
+        return {
+            status: 401,
+            data: e ?? e.response ? e.response.data : null
+        };
+    }    
+}
 export function* authenticate({ token, refreshToken }) {
     localStorage.setItem(LS_TOKEN, token);
     localStorage.setItem(LS_REFRESHTOKEN, refreshToken);

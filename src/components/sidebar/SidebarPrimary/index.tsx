@@ -43,7 +43,7 @@ export default function SidebarPrimary() {
           </Item>
           <Item onClick={decksClick} className={isActive(PATH_MYDECKS)}>
             <IconMedium name="card" />
-            <Title>Decks</Title>
+            <Title>Sessões</Title>
           </Item>
           <Item onClick={searchClick} className={isActive(PATH_SEARCHDECK)}>
             <IconMedium name="search" />

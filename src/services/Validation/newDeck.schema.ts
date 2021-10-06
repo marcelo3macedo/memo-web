@@ -5,5 +5,5 @@ export const initialValues = {
 };
 
 export const schema = Yup.object().shape({
-  name: Yup.string().required("Informe o nome do Deck"),
+  name: Yup.string().required("Informe o nome da Sessão"),
 });

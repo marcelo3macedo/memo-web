@@ -21,7 +21,7 @@ export const Search = styled.div`
     justify-content: center;
     border: 1px solid var(--neutral60);
     border-radius: 10px;
-    width: 70%;
+    width: 90%;
     margin: auto;
     margin-top: 10px;
     max-width: 500px;

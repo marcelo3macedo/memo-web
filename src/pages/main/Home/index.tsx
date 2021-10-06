@@ -5,6 +5,7 @@ import { Wrapper, Content } from './styles';
 import PendingDecks from '@components/blocks/PendingDecks';
 import WelcomeMessage from '@components/blocks/WelcomeMessage';
 import AddOrSearchDecks from '@components/blocks/AddOrSearchDecks';
+import FeaturedGallery from '@components/blocks/FeaturedGallery';
 import { loadAction } from '@store/modules/resume/actions';
 
 export default function Home() {
@@ -20,6 +21,7 @@ export default function Home() {
         <WelcomeMessage/>
         <PendingDecks />
         <AddOrSearchDecks />
+        <FeaturedGallery />
       </Content>
     </Wrapper>
   ); 
