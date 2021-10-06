@@ -17,8 +17,9 @@ export default function ModalAddDeck() {
   const showCreator = useSelector((state:RootState) => state.card.showCreator);
   const t = useTranslation();
 
-  function handleSubmit(data) {
+  function handleSubmit(data, { resetForm }) {
     dispatch(saveAction(data));
+    resetForm();
   }
 
   function close() {
@@ -33,6 +34,7 @@ export default function ModalAddDeck() {
         </Header>
         <Title>Criar Card</Title>
         <Formik 
+              enableReinitialize
               initialValues={initialValues}
               onSubmit={handleSubmit}
               validationSchema={schema}>
