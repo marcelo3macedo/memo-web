@@ -27,4 +27,10 @@ export const Block = styled.div`
         border-radius: 10px;
         border: 1px solid var(--neutral60);
     }
+
+    @media (min-width: 768px) {
+        button {
+            max-width: 250px;
+        }
+    }
 `;

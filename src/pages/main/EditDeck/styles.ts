@@ -21,6 +21,10 @@ export const Finish = styled.div`
     bottom: 60px;
     left: 0;
     width: 100%;
+
+    @media (min-width: 768px) {
+        position: relative;
+    }
 `;
 
 export const Title = styled.h1`
@@ -82,5 +86,9 @@ export const NewCard = styled.div`
     button {
         width: 100%;
         max-width: 100%;
+    }
+
+    @media (min-width: 768px) {
+        max-width: 250px;
     }
 `;
