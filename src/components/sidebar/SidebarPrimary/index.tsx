@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import IconMedium from '@components/icons/IconMedium';
 import { RootState } from '@store/modules/rootReducer';
 import { navigatePush } from '@store/modules/navigate/actions';
-import { PATH_ABOUT, PATH_HELP, PATH_HOME, PATH_MYDECKS, PATH_SEARCHDECK } from '@services/Navigation';
+import { PATH_ABOUT, PATH_HELP, PATH_MAIN, PATH_MYDECKS, PATH_SEARCHDECK } from '@services/Navigation';
 
 import { Wrapper, Content, Item, Title } from './styles';
 
@@ -13,7 +13,7 @@ export default function SidebarPrimary() {
   const actualPath = useSelector((state:RootState) => state.navigate.actualPath);
 
   function homeClick() {
-    dispatch(navigatePush({ path: PATH_HOME }));
+    dispatch(navigatePush({ path: PATH_MAIN }));
   }
 
   function decksClick() {
@@ -37,7 +37,7 @@ export default function SidebarPrimary() {
   return (
     <Wrapper>
         <Content>
-          <Item onClick={homeClick} className={isActive(PATH_HOME)}>
+          <Item onClick={homeClick} className={isActive(PATH_MAIN)}>
             <IconMedium name="home" />
             <Title>Home</Title>
           </Item>

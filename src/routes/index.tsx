@@ -7,7 +7,7 @@ import SignIn from "@pages/auth/SignIn";
 import SignUp from "@pages/auth/SignUp";
 import Recover from "@pages/auth/Recover";
 import Recovered from "@pages/auth/Recovered";
-import Home from "@pages/main/Home";
+import Main from "@pages/main/Main";
 import Deck from "@pages/main/Deck";
 import About from "@pages/main/About";
 import Help from "@pages/main/Help";
@@ -19,8 +19,9 @@ import Session from "@pages/main/Session";
 import SearchDeck from "@pages/main/SearchDeck";
 import PrivacyPolicy from "@pages/main/PrivacyPolicy";
 import SessionCompleted from "@pages/main/SessionCompleted";
+import Home from "@pages/public/Home";
 
-import { PATH_FORGOT_PASSWORD, PATH_SESSION, PATH_SIGN_IN, PATH_SIGN_UP, PATH_RECOVERED, PATH_SESSION_COMPLETED, PATH_PRIVACY_POLICY, PATH_ABOUT, PATH_HELP, PATH_MYACCOUNT, PATH_MYDECKS, PATH_ADDDECK, PATH_SEARCHDECK, PATH_EDITDECK, PATH_ADDCARD, PATH_EDITCARD, PATH_DECK, PATH_REVIEW, PATH_HOME } from "@services/Navigation";
+import { PATH_FORGOT_PASSWORD, PATH_SESSION, PATH_SIGN_IN, PATH_SIGN_UP, PATH_RECOVERED, PATH_SESSION_COMPLETED, PATH_PRIVACY_POLICY, PATH_ABOUT, PATH_HELP, PATH_MYACCOUNT, PATH_MYDECKS, PATH_ADDDECK, PATH_SEARCHDECK, PATH_EDITDECK, PATH_ADDCARD, PATH_EDITCARD, PATH_DECK, PATH_REVIEW, PATH_MAIN, PATH_HOME } from "@services/Navigation";
 import AddCard from "@pages/main/AddCard";
 import EditCard from "@pages/main/EditCard";
 import Review from "@pages/main/Review";
@@ -28,7 +29,7 @@ import Review from "@pages/main/Review";
 export default function Routes() {
     return (
         <Switch>         
-            <Router path={PATH_HOME} exact component={Home} layout={Layouts.Main} />    
+            <Router path={PATH_MAIN} exact component={Main} layout={Layouts.Main} />    
             <Router path={PATH_ABOUT} component={About} layout={Layouts.Main}/>  
             <Router path={PATH_HELP} component={Help} layout={Layouts.Main}/>  
             <Router path={PATH_MYACCOUNT} component={MyAccount} layout={Layouts.Main}/>   
@@ -48,6 +49,8 @@ export default function Routes() {
             <Router path={PATH_FORGOT_PASSWORD} component={Recover} layout={Layouts.Auth}/>
             <Router path={PATH_SIGN_UP} component={SignUp} layout={Layouts.Auth}/>   
             <Router path={PATH_RECOVERED} component={Recovered} layout={Layouts.Auth}/>
+
+            <Router path={PATH_HOME} exact component={Home} layout={Layouts.Public} />   
         </Switch>
     );
 }

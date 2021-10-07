@@ -8,7 +8,7 @@ import AddOrSearchDecks from '@components/blocks/AddOrSearchDecks';
 import FeaturedGallery from '@components/blocks/FeaturedGallery';
 import { loadAction } from '@store/modules/resume/actions';
 
-export default function Home() {
+export default function Main() {
   const dispatch = useDispatch();
 
   useEffect(() => {

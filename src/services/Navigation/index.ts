@@ -16,5 +16,6 @@ export const PATH_ADDCARD = "/add-card";
 export const PATH_EDITCARD = "/edit-card";
 export const PATH_SESSION = "/session";
 export const PATH_SESSION_COMPLETED = "/session-completed";
+export const PATH_MAIN = "/main";
 
 export const PATH_HOME = "/";

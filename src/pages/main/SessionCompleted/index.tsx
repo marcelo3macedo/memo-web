@@ -7,14 +7,14 @@ import InfoWithIcon from "@components/info/InfoWithIcon";
 import { Wrapper, Content, Actions } from './styles';
 import ButtonSecondary from '@components/button/ButtonSecondary';
 import { navigatePush } from '@store/modules/navigate/actions';
-import { PATH_HOME } from '@services/Navigation';
+import { PATH_MAIN } from '@services/Navigation';
 
 export default function SessionCompleted() {
   const dispatch = useDispatch();
   const { element, answered } = useSelector((state:RootState) => state.session);
 
   function backToHome() {
-    dispatch(navigatePush({ path: PATH_HOME }));
+    dispatch(navigatePush({ path: PATH_MAIN }));
   }
 
   function generateInfoData(option) {

@@ -28,4 +28,20 @@ export const Banner = styled.img`
 
 export const BannerArea = styled.h4`
     text-align: center;
+
+    .desktop {
+        display: none;
+    }
+
+    @media (min-width: 768px) {
+        .desktop {
+            display: block;
+            width: 100%;
+            max-width: inherit;
+        }
+
+        .mobile {
+            display: none;
+        }
+    }
 `;

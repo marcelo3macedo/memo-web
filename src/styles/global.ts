@@ -20,7 +20,10 @@ export const GlobalStyle = createGlobalStyle`
 
         --warm01: #fee1e8;
         --warm50: #e794a9;
+        --warm80: #ff63b1;
+        --warm90: #cd4a8b;
         --purple: #cbaacb;
+        --green80: #6dc4be;
 
         --textSecondary100: #f7ffff;
         
