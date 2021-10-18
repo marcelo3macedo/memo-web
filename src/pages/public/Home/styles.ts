@@ -8,12 +8,71 @@ export const Content = styled.div`
 `;
 
 export const Block = styled.div<IBanner>`
+    background-color: ${props => props.backgroundColor};
+
+    .block-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        max-width: 1100px; 
+        margin: auto;
+
+        .block-text-group h1 {
+            line-height: 7px;
+            font-size: 32pt;
+            color: #f14624;
+        }
+
+        .block-subinfo {
+            padding: 10px 0 40px 0;
+
+            h4 {
+                font-size: 14pt;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+            }
+        }
+
+        .block-image {
+            img {
+                max-width: 400px;
+            }
+        }
+
+        .block-actions {
+            button {
+                min-width: 250px;
+                padding: 15px 0;
+                background: #61d37b;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+            }
+        }
+    }
+
+    .block-container.type2 {
+        .block-image {
+            img {
+                max-width: 580px;
+            }
+        }
+
+        .block-text-group h1 {
+            color: #2ad447;
+        }
+    }
+
+
+
+
+
     background-image: url('${props => props.background}');
     background-size: cover;
     background-position: center;
     min-height: 550px;
     padding: 20px 0;
-    margin-bottom: 40px;
+    padding-bottom: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -144,7 +203,7 @@ export const BlockContainerB = styled.div`
             }
 
             h3 {
-                color: var(--warm90);
+                color: var(--warm80);
                 text-transform: uppercase;
                 padding: 10px 0;
                 height: 40px;
