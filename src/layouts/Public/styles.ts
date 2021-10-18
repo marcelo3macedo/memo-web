@@ -1,19 +1,15 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-    background: var(--secondary80);
     min-height: 100vH;
-    padding: 10px 0;
-
+    
     @media (max-width: 768px) {
         padding: 0;
     }
 `;
 
 export const Content = styled.div`
-    max-width: 1100px;
-    margin: auto;   
-    background: #fff;
+    background: #f8f8f8;
     border-radius: 10px;
     overflow: hidden;
 
@@ -29,12 +25,12 @@ export const Body = styled.div`
 `;
 
 export const Header = styled.div`
-    padding: 20px;
+    max-width: 1100px;
+    margin: auto;   
+    padding: 15px 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 20px;
-    background: var(--secondary100);
 
     @media (max-width: 768px) {
         padding: 10px;
@@ -55,19 +51,31 @@ export const Menu = styled.ul`
 `;
 
 export const MenuItem = styled.li`
-    padding: 0 20px;
+    padding: 0 25px;
 `;
 
 export const MenuTitle = styled.h4`
     font-weight: bold;
-    color: #fff;
+    font-size: 11pt;
+    color: var(--neutral80);
 `;
 
 export const Action = styled.div`
+    div {
+        border-radius: 5px;
+    }
+
+    h6 {
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: var(--neutral80);
+    }
 `;
 
 export const Image = styled.img`
-    width: 150px;
+    width: 120px;
+    border-right: 2px solid var(--neutral60);
+    padding-right: 25px;
 
     @media (max-width: 768px) {
         width: 100px;

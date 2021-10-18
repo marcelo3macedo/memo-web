@@ -1,8 +1,10 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 
 import background from "@assets/banners/background.png";
 import backgroundColored from "@assets/banners/backgroundColored.png";
-import logo from "@assets/logoHorizontal.png";
+import project1 from "@assets/banners/project1.png";
+import project2 from "@assets/banners/project2.png";
 import info01 from "@assets/banners/info1.png";
 import info02 from "@assets/banners/info2.png";
 import info03 from "@assets/banners/info3.png";
@@ -12,22 +14,58 @@ import revisao1 from "@assets/banners/revisao1.png";
 import try1 from "@assets/banners/try1.png";
 import { Wrapper, Content, Block, BlockContainerB, Title, SubTitle, Image } from './styles';
 import ButtonPrimary from '@components/button/ButtonPrimary';
+import { navigatePush } from '@store/modules/navigate/actions';
+import { PATH_SIGN_IN } from '@services/Navigation';
 
 export default function Home() {
+  const dispatch = useDispatch();
+  
+  function signIn() {
+    dispatch(navigatePush({ path: PATH_SIGN_IN }));
+  }
+
   return (
     <Wrapper>
       <Content>
-        <Block background={background}>
-          <Image src={logo}></Image>
-          <Title>Organize seus estudos</Title>
-          <SubTitle>Vestibulares, Concursos, Faculdade, Idiomas...</SubTitle>
-          <SubTitle>Escontre uma sessão perfeita para seus estudos</SubTitle>
-          <SubTitle>ou crie a sua própria!</SubTitle>
-          <div className="action">
-            <ButtonPrimary content="Acesse Agora!"></ButtonPrimary>
+        <Block backgroundColor="#f8f8f8">
+          <div className="block-container">
+            <div className="block-text-group">
+              <h1>Destaque-se,</h1>
+              <h1>Vestibulares,</h1>
+              <h1>Concursos,</h1>
+              <h1>Escola ou Faculdade</h1>
+
+              <div className="block-subinfo">
+                <h4>Utilize o memo</h4>
+                <h4>como seu parceiro de estudos</h4>
+              </div>
+
+              <div className="block-actions">
+                <ButtonPrimary content="Acesse agora!"></ButtonPrimary>
+              </div>
+            </div>
+            <div className="block-image">
+              <img src={project1}/>
+            </div>
           </div>
         </Block>
-        <Block background={backgroundColored}>
+
+        <Block backgroundColor="#c8f8ff">
+          <div className="block-container type2">
+            <div className="block-image">
+              <img src={project2}/>
+            </div>
+            <div className="block-text-group">
+              <h1>Utilize a técnica</h1>
+              <h1>de repetição</h1>
+              <h1>espaçada e</h1>
+              <h1>fixe o</h1>
+              <h1>conteúdo</h1>
+            </div>
+          </div>
+        </Block>
+
+        <Block backgroundColor="#1ae2ff">
           <BlockContainerB>
             <h1>Como Funciona?</h1>
 
@@ -56,7 +94,8 @@ Você poderá revisar quantas vezes desejar</h5>
             </div>
           </BlockContainerB>
         </Block>
-        <Block background={background}>
+        
+        <Block backgroundColor="#f8f8f8">
             <h1>O Método</h1>
 
             <div className="method">
@@ -70,17 +109,11 @@ Você poderá revisar quantas vezes desejar</h5>
               <img src={metodo1}/>
             </div>
         </Block>
-        <Block background={backgroundColored}>
-          <BlockContainerB>
-            <h1>Gráfico Aprendizado x Tempo</h1>
-            <img className="full-image" src={revisao1}/>
-          </BlockContainerB>
-        </Block>
-        <Block background={background}>
+        <Block backgroundColor="#c8f8ff">
           <h1>Experimente o Memorizador</h1>
           
           <div className="action">
-            <ButtonPrimary content="Acesse Agora!"></ButtonPrimary>
+            <ButtonPrimary content="Acesse Agora!" action={signIn}></ButtonPrimary>
             <img className="full-image" src={try1}/>
           </div>
         </Block>
