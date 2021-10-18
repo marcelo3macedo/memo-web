@@ -1,11 +1,16 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-    padding: 10px;
+    padding: 0 10px;
+    min-height: 100vH;
 `;
 
 export const Content = styled.div`
-    padding: 10px 0;
+`;
+
+export const SubTitle = styled.h5`
+    color: var(--neutral90);   
+    margin-bottom: 5px;
 `;
 
 export const Title = styled.h1`
@@ -40,9 +45,18 @@ export const Header = styled.div`
 
 export const Action = styled.div`
     width: 50%;
-    margin: 10px auto;
+    margin: 20px auto;
+
 
     button {
         width: 100%;
     }
+`;
+
+export const Themes = styled.div`
+`;
+
+export const ThemeTitle = styled.h5`
+    color: var(--neutral90);
+    font-weight: bold;
 `;

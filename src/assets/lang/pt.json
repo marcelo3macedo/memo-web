@@ -33,7 +33,8 @@
         "search": "Pesquise um tema em nossa galeria",
         "searchPlaceholder": "Pesquise por nome, categoria ou tema...",
         "option": "ou",
-        "featured": "Em Destaque"
+        "featured": "Em Destaque",
+        "themeTitle": "Temas Abordados:"
     },
     "newDeck": {
         "title": "Nova Sessão",
@@ -41,7 +42,7 @@
         "save": "Criar"
     },
     "myDeck": {
-        "title": "Meus Decks"
+        "title": "Minhas Sessões"
     },
     "newCard": {
         "title": "Novo Card",

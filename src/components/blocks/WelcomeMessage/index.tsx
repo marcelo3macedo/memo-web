@@ -17,10 +17,12 @@ export default function WelcomeMessage() {
       <Content>
         <Title>{t('welcome.title')} {userName}!</Title>
         <Message>{ !sessions || sessions.length === 0 ? t('welcome.new') : t('welcome.message')}</Message>
-        <BannerArea>
-          <Banner className="mobile" src={banner}></Banner>
-          <Banner className="desktop" src={bannerDesktop}></Banner>
-        </BannerArea>
+        { !sessions || sessions.length === 0 ?
+          <BannerArea>
+            <Banner className="mobile" src={banner}></Banner>
+            <Banner className="desktop" src={bannerDesktop}></Banner>
+          </BannerArea>
+          : <></> }
       </Content>
     </Wrapper>
   );

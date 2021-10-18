@@ -21,10 +21,6 @@ export default function Deck({ data, sessionCards=null }) {
         <Opacity></Opacity>
         <Data>
           <Title>{data.name}</Title>
-          <Info>
-            <IconSmall name={icon} />
-            <Quantity>{sessionCards ? (sessionCards + "/") : null }{data.cardsCount}</Quantity>
-          </Info>
         </Data>
       </Content>
     </Wrapper>

@@ -6,7 +6,7 @@ export const Wrapper = styled.div`
     position: relative;
     width: 200px;
     max-width: 100%;
-    height: 200px;
+    height: 150px;
     background: var(--primary);
     border-radius: 20px;
     overflow: hidden;

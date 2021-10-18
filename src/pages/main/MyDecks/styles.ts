@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-    padding: 10px;
+    min-height: 100vH;
 `;
 
 export const Content = styled.div`
-    padding: 10px 0;
+    padding: 0px 10px;
 `;
 
 export const Title = styled.h1`

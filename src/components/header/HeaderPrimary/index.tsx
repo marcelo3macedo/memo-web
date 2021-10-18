@@ -30,7 +30,7 @@ export default function HeaderPrimary() {
     <Wrapper>
       <Content>
           <Header>
-            {location.pathname === "/" ? (
+            {location.pathname === "/main" ? (
               <>
                 <IconMedium className="list" name="list" action={menuClick} />
                 <Logo src={logo}></Logo>

@@ -19,6 +19,7 @@ export const GlobalStyle = createGlobalStyle`
         --neutral10: #f7ffff;
 
         --warm01: #fee1e8;
+        --warm30: #f3acbe;
         --warm50: #e794a9;
         --warm80: #ff63b1;
         --warm90: #cd4a8b;

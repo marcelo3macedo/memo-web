@@ -4,9 +4,9 @@ import { DeckCard } from "@interfaces/Deck/deckCard.interface";
 export const Wrapper = styled.div`
     margin-right: 10px;
     position: relative;
-    width: 200px;
+    width: 180px;
     max-width: 100%;
-    height: 200px;
+    height: 180px;
     background: var(--primary);
     border-radius: 20px;
     overflow: hidden;
@@ -58,7 +58,7 @@ export const Opacity = styled.div `
     position: absolute;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.4);
+    background: rgba(0,0,0,0.5);
 `;
 
 export const Data = styled.div `
@@ -71,3 +71,8 @@ export const Data = styled.div `
     flex-direction: column;
 `;
 
+export const ReviewTitle = styled.h5`
+    color: #fff;
+    font-weight: bold;
+    margin-right: 10px;
+`;

@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch } from "react-redux";
 
 import IconSmall from "@components/icons/IconSmall";
-import { Wrapper, Content, Info, Quantity, Title, Opacity, Data } from './styles';
+import { Wrapper, Content, Info, Quantity, ReviewTitle, Title, Opacity, Data } from './styles';
 import { openAction } from '@store/modules/session/actions';
 import { randomBackground } from '@config/Backgrounds';
 
@@ -22,8 +22,9 @@ export default function Session({ data }) {
         <Data>
           <Title>{data.deck.name}</Title>
           <Info>
+            <ReviewTitle>Revisão:</ReviewTitle>
             <IconSmall name={icon} />
-            <Quantity>{data.sessionCards}/{data.deck.cardsCount}</Quantity>
+            <Quantity>{data.sessionCards}</Quantity>
           </Info>
         </Data>
       </Content>
