@@ -41,7 +41,7 @@ export default function Home() {
               </div>
 
               <div className="block-actions">
-                <ButtonPrimary content="Acesse agora!"></ButtonPrimary>
+                <ButtonPrimary content="Acesse agora!" action={signIn}></ButtonPrimary>
               </div>
             </div>
             <div className="block-image">
@@ -95,10 +95,10 @@ Você poderá revisar quantas vezes desejar</h5>
           </BlockContainerB>
         </Block>
         
-        <Block backgroundColor="#f8f8f8">
-            <h1>O Método</h1>
-
+        <Block backgroundColor="#f8f8f8">          
             <div className="method">
+              <h1>O Método</h1>
+
               <div className="info">
                 <h2>Hermann Ebbinghaus</h2>
 
@@ -109,10 +109,10 @@ Você poderá revisar quantas vezes desejar</h5>
               <img src={metodo1}/>
             </div>
         </Block>
-        <Block backgroundColor="#c8f8ff">
-          <h1>Experimente o Memorizador</h1>
-          
+        <Block backgroundColor="#c8f8ff">          
           <div className="action">
+            <h1>Experimente o Memorizador</h1>
+          
             <ButtonPrimary content="Acesse Agora!" action={signIn}></ButtonPrimary>
             <img className="full-image" src={try1}/>
           </div>

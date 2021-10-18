@@ -125,7 +125,68 @@ export const Block = styled.div<IBanner>`
 
 
     @media (max-width: 768px) {
-        min-height: 350px;
+        min-height: 400px;
+        
+        .block-container {
+            padding: 0 10px; 
+            
+            .block-text-group {
+                min-width: 65%;
+                
+                h1 {
+                    font-size: 22pt;
+                    line-height: 40px;
+                    margin-bottom: 0;
+                }
+
+                .block-subinfo {
+                    h4 {
+                        font-size: 12pt;
+                        line-height: 25px;
+                    }
+                }
+            }
+
+            .block-actions {
+                text-align: center;
+                button {
+                    min-width: 200px;
+                    padding: 15px 0;
+                    background: #61d37b;
+                    text-transform: uppercase;
+                    letter-spacing: 1px;
+                }
+            }
+
+            .block-image {
+                position: absolute;
+                right: 0;
+                opacity: 0.2;
+
+                img {
+                    max-width: 170px;
+                }
+            }
+        }
+
+        .block-container.type2 {
+            flex-direction: column-reverse;
+            padding: 20px 10px;
+
+            .block-image {
+                position: relative;
+                opacity: 1;
+
+                img {
+                    max-width:100%;
+                }
+            }
+
+            .block-text-group {
+                width: 100%;
+                margin-bottom: 30px;
+            }
+        }
 
         .action {
             width: 90%;
@@ -141,12 +202,39 @@ export const Block = styled.div<IBanner>`
         .method {
             flex-direction: column;
             width: 80%;
+            padding: 20px 0;
+
+            h1 {
+                text-align: center;
+                font-size: 22pt;
+                padding: 10px 0;
+            }
+
+            h2 {
+                font-size: 18pt;
+            }
+
+            h4 {
+                font-size: 14pt;
+                line-height: 30px;
+            }
 
             .info {
                 padding-right: 0;
             }
+
+            img {
+                padding: 40px;
+            }
+        }
+
+        .action {
+            img {
+                display: none;
+            }   
         }
     }
+
 `;
 
 export const Image = styled.img`
@@ -225,12 +313,20 @@ export const BlockContainerB = styled.div`
     }
 
     @media (max-width: 768px) {
+        padding: 20px 0;
+
+        h1 {
+            font-size: 22pt;
+            line-height: 40px;
+            margin-bottom: 0;
+        }
+
         .items {
             flex-direction: column;
 
             .item {
                 padding: 0;
-                width: 70%;
+                width: 100%;
                 margin: auto;
                 margin-bottom: 40px;
 
@@ -243,11 +339,13 @@ export const BlockContainerB = styled.div`
                     display: flex; 
                     align-items: center;
                     justify-content: center;
+                    font-size: 14pt;
                 }
     
                 h5 {
                     color: #fff;
                     font-weight: bold;
+                    font-size: 12pt;
                 }
             }
         }

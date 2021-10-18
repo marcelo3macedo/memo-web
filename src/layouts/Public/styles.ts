@@ -14,7 +14,7 @@ export const Content = styled.div`
     overflow: hidden;
 
     @media (max-width: 768px) {
-        border-radius: 0;
+        border-radius: 0;        
     }
 `;
 
@@ -79,5 +79,6 @@ export const Image = styled.img`
 
     @media (max-width: 768px) {
         width: 100px;
+        border-right: none;
     }
 `;
