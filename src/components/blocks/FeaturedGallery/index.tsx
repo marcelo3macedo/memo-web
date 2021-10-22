@@ -1,7 +1,7 @@
 import React from 'react';
 import Deck from '@components/blocks/Deck';
 
-import { Wrapper, Content, Title, Header, HeaderIcon, Container } from './styles';
+import { Wrapper, Content, Title, Header, HeaderIcon, DecksArea, Container } from './styles';
 import featured from '@assets/icons/featured.png';
 
 export default function FeaturedGallery({featuredDecks=[]}) {
@@ -13,9 +13,11 @@ export default function FeaturedGallery({featuredDecks=[]}) {
           <Title>Em Destaque</Title>
         </Header>
         <Content>
+          <DecksArea>
           {featuredDecks.map(d=> (
-            <Deck key={d.deck.id} data={d.deck} />
+            <Deck key={d.id} data={d.deck} />
           ))}
+          </DecksArea>
         </Content>
       </Container>
     </Wrapper>

@@ -42,11 +42,12 @@
         "save": "Criar"
     },
     "myDeck": {
-        "title": "Minhas Sessões"
+        "title": "Minhas Sessões",
+        "subtitle": "Lista de suas sessões disponíveis para estudos"
     },
     "newCard": {
         "title": "Novo Card",
-        "content": "Escolha o conteúdo de seu card...",
+        "content": "Escolha o conLista de suas sessões disponíveis para estudosteúdo de seu card...",
         "secretContent": "Escolha a resposta de seu card...",
         "save": "Salvar"
     },
@@ -55,7 +56,12 @@
         "notFound": "Nenhum card encontrado"
     },
     "searchDeck": {
-        "title": "Resultados de:"
+        "title": "Pesquisar",
+        "subTitle": "Encontre uma sessão perfeita para seus estudos",
+        "category": "Categorias",
+        "placeholder": "Digite o nome ou tema de uma sessão...",
+        "results": "Resultados de: ",
+        "notFound": "Nenhuma sessão encontrada"
     },
     "sessionReview": {
         "title": "Última Sessão"

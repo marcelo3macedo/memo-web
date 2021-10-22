@@ -10,6 +10,7 @@ export const Wrapper = styled.div`
     background: var(--primary);
     border-radius: 20px;
     overflow: hidden;
+    border: 1px solid var(--neutral50);
 `;
 
 export const Content = styled.div<DeckCard>`
@@ -45,15 +46,15 @@ export const Quantity = styled.h3`
 export const Title = styled.h3`
     padding: 10px;
     font-weight: bold;
-    color: var(--secondary10);
-    text-align: right;
+    color: var(--primary);
+    text-align: center;
 `;
 
 export const Opacity = styled.div `
     position: absolute;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.4);
+    background: rgba(255,255,255,0.7);
 `;
 
 export const Data = styled.div `
@@ -61,8 +62,8 @@ export const Data = styled.div `
     width: 100%;
     height: 100%;
     display: flex;
-    align-items: flex-end;
-    justify-content: flex-end;
+    align-items: center;
+    justify-content: center;
     flex-direction: column;
 `;
 

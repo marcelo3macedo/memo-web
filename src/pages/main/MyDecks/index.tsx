@@ -5,7 +5,7 @@ import { useTranslation } from 'react-multi-lang';
 import { loadDecks } from '@store/modules/personal/actions';
 import DecksColumn from '@components/blocks/DecksColumn';
 
-import { Wrapper, Content, Title } from './styles';
+import { Wrapper, Content, Title, SubTitle } from './styles';
 import { RootState } from '@store/modules/rootReducer';
 
 export default function MyDecks() {
@@ -21,6 +21,7 @@ export default function MyDecks() {
     <Wrapper>
       <Content>
         <Title>{t('myDeck.title')}</Title>
+        <SubTitle>{t('myDeck.subtitle')}</SubTitle>
         <DecksColumn decks={decks} />
       </Content>
     </Wrapper>

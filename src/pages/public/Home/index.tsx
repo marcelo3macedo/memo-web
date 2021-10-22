@@ -114,7 +114,6 @@ Você poderá revisar quantas vezes desejar</h5>
             <h1>Experimente o Memorizador</h1>
           
             <ButtonPrimary content="Acesse Agora!" action={signIn}></ButtonPrimary>
-            <img className="full-image" src={try1}/>
           </div>
         </Block>
       </Content>

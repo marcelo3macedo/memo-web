@@ -1,11 +1,16 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-    width: 100%;
-    overflow-x: auto;
+    
 `;
 
 export const Content = styled.div`
+    width: 100%;
+    overflow-x: auto;
+    padding: 20px 0;
+`;
+
+export const DecksArea = styled.div`
     display: inline-flex;
     padding-bottom: 5px;
 `;

@@ -85,6 +85,9 @@ export const Block = styled.div<IBanner>`
     
     .method {
         display: flex;
+        flex-direction: column;
+        align-items: center;
+
         width: 70%;
 
         img { 

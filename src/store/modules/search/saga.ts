@@ -1,12 +1,31 @@
 
 import { all, put, takeLatest } from "redux-saga/effects";
-import { navigatePush } from "@store/modules/navigate/actions";
-import { PATH_SEARCHDECK } from '@services/Navigation';
+import { retrieve } from "@services/Api/requester";
+import { API_SEARCH } from "@services/Api/routes";
+import { loadSuccessAction } from "./actions";
 
-function* search({ term }:any) {
-    yield put(navigatePush({ path: PATH_SEARCHDECK }));    
+function* load() {
+    const response = yield retrieve({ method: `${API_SEARCH}` });
+    
+    if (response.status !== 200) {
+        return;
+    }
+
+    yield put(loadSuccessAction({ search: response.data }));
+}
+
+function* search(data) {
+    const { term } = data.payload;
+    const response = yield retrieve({ method: `${API_SEARCH}/${term}` });
+    
+    if (response.status !== 200) {
+        return;
+    }
+
+    yield put(loadSuccessAction({ search: response.data }));
 }
 
 export default all([
+    takeLatest('@search/LOAD', load),
     takeLatest('@search/SEARCH_ACTION', search),
 ]);
