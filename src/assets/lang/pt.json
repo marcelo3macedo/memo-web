@@ -1,4 +1,21 @@
 {
+    "account": {
+        "title": "Conta",
+        "subTitle": "Informações e detalhes sobre sua conta",
+        "settings": "Configurações da Conta",
+        "sessions": "Sessões",
+        "system": "Sistema",
+        "actions": {
+            "sessions": "Minhas Sessões",
+            "history": "Histórico",
+            "personal": "Dados Pessoais",
+            "policy": "Políticas de Privacidade",
+            "help": "Ajuda",
+            "logout": "Sair",
+            "version": "Versão",
+            "about": "Sobre"
+        }
+    },
     "alert": {
         "title": "Alerta"
     },
