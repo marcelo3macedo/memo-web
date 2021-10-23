@@ -7,7 +7,7 @@ import Option from '@components/blocks/Option';
 import { navigatePush } from '@store/modules/navigate/actions';
 
 import { Wrapper, Content, Options, Title } from './styles';
-import { PATH_ABOUT, PATH_HELP, PATH_MYDECKS, PATH_PRIVACY_POLICY } from '@services/Navigation';
+import { PATH_ABOUT, PATH_HELP, PATH_MYDECKS, PATH_PRIVACY_POLICY, PATH_PROFILE } from '@services/Navigation';
 import { logoutAction } from '@store/modules/auth/actions';
 
 export default function Account() {
@@ -35,7 +35,7 @@ export default function Account() {
 
         <Options>
           <Title>{t('account.settings')}</Title>
-          <Option title={t('account.actions.personal')} />
+          <Option title={t('account.actions.personal')} action={() => { navigate(PATH_PROFILE) }} />
           <Option title={t('account.actions.policy')} action={() => { navigate(PATH_PRIVACY_POLICY) }} />
           <Option title={t('account.actions.help')} action={() => { navigate(PATH_HELP) }} />
           <Option title={t('account.actions.logout')} action={logout} />

@@ -16,6 +16,15 @@
             "about": "Sobre"
         }
     },
+    "profile": {
+        "title": "Dados Pessoais",
+        "subTitle": "Informações e detalhes sobre sua conta",
+        "fields": {
+            "name": "Seu nome",
+            "email": "E-mail pessoal",
+            "createdAt": "Data criação da conta"
+        }
+    },
     "alert": {
         "title": "Alerta"
     },
@@ -89,6 +98,7 @@
         "delete": "Deletar",
         "edit": "Editar",
         "save": "Salvar",
+        "update": "Atualizar",
         "review": "Revisar",
         "createSession": "Criar Minha Sessão",
         "finishSession": "Concluir Sessão"

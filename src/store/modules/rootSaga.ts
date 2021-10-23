@@ -8,7 +8,8 @@ import personal from "./personal/saga";
 import resume from "./resume/saga";
 import session from "./session/saga";
 import search from "./search/saga";
+import profile from "./profile/saga";
 
 export default function* rootSaga() {
-    return yield all([auth, card, deck, menu, navigate, personal, resume, session, search]);
+    return yield all([auth, card, deck, menu, navigate, personal, resume, session, search, profile]);
 }
