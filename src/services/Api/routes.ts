@@ -8,3 +8,4 @@ export const API_RESUME = "/review";
 export const API_SESSIONS = "/sessions";
 export const API_SESSIONSFEED = "/sessions/feed";
 export const API_SEARCH = "/search";
+export const API_PROFILE = "/users/profile";
