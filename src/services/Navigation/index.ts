@@ -19,5 +19,6 @@ export const PATH_SESSION_COMPLETED = "/session-completed";
 export const PATH_MAIN = "/main";
 export const PATH_ACCOUNT = "/account";
 export const PATH_PROFILE = "/profile";
+export const PATH_HISTORY = "/history";
 
 export const PATH_HOME = "/";

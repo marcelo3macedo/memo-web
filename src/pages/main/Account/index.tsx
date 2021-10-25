@@ -7,7 +7,7 @@ import Option from '@components/blocks/Option';
 import { navigatePush } from '@store/modules/navigate/actions';
 
 import { Wrapper, Content, Options, Title } from './styles';
-import { PATH_ABOUT, PATH_HELP, PATH_MYDECKS, PATH_PRIVACY_POLICY, PATH_PROFILE } from '@services/Navigation';
+import { PATH_ABOUT, PATH_HELP, PATH_HISTORY, PATH_MYDECKS, PATH_PRIVACY_POLICY, PATH_PROFILE } from '@services/Navigation';
 import { logoutAction } from '@store/modules/auth/actions';
 
 export default function Account() {
@@ -30,7 +30,7 @@ export default function Account() {
         <Options>
           <Title>{t('account.sessions')}</Title>
           <Option title={t('account.actions.sessions')} action={() => { navigate(PATH_MYDECKS) }} />
-          <Option title={t('account.actions.history')} />
+          <Option title={t('account.actions.history')} action={() => { navigate(PATH_HISTORY) }} />
         </Options>
 
         <Options>
