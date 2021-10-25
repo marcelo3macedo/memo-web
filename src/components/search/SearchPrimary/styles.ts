@@ -23,11 +23,15 @@ export const Header = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;    
-    border-bottom: 1px solid #333;
-    padding: 5px 0;
+    border-bottom: 1px solid var(--neutral80);
+    padding: 10px 0;
 
     svg {
         padding: 5px;
+        
+        path {
+            color: var(--neutral80)!important;
+        }
     }
 `;
 
@@ -36,9 +40,24 @@ export const Field = styled.input`
     width: 100%;
     border: none;
     background: none;
+    color: var(--neutral90);
 `;
 
 export const Body = styled.div`
     height: 100vH;
     width: 100%;
+`;
+
+export const CloseArea = styled.div`
+    padding-top: 60px;
+
+    svg {
+        border: 1px solid var(--neutral80);
+        border-radius: 20px;
+        padding: 15px;        
+        
+        path {
+            fill: var(--neutral80)!important;
+        }
+    }
 `;

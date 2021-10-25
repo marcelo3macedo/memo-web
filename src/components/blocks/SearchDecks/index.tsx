@@ -23,8 +23,8 @@ export default function SearchDecks({ title, subTitle }) {
 
         <Search>
           <SearchInput onChange={e=>setTerm(e.target.value)} placeholder={t("decks.searchPlaceholder")}/>
-          <SearchIcon>
-            <IconSmall name={"search"} action={searchClick} />
+          <SearchIcon onClick={() => {searchClick() }}>
+            <IconSmall name={"search"} />
           </SearchIcon>
         </Search>
       </Content>
