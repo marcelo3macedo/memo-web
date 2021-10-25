@@ -10,10 +10,6 @@ const INITIAL_STATE = {
 export default function navigate(state = INITIAL_STATE, action) {
     return produce(state, draft => {
         switch (action.type) {
-            case "@search/LOAD": {
-                draft.searchQuery = null;
-                break;
-            }
             case "@search/LOAD_SUCCESS": {
                 draft.categories = action.payload.search.categories;
                 draft.featured = action.payload.search.featured;
