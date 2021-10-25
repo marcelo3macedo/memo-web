@@ -16,6 +16,13 @@
             "about": "Sobre"
         }
     },
+    "history": {
+        "title": "Histórico",
+        "subTitle": "Lista de suas sessões completadas",
+        "dateColumn": "Data: ",
+        "sessionColumn": "Sessão: ",
+        "reviewCardsColumn": "Cards Revisados: "
+    },
     "profile": {
         "title": "Dados Pessoais",
         "subTitle": "Informações e detalhes sobre sua conta",
