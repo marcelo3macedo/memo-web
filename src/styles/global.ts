@@ -89,4 +89,14 @@ export const GlobalStyle = createGlobalStyle`
             font-size: 1.3em;
         }
     }
+
+    .fade-enter {
+        opacity: 0.5;
+        z-index: 1;
+    }
+
+    .fade-enter.fade-enter-active {
+        opacity: 1;
+        transition: opacity 250ms ease-in;
+    }
 `;

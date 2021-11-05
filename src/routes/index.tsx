@@ -1,7 +1,8 @@
 import React from "react";
-import { Switch } from "react-router-dom";
-
+import { Switch, useLocation } from "react-router-dom";
 import Router from "./Router";
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
+
 import { Layouts } from "@config/Layouts";
 import SignIn from "@pages/auth/SignIn";
 import SignUp from "@pages/auth/SignUp";
@@ -30,34 +31,43 @@ import Profile from "@pages/main/Profile";
 import History from "@pages/main/History";
 
 export default function Routes() {
-    return (
-        <Switch>         
-            <Router path={PATH_MAIN} exact component={Main} layout={Layouts.Main} />    
-            <Router path={PATH_ABOUT} component={About} layout={Layouts.Main}/>  
-            <Router path={PATH_HELP} component={Help} layout={Layouts.Main}/>  
-            <Router path={PATH_MYACCOUNT} component={MyAccount} layout={Layouts.Main}/>   
-            <Router path={PATH_DECK} component={Deck} layout={Layouts.Main}/>  
-            <Router path={PATH_MYDECKS} component={MyDecks} layout={Layouts.Main}/>  
-            <Router path={PATH_ADDDECK} component={AddDeck} layout={Layouts.Main}/>  
-            <Router path={PATH_EDITDECK} component={EditDeck} layout={Layouts.Main}/>              
-            <Router path={PATH_SEARCHDECK} component={SearchDeck} layout={Layouts.Main}/>  
-            <Router path={PATH_ADDCARD} component={AddCard} layout={Layouts.Main}/>  
-            <Router path={PATH_EDITCARD} component={EditCard} layout={Layouts.Main}/>  
-            <Router path={PATH_PRIVACY_POLICY} component={PrivacyPolicy} layout={Layouts.Main}/>  
-            <Router path={PATH_SESSION} component={Session} layout={Layouts.Main}/>
-            <Router path={PATH_ACCOUNT} component={Account} layout={Layouts.Main}/>
-            <Router path={PATH_PROFILE} component={Profile} layout={Layouts.Main}/>
-            <Router path={PATH_HISTORY} component={History} layout={Layouts.Main}/>
-                        
-            <Router path={PATH_REVIEW} component={Review} layout={Layouts.Full}/>              
-            <Router path={PATH_SESSION_COMPLETED} component={SessionCompleted} layout={Layouts.Full}/>                          
-            
-            <Router path={PATH_SIGN_IN} component={SignIn} layout={Layouts.Auth}/>    
-            <Router path={PATH_FORGOT_PASSWORD} component={Recover} layout={Layouts.Auth}/>
-            <Router path={PATH_SIGN_UP} component={SignUp} layout={Layouts.Auth}/>   
-            <Router path={PATH_RECOVERED} component={Recovered} layout={Layouts.Auth}/>
+    const location = useLocation();
 
-            <Router path={PATH_HOME} exact component={Home} layout={Layouts.Public} />   
-        </Switch>
+    return (
+        <TransitionGroup>
+            <CSSTransition
+                timeout={300}
+                classNames='fade'
+                key={location.key}>
+                <Switch location={location}>         
+                    <Router path={PATH_MAIN} exact component={Main} layout={Layouts.Main} />    
+                    <Router path={PATH_ABOUT} component={About} layout={Layouts.Main}/>  
+                    <Router path={PATH_HELP} component={Help} layout={Layouts.Main}/>  
+                    <Router path={PATH_MYACCOUNT} component={MyAccount} layout={Layouts.Main}/>   
+                    <Router path={PATH_DECK} component={Deck} layout={Layouts.Main}/>  
+                    <Router path={PATH_MYDECKS} component={MyDecks} layout={Layouts.Main}/>  
+                    <Router path={PATH_ADDDECK} component={AddDeck} layout={Layouts.Main}/>  
+                    <Router path={PATH_EDITDECK} component={EditDeck} layout={Layouts.Main}/>              
+                    <Router path={PATH_SEARCHDECK} component={SearchDeck} layout={Layouts.Main}/>  
+                    <Router path={PATH_ADDCARD} component={AddCard} layout={Layouts.Main}/>  
+                    <Router path={PATH_EDITCARD} component={EditCard} layout={Layouts.Main}/>  
+                    <Router path={PATH_PRIVACY_POLICY} component={PrivacyPolicy} layout={Layouts.Main}/>  
+                    <Router path={PATH_SESSION} component={Session} layout={Layouts.Main}/>
+                    <Router path={PATH_ACCOUNT} component={Account} layout={Layouts.Main}/>
+                    <Router path={PATH_PROFILE} component={Profile} layout={Layouts.Main}/>
+                    <Router path={PATH_HISTORY} component={History} layout={Layouts.Main}/>
+                                
+                    <Router path={PATH_REVIEW} component={Review} layout={Layouts.Full}/>              
+                    <Router path={PATH_SESSION_COMPLETED} component={SessionCompleted} layout={Layouts.Full}/>                          
+                    
+                    <Router path={PATH_SIGN_IN} component={SignIn} layout={Layouts.Auth}/>    
+                    <Router path={PATH_FORGOT_PASSWORD} component={Recover} layout={Layouts.Auth}/>
+                    <Router path={PATH_SIGN_UP} component={SignUp} layout={Layouts.Auth}/>   
+                    <Router path={PATH_RECOVERED} component={Recovered} layout={Layouts.Auth}/>
+
+                    <Router path={PATH_HOME} exact component={Home} layout={Layouts.Public} />   
+                </Switch>
+            </CSSTransition>
+        </TransitionGroup>
     );
 }
