@@ -1,8 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 
-import background from "@assets/banners/background.png";
-import backgroundColored from "@assets/banners/backgroundColored.png";
 import project1 from "@assets/banners/project1.png";
 import project2 from "@assets/banners/project2.png";
 import info01 from "@assets/banners/info1.png";
@@ -10,9 +8,7 @@ import info02 from "@assets/banners/info2.png";
 import info03 from "@assets/banners/info3.png";
 import info04 from "@assets/banners/info4.png";
 import metodo1 from "@assets/banners/metodo1.png";
-import revisao1 from "@assets/banners/revisao1.png";
-import try1 from "@assets/banners/try1.png";
-import { Wrapper, Content, Block, BlockContainerB, Title, SubTitle, Image } from './styles';
+import { Wrapper, Content, Block, BlockContainerB } from './styles';
 import ButtonPrimary from '@components/button/ButtonPrimary';
 import { navigatePush } from '@store/modules/navigate/actions';
 import { PATH_SIGN_IN } from '@services/Navigation';
@@ -45,7 +41,7 @@ export default function Home() {
               </div>
             </div>
             <div className="block-image">
-              <img src={project1}/>
+              <img src={project1} alt="Memo"/>
             </div>
           </div>
         </Block>
@@ -53,7 +49,7 @@ export default function Home() {
         <Block backgroundColor="#c8f8ff">
           <div className="block-container type2">
             <div className="block-image">
-              <img src={project2}/>
+              <img src={project2} alt="Memo"/>
             </div>
             <div className="block-text-group">
               <h1>Utilize a técnica</h1>
@@ -71,22 +67,22 @@ export default function Home() {
 
             <div className="items"> 
               <div className="item">
-                <img src={info01} />
+                <img src={info01} alt="Memo"/>
                 <h3>Pesquise</h3>
                 <h5>Pesquise por um tema do seu interesse</h5>
               </div>
               <div className="item">
-                <img src={info02} />
+                <img src={info02} alt="Memo"/>
                 <h3>adicione</h3>
                 <h5>Adicione um baralho de estudos a sua lista</h5>
               </div>
               <div className="item">
-                <img src={info03} />
+                <img src={info03} alt="Memo"/>
                 <h3>PRONTO!</h3>
                 <h5>Uma coleção de cards contendo perguntas e respostas sobre o tema ficará disponível</h5>
               </div>
               <div className="item">
-                <img src={info04} />
+                <img src={info04} alt="Memo"/>
                 <h3>REVISE DIARIAMENTE</h3>
                 <h5>Novas perguntas e respostas serão disponibilizadas diariamente.  
 Você poderá revisar quantas vezes desejar</h5>
@@ -106,7 +102,7 @@ Você poderá revisar quantas vezes desejar</h5>
                 <h4>Descobriu que a informação é mais fácil de lembrar quando é construída sobre coisas que você já conhece, e a curva do esquecimento era achatada a cada repetição. </h4>
                 <h4>Parecia que, ao aplicar treinamento frequente na aprendizagem, a informação era solidificada por recordações repetidas.</h4>
               </div>
-              <img src={metodo1}/>
+              <img src={metodo1} alt="Memo"/>
             </div>
         </Block>
         <Block backgroundColor="#c8f8ff">          

@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import IconMedium from '@components/icons/IconMedium';
 import { RootState } from '@store/modules/rootReducer';
 import { navigatePush } from '@store/modules/navigate/actions';
-import { PATH_ACCOUNT, PATH_HELP, PATH_MAIN, PATH_MYDECKS, PATH_SEARCHDECK } from '@services/Navigation';
+import { PATH_ACCOUNT, PATH_MAIN, PATH_MYDECKS, PATH_SEARCHDECK } from '@services/Navigation';
 
 import { Wrapper, Content, Item, Title } from './styles';
 
