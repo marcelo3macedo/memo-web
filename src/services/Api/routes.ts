@@ -2,6 +2,7 @@
 export const API_SESSION = "/session";
 export const API_USERS = "/users";
 export const API_DECKS = "/decks";
+export const API_DECKSCLONE = "/decks/clone";
 export const API_CARDS = "/cards";
 export const API_REFRESHTOKEN = "/refresh-token";
 export const API_RESUME = "/review";

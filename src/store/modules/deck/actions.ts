@@ -36,6 +36,14 @@ export function reviewAction({ deck }) {
         }
     }
 }
+export function cloneAction({ deck }) {
+    return {
+        type: '@deck/CLONE',
+        payload: {
+            deck
+        }
+    }
+}
 export function addAction() {
     return {
         type: '@deck/ADD'

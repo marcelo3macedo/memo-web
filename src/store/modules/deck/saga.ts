@@ -3,9 +3,9 @@ import { all, put, takeLatest } from "redux-saga/effects";
 import { navigatePush } from "@store/modules/navigate/actions";
 import { PATH_EDITDECK, PATH_DECK, PATH_ADDDECK } from '@services/Navigation';
 import { send, retrieve } from "@services/Api/requester";
-import { API_DECKS, API_SESSIONSFEED } from "@services/Api/routes";
-import { openDeckSuccessAction  } from "@store/modules/session/actions";
-import { openSuccessAction, saveSuccessAction } from "./actions";
+import { API_DECKS, API_SESSIONSFEED, API_DECKSCLONE } from "@services/Api/routes";
+import { openDeckSuccessAction } from "@store/modules/session/actions";
+import { openSuccessAction, saveSuccessAction, reviewAction } from "./actions";
 
 function* save({ name }:any) {
     const data = { name };
@@ -56,12 +56,24 @@ function* finish() {
     yield put(navigatePush({ path: PATH_DECK }));
 }
 
+function* clone(data) {
+    const { deck } = data.payload;
+    const response = yield retrieve({ method: `${API_DECKSCLONE}/${deck.id}` });
+
+    if (response.status !== 201) {
+        return;
+    }
+
+    yield put(reviewAction({ deck: response.data }));
+}
+
 export default all([
     takeLatest('@deck/SAVE', save),
     takeLatest('@deck/SAVE_SUCCESS', saveSuccess),
     takeLatest('@deck/OPEN', open),
     takeLatest('@deck/OPEN_SUCCESS', openSuccess),
     takeLatest('@deck/REVIEW', review),
+    takeLatest('@deck/CLONE', clone),
     takeLatest('@deck/ADD', add),
     takeLatest('@deck/FINISH', finish),
 ]);
