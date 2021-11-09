@@ -1,11 +1,16 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-    padding: 10px;
+    min-height: 100vH;
 `;
 
 export const Content = styled.div`
-    padding: 10px 0;
+    padding: 0 10px;
+`;
+
+export const SubTitle = styled.h5`
+    color: var(--neutral90);   
+    margin-bottom: 5px;
 `;
 
 export const Title = styled.h1`
@@ -45,4 +50,23 @@ export const Action = styled.div`
     button {
         width: 100%;
     }
+`;
+
+export const Themes = styled.div`
+`;
+
+export const ThemeTitle = styled.h5`
+    color: var(--neutral90);
+    font-weight: bold;
+`;
+
+export const Card = styled.div`
+    border: 1px solid var(--neutral50);
+    padding: 15px 20px;
+    border-radius: 10px;
+    margin: 10px 0;
+`;
+
+export const CardName = styled.h5`
+    color: var(--neutral90);
 `;
