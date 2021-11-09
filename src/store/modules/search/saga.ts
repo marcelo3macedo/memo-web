@@ -28,7 +28,9 @@ function* search(data) {
 }
 
 function* loadSuccess() {
-    yield put(navigatePush({ path: PATH_SEARCHDECK }));
+    if (window.location.pathname !== PATH_SEARCHDECK) {
+        yield put(navigatePush({ path: PATH_SEARCHDECK }));
+    }    
 }
 
 export default all([
