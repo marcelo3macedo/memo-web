@@ -1,7 +1,7 @@
 
 import { all, put, takeLatest, select } from "redux-saga/effects";
 import { retrieve, update } from "@services/Api/requester";
-import { openSuccessAction, optionActionSuccess } from "./actions";
+import { openSuccessAction, optionActionSuccess, reviewAction } from "./actions";
 import { navigatePush } from "@store/modules/navigate/actions";
 import { API_SESSIONS } from "@services/Api/routes";
 import { PATH_REVIEW, PATH_SESSION, PATH_SESSION_COMPLETED } from "@services/Navigation";
@@ -22,7 +22,7 @@ function* openSuccess() {
 }
 
 function* openDeckSuccess() {
-    yield put(navigatePush({ path: PATH_REVIEW })); 
+    yield put(reviewAction()); 
 }
 
 function* review() {
