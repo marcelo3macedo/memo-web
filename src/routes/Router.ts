@@ -5,6 +5,7 @@ import { Route } from "react-router-dom";
 
 import { Layouts } from "@config/Layouts";
 import { isAuthNeeded } from "@services/Navigation/auth";
+import { onChangePage } from "@services/Navigation/router";
 import { checkAuthAction } from "@store/modules/auth/actions";
 
 export default function RouteWrapper({
@@ -13,6 +14,8 @@ export default function RouteWrapper({
     ...rest
 }){
     const dispatch = useDispatch();
+
+    onChangePage();
 
     if (isAuthNeeded(layout.name)) {
         dispatch(checkAuthAction());
