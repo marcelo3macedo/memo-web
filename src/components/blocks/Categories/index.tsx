@@ -25,7 +25,7 @@ export default function Categories({ data }) {
 
         <CategoryArea>
           {data.map(d => (
-            <Category onClick={() => { doSearch(d.name) }}>
+            <Category key={d.id} onClick={() => { doSearch(d.name) }}>
               <Title>{d.name}</Title>
             </Category>
           ))}

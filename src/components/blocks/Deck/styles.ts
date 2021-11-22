@@ -7,10 +7,9 @@ export const Wrapper = styled.div`
     width: 200px;
     max-width: 100%;
     height: 150px;
-    background: var(--primary);
     border-radius: 20px;
     overflow: hidden;
-    border: 1px solid var(--neutral50);
+    border: 2px solid var(--neutral50);
 `;
 
 export const Content = styled.div<DeckCard>`

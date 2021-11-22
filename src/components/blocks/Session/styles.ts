@@ -7,7 +7,6 @@ export const Wrapper = styled.div`
     width: 180px;
     max-width: 100%;
     height: 180px;
-    background: var(--primary);
     border-radius: 20px;
     overflow: hidden;
 
