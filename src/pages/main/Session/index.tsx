@@ -36,7 +36,7 @@ export default function Session() {
           {session.cards ? 
             session.cards.map(i => i.title)
               .filter((value, index, self) => {
-                return self.indexOf(value) == index;
+                return self.indexOf(value) === index;
               }).map(d => (
                 <Card key={d}>
                   <CardName>{d}</CardName>
