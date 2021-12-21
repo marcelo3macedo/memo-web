@@ -11,6 +11,7 @@ export const Content = styled.div`
     display: flex;
     width: 100%;
     flex-wrap: wrap;
+    margin: 0 -10px;
 `;
 
 export const DeckWrapper = styled.div`

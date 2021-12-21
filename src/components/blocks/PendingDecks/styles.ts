@@ -23,6 +23,7 @@ export const Footer = styled.div`
 
 export const Block = styled.div`
     width: 100%;
+    opacity: 0.8;
 
     @media (min-width: 768px) {
         max-width: 200px;

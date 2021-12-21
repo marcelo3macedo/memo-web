@@ -7,6 +7,7 @@ export const GlobalStyle = createGlobalStyle`
         --secondary90: #5ee4e1;
         --secondary80: #b6dddc;
         --secondary60: #d4f0f0;
+        --secondary40: #e4fdfd;
         --secondary30: #eefbfb;
         --secondary10: #f7ffff;
 
@@ -37,7 +38,7 @@ export const GlobalStyle = createGlobalStyle`
     * {
         margin: 0;
         padding: 0; 
-        font-family: 'Montserrat', sans-serif;
+        font-family: 'Merienda', cursive;
     }
 
     h4, h5, h6 {
@@ -98,5 +99,33 @@ export const GlobalStyle = createGlobalStyle`
     .fade-enter.fade-enter-active {
         opacity: 1;
         transition: opacity 250ms ease-in;
+    }
+
+    input[type="checkbox"] {
+        cursor: pointer;
+        font-size: 22px;
+        line-height: 24px;
+        height: 24px;
+        width: 24px;
+        clear: both;
+        padding: 0;
+        margin: 0;
+        margin-right: 10px;
+    }
+
+    input[type='radio'] {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        border: 2px solid var(--neutral80);
+        border-radius: 50%;
+    }
+
+    input[type='radio']:checked {
+        background: var(--secondary100);
+        border: 2px solid var(--secondary90);
     }
 `;

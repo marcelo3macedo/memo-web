@@ -10,7 +10,8 @@ import session from "./session/saga";
 import search from "./search/saga";
 import profile from "./profile/saga";
 import history from "./history/saga";
+import gallery from "./gallery/saga";
 
 export default function* rootSaga() {
-    return yield all([auth, card, deck, menu, navigate, personal, resume, session, search, profile, history]);
+    return yield all([auth, card, deck, menu, navigate, gallery, personal, resume, session, search, profile, history]);
 }

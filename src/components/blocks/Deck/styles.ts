@@ -53,7 +53,7 @@ export const Opacity = styled.div `
     position: absolute;
     width: 100%;
     height: 100%;
-    background: rgba(255,255,255,0.7);
+    background: rgba(255,255,255,0.65);
 `;
 
 export const Data = styled.div `

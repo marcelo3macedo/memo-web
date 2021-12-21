@@ -1,15 +1,15 @@
 import React from 'react';
 import Deck from '@components/blocks/Deck';
 
-import { Wrapper, Content, Title, Header, HeaderIcon, DecksArea, Container } from './styles';
-import featured from '@assets/icons/featured.png';
+import { Wrapper, Content, Title, Header, DecksArea, Container } from './styles';
+import IconMedium from '@components/icons/IconMedium';
 
 export default function FeaturedGallery({featuredDecks=[]}) {
   return (
     <Wrapper>
       <Container>
         <Header>
-          <HeaderIcon src={featured} />
+          <IconMedium name="featured" />
           <Title>Em Destaque</Title>
         </Header>
         <Content>

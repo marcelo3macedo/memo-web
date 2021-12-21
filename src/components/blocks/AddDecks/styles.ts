@@ -25,5 +25,5 @@ export const SubTitle = styled.h5`
 `;
 
 export const Actions = styled.div`
-    padding-top: 10px;
+    padding-top: 20px;
 `;

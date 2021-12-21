@@ -8,20 +8,19 @@ import { cloneAction, reviewAction } from '@store/modules/deck/actions';
 import SubSession from '@components/blocks/SubSession';
 
 import { Wrapper, Content, Title, SubTitle, Header, Action, Themes, ThemeTitle } from './styles';
+import CardsList from '@components/blocks/CardsList';
 
 export default function Deck() {
   const dispatch = useDispatch();
   const t = useTranslation();
   const deck:any = useSelector((state:RootState) => state.deck.deck);
-  const content = deck && deck.isPublic ? t('actions.add') : t('actions.review');
-
+  
   function reviewClick({ deck }) {
-    if (deck.isPublic) {
-      dispatch(cloneAction({ deck }));
-      return;
-    }
-
     dispatch(reviewAction({ deck }));
+  }
+
+  function cloneClick({ deck }) {
+    dispatch(cloneAction({ deck }));
   }
 
   if (!deck) {
@@ -36,18 +35,23 @@ export default function Deck() {
           <Title>{deck.name}</Title>
         </Header>
         <Action>
-          <ButtonPrimary content={content} action={() => { reviewClick({ deck })} }/>
+          { deck && (deck.isPublic && !deck.owner) ?
+            (<ButtonPrimary content={t('actions.add')} action={() => { cloneClick({ deck })} }/>) :
+            (<ButtonPrimary content={t('actions.review')} action={() => { reviewClick({ deck })} }/>)
+          }          
         </Action>
 
-        <Themes>
-          <ThemeTitle>{t('decks.themeTitle')}</ThemeTitle>
-          {deck.children ? 
-            deck.children.map(d => (
+        {(deck.children && deck.children.length > 0) ? (
+          <Themes>
+            <ThemeTitle>{t('decks.themeTitle')}</ThemeTitle>
+            
+            {deck.children.map(d => (
               <SubSession data={d} key={d.id}></SubSession>
-            ))
-            : <></>
-          }
-        </Themes>
+            ))}
+          </Themes>
+        ) : <></> }
+
+        <CardsList cards={deck.cards} preview={true} />
       </Content>   
     </Wrapper>
   ); 

@@ -17,7 +17,7 @@ export default function navigate(state = INITIAL_STATE, action) {
             }
             case "@deck/SAVE_SUCCESS": {
                 action.payload.deck.cards = [];
-                draft.deck = action.payload.deck;
+                draft.deck = action.payload.deck;                
                 break;
             }
             case "@deck/UPDATE_CARD": {

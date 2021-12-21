@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
 `;
 
 export const Content = styled.div`
-    background: var(--secondary30); 
+    background: var(--secondary40); 
     
     @media (min-width: 768px) {
         max-width: 1100px;

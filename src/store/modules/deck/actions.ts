@@ -1,7 +1,9 @@
-export function saveAction({ name }) {
+export function saveAction({ name, isPublic }) {
     return {
         type: '@deck/SAVE',
-        name
+        payload: {
+            name, isPublic
+        }
     }
 }
 export function saveSuccessAction(deck) {

@@ -14,6 +14,25 @@ export const Content = styled.div`
     
 `;
 
+export const Actions = styled.div`
+    position: fixed;
+    bottom: 80px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+`;
+
+export const Action = styled.div`
+    width: 100%;
+    padding: 0 5px;
+
+    button {
+        width: 100%;
+    }
+`;
+
 export const Finish = styled.div`
     text-align: right;
     margin-bottom: 10px;
@@ -53,14 +72,7 @@ export const Header = styled.div`
     justify-content: space-between;
 `;
 
-export const Action = styled.div`
-    width: 50%;
-    margin: 10px auto;
 
-    button {
-        width: 100%;
-    }
-`;
 
 export const Fields = styled.div`
     width: 100%;

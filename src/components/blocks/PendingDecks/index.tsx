@@ -24,10 +24,14 @@ export default function PendingDecks() {
     <Wrapper show={show}>
       <Content>
         <SessionGallery sessions={sessions} />
-        <Footer>
-          <Block></Block>
-          <Block><ButtonSecondary content={t('decks.seeMore')} action={seeMoreClick} /></Block>
-        </Footer>
+        {sessions && sessions.length > 5 ? (
+          <Footer>
+            <Block></Block>
+            <Block>            
+              <ButtonSecondary content={t('decks.seeMore')} action={seeMoreClick} /> 
+            </Block>
+          </Footer>
+        ) : <></>}
       </Content>
     </Wrapper>
   );

@@ -1,12 +1,14 @@
 import React, { useEffect } from 'react';
+import { RootState } from '@store/modules/rootReducer';
 import { useDispatch, useSelector } from "react-redux";
 import { useTranslation } from 'react-multi-lang';
 
-import { loadDecks } from '@store/modules/personal/actions';
 import DecksColumn from '@components/blocks/DecksColumn';
+import HeaderPage from '@components/header/HeaderPage';
 
-import { Wrapper, Content, Title, SubTitle } from './styles';
-import { RootState } from '@store/modules/rootReducer';
+import { loadDecks } from '@store/modules/personal/actions';
+
+import { Wrapper, Content } from './styles';
 
 export default function MyDecks() {
   const t = useTranslation();
@@ -20,8 +22,7 @@ export default function MyDecks() {
   return (
     <Wrapper>
       <Content>
-        <Title>{t('myDeck.title')}</Title>
-        <SubTitle>{t('myDeck.subtitle')}</SubTitle>
+        <HeaderPage title={t('myDeck.title')} subTitle={t('myDeck.subtitle')}></HeaderPage>
         <DecksColumn decks={decks} />
       </Content>
     </Wrapper>

@@ -28,11 +28,15 @@ export const Header = styled.div`
     width: 100%;
 `;
 
-export const Title = styled.h3`
+export const CardTitle = styled.h5`
     margin-bottom: 5px;
 `;
 
-export const Answer = styled.h5`
+export const CardContent = styled.h3`
+    margin-bottom: 5px;
+`;
+
+export const CardSecretContent = styled.h5`
 `;
 
 export const Actions = styled.div`
@@ -46,6 +50,7 @@ export const Action = styled.div`
     padding: 5px 10px;
     align-items: center;
     background: var(--neutral10);
+    opacity: 0.8;
     color: var(--primary);
 
     svg {

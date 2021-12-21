@@ -32,6 +32,13 @@ export const Fields = styled.div`
     flex-direction: column;
     padding: 10px 0;
 
+    input {
+        margin-bottom: 5px;
+        padding: 15px 10px;
+        border-radius: 10px;
+        border: 1px solid var(--neutral60);        
+    }
+
     textarea {
         margin-bottom: 5px;
         padding: 15px 10px;

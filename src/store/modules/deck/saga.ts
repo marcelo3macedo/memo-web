@@ -7,9 +7,8 @@ import { API_DECKS, API_SESSIONSFEED, API_DECKSCLONE } from "@services/Api/route
 import { openDeckSuccessAction } from "@store/modules/session/actions";
 import { openSuccessAction, saveSuccessAction, reviewAction } from "./actions";
 
-function* save({ name }:any) {
-    const data = { name };
-    const response = yield send({ method: `${API_DECKS}`, data});
+function* save({ payload }:any) {
+    const response = yield send({ method: `${API_DECKS}`, data: payload });
     
     if (response.status !== 201) {
         return;

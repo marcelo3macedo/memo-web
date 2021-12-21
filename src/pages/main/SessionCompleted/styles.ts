@@ -9,5 +9,13 @@ export const Content = styled.div`
 `;
 
 export const Actions = styled.div`
-    padding-bottom: 20px;
+    padding: 20px 0;
+`;
+
+export const Resume = styled.div`
+    padding: 15px 0;
+`;
+
+export const ResumeTitle = styled.h3`
+    color: var(--neutral90);
 `;

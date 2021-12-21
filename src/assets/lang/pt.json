@@ -57,13 +57,13 @@
     "welcome": {
         "title": "Olá, ",
         "message": "Suas sessões de estudos de hoje",
-        "new": "Inicie uma sessão de estudos"
+        "new": "Adicione um tema de estudo"
     },
     "decks": {
         "title": "Sessão",
         "seeMore": "Ver Mais",
         "add": "ou crie a sua própria sessão de estudos",
-        "search": "Pesquise um tema em nossa galeria",
+        "search": "Pesquise por um tema",
         "searchPlaceholder": "Pesquise por nome, categoria ou tema...",
         "option": "ou",
         "featured": "Em Destaque",
@@ -80,7 +80,8 @@
     },
     "newCard": {
         "title": "Novo Card",
-        "content": "Escolha o conLista de suas sessões disponíveis para estudosteúdo de seu card...",
+        "header": "Escolha um título para seu card",
+        "content": "Escolha o conteúdo de seu card...",
         "secretContent": "Escolha a resposta de seu card...",
         "save": "Salvar"
     },
@@ -119,5 +120,35 @@
     },
     "privacyPolicy": {
         "title": "Politicas de Privacidade"
+    },
+    "menu": {
+        "home": "Home",
+        "sessions": "Sessões",
+        "gallery": "Galeria",
+        "search": "Pesquisar",
+        "account": "Conta"
+    },
+    "gallery": {
+        "title": "Galeria",
+        "subTitle": "Coleção de sessões disponibilizadas por usuários"
+    },
+    "privacy": {
+        "public": "Público",
+        "private": "Privado",
+        "publicDescription": "Qualquer pessoa poderá visualizar sua sessão.",
+        "privateDescription": "Somente você visualizará sua sessão."
+    },
+    "sessionCompleted": {
+        "title": "Sessão Completada",
+        "subTitle": "Você completou a sessão com sucesso!",
+        "resume": "Resumo"
+    },
+    "howItWorks": {
+        "title": "Como Funciona",
+        "card01": "Visite nossa galeria e encontre seu tema de estudos",
+        "card02": "Adicione o tema desejado a sua lista, ele ficará disponível em Sessões",
+        "card03": "Diariamente será disponibilizado uma seleção de cards para revisão",
+        "card04": "Revise cada card indicando a dificuldade de lembrá-lo",
+        "card05": "Pronto! Uma nova sessão será disponibilizada no próximo dia."
     }
 }

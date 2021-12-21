@@ -1,6 +1,7 @@
 import * as Yup from "yup";
 
 export const initialValues = {
+  title: "",
   content: "",
   secretContent: "",
 };

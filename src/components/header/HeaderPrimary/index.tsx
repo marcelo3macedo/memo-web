@@ -8,7 +8,7 @@ import { menuAction, searchAction } from '@store/modules/menu/actions';
 import { backAction } from '@store/modules/navigate/actions';
 import SearchPrimary from '@components/search/SearchPrimary';
 
-import { Wrapper, Content, Header, Logo } from './styles';
+import { Wrapper, Content, Header, Logo, Block } from './styles';
 
 export default function HeaderPrimary() {
   const dispatch = useDispatch();
@@ -33,11 +33,15 @@ export default function HeaderPrimary() {
             {location.pathname === "/main" ? (
               <>
                 <IconMedium className="list" name="list" action={menuClick} />
-                <Logo src={logo}></Logo>
+                <Logo className="no-select" src={logo}></Logo>
                 <IconMedium name="search" action={searchClick} />        
               </>
             ): (
-              <IconMedium name="back" action={backClick} />
+              <>
+                <IconMedium name="back" action={backClick} />
+                <Logo className="no-select" src={logo}></Logo>
+                <Block></Block> 
+              </>
             )}            
           </Header>
           <SearchPrimary/>

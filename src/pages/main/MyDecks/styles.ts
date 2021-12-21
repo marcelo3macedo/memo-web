@@ -5,19 +5,5 @@ export const Wrapper = styled.div`
 `;
 
 export const Content = styled.div`
-    padding: 0px 10px;
+    padding: 0 10px;
 `;
-
-export const Title = styled.h1`
-    color: var(--neutral90);
-`;
-
-export const SubTitle = styled.h4`
-    padding: 5px 0;
-    color: var(--neutral90);
-`;
-
-export const Paragraph = styled.h5`
-    padding: 10px 0;
-`;
-

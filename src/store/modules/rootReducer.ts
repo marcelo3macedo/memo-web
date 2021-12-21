@@ -10,6 +10,7 @@ import resume from "./resume/reducer";
 import session from "./session/reducer";
 import search from "./search/reducer";
 import history from "./history/reducer";
+import gallery from "./gallery/reducer";
 
 export const rootReducer = combineReducers({
     auth,
@@ -22,7 +23,8 @@ export const rootReducer = combineReducers({
     resume,
     session,
     search,
-    history
+    history,
+    gallery
 })
 
 export type RootState = ReturnType<typeof rootReducer>

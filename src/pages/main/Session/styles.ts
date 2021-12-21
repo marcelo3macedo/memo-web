@@ -34,6 +34,8 @@ export const Block = styled.div`
 `;
 
 export const Header = styled.div`
+    padding: 10px 0;
+    
     h3 {
         color: var(--neutral90);
     }

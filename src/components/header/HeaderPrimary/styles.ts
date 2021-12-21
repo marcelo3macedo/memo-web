@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-    padding: 10px;
-    padding-top: 15px;
+    padding: 15px;
+    border-bottom: 2px solid var(--secondary60);    
 
     @media (min-width: 768px) {
         padding: 0px;
@@ -43,4 +43,7 @@ export const Logo = styled.img`
         display: block;
         height: 32px;
     }
+`;
+
+export const Block = styled.div`
 `;

@@ -32,7 +32,7 @@ export default function ModalAddDeck() {
         <Header onClick={close}>
           <IconSmall name="delete"/>
         </Header>
-        <Title>Criar Card</Title>
+        <Title>{t('newCard.title')}</Title>
         <Formik 
               enableReinitialize
               initialValues={initialValues}
@@ -41,10 +41,12 @@ export default function ModalAddDeck() {
           <Form>
             <Block>
               <Fields>
+                <Field name={"title"} type="text" className="input" placeholder={t('newCard.header')} />
+                <ValidationMessage name="title"/>
                 <Field name={"content"} as="textarea" type="text" className="input" placeholder={t('newCard.content')} />
                 <ValidationMessage name="content"/>
                 <Field name={"secretContent"} as="textarea" type="text" className="input" placeholder={t('newCard.secretContent')} />
-                <ValidationMessage name="secretContent"/>
+                <ValidationMessage name="secretContent"/>   
               </Fields>
               <ButtonPrimary type="submit" content={t('actions.save')}/>
             </Block>

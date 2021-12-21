@@ -23,11 +23,14 @@ export const Title = styled.h3`
 export const Header = styled.div`
     display: flex;
     align-items: center;
-`;
 
-export const HeaderIcon = styled.img`
-    max-width: 30px;
-    margin-right: 5px;
+    svg {
+        padding-right: 5px;
+
+        path {
+            fill: var(--secondary100);
+        }        
+    }
 `;
 
 export const Container = styled.div`

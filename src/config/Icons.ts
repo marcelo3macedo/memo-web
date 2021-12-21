@@ -12,6 +12,10 @@ import { ReactComponent as PrivacyIcon } from "@assets/icons/privacy.svg";
 import { ReactComponent as InfoIcon } from "@assets/icons/info.svg";
 import { ReactComponent as QuestionIcon } from "@assets/icons/question.svg";
 import { ReactComponent as SignOutIcon } from "@assets/icons/sign-out.svg";
+import { ReactComponent as GalleryIcon } from "@assets/icons/gallery.svg";
+import { ReactComponent as FeaturedIcon } from "@assets/icons/featured.svg";
+import { ReactComponent as UnlockIcon } from "@assets/icons/unlock.svg";
+import { ReactComponent as LockIcon } from "@assets/icons/lock.svg";
 
 export const Icons = {
     user: UserIcon,
@@ -27,5 +31,9 @@ export const Icons = {
     privacy: PrivacyIcon,
     info: InfoIcon,
     question: QuestionIcon,
-    signOut: SignOutIcon
+    signOut: SignOutIcon,
+    gallery: GalleryIcon,
+    featured: FeaturedIcon,
+    unlock: UnlockIcon,
+    lock: LockIcon
 }

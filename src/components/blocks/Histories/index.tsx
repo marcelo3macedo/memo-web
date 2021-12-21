@@ -20,7 +20,6 @@ export default function Histories({ data }) {
             <History>
               <Title><Info>{t('history.dateColumn')}</Info> {Moment(d.createdAt).format('d/MM/YYYY')}</Title>
               <Title><Info>{t('history.sessionColumn')}</Info> {d.deck.name}</Title>
-              <Title><Info>{t('history.reviewCardsColumn')}</Info> {d.sessionCards}</Title>
             </History>            
           ))}
         </HistoryArea>

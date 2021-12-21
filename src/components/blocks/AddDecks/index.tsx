@@ -4,7 +4,7 @@ import { useTranslation } from 'react-multi-lang';
 
 import { addAction } from '@store/modules/deck/actions';
 import { Wrapper, Content, SubTitle, Actions } from './styles';
-import ButtonFeatured from '@components/button/ButtonFeatured';
+import ButtonPrimary from '@components/button/ButtonPrimary';
 
 export default function AddDecks() {
   const t = useTranslation();
@@ -19,7 +19,7 @@ export default function AddDecks() {
       <Content>
         <SubTitle>{t("decks.add")}</SubTitle>
         <Actions>
-          <ButtonFeatured content={t("actions.createSession")} action={createSessionClick}></ButtonFeatured>
+          <ButtonPrimary content={t("actions.createSession")} action={createSessionClick}></ButtonPrimary>
         </Actions>
       </Content>
     </Wrapper>

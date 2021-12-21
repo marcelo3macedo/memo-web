@@ -11,7 +11,6 @@ export const Content = styled.div`
     flex-wrap: wrap;
     width: 100%;
     padding: 10px 0;
-    margin-top: 10px;
     border-top: 1px solid #ccc;
 
     @media (min-width: 768px) {
