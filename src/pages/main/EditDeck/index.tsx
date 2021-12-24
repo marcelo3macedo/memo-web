@@ -14,7 +14,7 @@ import { newCardAction } from '@store/modules/card/actions';
 import ModalEditCard from '@components/modal/ModalEditCard';
 import ModalAddCard from '@components/modal/ModalAddCard';
 import ButtonPrimary from '@components/button/ButtonPrimary';
-import ModalRemoveDeck from '@components/modal/ModalRemoveCard ';
+import ModalRemoveDeck from '@components/modal/ModalRemoveCard';
 
 export default function EditDeck() {
   const dispatch = useDispatch();
