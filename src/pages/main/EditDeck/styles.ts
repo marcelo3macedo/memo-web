@@ -22,6 +22,10 @@ export const Actions = styled.div`
     display: flex;
     width: 100%;
     justify-content: space-between;
+
+    @media (min-width: 768px) {
+        position: relative;
+    }
 `;
 
 export const Action = styled.div`
@@ -103,4 +107,8 @@ export const NewCard = styled.div`
     @media (min-width: 768px) {
         max-width: 250px;
     }
+`;
+
+export const Frequency = styled.h4`
+    color: var(--neutral90);
 `;

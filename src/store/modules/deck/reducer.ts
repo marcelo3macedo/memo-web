@@ -1,7 +1,9 @@
 import produce from "immer";
 
 const INITIAL_STATE = {
-    deck: null
+    deck: null,
+    frequency: [],
+    defaultFrequency: null
 };
 
 export default function navigate(state = INITIAL_STATE, action) {
@@ -27,6 +29,11 @@ export default function navigate(state = INITIAL_STATE, action) {
             }
             case "@deck/DELETE_CARD": {
                 draft.deck.cards = draft.deck.cards.filter(c => c.id !== action.payload.card.id);                
+                break;
+            }
+            case "@deck/NEWDECK_SUCCESS": {
+                draft.frequency = action.payload.frequencies;
+                action.payload.frequencies.filter(c=> c.default === true).map(x=> { draft.defaultFrequency = x.id });
                 break;
             }
             default:

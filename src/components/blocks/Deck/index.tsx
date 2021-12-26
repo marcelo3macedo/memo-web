@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch } from "react-redux";
 
-import { Wrapper, Content, Title, Opacity, Data } from './styles';
+import { Wrapper, Content, Title, Opacity, Data, Frequency } from './styles';
 import { openAction } from '@store/modules/deck/actions';
 import { randomBackground } from '@config/Backgrounds';
 
@@ -19,6 +19,7 @@ export default function Deck({ data, sessionCards=null }) {
         <Opacity></Opacity>
         <Data>
           <Title>{data.name}</Title>
+          <Frequency>{data.frequency.name}</Frequency>
         </Data>
       </Content>
     </Wrapper>

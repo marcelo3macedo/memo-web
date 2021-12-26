@@ -7,7 +7,7 @@ import CardsTotal from '@components/blocks/CardsTotal';
 import CardsList from '@components/blocks/CardsList';
 import { RootState } from '@store/modules/rootReducer';
 
-import { Wrapper, Content, Title, Header, SubTitle, Actions, Action } from './styles';
+import { Wrapper, Content, Title, Header, SubTitle, Actions, Action, Frequency } from './styles';
 import ButtonSecondary from '@components/button/ButtonSecondary';
 import { finishAction } from '@store/modules/deck/actions';
 import { newCardAction } from '@store/modules/card/actions';
@@ -20,6 +20,7 @@ export default function EditDeck() {
   const dispatch = useDispatch();
   const t = useTranslation();
   const deck = useSelector((state:RootState) => state.deck.deck);
+  const frequency = useSelector((state:RootState) => state.deck.frequency);
   
   function endEdition() {
     dispatch(finishAction());
@@ -35,8 +36,10 @@ export default function EditDeck() {
         <SubTitle>{t('decks.title')}</SubTitle>
         <Header>
           <Title>{deck.name}</Title>
-          <CardsTotal size={deck.cards.length}/>
+          <CardsTotal size={deck.cards.length}/>          
         </Header>
+        <Frequency>{t('decks.frequency')}{frequency.find(x=>x.id === deck.frequencyId).name}</Frequency>
+
         <CardsList cards={deck.cards}/>
         
         <Actions>

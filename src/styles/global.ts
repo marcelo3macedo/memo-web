@@ -128,4 +128,15 @@ export const GlobalStyle = createGlobalStyle`
         background: var(--secondary100);
         border: 2px solid var(--secondary90);
     }
+
+    select {
+        background: transparent;
+        border: 1px solid var(--neutral80);
+        border-radius: 10px;
+        padding: 10px;
+    }
+
+    select:focus {
+        outline: none;
+    }
 `;

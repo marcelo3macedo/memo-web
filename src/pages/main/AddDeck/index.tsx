@@ -1,25 +1,36 @@
-import React from 'react';
-import { useDispatch } from "react-redux";
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from "react-redux";
 import { useTranslation } from 'react-multi-lang';
 import { Formik, Form, Field } from "formik";
 
 import ButtonPrimary from '@components/button/ButtonPrimary';
 import ValidationMessage from '@components/validation/ValidationMessage';
 import { initialValues, schema } from '@services/Validation/newDeck.schema';
-import { saveAction } from '@store/modules/deck/actions';
+import { loadNewDeck, saveAction } from '@store/modules/deck/actions';
 
-import { Wrapper, Content, Title, Block, Group, RadioArea, RadioIcon, RadioInfo, RadioTitle, RadioDescription, FinishArea } from './styles';
+import { Wrapper, Content, Title, Block, Group, ComboArea, RadioArea, RadioIcon, RadioInfo, RadioTitle, RadioDescription, ComboTitle, FinishArea } from './styles';
 import IconMedium from '@components/icons/IconMedium';
+import { RootState } from '@store/modules/rootReducer';
 
 export default function AddDeck() {
   const dispatch = useDispatch();
+  const { frequency, defaultFrequency } = useSelector((state:RootState) => state.deck);
   const t = useTranslation();
+
+  useEffect(() => {
+    dispatch(loadNewDeck());
+  }, [dispatch]);
 
   function handleSubmit(data) {
     dispatch(saveAction({
       name: data.name,
-      isPublic: data.isPublic === "public"
+      isPublic: data.isPublic === "public",
+      frequencyId: data.frequencyId
     }));
+  }
+
+  if (defaultFrequency) {
+    initialValues.frequencyId = defaultFrequency;
   }
 
   return (
@@ -58,6 +69,15 @@ export default function AddDeck() {
                   </RadioInfo>
                 </RadioArea>
               </Group>
+              <ComboArea>
+                <ComboTitle>{t('newDeck.interval')}</ComboTitle>
+                
+                <Field name={"frequencyId"} as="select" className="frequency">
+                  {frequency.map(f => (
+                    <option key={f.id} value={f.id}>{f.name}</option>  
+                  ))}
+                </Field>
+              </ComboArea>
               <FinishArea>
                 <ButtonPrimary type="submit" content={t('newDeck.save')}/>
               </FinishArea>

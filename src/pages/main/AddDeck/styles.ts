@@ -69,6 +69,22 @@ export const RadioDescription = styled.h6`
     color: var(--neutral90);
 `;
 
+export const ComboArea = styled.div`
+    padding: 10px 0;
+    width: 100%;
+
+    select {
+        margin-top: 10px;
+        width: 100%;
+        color: var(--neutral90);
+    }
+`;
+
+export const ComboTitle = styled.h4`
+    color: var(--neutral90);
+`;
+
+
 export const FinishArea = styled.div`
     margin-top: 20px;
     width: 100%;

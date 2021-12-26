@@ -66,3 +66,6 @@ export const Data = styled.div `
     flex-direction: column;
 `;
 
+export const Frequency = styled.h5`
+    color: var(--primary);
+`;
