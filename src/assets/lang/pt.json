@@ -67,12 +67,14 @@
         "searchPlaceholder": "Pesquise por nome, categoria ou tema...",
         "option": "ou",
         "featured": "Em Destaque",
-        "themeTitle": "Temas Abordados:"
+        "themeTitle": "Temas Abordados:",
+        "frequency": "Frequência: "
     },
     "newDeck": {
         "title": "Nova Sessão",
         "name": "Escolha um nome para a sua sessão...",
-        "save": "Criar"
+        "save": "Criar",
+        "interval": "Frequência"
     },
     "myDeck": {
         "title": "Minhas Sessões",

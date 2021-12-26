@@ -1,8 +1,8 @@
-export function saveAction({ name, isPublic }) {
+export function saveAction({ name, isPublic, frequencyId }) {
     return {
         type: '@deck/SAVE',
         payload: {
-            name, isPublic
+            name, isPublic, frequencyId
         }
     }
 }
@@ -80,3 +80,18 @@ export function deleteCard({ card }) {
         }
     }
 }
+export function loadNewDeck() {
+    return {
+        type: '@deck/LOAD_NEWDECK'
+    }
+}
+
+export function newDeckSuccessAction({ frequencies }) {
+    return {
+        type: '@deck/NEWDECK_SUCCESS',
+        payload: {
+            frequencies
+        }
+    }
+}
+

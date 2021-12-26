@@ -3,9 +3,9 @@ import { all, put, takeLatest } from "redux-saga/effects";
 import { navigatePush } from "@store/modules/navigate/actions";
 import { PATH_EDITDECK, PATH_DECK, PATH_ADDDECK } from '@services/Navigation';
 import { send, retrieve } from "@services/Api/requester";
-import { API_DECKS, API_SESSIONSFEED, API_DECKSCLONE } from "@services/Api/routes";
+import { API_DECKS, API_SESSIONSFEED, API_DECKSCLONE, API_FREQUENCIES } from "@services/Api/routes";
 import { openDeckSuccessAction } from "@store/modules/session/actions";
-import { openSuccessAction, saveSuccessAction, reviewAction } from "./actions";
+import { openSuccessAction, saveSuccessAction, reviewAction, newDeckSuccessAction } from "./actions";
 
 function* save({ payload }:any) {
     const response = yield send({ method: `${API_DECKS}`, data: payload });
@@ -66,6 +66,16 @@ function* clone(data) {
     yield put(reviewAction({ deck: response.data }));
 }
 
+function* newDeck() {
+    const response = yield retrieve({ method: `${API_FREQUENCIES}` });
+
+    if (response.status !== 200) {
+        return;
+    }
+
+    yield put(newDeckSuccessAction({ frequencies: response.data }));
+}
+
 export default all([
     takeLatest('@deck/SAVE', save),
     takeLatest('@deck/SAVE_SUCCESS', saveSuccess),
@@ -75,4 +85,5 @@ export default all([
     takeLatest('@deck/CLONE', clone),
     takeLatest('@deck/ADD', add),
     takeLatest('@deck/FINISH', finish),
+    takeLatest('@deck/LOAD_NEWDECK', newDeck),
 ]);

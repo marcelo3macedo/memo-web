@@ -2,7 +2,8 @@ import * as Yup from "yup";
 
 export const initialValues = {
   name: "",
-  isPublic: "public"
+  isPublic: "public",
+  frequencyId: null
 };
 
 export const schema = Yup.object().shape({
