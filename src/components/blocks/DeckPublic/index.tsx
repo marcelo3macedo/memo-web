@@ -7,7 +7,7 @@ import { randomBackground } from '@config/Backgrounds';
 import { useTranslation } from 'react-multi-lang';
 import IconSmall from '@components/icons/IconSmall';
 
-export default function Deck({ data, sessionCards=null }) {
+export default function DeckPublic({ data, sessionCards=null }) {
   const t = useTranslation();
   const dispatch = useDispatch();
   const background = randomBackground();
@@ -21,15 +21,7 @@ export default function Deck({ data, sessionCards=null }) {
       <Content background={background}>
         <Opacity></Opacity>
         <Data>
-          <VisibilityInfo>
-            <IconSmall name={"privacy"}/>
-            <TitleInfo>{data.isPublic ? t('session.public') : t('session.private')}</TitleInfo>
-          </VisibilityInfo>
           <Title>{data.name}</Title>
-          <FrequencyInfo>
-            <FrequencyTitle>{t('session.frequency')}</FrequencyTitle>
-            <Frequency>{data.frequency.name}</Frequency>
-          </FrequencyInfo>
         </Data>
       </Content>
     </Wrapper>

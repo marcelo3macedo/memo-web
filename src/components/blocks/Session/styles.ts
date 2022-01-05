@@ -6,7 +6,7 @@ export const Wrapper = styled.div`
     position: relative;
     width: 180px;
     max-width: 100%;
-    height: 180px;
+    height: 250px;
     border-radius: 20px;
     overflow: hidden;
 
@@ -23,15 +23,15 @@ export const Content = styled.div<DeckCard>`
     width: 100%;
     height: 100%;
     display: flex;
-    align-items: flex-end;
+    align-items: baseline;
     justify-content: space-between;
     flex-direction: column;
 `;
 
 export const Info = styled.div`
-    padding: 10px;
+    padding: 10px 10px 20px 10px;
     display: flex;
-    justify-content: flex-end;
+    justify-content: baseline;
     align-items: center;
     width: 100%;
 
@@ -50,7 +50,7 @@ export const Title = styled.h3`
     padding: 10px;
     font-weight: bold;
     color: var(--secondary10);
-    text-align: right;
+    text-align: left;
 `;
 
 export const Opacity = styled.div `
@@ -65,8 +65,8 @@ export const Data = styled.div `
     width: 100%;
     height: 100%;
     display: flex;
-    align-items: flex-end;
-    justify-content: flex-end;
+    align-items: baseline;
+    justify-content: space-between;
     flex-direction: column;
 `;
 
@@ -74,4 +74,10 @@ export const ReviewTitle = styled.h5`
     color: #fff;
     font-weight: bold;
     margin-right: 10px;
+`;
+
+export const TitleInfo = styled.h5`
+    color: #fff;
+    font-weight: bold;
+    padding: 10px;
 `;

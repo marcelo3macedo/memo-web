@@ -7,7 +7,7 @@ import { loadAction } from '@store/modules/gallery/actions';
 import { Wrapper, Content } from './styles';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@store/modules/rootReducer';
-import DecksColumn from '@components/blocks/DecksColumn';
+import DecksAvailable from '@components/blocks/DecksAvailable';
 
 export default function Gallery() {
   const dispatch = useDispatch();
@@ -22,7 +22,7 @@ export default function Gallery() {
     <Wrapper>
       <Content>
         <HeaderPage title={t('gallery.title')} subTitle={t('gallery.subTitle')}></HeaderPage>
-        <DecksColumn decks={decks} />
+        <DecksAvailable decks={decks} />
      </Content>
     </Wrapper>
   ); 

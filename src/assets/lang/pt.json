@@ -152,5 +152,12 @@
         "card03": "Diariamente será disponibilizado uma seleção de cards para revisão",
         "card04": "Revise cada card indicando a dificuldade de lembrá-lo",
         "card05": "Pronto! Uma nova sessão será disponibilizada no próximo dia."
+    },
+    "session": {
+        "cards": "Cards:",
+        "title": "Sessão",
+        "frequency": "Frequência:",
+        "public": "Público",
+        "private": "Privado"
     }
 }

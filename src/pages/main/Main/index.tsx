@@ -9,7 +9,6 @@ import FeaturedGallery from '@components/blocks/FeaturedGallery';
 import { loadAction } from '@store/modules/resume/actions';
 import { RootState } from '@store/modules/rootReducer';
 import BannerGallery from '@components/blocks/BannerGallery';
-import HowItWorks from '@components/blocks/HowItWorks';
 
 export default function Main() {
   const dispatch = useDispatch();
@@ -27,7 +26,6 @@ export default function Main() {
         <BannerGallery />
         <AddOrSearchDecks />
         <FeaturedGallery featuredDecks={featuredDecks} />
-        <HowItWorks/>
       </Content>
     </Wrapper>
   ); 
