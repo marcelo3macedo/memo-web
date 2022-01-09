@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-multi-lang';
 
-import Card from '../Card';
+import CardPreview from '../CardPreview';
 
 import { Wrapper, Content, Title, Message } from './styles';
 
@@ -14,7 +14,7 @@ export default function CardsList({ cards=[], preview=false }) {
         <Title>{t('editCard.title')}</Title>
         {cards && cards.length > 0 ? 
           cards.map((c, index) => (
-            <Card key={index} card={c} preview={preview} />
+            <CardPreview key={index} card={c} />
           )) : 
           <Message>{t('editCard.notFound')}</Message>
         }

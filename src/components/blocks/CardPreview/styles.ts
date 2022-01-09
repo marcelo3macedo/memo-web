@@ -19,7 +19,7 @@ export const CardArea = styled.div<ICard>`
     border-radius: 10px;
     display: flex;
     flex-direction: row;
-    background: #c2ffe9;
+    background: var(--secondary60);
 `;
 
 export const Header = styled.div`
@@ -28,10 +28,12 @@ export const Header = styled.div`
 
 export const CardTitle = styled.h5`
     margin-bottom: 5px;
+    color: var(--neutral90);
 `;
 
 export const CardContent = styled.h3`
     margin-bottom: 5px;
+    color: var(--neutral90);
 `;
 
 export const CardSecretContent = styled.h5`
@@ -63,4 +65,5 @@ export const Action = styled.div`
 
 export const ActionName = styled.h6`
     padding-left: 5px;
+    color: var(--neutral60);
 `;

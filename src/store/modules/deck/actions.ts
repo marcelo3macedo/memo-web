@@ -22,6 +22,14 @@ export function openAction({ deck }) {
         }
     }
 }
+export function openPublicAction({ deck }) {
+    return {
+        type: '@deck/OPEN_PUBLIC',
+        payload: {
+            deck
+        }
+    }
+}
 export function openSuccessAction({ deck }) {
     return {
         type: '@deck/OPEN_SUCCESS',

@@ -1,19 +1,19 @@
 import React from 'react';
 import { useDispatch } from "react-redux";
 
-import { Wrapper, Content, Title,  FrequencyInfo, VisibilityInfo, FrequencyTitle, TitleInfo, Opacity, Data, Frequency } from './styles';
-import { openAction } from '@store/modules/deck/actions';
+import { Wrapper, Content, Title, Opacity, Data, Category } from './styles';
+import { openPublicAction } from '@store/modules/deck/actions';
 import { randomBackground } from '@config/Backgrounds';
 import { useTranslation } from 'react-multi-lang';
-import IconSmall from '@components/icons/IconSmall';
 
 export default function DeckPublic({ data, sessionCards=null }) {
   const t = useTranslation();
   const dispatch = useDispatch();
   const background = randomBackground();
+  const categoryName = data.category ? data.category.name : null;
   
   function openDeckClick() {
-    dispatch(openAction({ deck: data }));
+    dispatch(openPublicAction({ deck: data }));
   }
 
   return (
@@ -21,6 +21,7 @@ export default function DeckPublic({ data, sessionCards=null }) {
       <Content background={background}>
         <Opacity></Opacity>
         <Data>
+          <Category>{categoryName}</Category>
           <Title>{data.name}</Title>
         </Data>
       </Content>
