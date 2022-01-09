@@ -31,6 +31,16 @@ function* open({ payload }:any) {
     yield put(openSuccessAction({ deck: response.data}));
 }
 
+function* openPublic({ payload }:any) {
+    const response = yield retrieve({ method: `${API_DECKS}/${payload.deck.id}?isPublic=true` });
+    
+    if (response.status !== 200) {
+        return;
+    }
+
+    yield put(openSuccessAction({ deck: response.data}));
+}
+
 function* openSuccess() {
     yield put(navigatePush({ path: PATH_DECK }));
 }
@@ -80,6 +90,7 @@ export default all([
     takeLatest('@deck/SAVE', save),
     takeLatest('@deck/SAVE_SUCCESS', saveSuccess),
     takeLatest('@deck/OPEN', open),
+    takeLatest('@deck/OPEN_PUBLIC', openPublic),
     takeLatest('@deck/OPEN_SUCCESS', openSuccess),
     takeLatest('@deck/REVIEW', review),
     takeLatest('@deck/CLONE', clone),

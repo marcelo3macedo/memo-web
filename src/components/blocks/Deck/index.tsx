@@ -28,7 +28,7 @@ export default function Deck({ data, sessionCards=null }) {
           <Title>{data.name}</Title>
           <FrequencyInfo>
             <FrequencyTitle>{t('session.frequency')}</FrequencyTitle>
-            <Frequency>{data.frequency.name}</Frequency>
+            <Frequency>{data.frequency ? data.frequency.name : null}</Frequency>
           </FrequencyInfo>
         </Data>
       </Content>

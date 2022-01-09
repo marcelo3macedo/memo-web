@@ -61,8 +61,8 @@ export const Data = styled.div `
     width: 100%;
     height: 100%;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: baseline;
+    justify-content: space-around;
     flex-direction: column;    
 `;
 
@@ -96,3 +96,8 @@ export const VisibilityInfo = styled.div`
     }
 `;
 
+export const Category = styled.h6`
+    font-weight: bold;
+    color: var(--secondary10);
+    padding: 0 10px;
+`;
