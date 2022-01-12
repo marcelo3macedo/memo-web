@@ -33,7 +33,8 @@ export const Header = styled.div`
     justify-content: space-between;
 
     @media (max-width: 768px) {
-        padding: 10px;
+        padding: 15px;
+        border-bottom: 2px solid #ccc;
     }
 `;
 
