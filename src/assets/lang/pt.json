@@ -1,4 +1,7 @@
 {
+    "application": {
+        "name": "Memorizator - Sua ferramenta de memorização"
+    },
     "account": {
         "title": "Conta",
         "subTitle": "Informações e detalhes sobre sua conta",
@@ -134,6 +137,9 @@
         "title": "Galeria",
         "subTitle": "Coleção de sessões disponibilizadas por usuários"
     },
+    "pagination": {
+        "message": "Carregar mais..."
+    },
     "privacy": {
         "public": "Público",
         "private": "Privado",
@@ -159,5 +165,47 @@
         "frequency": "Frequência:",
         "public": "Público",
         "private": "Privado"
+    },
+    "home": {
+        "access": "Acesse Agora",
+        "block01": {
+            "title": "Destaque-se em:|Vestibulares,|Concursos,|Escola ou Faculdade",
+            "subTitle": "Utilize o memo|como seu parceiro de estudos"
+        },
+        "blockTechnique": {
+            "title": "Absorva conteúdos utilizando a técnica de|Repetição Espaçada"
+        },
+        "blockHowItWorks": {
+            "title": "Como Funciona?",
+            "search": {
+                "title": "Pesquise",
+                "subTitle": "Encontre um tema do seu interesse"
+            },
+            "add": {
+                "title": "Adicione",
+                "subTitle": "Inclua um baralho de estudos a sua lista"
+            },
+            "review": {
+                "title": "Revise",
+                "subTitle": "Uma coleção de cards contendo perguntas e respostas sobre o tema ficará disponível"
+            },
+            "repeat": {
+                "title": "Repita",
+                "subTitle": "Novas perguntas e respostas serão disponibilizadas diariamente."
+            }
+        },
+        "blockMethods": {
+            "title": "O Método",
+            "subTitle": "Hermann Ebbinghaus",
+            "textContainer": "Levantou a hipótese de que a velocidade de esquecimento depende de vários fatores, como a dificuldade do material aprendido, sua representação e outros fatores fisiológicos como estresse e sono.|Descobriu que a informação é mais fácil de lembrar quando é construída sobre coisas que você já conhece, e a curva do esquecimento era achatada a cada repetição.|Parecia que, ao aplicar treinamento frequente na aprendizagem, a informação era solidificada por recordações repetidas."
+        },
+        "tryIt": {
+            "title": "Experimente o Memorizador"
+        },
+        "blockFooter": {
+            "title": "Memorizator",
+            "subTitle": "Esse é um projeto Open-source|Contribuições com o projeto em:",
+            "footer": "2021 Memorizator - @ Todos os direitores reservados"
+        }
     }
 }

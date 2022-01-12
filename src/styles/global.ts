@@ -24,8 +24,15 @@ export const GlobalStyle = createGlobalStyle`
         --warm50: #e794a9;
         --warm80: #ff63b1;
         --warm90: #cd4a8b;
+        --warm100: #a3004a;
         --purple: #cbaacb;
         --green80: #6dc4be;
+        --green90: #25bd24;
+        --blue80: #28579f;
+
+        --pastelGray: #f8f8f8;
+        --pastelGreen: #c8f8ff;
+        --pastelBlue: #1ae2ff;
 
         --textSecondary100: #f7ffff;
         

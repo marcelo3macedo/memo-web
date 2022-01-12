@@ -33,7 +33,7 @@ export default function navigate(state = INITIAL_STATE, action) {
             }
             case "@deck/NEWDECK_SUCCESS": {
                 draft.frequency = action.payload.frequencies;
-                action.payload.frequencies.filter(c=> c.default === true).map(x=> { draft.defaultFrequency = x.id });
+                action.payload.frequencies.filter(c=> c.default === true).map(x=> ( draft.defaultFrequency = x.id ));
                 break;
             }
             default:

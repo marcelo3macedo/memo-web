@@ -4,10 +4,8 @@ import { useDispatch } from "react-redux";
 import { Wrapper, Content, Title, Opacity, Data, Category } from './styles';
 import { openPublicAction } from '@store/modules/deck/actions';
 import { randomBackground } from '@config/Backgrounds';
-import { useTranslation } from 'react-multi-lang';
 
-export default function DeckPublic({ data, sessionCards=null }) {
-  const t = useTranslation();
+export default function DeckPublic({ data }) {
   const dispatch = useDispatch();
   const background = randomBackground();
   const categoryName = data.category ? data.category.name : null;
