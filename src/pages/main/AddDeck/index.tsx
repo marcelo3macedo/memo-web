@@ -73,9 +73,9 @@ export default function AddDeck() {
                 <ComboTitle>{t('newDeck.interval')}</ComboTitle>
                 
                 <Field name={"frequencyId"} as="select" className="frequency">
-                  {frequency.map(f => (
+                  {frequency ? frequency.map(f => (
                     <option key={f.id} value={f.id}>{f.name}</option>  
-                  ))}
+                  )) : null}
                 </Field>
               </ComboArea>
               <FinishArea>
