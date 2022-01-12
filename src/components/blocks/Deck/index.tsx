@@ -16,6 +16,10 @@ export default function Deck({ data, sessionCards=null }) {
     dispatch(openAction({ deck: data }));
   }
 
+  if (!data) {
+    return <></>;
+  }
+
   return (
     <Wrapper onClick={openDeckClick}>
       <Content background={background}>
