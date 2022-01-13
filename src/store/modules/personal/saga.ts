@@ -1,11 +1,11 @@
 
 import { all, put, takeLatest } from "redux-saga/effects";
 import { retrieve } from "@services/Api/requester";
-import { API_DECKS } from "@services/Api/routes";
+import { API_PERSONALDECKS } from "@services/Api/routes";
 import { loadDecksSuccess } from "./actions";
 
 function* loadDecks() {
-    const response = yield retrieve({ method: API_DECKS });
+    const response = yield retrieve({ method: API_PERSONALDECKS });
     
     if (response.status !== 200) {
         return;
