@@ -1,3 +1,8 @@
+export function loadAction() {
+    return {
+        type: '@auth/LOAD'
+    }
+}
 export function signInAction({ user, password }) {
     return {
         type: '@auth/SIGN_IN',

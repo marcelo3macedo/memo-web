@@ -22,7 +22,21 @@ export const Wrapper = styled.button`
     &:focus {
         border: none;
     }
+
+    svg {
+        circle {
+            stroke: #fff;
+        }
+    }
+    
+    &:active {
+        opacity: var(--alpha);
+    }
 `;
 
 export const TextValue = styled.h5`
+`;
+
+export const Loading = styled.div`
+    opacity: var(--alpha);
 `;

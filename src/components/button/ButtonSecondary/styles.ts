@@ -18,8 +18,16 @@ export const Wrapper = styled.div`
         cursor: pointer;
         opacity: 0.8;
     }
+
+    &:active {
+        opacity: var(--alpha);
+    }
 `;
 
 export const TextValue = styled.h6`
     font-weight: bold;
+`;
+
+export const Loading = styled.div`
+    opacity: var(--alpha);
 `;

@@ -1,4 +1,10 @@
 {
+    "errors": {
+        "generic": "Ocorreu um erro ao processar a requisição",
+        "mailAlreadyInUse": "E-mail já está em uso.",
+        "serverFail": "Ocorreu um erro na comunicação com nossos servidores.|Tente novamente mais tarde.",
+        "validMail": "Insira um e-mail válido"
+    },
     "application": {
         "name": "Memorizator - Sua ferramenta de memorização"
     },
