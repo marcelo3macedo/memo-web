@@ -7,7 +7,7 @@ export default function Pagination({ callback, visible=false }) {
   const t = useTranslation();
 
   return (
-    <Wrapper visible={visible}>
+    <Wrapper visible={visible} className='no-select'>
       <Content onClick={callback}>
         <Title>{t('pagination.message')}</Title>
       </Content>
