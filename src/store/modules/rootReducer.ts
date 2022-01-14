@@ -11,6 +11,7 @@ import session from "./session/reducer";
 import search from "./search/reducer";
 import history from "./history/reducer";
 import gallery from "./gallery/reducer";
+import validation from "./validation/reducer";
 
 export const rootReducer = combineReducers({
     auth,
@@ -24,7 +25,8 @@ export const rootReducer = combineReducers({
     session,
     search,
     history,
-    gallery
+    gallery,
+    validation
 })
 
 export type RootState = ReturnType<typeof rootReducer>

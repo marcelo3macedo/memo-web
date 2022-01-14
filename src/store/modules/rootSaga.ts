@@ -11,7 +11,8 @@ import search from "./search/saga";
 import profile from "./profile/saga";
 import history from "./history/saga";
 import gallery from "./gallery/saga";
+import validation from "./validation/saga";
 
 export default function* rootSaga() {
-    return yield all([auth, card, deck, menu, navigate, gallery, personal, resume, session, search, profile, history]);
+    return yield all([auth, card, deck, menu, navigate, validation, gallery, personal, resume, session, search, profile, history]);
 }

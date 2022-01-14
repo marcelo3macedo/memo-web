@@ -1,5 +1,5 @@
-import React from 'react';
-import { useDispatch } from "react-redux";
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from "react-redux";
 import { useTranslation } from 'react-multi-lang';
 import { Formik, Form } from "formik";
 
@@ -8,8 +8,9 @@ import InputIcon from '@components/input/InputIcon';
 import ButtonPrimary from '@components/button/ButtonPrimary';
 import TextLinked from '@components/link/TextLinked';
 import ValidationMessage from '@components/validation/ValidationMessage';
-import { signInAction } from '@store/modules/auth/actions';
+import { loadAction, signInAction } from '@store/modules/auth/actions';
 import { navigatePush } from '@store/modules/navigate/actions';
+import { RootState } from '@store/modules/rootReducer';
 import { PATH_FORGOT_PASSWORD, PATH_SIGN_UP } from '@services/Navigation';
 import { initialValues, schema } from '@services/Validation/signIn.schema';
 import ButtonSecondary from '@components/button/ButtonSecondary';
@@ -17,7 +18,12 @@ import ButtonSecondary from '@components/button/ButtonSecondary';
 export default function SignIn() {
   const t = useTranslation()
   const dispatch = useDispatch();
+  const isLoading:any = useSelector((state:RootState) => state.auth.isLoading);
 
+  useEffect(() => {
+    dispatch(loadAction());    
+  }, [dispatch]);
+  
   function forgotPasswordClick() {
     dispatch(navigatePush({ path: PATH_FORGOT_PASSWORD }));
   }
@@ -48,13 +54,13 @@ export default function SignIn() {
               </Fields>
               <ActionArea>
                   <TextLinked content={t('auth.forgotPassword')} action={forgotPasswordClick}/>
-                  <ButtonPrimary type="submit" content={t('auth.enter')}/>
+                  <ButtonPrimary type="submit" content={t('auth.enter')} loading={isLoading}/>
               </ActionArea>
             </Form>
           </Formik>
 
           <NewUser>
-              <ButtonSecondary content={t('auth.register')} action={signUpClick}/>
+              <ButtonSecondary content={t('auth.register')} action={signUpClick} />
           </NewUser>
         </Content>
     </Wrapper>

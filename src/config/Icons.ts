@@ -16,6 +16,7 @@ import { ReactComponent as GalleryIcon } from "@assets/icons/gallery.svg";
 import { ReactComponent as FeaturedIcon } from "@assets/icons/featured.svg";
 import { ReactComponent as UnlockIcon } from "@assets/icons/unlock.svg";
 import { ReactComponent as LockIcon } from "@assets/icons/lock.svg";
+import { ReactComponent as LoadingIcon } from "@assets/icons/loading.svg";
 
 export const Icons = {
     user: UserIcon,
@@ -35,5 +36,6 @@ export const Icons = {
     gallery: GalleryIcon,
     featured: FeaturedIcon,
     unlock: UnlockIcon,
-    lock: LockIcon
+    lock: LockIcon,
+    loading: LoadingIcon
 }

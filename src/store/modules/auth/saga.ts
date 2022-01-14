@@ -7,6 +7,7 @@ import { PATH_MAIN, PATH_SIGN_IN } from "@services/Navigation";
 import { refreshTokenAction, signInAction, signInFailureAction, signInSuccessAction } from "./actions";
 import { LS_REFRESHTOKEN, LS_TOKEN } from "@services/LocalStorage";
 import * as selectors from './selectors';
+import { Errors } from "@config/Errors";
 
 function* signIn({ payload }:any) {
     const response = yield send({ method: API_SESSION, data: {
@@ -37,6 +38,11 @@ function* signUp({ payload }:any) {
         email: payload.user,
         password: payload.password
     }});
+
+    if (response.data && response.data.error === Errors.emailAlreadyInUse) {
+        yield put(signInFailureAction({ type: 'errors.mailAlreadyInUse' }));
+        return;
+    }
 
     if (response.status !== 201) {
         return;
