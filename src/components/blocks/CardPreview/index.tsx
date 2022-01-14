@@ -6,7 +6,7 @@ import { Wrapper, Content, Header, CardArea, CardTitle, CardContent } from './st
 export default function CardPreview({card=null }) {
   return (
     <Wrapper>
-      <Content>
+      <Content className='no-select'>
         <CardArea background={banner}>
           <Header>
             <CardTitle>{card.title}</CardTitle>

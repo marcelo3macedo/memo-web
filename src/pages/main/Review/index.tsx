@@ -34,7 +34,7 @@ export default function Review() {
         <Header>
             <IconMedium name="back" action={backClick} />
         </Header>
-        <Body>
+        <Body className='no-select'>
           <Position>
             <Info>{element.cardPosition}/{session.cards.length}</Info>
           </Position>
