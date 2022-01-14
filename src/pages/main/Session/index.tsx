@@ -38,7 +38,7 @@ export default function Session() {
               .filter((value, index, self) => {
                 return self.indexOf(value) === index;
               }).map(d => (
-                <Card key={d}>
+                <Card key={d} className='no-select'>
                   <CardName>{d}</CardName>
                 </Card>
               ))

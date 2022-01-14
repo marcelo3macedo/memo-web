@@ -20,7 +20,7 @@ export default function Categories({ data }) {
 
   return (
     <Wrapper>
-      <Content>
+      <Content className='no-select'>
         <Header>{t('searchDeck.category')}</Header>
 
         <CategoryArea>

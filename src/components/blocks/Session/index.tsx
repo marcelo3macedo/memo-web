@@ -18,7 +18,7 @@ export default function Session({ data }) {
   }
 
   return (
-    <Wrapper onClick={openSessionClick}>
+    <Wrapper onClick={openSessionClick} className='no-select'>
       <Content background={background}>
         <Opacity></Opacity>
         <Data>
