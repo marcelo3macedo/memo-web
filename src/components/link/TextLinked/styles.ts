@@ -10,6 +10,10 @@ export const Wrapper = styled.div`
         cursor: pointer;
         opacity: 0.8;
     }
+    
+    &:active {
+        opacity: var(--alpha);
+    }
 `;
 
 export const TextValue = styled.h5`

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useTranslation } from 'react-multi-lang';
 import { Formik, Form } from "formik";
 
@@ -12,10 +12,12 @@ import { initialValues, schema } from '@services/Validation/signUp.schema';
 import { PATH_SIGN_IN } from '@services/Navigation';
 import { navigatePush } from '@store/modules/navigate/actions';
 import { signUpAction } from '@store/modules/auth/actions';
+import { RootState } from '@store/modules/rootReducer';
 
 export default function SignUp() {
   const t = useTranslation();
   const dispatch = useDispatch();
+  const isLoading:any = useSelector((state:RootState) => state.auth.isLoading);
 
   function signUpClick() {
     dispatch(navigatePush({ path: PATH_SIGN_IN }));
@@ -46,7 +48,7 @@ export default function SignUp() {
               </Fields>
               <ActionArea>
                   <TextLinked content={t('auth.haveAccount')} action={signUpClick} />
-                  <ButtonPrimary type="submit" content={t('auth.signUp')} />
+                  <ButtonPrimary type="submit" content={t('auth.signUp')} loading={isLoading} />
               </ActionArea>
             </Form>
           </Formik>

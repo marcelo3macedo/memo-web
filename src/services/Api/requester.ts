@@ -3,6 +3,7 @@ import { call, put } from "redux-saga/effects";
 import api from ".";
 import { LS_REFRESHTOKEN, LS_TOKEN } from "@services/LocalStorage";
 import { checkAuthAction } from "@store/modules/auth/actions";
+import { showError } from "@store/modules/validation/actions";
 
 export function* retrieve({ method, force=false }) {
     try {
@@ -23,9 +24,16 @@ export function* send({ method, data=null }) {
     try {
         return yield call(api.post, method, data);
     } catch (e) {
+        if (!e.response) {
+            yield put(showError());
+            return {
+                status: 500
+            }
+        }
+
         return {
-            status: 401,
-            data: e.response ? e.response.data : null
+            status: e.response.status,
+            data: e.response.data
         };
     }    
 }
@@ -44,7 +52,7 @@ export function* remove({ method }) {
         return yield call(api.delete, method);
     } catch (e) {
         return {
-            status: 401,
+            status: 500,
             data: e ?? e.response ? e.response.data : null
         };
     }    

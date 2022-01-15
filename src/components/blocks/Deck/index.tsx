@@ -21,7 +21,7 @@ export default function Deck({ data, sessionCards=null }) {
   }
 
   return (
-    <Wrapper onClick={openDeckClick}>
+    <Wrapper onClick={openDeckClick} className='no-select'>
       <Content background={background}>
         <Opacity></Opacity>
         <Data>

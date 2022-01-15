@@ -15,7 +15,7 @@ export default function DeckPublic({ data }) {
   }
 
   return (
-    <Wrapper onClick={openDeckClick}>
+    <Wrapper onClick={openDeckClick} className='no-select'>
       <Content background={background}>
         <Opacity></Opacity>
         <Data>

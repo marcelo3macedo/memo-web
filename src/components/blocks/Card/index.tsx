@@ -23,7 +23,7 @@ export default function Card({card=null, preview=false }) {
 
   return (
     <Wrapper>
-      <Content>
+      <Content className='no-select'>
         <CardArea background={banner}>
           <Header>
             <CardTitle>{card.title}</CardTitle>

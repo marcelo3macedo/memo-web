@@ -22,20 +22,6 @@ export default function PublicLayout ({ children }) {
               <LogoArea>
                 <Image src={logo} />
               </LogoArea>
-              <Menu>
-                  <MenuItem>
-                    <MenuTitle>Home</MenuTitle>
-                  </MenuItem>
-                  <MenuItem>
-                    <MenuTitle>Como funciona</MenuTitle>
-                  </MenuItem>
-                  <MenuItem>
-                    <MenuTitle>O Método</MenuTitle>
-                  </MenuItem>
-                  <MenuItem>
-                    <MenuTitle>Sobre</MenuTitle>
-                  </MenuItem>
-              </Menu>
               <Action>
                 <ButtonSecondary content="Entrar" action={signIn} />
               </Action>
