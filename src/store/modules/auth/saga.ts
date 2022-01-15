@@ -3,9 +3,9 @@ import { all, takeLatest, put, select } from "redux-saga/effects";
 import { authenticate, send } from "@services/Api/requester";
 import { API_REFRESHTOKEN, API_SESSION, API_USERS } from "@services/Api/routes";
 import { navigatePush } from "@store/modules/navigate/actions";
-import { PATH_MAIN, PATH_SIGN_IN } from "@services/Navigation";
+import { PATH_HOME, PATH_MAIN, PATH_SIGN_IN } from "@services/Navigation";
 import { refreshTokenAction, signInAction, signInFailureAction, signInSuccessAction } from "./actions";
-import { LS_REFRESHTOKEN, LS_TOKEN } from "@services/LocalStorage";
+import { LS_REFRESHTOKEN } from "@services/LocalStorage";
 import * as selectors from './selectors';
 import { Errors } from "@config/Errors";
 
@@ -55,10 +55,9 @@ function forgotPassword({ payload }:any) {
 }
 
 function* logout() {
-    localStorage.removeItem(LS_REFRESHTOKEN);
-    localStorage.removeItem(LS_TOKEN);
-
-    yield put(navigatePush({ path: PATH_SIGN_IN }));
+    localStorage.clear();
+    
+    yield put(navigatePush({ path: PATH_HOME }));
 }
 
 function* checkAuth({ payload }:any) {
