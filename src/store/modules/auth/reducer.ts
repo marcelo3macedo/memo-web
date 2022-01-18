@@ -8,6 +8,9 @@ const INITIAL_STATE = {
     validation: {
         visible: false,
         type: null
+    },
+    activation: {
+        status: null
     }
 };
 
@@ -48,6 +51,18 @@ export default function auth(state = INITIAL_STATE, action) {
                 draft.signed = false;
                 draft.name = null;
                 draft.email = null;
+                break;
+            }
+            case "@auth/LOAD_ACTIVATE": {
+                draft.activation.status = 'loading';
+                break;
+            }
+            case "@auth/LOAD_ACTIVATE_SUCCESS": {
+                draft.activation.status = 'success';
+                break;
+            }
+            case "@auth/LOAD_ACTIVATE_FAILED": {
+                draft.activation.status = 'failed';
                 break;
             }
             default:

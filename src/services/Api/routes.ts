@@ -13,3 +13,4 @@ export const API_SEARCH = "/search";
 export const API_PROFILE = "/users/profile";
 export const API_HISTORY = "/sessions/history";
 export const API_FREQUENCIES = "/frequencies";
+export const API_ACTIVATE = "/activate";

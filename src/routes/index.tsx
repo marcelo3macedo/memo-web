@@ -21,7 +21,7 @@ import PrivacyPolicy from "@pages/main/PrivacyPolicy";
 import SessionCompleted from "@pages/main/SessionCompleted";
 import Home from "@pages/public/Home";
 
-import { PATH_FORGOT_PASSWORD, PATH_SESSION, PATH_SIGN_IN, PATH_SIGN_UP, PATH_RECOVERED, PATH_SESSION_COMPLETED, PATH_PRIVACY_POLICY, PATH_ABOUT, PATH_HELP, PATH_MYACCOUNT, PATH_MYDECKS, PATH_ADDDECK, PATH_SEARCHDECK, PATH_EDITDECK, PATH_ADDCARD, PATH_EDITCARD, PATH_DECK, PATH_REVIEW, PATH_MAIN, PATH_HOME, PATH_ACCOUNT, PATH_PROFILE, PATH_HISTORY, PATH_GALLERY } from "@services/Navigation";
+import { PATH_FORGOT_PASSWORD, PATH_SESSION, PATH_SIGN_IN, PATH_SIGN_UP, PATH_RECOVERED, PATH_SESSION_COMPLETED, PATH_PRIVACY_POLICY, PATH_ABOUT, PATH_HELP, PATH_MYACCOUNT, PATH_MYDECKS, PATH_ADDDECK, PATH_SEARCHDECK, PATH_EDITDECK, PATH_ADDCARD, PATH_EDITCARD, PATH_DECK, PATH_REVIEW, PATH_MAIN, PATH_HOME, PATH_ACCOUNT, PATH_PROFILE, PATH_HISTORY, PATH_GALLERY, PATH_ACTIVE, PATH_EMAIL_VALIDATION } from "@services/Navigation";
 import AddCard from "@pages/main/AddCard";
 import EditCard from "@pages/main/EditCard";
 import Review from "@pages/main/Review";
@@ -29,6 +29,8 @@ import Account from "@pages/main/Account";
 import Profile from "@pages/main/Profile";
 import History from "@pages/main/History";
 import Gallery from "@pages/main/Gallery";
+import Activate from "@pages/auth/Activate";
+import Validation from "@pages/auth/Validation";
 
 export default function Routes() {
     const location = useLocation();
@@ -58,8 +60,10 @@ export default function Routes() {
             
             <Router path={PATH_SIGN_IN} component={SignIn} layout={Layouts.Auth}/>    
             <Router path={PATH_FORGOT_PASSWORD} component={Recover} layout={Layouts.Auth}/>
-            <Router path={PATH_SIGN_UP} component={SignUp} layout={Layouts.Auth}/>   
+            <Router path={PATH_SIGN_UP} component={SignUp} layout={Layouts.Auth}/>
             <Router path={PATH_RECOVERED} component={Recovered} layout={Layouts.Auth}/>
+            <Router path={PATH_ACTIVE} component={Activate} layout={Layouts.Auth}/>
+            <Router path={PATH_EMAIL_VALIDATION} component={Validation} layout={Layouts.Auth}/>
 
             <Router path={PATH_HOME} exact component={Home} layout={Layouts.Public} />   
         </Switch>
