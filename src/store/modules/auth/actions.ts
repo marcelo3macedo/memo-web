@@ -57,3 +57,19 @@ export function closeAlertAction() {
         type: '@auth/CLOSE_ALERT'
     }
 }
+export function loadActivate({ token }) {
+    return {
+        type: '@auth/LOAD_ACTIVATE',
+        payload: { token }
+    }
+}
+export function loadActivateSuccess() {
+    return {
+        type: '@auth/LOAD_ACTIVATE_SUCCESS'
+    }
+}
+export function loadActivateFailed() {
+    return {
+        type: '@auth/LOAD_ACTIVATE_FAILED'
+    }
+}

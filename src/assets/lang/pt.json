@@ -54,6 +54,7 @@
         "confirmpasswordPlaceholder": "Confirme sua senha...",
         "forgotPassword": "Esqueceu sua senha?",
         "goToLogin": "Ir para login",
+        "goToHome": "Ir para Home",
         "enter": "Entrar",
         "signUp": "Cadastrar",
         "register": "Quero participar!",
@@ -61,7 +62,12 @@
         "haveAccount": "Já tenho uma conta",
         "recoveredMessage": "Uma senha foi enviada para o seu e-mail",
         "invalidAuth": "Usuário ou senha inválidos.",
-        "tryAgain": "Por favor, tente novamente."
+        "tryAgain": "Por favor, tente novamente.",
+        "activateTitle": "Ativação de Usuário",
+        "activateCheck": "Estamos ativando seu usuário. Aguarde um momento",
+        "activateFailed": "Falha ao Ativar o usuário. Não encontramos seu usuário, verifique o link de acesso.",
+        "activateSuccess": "Usuário ativado com sucesso. Redirecionando para a página principal.",
+        "activateMail": "Enviamos um e-mail contendo um link para ativação de seu cadastro."
     },
     "welcome": {
         "title": "Olá, ",
