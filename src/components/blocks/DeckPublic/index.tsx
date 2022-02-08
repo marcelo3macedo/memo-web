@@ -7,7 +7,7 @@ import { randomBackground } from '@config/Backgrounds';
 
 export default function DeckPublic({ data }) {
   const dispatch = useDispatch();
-  const background = randomBackground();
+  const background = (data && data.theme && data.theme.src) ? data.theme.src : randomBackground()
   const categoryName = data.category ? data.category.name : null;
   
   function openDeckClick() {

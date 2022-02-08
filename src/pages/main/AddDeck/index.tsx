@@ -5,6 +5,7 @@ import { Formik, Form, Field } from "formik";
 
 import ButtonPrimary from '@components/button/ButtonPrimary';
 import ValidationMessage from '@components/validation/ValidationMessage';
+import Themes from '@components/forms/addDeck/Themes';
 import { initialValues, schema } from '@services/Validation/newDeck.schema';
 import { loadNewDeck, saveAction } from '@store/modules/deck/actions';
 
@@ -14,7 +15,7 @@ import { RootState } from '@store/modules/rootReducer';
 
 export default function AddDeck() {
   const dispatch = useDispatch();
-  const { frequency, defaultFrequency } = useSelector((state:RootState) => state.deck);
+  const { frequency, themes, themeId, defaultFrequency } = useSelector((state:RootState) => state.deck);
   const t = useTranslation();
 
   useEffect(() => {
@@ -25,7 +26,8 @@ export default function AddDeck() {
     dispatch(saveAction({
       name: data.name,
       isPublic: data.isPublic === "public",
-      frequencyId: data.frequencyId
+      frequencyId: data.frequencyId,
+      themeId
     }));
   }
 
@@ -78,6 +80,9 @@ export default function AddDeck() {
                   )) : null}
                 </Field>
               </ComboArea>
+              
+              <Themes themes={themes} />
+
               <FinishArea>
                 <ButtonPrimary type="submit" content={t('newDeck.save')}/>
               </FinishArea>

@@ -1,8 +1,8 @@
-export function saveAction({ name, isPublic, frequencyId }) {
+export function saveAction({ name, isPublic, frequencyId, themeId }) {
     return {
         type: '@deck/SAVE',
         payload: {
-            name, isPublic, frequencyId
+            name, isPublic, frequencyId, themeId
         }
     }
 }
@@ -94,12 +94,21 @@ export function loadNewDeck() {
     }
 }
 
-export function newDeckSuccessAction({ frequencies }) {
+export function newDeckSuccessAction({ frequencies, themes }) {
     return {
         type: '@deck/NEWDECK_SUCCESS',
         payload: {
-            frequencies
+            frequencies, 
+            themes
         }
     }
 }
 
+export function changeThemeId({ themeId }) {
+    return {
+        type: '@deck/CHANGE_THEMEID',
+        payload: {
+            themeId
+        }
+    }
+}
