@@ -3,7 +3,7 @@ import { all, put, takeLatest } from "redux-saga/effects";
 import { navigatePush } from "@store/modules/navigate/actions";
 import { PATH_EDITDECK, PATH_DECK, PATH_ADDDECK } from '@services/Navigation';
 import { send, retrieve } from "@services/Api/requester";
-import { API_DECKS, API_SESSIONSFEED, API_DECKSCLONE, API_FREQUENCIES } from "@services/Api/routes";
+import { API_DECKS, API_SESSIONSFEED, API_DECKSCLONE, API_DECKSOPTIONS } from "@services/Api/routes";
 import { openDeckSuccessAction } from "@store/modules/session/actions";
 import { openSuccessAction, saveSuccessAction, reviewAction, newDeckSuccessAction } from "./actions";
 
@@ -77,13 +77,15 @@ function* clone(data) {
 }
 
 function* newDeck() {
-    const response = yield retrieve({ method: `${API_FREQUENCIES}` });
+    const response = yield retrieve({ method: `${API_DECKSOPTIONS}` });
 
     if (response.status !== 200) {
         return;
     }
 
-    yield put(newDeckSuccessAction({ frequencies: response.data }));
+    const { frequencies, themes } = response.data
+
+    yield put(newDeckSuccessAction({ frequencies, themes }));
 }
 
 export default all([

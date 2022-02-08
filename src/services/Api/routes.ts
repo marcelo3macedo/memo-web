@@ -4,6 +4,7 @@ export const API_USERS = "/users";
 export const API_DECKS = "/decks";
 export const API_PERSONALDECKS = "/decks/personal";
 export const API_DECKSCLONE = "/decks/clone";
+export const API_DECKSOPTIONS = "/decks/options";
 export const API_CARDS = "/cards";
 export const API_REFRESHTOKEN = "/refresh-token";
 export const API_RESUME = "/review";

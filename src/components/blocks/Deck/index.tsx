@@ -10,8 +10,8 @@ import IconSmall from '@components/icons/IconSmall';
 export default function Deck({ data, sessionCards=null }) {
   const t = useTranslation();
   const dispatch = useDispatch();
-  const background = randomBackground();
-  
+  const background = (data && data.theme && data.theme.src) ? data.theme.src : randomBackground()
+
   function openDeckClick() {
     dispatch(openAction({ deck: data }));
   }

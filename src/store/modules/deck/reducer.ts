@@ -3,6 +3,8 @@ import produce from "immer";
 const INITIAL_STATE = {
     deck: null,
     frequency: [],
+    themes: [],
+    themeId: null,
     defaultFrequency: null
 };
 
@@ -33,7 +35,13 @@ export default function navigate(state = INITIAL_STATE, action) {
             }
             case "@deck/NEWDECK_SUCCESS": {
                 draft.frequency = action.payload.frequencies;
-                action.payload.frequencies.filter(c=> c.default === true).map(x=> ( draft.defaultFrequency = x.id ));
+                draft.themes = action.payload.themes;                
+                draft.themeId = (action.payload.themes && action.payload.themes.length > 0) ? action.payload.themes[0].id : null
+                action.payload.frequencies.filter(c=> c.default === true).map(x=> ( draft.defaultFrequency = x.id ))                
+                break;
+            }
+            case "@deck/CHANGE_THEMEID": {
+                draft.themeId = action.payload.themeId;
                 break;
             }
             default:
