@@ -75,6 +75,7 @@
         "new": "Adicione um tema de estudo"
     },
     "decks": {
+        "header": "Sessão:",
         "title": "Sessão",
         "seeMore": "Ver Mais",
         "add": "ou crie a sua própria sessão de estudos",
@@ -84,13 +85,20 @@
         "featured": "Em Destaque",
         "themeTitle": "Temas Abordados:",
         "frequency": "Frequência: ",
-        "theme": "Tema"
+        "theme": "Tema",
+        "view": "Visualizar"
     },
     "newDeck": {
         "title": "Nova Sessão",
         "name": "Escolha um nome para a sua sessão...",
         "save": "Criar",
         "interval": "Frequência"
+    },
+    "removeDeck": {
+        "title": "Confirmar Remover",
+        "message": "Deseja realmente remove essa sessão?",
+        "positive": "Sim",
+        "negative": "Não"
     },
     "myDeck": {
         "title": "Minhas Sessões",
@@ -121,7 +129,7 @@
     "actions": {
         "add": "Adicionar",
         "addCard": "Adicionar Card",
-        "delete": "Deletar",
+        "delete": "Remover",
         "edit": "Editar",
         "save": "Salvar",
         "update": "Atualizar",

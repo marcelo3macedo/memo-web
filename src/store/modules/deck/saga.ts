@@ -2,7 +2,7 @@
 import { all, put, takeLatest } from "redux-saga/effects";
 import { navigatePush } from "@store/modules/navigate/actions";
 import { PATH_EDITDECK, PATH_DECK, PATH_ADDDECK } from '@services/Navigation';
-import { send, retrieve } from "@services/Api/requester";
+import { send, retrieve, remove } from "@services/Api/requester";
 import { API_DECKS, API_SESSIONSFEED, API_DECKSCLONE, API_DECKSOPTIONS } from "@services/Api/routes";
 import { openDeckSuccessAction } from "@store/modules/session/actions";
 import { openSuccessAction, saveSuccessAction, reviewAction, newDeckSuccessAction } from "./actions";
@@ -16,6 +16,8 @@ function* save({ payload }:any) {
 
     yield put(saveSuccessAction(response.data));
 }
+
+
 
 function* saveSuccess() {
     yield put(navigatePush({ path: PATH_EDITDECK }));
@@ -87,6 +89,8 @@ function* newDeck() {
 
     yield put(newDeckSuccessAction({ frequencies, themes }));
 }
+
+
 
 export default all([
     takeLatest('@deck/SAVE', save),

@@ -1,22 +1,25 @@
 import React from 'react';
 
-import { Wrapper, Content, DeckWrapper, DeckComponent } from './styles';
-import Deck from '../Deck';
 import ModalRemoveDeck from '@components/modal/ModalRemoveDeck';
+import Private from '../Private';
 
-export default function DecksColumn({decks=[]}) {
+import { Wrapper, Content, DeckWrapper, DeckComponent } from './styles';
+
+export default function Gallery({decks=[], type}) {
   return (
     <Wrapper>
       <Content>
         {decks.map(d=> (
           <DeckWrapper key={d.id}>
             <DeckComponent>
-              <Deck data={d} />
+              {type === 'private' ? 
+                (<Private data={d} />) : 
+                <></> }
             </DeckComponent>
           </DeckWrapper>
         ))}
 
-        <ModalRemoveDeck />
+        {type === 'private' ? (<ModalRemoveDeck />) : <></>}
       </Content>
     </Wrapper>
   );

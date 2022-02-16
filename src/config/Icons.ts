@@ -17,6 +17,9 @@ import { ReactComponent as FeaturedIcon } from "@assets/icons/featured.svg";
 import { ReactComponent as UnlockIcon } from "@assets/icons/unlock.svg";
 import { ReactComponent as LockIcon } from "@assets/icons/lock.svg";
 import { ReactComponent as LoadingIcon } from "@assets/icons/loading.svg";
+import { ReactComponent as SettingsIcon } from "@assets/icons/settings.svg";
+import { ReactComponent as VisibilityIcon } from "@assets/icons/visibility.svg";
+import { ReactComponent as RepeatIcon } from "@assets/icons/repeat.svg";
 
 export const Icons = {
     user: UserIcon,
@@ -37,5 +40,8 @@ export const Icons = {
     featured: FeaturedIcon,
     unlock: UnlockIcon,
     lock: LockIcon,
-    loading: LoadingIcon
+    loading: LoadingIcon,
+    settings: SettingsIcon,
+    visibility: VisibilityIcon,
+    repeat: RepeatIcon
 }

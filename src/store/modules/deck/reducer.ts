@@ -5,7 +5,8 @@ const INITIAL_STATE = {
     frequency: [],
     themes: [],
     themeId: null,
-    defaultFrequency: null
+    defaultFrequency: null,
+    showDelete: false,    
 };
 
 export default function navigate(state = INITIAL_STATE, action) {
