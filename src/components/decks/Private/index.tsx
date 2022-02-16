@@ -10,7 +10,7 @@ import { editAction, removeModalAction } from '@store/modules/personal/actions';
 
 import { Wrapper, Content, Title, Block, Header, Footer, Details, SubTitle, Options, Statuses, Status, StatusTitle, View, OptionsBox, OptionBox, OptionBoxTitle, Opacity } from './styles';
 
-export default function Deck({ data }) {
+export default function Private({ data }) {
   const t = useTranslation();
   const dispatch = useDispatch();
   const [ options, setOptions ] = useState(false);

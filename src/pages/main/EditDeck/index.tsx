@@ -19,7 +19,7 @@ import ModalRemoveDeck from '@components/modal/ModalRemoveCard';
 export default function EditDeck() {
   const dispatch = useDispatch();
   const t = useTranslation();
-  const deck = useSelector((state:RootState) => state.deck.deck);
+  const deck = useSelector((state:RootState) => state.personal.deck);
   const frequency = useSelector((state:RootState) => state.deck.frequency);
   
   function endEdition() {
@@ -30,6 +30,10 @@ export default function EditDeck() {
     dispatch(newCardAction())
   }
 
+  if (!deck) {
+    return <></>
+  }
+
   return (
     <Wrapper>
       <Content>
@@ -38,7 +42,7 @@ export default function EditDeck() {
           <Title>{deck.name}</Title>
           <CardsTotal size={deck.cards.length}/>          
         </Header>
-        <Frequency>{t('decks.frequency')}{frequency.find(x=>x.id === deck.frequencyId).name}</Frequency>
+        <Frequency>{t('decks.frequency')}</Frequency>
 
         <CardsList cards={deck.cards}/>
         

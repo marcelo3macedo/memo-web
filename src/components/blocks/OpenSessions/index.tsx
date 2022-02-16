@@ -4,17 +4,18 @@ import { useTranslation } from 'react-multi-lang';
 
 import { RootState } from '@store/modules/rootReducer';
 import ButtonSecondary from '@components/button/ButtonSecondary';
-import SessionGallery from '@components/blocks/SessionGallery';
 import { navigatePush } from '@store/modules/navigate/actions';
 import { PATH_MYDECKS } from '@services/Navigation';
 
 import { Wrapper, Content, Footer, Block } from './styles';
+import Carousel from '@components/sesssions/Carousel';
 
-export default function PendingDecks() {
+export default function OpenSessions() {
   const dispatch = useDispatch();
   const t = useTranslation();
   const sessions = useSelector((state:RootState) => state.resume.sessions);
   const show = sessions && sessions.length > 0;
+  const hasMore = sessions && sessions.length > 5;
   
   function seeMoreClick() {
     dispatch(navigatePush({ path: PATH_MYDECKS }));
@@ -23,8 +24,9 @@ export default function PendingDecks() {
   return (
     <Wrapper show={show}>
       <Content>
-        <SessionGallery sessions={sessions} />
-        {sessions && sessions.length > 5 ? (
+        <Carousel sessions={sessions} />
+
+        {hasMore ? (
           <Footer>
             <Block></Block>
             <Block>            
