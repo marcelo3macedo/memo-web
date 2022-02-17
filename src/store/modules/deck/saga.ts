@@ -2,10 +2,11 @@
 import { all, put, takeLatest } from "redux-saga/effects";
 import { navigatePush } from "@store/modules/navigate/actions";
 import { PATH_EDITDECK, PATH_DECK, PATH_ADDDECK } from '@services/Navigation';
-import { send, retrieve, remove } from "@services/Api/requester";
+import { send, retrieve, update } from "@services/Api/requester";
 import { API_DECKS, API_SESSIONSFEED, API_DECKSCLONE, API_DECKSOPTIONS } from "@services/Api/routes";
 import { openDeckSuccessAction } from "@store/modules/session/actions";
 import { openSuccessAction, saveSuccessAction, reviewAction, newDeckSuccessAction } from "./actions";
+import { loadDeckAction } from "../personal/actions";
 
 function* save({ payload }:any) {
     const response = yield send({ method: `${API_DECKS}`, data: payload });
@@ -17,7 +18,15 @@ function* save({ payload }:any) {
     yield put(saveSuccessAction(response.data));
 }
 
+function* edit({ payload }:any) {
+    const response = yield update({ method: `${API_DECKS}/${payload.id}`, data: payload });
+    
+    if (response.status !== 200) {
+        return;
+    }
 
+    yield put(loadDeckAction())
+}
 
 function* saveSuccess() {
     yield put(navigatePush({ path: PATH_EDITDECK }));
@@ -94,6 +103,7 @@ function* newDeck() {
 
 export default all([
     takeLatest('@deck/SAVE', save),
+    takeLatest('@deck/EDIT', edit),
     takeLatest('@deck/SAVE_SUCCESS', saveSuccess),
     takeLatest('@deck/OPEN', open),
     takeLatest('@deck/OPEN_PUBLIC', openPublic),

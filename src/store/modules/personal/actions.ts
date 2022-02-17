@@ -11,6 +11,19 @@ export function loadDecksSuccess({ decks }) {
         }
     }
 }
+export function loadDeckAction() {
+    return {
+        type: '@personal/LOAD_DECK'
+    }
+}
+export function loadDeckSuccess({ deck }) {
+    return {
+        type: '@personal/LOAD_DECK_SUCCESS',
+        payload: {
+            deck
+        }
+    }
+}
 export function addDecks() {
     return {
         type: '@personal/ADD_DECKS'

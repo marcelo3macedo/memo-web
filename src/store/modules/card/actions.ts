@@ -1,20 +1,19 @@
-export function newCardAction() {
+export function openModalAction(modal) {
     return {
-        type: '@card/NEW'
+        type: '@card/OPEN_MODAL',
+        payload: {
+            modal
+        }
     }
 }
+
 export function saveAction(card) {
     return {
         type: '@card/SAVE',
         card
     }
 }
-export function saveEditionAction(card) {
-    return {
-        type: '@card/SAVE_EDITION',
-        card
-    }
-}
+
 export function editAction(card) {
     return {
         type: '@card/EDIT',
@@ -23,6 +22,16 @@ export function editAction(card) {
         }
     }
 }
+
+export function confirmEditAction(card) {
+    return {
+        type: '@card/CONFIRM_EDIT',
+        payload: {
+            card
+        }
+    }
+}
+
 export function removeAction(card) {
     return {
         type: '@card/REMOVE',
@@ -31,23 +40,9 @@ export function removeAction(card) {
         }
     }
 }
-export function closeEditAction() {
+
+export function confirmRemoveAction() {
     return {
-        type: '@card/CLOSE_EDIT'
-    }
-}
-export function closeCreateAction() {
-    return {
-        type: '@card/CLOSE_CREATE'
-    }
-}
-export function closeRemoveAction() {
-    return {
-        type: '@card/CLOSE_REMOVE'
-    }
-}
-export function removeCardAction() {
-    return {
-        type: '@card/REMOVE_CARD'
+        type: '@card/CONFIRM_REMOVE'
     }
 }

@@ -1,10 +1,12 @@
 
-import { all, put, takeLatest } from "redux-saga/effects";
+import { all, put, select, takeLatest } from "redux-saga/effects";
 import { remove, retrieve } from "@services/Api/requester";
 import { API_DECKS, API_PERSONALDECKS } from "@services/Api/routes";
-import { editSuccessAction, loadDecksAction, loadDecksSuccess } from "./actions";
+import { editSuccessAction, loadDecksAction, loadDecksSuccess, loadDeckSuccess } from "./actions";
 import { navigatePush } from "../navigate/actions";
 import { PATH_EDITDECK } from "@services/Navigation";
+import * as selectors from './selectors';
+import { openModalAction } from "../card/actions";
 
 function* loadDecks() {
     const response = yield retrieve({ method: API_PERSONALDECKS });
@@ -14,6 +16,21 @@ function* loadDecks() {
     }
 
     yield put(loadDecksSuccess({ decks: response.data }));
+}
+
+function* loadDeck() {
+    const deck = yield select(selectors.deck);
+    const response = yield retrieve({ method: `${API_DECKS}/${deck.id}` });
+    
+    if (response.status !== 200) {
+        return;
+    }
+
+    yield put(loadDeckSuccess({ deck: response.data }));
+}
+
+function* loadDeckSuccesAction() {
+    yield put(openModalAction(''));
 }
 
 function* removeDeck({ payload }:any) {
@@ -43,6 +60,8 @@ function* editSuccess() {
 
 export default all([
     takeLatest('@personal/LOAD_DECKS', loadDecks),
+    takeLatest('@personal/LOAD_DECK', loadDeck),
+    takeLatest('@personal/LOAD_DECK_SUCCESS', loadDeckSuccesAction),
     takeLatest('@personal/REMOVE_DECK', removeDeck),
     takeLatest('@personal/EDIT', edit),
     takeLatest('@personal/EDIT_SUCCESS', editSuccess),
