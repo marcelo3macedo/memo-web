@@ -9,6 +9,7 @@ export const GlobalStyle = createGlobalStyle`
         --secondary60: #d4f0f0;
         --secondary40: #e4fdfd;
         --secondary30: #eefbfb;
+        --secondary20: #d4efef;
         --secondary10: #f7ffff;
 
         --neutral100: #333333;
@@ -51,7 +52,7 @@ export const GlobalStyle = createGlobalStyle`
     h4, h5, h6 {
         font-weight: normal;
     }
-
+    
     textarea:focus, input:focus{
         outline: none;
     }

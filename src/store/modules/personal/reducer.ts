@@ -14,6 +14,10 @@ export default function personal(state = INITIAL_STATE, action) {
                 draft.decks = action.payload.decks;
                 break;
             }
+            case "@personal/LOAD_DECK_SUCCESS": {
+                draft.deck = action.payload.deck;
+                break;
+            }
             case "@personal/REMOVE_MODAL": {
                 draft.showDelete = action.payload.visible;
 
@@ -30,8 +34,6 @@ export default function personal(state = INITIAL_STATE, action) {
                 draft.deck = action.payload.deck;
                 break;
             }
-            default:
-                return state;
         }
     });
 }

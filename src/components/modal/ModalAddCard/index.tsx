@@ -2,34 +2,35 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-multi-lang';
 import { Formik, Form, Field } from "formik";
+
 import { initialValues, schema } from '@services/Validation/newCard.schema';
 import ValidationMessage from '@components/validation/ValidationMessage';
 import ButtonPrimary from '@components/button/ButtonPrimary';
+import IconSmall from '@components/icons/IconSmall';
+import { openModalAction, saveAction } from '@store/modules/card/actions';
 import { RootState } from '@store/modules/rootReducer';
 
 import { Block, Fields, Wrapper, Content, Title, Header } from './styles';
-import IconSmall from '@components/icons/IconSmall';
-import { closeCreateAction } from '@store/modules/card/actions';
-import { saveAction } from '@store/modules/card/actions';
 
-export default function ModalAddDeck() {
+export default function ModalAddCard() {
   const dispatch = useDispatch();
-  const showCreator = useSelector((state:RootState) => state.card.showCreator);
   const t = useTranslation();
+  const modal = useSelector((state:RootState) => state.card.modal);
+  const show = (modal === "add-card")
 
   function handleSubmit(data, { resetForm }) {
     dispatch(saveAction(data));
     resetForm();
   }
 
-  function close() {
-    dispatch(closeCreateAction());
+  function closeClick() {
+    dispatch(openModalAction(null))
   }
 
   return (
-    <Wrapper show={showCreator}>
+    <Wrapper show={show}>
       <Content>
-        <Header onClick={close}>
+        <Header onClick={() => { closeClick() }}>
           <IconSmall name="delete"/>
         </Header>
         <Title>{t('newCard.title')}</Title>

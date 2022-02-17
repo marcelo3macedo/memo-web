@@ -94,9 +94,20 @@
         "save": "Criar",
         "interval": "Frequência"
     },
+    "editDeck": {
+        "title": "Editar Sessão",
+        "editName": "Editar Nome",
+        "namePlaceholder": "Escolha o nome da sua sessão"
+    },
     "removeDeck": {
         "title": "Confirmar Remover",
         "message": "Deseja realmente remove essa sessão?",
+        "positive": "Sim",
+        "negative": "Não"
+    },
+    "removeCard": {
+        "title": "Confirmar Remover",
+        "message": "Deseja realmente remove esse card?",
         "positive": "Sim",
         "negative": "Não"
     },
@@ -112,8 +123,10 @@
         "save": "Salvar"
     },
     "editCard": {
-        "title": "Cards",
-        "notFound": "Nenhum card encontrado"
+        "title": "Lista de Cards",
+        "notFound": "Nenhum card encontrado",
+        "emptyCards": "Nenhum card encontrado",
+        "card": "Edição de Card"
     },
     "searchDeck": {
         "title": "Pesquisar",

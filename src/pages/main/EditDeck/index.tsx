@@ -2,19 +2,18 @@ import React from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { useTranslation } from 'react-multi-lang';
 
-import CardsTotal from '@components/blocks/CardsTotal';
-
-import CardsList from '@components/blocks/CardsList';
+import Gallery from '@components/cards/Gallery';
 import { RootState } from '@store/modules/rootReducer';
-
-import { Wrapper, Content, Title, Header, SubTitle, Actions, Action, Frequency } from './styles';
-import ButtonSecondary from '@components/button/ButtonSecondary';
-import { finishAction } from '@store/modules/deck/actions';
-import { newCardAction } from '@store/modules/card/actions';
+import { openModalAction } from '@store/modules/card/actions';
+import { editAction } from '@store/modules/deck/actions';
 import ModalEditCard from '@components/modal/ModalEditCard';
 import ModalAddCard from '@components/modal/ModalAddCard';
+import ModalTitleDeck from '@components/modal/ModalTitleDeck';
+import ModalRemoveCard from '@components/modal/ModalRemoveCard';
 import ButtonPrimary from '@components/button/ButtonPrimary';
-import ModalRemoveDeck from '@components/modal/ModalRemoveCard';
+import IconSmall from '@components/icons/IconSmall';
+
+import { Wrapper, Content, Title, Header, PageTitle, EditTitle, NewCard, Frequency, FrequencyTitle, FrequencyOptions } from './styles';
 
 export default function EditDeck() {
   const dispatch = useDispatch();
@@ -22,12 +21,22 @@ export default function EditDeck() {
   const deck = useSelector((state:RootState) => state.personal.deck);
   const frequency = useSelector((state:RootState) => state.deck.frequency);
   
-  function endEdition() {
-    dispatch(finishAction());
+  function editTitleClick() {
+    dispatch(openModalAction('edit-title'))
   }
 
-  function newCardClick() {
-    dispatch(newCardAction())
+  function addCardClick() {
+    dispatch(openModalAction('add-card'))
+  }
+
+  function frequencyChanged(event) {
+    const frequencyId = event.target.value
+    
+    dispatch(editAction({
+      id: deck.id,
+      name: deck.name,
+      frequencyId
+    }))
   }
 
   if (!deck) {
@@ -37,28 +46,31 @@ export default function EditDeck() {
   return (
     <Wrapper>
       <Content>
-        <SubTitle>{t('decks.title')}</SubTitle>
-        <Header>
+        <PageTitle>{t('editDeck.title')}</PageTitle>
+        <Header>          
           <Title>{deck.name}</Title>
-          <CardsTotal size={deck.cards.length}/>          
+          <EditTitle onClick={editTitleClick}>
+            <IconSmall name="edit"></IconSmall>
+          </EditTitle>
         </Header>
-        <Frequency>{t('decks.frequency')}</Frequency>
+        <Frequency>
+          <FrequencyTitle>{t('decks.frequency')}</FrequencyTitle>
 
-        <CardsList cards={deck.cards}/>
-        
-        <Actions>
-          <Action>
-            <ButtonPrimary content={t('actions.addCard')} action={newCardClick}></ButtonPrimary>
-          </Action>
-          <Action>
-            <ButtonSecondary content={t('actions.finishSession')} action={endEdition}></ButtonSecondary>
-          </Action>
-        </Actions>
-        
+          <FrequencyOptions name={"frequencyId"} defaultValue={deck.frequencyId} onChange={frequencyChanged}>
+            {frequency ? frequency.map(f => (
+              <option key={f.id} value={f.id}>{f.name}</option>  
+            )) : <></>}
+          </FrequencyOptions>
+        </Frequency>
+        <NewCard>
+          <ButtonPrimary content={t('actions.addCard')} action={addCardClick}></ButtonPrimary>
+        </NewCard>
+        <Gallery cards={deck.cards} type="private" />
 
-        <ModalAddCard></ModalAddCard>
-        <ModalEditCard></ModalEditCard>
-        <ModalRemoveDeck></ModalRemoveDeck>   
+        <ModalAddCard />
+        <ModalEditCard />
+        <ModalRemoveCard />
+        <ModalTitleDeck />
       </Content>
     </Wrapper>
   ); 

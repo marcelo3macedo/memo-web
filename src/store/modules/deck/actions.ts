@@ -14,6 +14,14 @@ export function saveSuccessAction(deck) {
         }
     }
 }
+export function editAction({ id, name, frequencyId }) {
+    return {
+        type: '@deck/EDIT',
+        payload: {
+            id, name, frequencyId
+        }
+    }
+}
 export function openAction({ deck }) {
     return {
         type: '@deck/OPEN',

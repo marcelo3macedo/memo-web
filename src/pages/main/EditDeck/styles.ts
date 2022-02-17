@@ -16,12 +16,13 @@ export const Content = styled.div`
 
 export const Actions = styled.div`
     position: fixed;
-    bottom: 80px;
+    bottom: 65px;
     left: 0;
     width: 100%;
     display: flex;
     width: 100%;
     justify-content: space-between;
+    border-top: 2px solid var(--neutral50);
 
     @media (min-width: 768px) {
         position: relative;
@@ -30,10 +31,12 @@ export const Actions = styled.div`
 
 export const Action = styled.div`
     width: 100%;
-    padding: 0 5px;
-
+    background: var(--neutral30);
+    padding: 10px 5px;
+    text-align: center;
+    
     button {
-        width: 100%;
+        width: 80%;
     }
 `;
 
@@ -74,9 +77,21 @@ export const Header = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 5px 0;
+
+    @media (min-width: 768px) {
+        max-width: 500px;
+    }
 `;
 
+export const PageTitle = styled.h5`
+    color: var(--neutral90);
+    font-weight: bold;    
+`;
 
+export const EditTitle = styled.div`
+    padding: 5px;
+`;
 
 export const Fields = styled.div`
     width: 100%;
@@ -96,19 +111,35 @@ export const FinishWrapper = styled.div`
     padding: 0 5px;
 `;
 
+export const Frequency = styled.div`
+    @media (min-width: 768px) {
+        max-width: 500px;
+    }
+`;
+
 export const NewCard = styled.div`
-    padding: 20px 0;
+    padding: 10px 0;
+    text-align: center;
 
     button {
-        width: 100%;
-        max-width: 100%;
-    }
-
+        width: 80%;
+    }    
+    
     @media (min-width: 768px) {
-        max-width: 250px;
+        max-width: 500px;
     }
 `;
 
-export const Frequency = styled.h4`
+export const FrequencyTitle = styled.h5`
+    color: var(--neutral90);
+    margin-top: 10px;
+`;
+
+export const FrequencyOptions = styled.select`
+    margin: 5px 0;
+    padding: 10px 10px;
+    width: 100%;
     color: var(--neutral90);
 `;
+
+
