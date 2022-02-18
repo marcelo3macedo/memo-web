@@ -13,7 +13,7 @@ import ModalRemoveCard from '@components/modal/ModalRemoveCard';
 import ButtonPrimary from '@components/button/ButtonPrimary';
 import IconSmall from '@components/icons/IconSmall';
 
-import { Wrapper, Content, Title, Header, PageTitle, EditTitle, NewCard, Frequency, FrequencyTitle, FrequencyOptions } from './styles';
+import { Wrapper, Content, Title, Header, PageTitle, EditTitle, NewCard, Frequency, FrequencyTitle, FrequencyOptions, Info, Description } from './styles';
 
 export default function EditDeck() {
   const dispatch = useDispatch();
@@ -35,6 +35,7 @@ export default function EditDeck() {
     dispatch(editAction({
       id: deck.id,
       name: deck.name,
+      description: deck.description,
       frequencyId
     }))
   }
@@ -47,8 +48,11 @@ export default function EditDeck() {
     <Wrapper>
       <Content>
         <PageTitle>{t('editDeck.title')}</PageTitle>
-        <Header>          
-          <Title>{deck.name}</Title>
+        <Header>
+          <Info>
+            <Title>{deck.name}</Title>
+            <Description>{deck.description}</Description>
+          </Info>
           <EditTitle onClick={editTitleClick}>
             <IconSmall name="edit"></IconSmall>
           </EditTitle>

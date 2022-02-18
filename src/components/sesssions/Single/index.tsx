@@ -9,9 +9,9 @@ import { Wrapper, Content, Quantity,  Title, Opacity, Block, Header, Frequency, 
 
 export default function Single({ session }) {
   const dispatch = useDispatch();
-  const background = randomBackground();
   const icon = "card";
   const frequencyName = (session && session.deck && session.deck.frequency) ? session.deck.frequency.name : ''
+  const background = (session && session.deck && session.deck.theme) ? session.deck.theme.src : randomBackground()
   
   function openSessionClick() {
     dispatch(openAction({ sessionId: session.id }));

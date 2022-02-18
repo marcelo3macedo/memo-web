@@ -1,8 +1,8 @@
-export function saveAction({ name, isPublic, frequencyId, themeId }) {
+export function saveAction({ name, description, isPublic, frequencyId, themeId }) {
     return {
         type: '@deck/SAVE',
         payload: {
-            name, isPublic, frequencyId, themeId
+            name, description, isPublic, frequencyId, themeId
         }
     }
 }
@@ -14,11 +14,11 @@ export function saveSuccessAction(deck) {
         }
     }
 }
-export function editAction({ id, name, frequencyId }) {
+export function editAction({ id, name, description, frequencyId }) {
     return {
         type: '@deck/EDIT',
         payload: {
-            id, name, frequencyId
+            id, name, description, frequencyId
         }
     }
 }
