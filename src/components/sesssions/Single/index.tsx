@@ -1,18 +1,17 @@
 import React from 'react';
 import { useDispatch } from "react-redux";
-import { useTranslation } from 'react-multi-lang';
 
-import IconSmall from "@components/icons/IconSmall";
+import IconMedium from '@components/icons/IconMedium';
 import { openAction } from '@store/modules/session/actions';
 import { randomBackground } from '@config/Backgrounds';
 
-import { Wrapper, Content, Info, Quantity, ReviewTitle, Title, Opacity, Data, TitleInfo } from './styles';
+import { Wrapper, Content, Quantity,  Title, Opacity, Block, Header, Frequency, Body } from './styles';
 
 export default function Single({ session }) {
-  const t = useTranslation();
   const dispatch = useDispatch();
   const background = randomBackground();
   const icon = "card";
+  const frequencyName = (session && session.deck && session.deck.frequency) ? session.deck.frequency.name : ''
   
   function openSessionClick() {
     dispatch(openAction({ sessionId: session.id }));
@@ -26,15 +25,16 @@ export default function Single({ session }) {
     <Wrapper onClick={openSessionClick} className='no-select'>
       <Content background={background}>
         <Opacity></Opacity>
-        <Data>
-          <TitleInfo>{t('session.title')}</TitleInfo>
-          <Title>{session.deck.name}</Title>
-          <Info>
-            <ReviewTitle>{t('session.cards')}</ReviewTitle>
-            <IconSmall name={icon} />
+        <Block>
+          <Header>
+            <Frequency>{frequencyName}</Frequency>
+            <Title>{session.deck.name}</Title>
+          </Header>
+          <Body>
+            <IconMedium name={icon} />
             <Quantity>{session.sessionCards}</Quantity>
-          </Info>
-        </Data>
+          </Body>
+        </Block>
       </Content>
     </Wrapper>
   );

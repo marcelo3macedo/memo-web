@@ -17,6 +17,10 @@ export const Wrapper = styled.div<WrapperProps>`
         z-index: 999;
         display: ${props => props.show ? "block": "none"};
     }    
+
+    @media (min-width:768px) {
+        display: none;
+    }
 `;
 
 export const Content = styled.div`

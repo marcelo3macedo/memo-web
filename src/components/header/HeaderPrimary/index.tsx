@@ -6,7 +6,6 @@ import logo from '@assets/logoHorizontal.png';
 import IconMedium from '@components/icons/IconMedium';
 import { menuAction, searchAction } from '@store/modules/menu/actions';
 import { backAction } from '@store/modules/navigate/actions';
-import SearchPrimary from '@components/search/SearchPrimary';
 
 import { Wrapper, Content, Header, Logo, Block } from './styles';
 
@@ -44,7 +43,6 @@ export default function HeaderPrimary() {
               </>
             )}            
           </Header>
-          <SearchPrimary/>
       </Content>
     </Wrapper>
   );
