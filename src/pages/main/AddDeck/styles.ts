@@ -3,6 +3,10 @@ import styled from 'styled-components';
 export const Wrapper = styled.div`
     padding: 10px;
     min-height: 100vH;
+
+    @media (min-width: 768px) {
+        max-width: 700px;
+    }
 `;
 
 export const Content = styled.div`
@@ -23,6 +27,15 @@ export const Block = styled.div`
 
     input[type="text"] {
         margin: 20px 0 10px 0;
+        padding: 15px 10px;
+        border-radius: 10px;
+        border: 1px solid var(--neutral60);
+    }
+
+    textarea {
+        background: none;
+        margin: 10px 0 10px 0;
+        height: 60px;
         padding: 15px 10px;
         border-radius: 10px;
         border: 1px solid var(--neutral60);

@@ -68,3 +68,7 @@ export const Header = styled.div`
     }
 `;
 
+export const FieldName = styled.h5`
+    margin-bottom: 10px;
+    color: var(--neutral90);
+`;

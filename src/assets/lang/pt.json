@@ -97,7 +97,9 @@
     "editDeck": {
         "title": "Editar Sessão",
         "editName": "Editar Nome",
-        "namePlaceholder": "Escolha o nome da sua sessão"
+        "namePlaceholder": "Escolha o nome da sua sessão",
+        "name": "Nome:",
+        "description": "Descrição:"
     },
     "removeDeck": {
         "title": "Confirmar Remover",

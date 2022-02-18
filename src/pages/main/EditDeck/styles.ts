@@ -75,9 +75,9 @@ export const Block = styled.div`
 
 export const Header = styled.div`
     display: flex;
-    align-items: center;
+    align-items: baseline;
     justify-content: space-between;
-    padding: 5px 0;
+    padding: 10px 0;
 
     @media (min-width: 768px) {
         max-width: 500px;
@@ -142,4 +142,11 @@ export const FrequencyOptions = styled.select`
     color: var(--neutral90);
 `;
 
+export const Info = styled.div`
+`;
 
+export const Description = styled.span`
+    white-space: pre-line;
+    color: var(--neutral90);
+    margin: 10px 0;
+`;

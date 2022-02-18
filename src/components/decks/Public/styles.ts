@@ -46,16 +46,25 @@ export const Block = styled.div`
 
 export const Header = styled.div`
     text-align: left;
-    display: flex;
-    justify-content: space-between;
     width: 100%;    
+    height: 100%;
 `;
 
 export const Details = styled.div`  
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100%;
 `;
 
 export const Title = styled.h1`
     font-weight: bold;
+    color: var(--secondary10);
+    text-align: left; 
+    padding: 10px;
+`;
+
+export const Description = styled.h4`
     color: var(--secondary10);
     text-align: left; 
     padding: 10px;

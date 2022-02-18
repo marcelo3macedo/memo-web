@@ -25,6 +25,7 @@ export default function AddDeck() {
   function handleSubmit(data) {
     dispatch(saveAction({
       name: data.name,
+      description: data.description,
       isPublic: data.isPublic === "public",
       frequencyId: data.frequencyId,
       themeId
@@ -47,6 +48,8 @@ export default function AddDeck() {
             <Block>
               <Field name={"name"} type="text" className="input" placeholder={t('newDeck.name')} />
               <ValidationMessage name="name"/>
+              <Field name={"description"} as="textarea" className="input" placeholder={t('newDeck.name')} />
+              <ValidationMessage name="description"/>
               <Group>
                 <Field name={"isPublic"} type="radio" className="input" value="public" />
                 <RadioArea>
