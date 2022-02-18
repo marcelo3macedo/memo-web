@@ -3,6 +3,7 @@ import { createGlobalStyle } from "styled-components";
 export const GlobalStyle = createGlobalStyle`
     :root {
         --primary: #333333;
+        --secondaryDark: #1c5e5d;
         --secondary100: #21b3af;
         --secondary90: #5ee4e1;
         --secondary80: #b6dddc;
@@ -41,6 +42,7 @@ export const GlobalStyle = createGlobalStyle`
 
         --alphaColor: 51, 51, 51;
         --alpha: 0.3;
+        --alphaStrong: 0.65;
     }
 
     * {
@@ -85,18 +87,8 @@ export const GlobalStyle = createGlobalStyle`
         border-radius: 5px;
     }
 
-    @media (max-width: 768px) {
-        ::-webkit-scrollbar {
-            display: none;
-        }
-
-        h1 {
-            font-size: 1.5em;
-        }
-
-        h2 {
-            font-size: 1.3em;
-        }
+    body {
+        background: var(--secondary40);    
     }
 
     .fade-enter {
@@ -146,5 +138,29 @@ export const GlobalStyle = createGlobalStyle`
 
     select:focus {
         outline: none;
+    }
+
+    @media (min-width: 768px) {
+        h5 {
+            font-size: 0.9em;
+        }
+
+        h6 {
+            font-size: 0.8em;
+        }
+    }
+
+    @media (max-width: 768px) {
+        ::-webkit-scrollbar {
+            display: none;
+        }
+
+        h1 {
+            font-size: 1.5em;
+        }
+
+        h2 {
+            font-size: 1.3em;
+        }
     }
 `;

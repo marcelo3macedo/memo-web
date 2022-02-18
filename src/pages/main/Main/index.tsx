@@ -7,7 +7,6 @@ import AddOrSearchDecks from '@components/blocks/AddOrSearchDecks';
 import FeaturedGallery from '@components/blocks/FeaturedGallery';
 import { loadAction } from '@store/modules/resume/actions';
 import { RootState } from '@store/modules/rootReducer';
-import BannerGallery from '@components/blocks/BannerGallery';
 import OpenSessions from '@components/blocks/OpenSessions';
 
 export default function Main() {
@@ -23,7 +22,6 @@ export default function Main() {
       <Content>
         <WelcomeMessage/>
         <OpenSessions />
-        <BannerGallery />
         <AddOrSearchDecks />
         <FeaturedGallery featuredDecks={featuredDecks} />
       </Content>

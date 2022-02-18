@@ -165,7 +165,8 @@
         "sessions": "Sessões",
         "gallery": "Galeria",
         "search": "Pesquisar",
-        "account": "Conta"
+        "account": "Conta",
+        "help": "Ajuda"
     },
     "gallery": {
         "title": "Galeria",
@@ -241,5 +242,8 @@
             "subTitle": "Esse é um projeto Open-source|Contribuições com o projeto em:",
             "footer": "2021 Memorizator - @ Todos os direitores reservados"
         }
+    },
+    "blocks": {
+        "featured": "Em Destaque"
     }
 }

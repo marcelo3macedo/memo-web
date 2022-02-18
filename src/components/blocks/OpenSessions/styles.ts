@@ -3,9 +3,8 @@ import { PendingDecks } from "@interfaces/Deck/pendingDecks.interface";
 
 export const Wrapper = styled.div<PendingDecks>`
     margin: 5px 0;
-    padding: 20px 10px;
+    padding: 10px 0px;
     display: ${props => props.show ? "block": "none"};
-    background: var(--secondary80);
 `;
 
 export const Content = styled.div`

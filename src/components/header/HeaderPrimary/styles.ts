@@ -5,8 +5,7 @@ export const Wrapper = styled.div`
     border-bottom: 2px solid var(--secondary60);    
 
     @media (min-width: 768px) {
-        padding: 0px;
-        padding-top: 0px;
+        display: none;
     }
 `;
 
