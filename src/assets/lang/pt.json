@@ -201,7 +201,8 @@
         "title": "Sessão",
         "frequency": "Frequência:",
         "public": "Público",
-        "private": "Privado"
+        "private": "Privado",
+        "createdAt": "Criado em:"
     },
     "home": {
         "access": "Acesse Agora",
