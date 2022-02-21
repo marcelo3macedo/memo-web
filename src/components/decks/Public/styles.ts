@@ -13,6 +13,11 @@ export const Wrapper = styled.div`
     @media (min-width: 768px) {
         height: 250px;
     }
+
+    &:hover {
+        opacity: var(--opacity);
+        cursor: pointer;
+    }
 `;
 
 export const Content = styled.div<DeckCard>`

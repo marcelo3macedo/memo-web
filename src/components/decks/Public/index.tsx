@@ -4,7 +4,7 @@ import { randomBackground } from '@config/Backgrounds';
 
 import { Wrapper, Content, Title, Description, Block, Header, Details, Opacity } from './styles';
 
-export default function Public({ data }) {
+export default function Public({ data, action=null }) {
   const background = (data && data.theme && data.theme.src) ? data.theme.src : randomBackground()
   
   if (!data) {
@@ -12,7 +12,7 @@ export default function Public({ data }) {
   }
 
   return (
-    <Wrapper className='no-select'>
+    <Wrapper className='no-select' onClick={() => { action(data) }}>
       <Content background={background}>
         <Opacity></Opacity>
 

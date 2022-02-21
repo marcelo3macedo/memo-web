@@ -43,6 +43,7 @@ export const GlobalStyle = createGlobalStyle`
         --alphaColor: 51, 51, 51;
         --alpha: 0.3;
         --alphaStrong: 0.65;
+        --opacity: 0.8;
     }
 
     * {

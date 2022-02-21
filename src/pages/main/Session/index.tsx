@@ -2,16 +2,18 @@ import React from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { useTranslation } from 'react-multi-lang';
 
-import { Wrapper, Content, Title, Header, SubTitle, Action, Themes, ThemeTitle, Card, CardName } from './styles';
+import { Wrapper, Content, Title, Header, SubTitle, Description, Info, Frequency, Action, Themes, ThemeTitle, Card, CardName } from './styles';
 import ButtonPrimary from '@components/button/ButtonPrimary';
 import { RootState } from '@store/modules/rootReducer';
 import { reviewAction } from '@store/modules/session/actions';
+import { formatDateField } from '@services/Format';
 
 export default function Session() {
   const dispatch = useDispatch();
   const t = useTranslation();
   const session:any = useSelector((state:RootState) => state.session.session);
-
+  const frequency = session && session.deck && session.deck.frequency ? session.deck.frequency.name : ''
+  
   function reviewClick() {
     dispatch(reviewAction());
   }
@@ -24,9 +26,12 @@ export default function Session() {
     <Wrapper>
       <Content>
         <Header>
-          <SubTitle>{t('decks.title')}</SubTitle>
+          <Info>{t('decks.title')}</Info>
           <Title>{session.deck.name}</Title>
+          <Frequency>{t('session.frequency')} {frequency}</Frequency>
+          <SubTitle>{t('session.createdAt')} {formatDateField(session.createdAt)}</SubTitle>
         </Header>
+        <Description>{session.deck.description}</Description>
         <Action>
           <ButtonPrimary content={t('actions.review')} action={reviewClick}/>
         </Action>
