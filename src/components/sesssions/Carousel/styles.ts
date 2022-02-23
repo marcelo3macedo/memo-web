@@ -6,7 +6,7 @@ export const Wrapper = styled.div`
     padding: 0 10px;
 
     @media (min-width: 768px) {
-        padding: 0;
+        padding: 10px 0;
     }
 `;
 

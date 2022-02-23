@@ -7,7 +7,7 @@ import { loadAction, loadMoreAction } from '@store/modules/gallery/actions';
 import { Wrapper, Content } from './styles';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@store/modules/rootReducer';
-import DecksAvailable from '@components/blocks/DecksAvailable';
+import DeckGallery from '@components/decks/Gallery';
 import Pagination from '@components/blocks/Pagination';
 
 export default function Gallery() {
@@ -27,7 +27,7 @@ export default function Gallery() {
     <Wrapper>
       <Content>
         <HeaderPage title={t('gallery.title')} subTitle={t('gallery.subTitle')}></HeaderPage>
-        <DecksAvailable decks={decks} />
+        <DeckGallery decks={decks} type="public" />
         <Pagination callback={loadMore} visible={visible}/>
      </Content>
     </Wrapper>

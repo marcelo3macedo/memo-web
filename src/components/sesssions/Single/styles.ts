@@ -72,6 +72,11 @@ export const Block = styled.div `
 
 export const Header = styled.div `
     padding: 15px;
+
+    @media (min-width: 768px) {
+        max-height: 100px;
+        overflow: hidden;
+    }
 `;
 
 export const Title = styled.h1`

@@ -143,6 +143,7 @@
     },
     "actions": {
         "add": "Adicionar",
+        "added": "Adicionado",
         "addCard": "Adicionar Card",
         "delete": "Remover",
         "edit": "Editar",
