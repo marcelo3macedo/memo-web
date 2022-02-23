@@ -1,6 +1,7 @@
+import { Button } from "@interfaces/Button/button.interface";
 import styled from "styled-components";
 
-export const Wrapper = styled.button`
+export const Wrapper = styled.button<Button>`
     padding: 10px 20px;
     border-radius: 10px;
     background: var(--secondary100);
@@ -9,6 +10,7 @@ export const Wrapper = styled.button`
     border: none;
     min-width: 100px;
     text-align: center;
+    opacity: ${props => props.disabled ? 'var(--alpha)': 1};
     
     h5 {
         font-weight: bold;

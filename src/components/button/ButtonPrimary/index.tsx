@@ -4,7 +4,7 @@ import IconSmall from '@components/icons/IconSmall';
 
 import { Wrapper, TextValue, Loading } from './styles';
 
-export default function ButtonPrimary({ content, type=null, action=null, loading=false }) {
+export default function ButtonPrimary({ content, type=null, action=null, loading=false, disabled=false }) {
   if (loading) {
     return(
       <Loading>
@@ -16,7 +16,7 @@ export default function ButtonPrimary({ content, type=null, action=null, loading
   }
 
   return (
-    <Wrapper type={type ?? 'button'} onClick={action} className='no-select'>
+    <Wrapper type={type ?? 'button'} onClick={action} className='no-select' disabled={disabled}>
       <TextValue>{content}</TextValue>
     </Wrapper>
   );
