@@ -2,7 +2,7 @@ name: CI
 
 on:
   push:
-    branches: [ develop ]
+    branches: [ master ]
   
   workflow_dispatch:
 
@@ -29,5 +29,6 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           port: ${{ secrets.SSH_PORT }}
           key: ${{ secrets.SSH_KEY }}
+          passphrase: ${{ secrets.SSH_PASSPHRASE }}
           source: "., !node_modules"
-          target: "/var/www/html/memo/frontend"
+          target: "~/memo/master/frontend"
