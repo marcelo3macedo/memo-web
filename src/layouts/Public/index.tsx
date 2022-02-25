@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from "prop-types";
 
 import logo from "@assets/logoHorizontal.png";
-import { Wrapper, Content, Header, LogoArea, Menu, MenuItem, MenuTitle, Action, Image } from './styles';
+import { Wrapper, Content, Header, LogoArea, Action, Image } from './styles';
 import ButtonSecondary from '@components/button/ButtonSecondary';
 import { useDispatch } from 'react-redux';
 import { navigatePush } from '@store/modules/navigate/actions';
