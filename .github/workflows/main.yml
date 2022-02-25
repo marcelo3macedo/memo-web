@@ -31,4 +31,4 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           passphrase: ${{ secrets.SSH_PASSPHRASE }}
           source: "., !node_modules"
-          target: "~/memo/frontend"
+          target: "~/memo/develop/frontend"
