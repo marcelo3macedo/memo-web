@@ -9,6 +9,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    environment: Develop
     steps:
       - uses: actions/checkout@v2
 
@@ -22,6 +23,10 @@ jobs:
         
       - name: build
         run: yarn build
+        env:
+          REACT_APP_API_URL: $REACT_APP_API_URL
+          REACT_APP_VERSION: $REACT_APP_VERSION
+          REACT_APP_PROJECT: $REACT_APP_PROJECT
         
       - uses: appleboy/scp-action@master
         with:
