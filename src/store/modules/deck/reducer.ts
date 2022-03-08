@@ -6,13 +6,30 @@ const INITIAL_STATE = {
     themes: [],
     themeId: null,
     defaultFrequency: null,
-    showDelete: false,    
+    showDelete: false,
+    loading: false,
+    failure: false
 };
 
 export default function navigate(state = INITIAL_STATE, action) {
     return produce(state, draft => {
         switch (action.type) {
             case "@deck/OPEN_SUCCESS" : {
+                draft.deck = action.payload.deck;
+                break;
+            }
+            case "@deck/OPEN_PATH" : {
+                draft.loading = true;
+                draft.failure = false;
+                break;
+            }
+            case "@deck/OPEN_PATH_FAILURE": {
+                draft.loading = false;
+                draft.failure = true;
+                break;
+            }
+            case "@deck/OPEN_PATH_SUCCESS": {
+                draft.loading = false;
                 draft.deck = action.payload.deck;
                 break;
             }

@@ -23,5 +23,6 @@ export const PATH_ACCOUNT = "/account";
 export const PATH_PROFILE = "/profile";
 export const PATH_HISTORY = "/history";
 export const PATH_GALLERY = "/gallery";
+export const PATH_GALLERYDECK = "/gallery/deck";
 
 export const PATH_HOME = "/";

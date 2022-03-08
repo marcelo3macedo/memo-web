@@ -1,6 +1,7 @@
 import React from "react";
 import { Switch, useLocation } from "react-router-dom";
 import Router from "./Router";
+import { useSelector } from "react-redux";
 
 import { Layouts } from "@config/Layouts";
 import SignIn from "@pages/auth/SignIn";
@@ -20,8 +21,6 @@ import SearchDeck from "@pages/main/SearchDeck";
 import PrivacyPolicy from "@pages/main/PrivacyPolicy";
 import SessionCompleted from "@pages/main/SessionCompleted";
 import Home from "@pages/public/Home";
-
-import { PATH_FORGOT_PASSWORD, PATH_SESSION, PATH_SIGN_IN, PATH_SIGN_UP, PATH_RECOVERED, PATH_SESSION_COMPLETED, PATH_PRIVACY_POLICY, PATH_ABOUT, PATH_HELP, PATH_MYACCOUNT, PATH_MYDECKS, PATH_ADDDECK, PATH_SEARCHDECK, PATH_EDITDECK, PATH_ADDCARD, PATH_EDITCARD, PATH_DECK, PATH_REVIEW, PATH_MAIN, PATH_HOME, PATH_ACCOUNT, PATH_PROFILE, PATH_HISTORY, PATH_GALLERY, PATH_ACTIVE, PATH_EMAIL_VALIDATION } from "@services/Navigation";
 import AddCard from "@pages/main/AddCard";
 import EditCard from "@pages/main/EditCard";
 import Review from "@pages/main/Review";
@@ -31,13 +30,21 @@ import History from "@pages/main/History";
 import Gallery from "@pages/main/Gallery";
 import Activate from "@pages/auth/Activate";
 import Validation from "@pages/auth/Validation";
+import { RootState } from "@store/modules/rootReducer";
+import GalleryDeck from "@pages/public/GalleryDeck";
+
+import { PATH_FORGOT_PASSWORD, PATH_SESSION, PATH_SIGN_IN, PATH_SIGN_UP, PATH_RECOVERED, PATH_SESSION_COMPLETED, PATH_PRIVACY_POLICY, PATH_ABOUT, PATH_HELP, PATH_MYACCOUNT, PATH_MYDECKS, PATH_ADDDECK, PATH_SEARCHDECK, PATH_EDITDECK, PATH_ADDCARD, PATH_EDITCARD, PATH_DECK, PATH_REVIEW, PATH_MAIN, PATH_HOME, PATH_ACCOUNT, PATH_PROFILE, PATH_HISTORY, PATH_GALLERY, PATH_ACTIVE, PATH_EMAIL_VALIDATION, PATH_GALLERYDECK } from "@services/Navigation";
 
 export default function Routes() {
     const location = useLocation();
+    const { signed } = useSelector((state:RootState) => state.auth);
+    const dynamicLayout = signed ? Layouts.Main : Layouts.Visitor;
 
     return (
         <Switch location={location}>         
-            <Router path={PATH_MAIN} exact component={Main} layout={Layouts.Main} />    
+            <Router path={PATH_GALLERYDECK + "/:path"} component={GalleryDeck} layout={dynamicLayout} public />
+            
+            <Router path={PATH_MAIN} exact component={Main} layout={Layouts.Main} />
             <Router path={PATH_ABOUT} component={About} layout={Layouts.Main}/>  
             <Router path={PATH_HELP} component={Help} layout={Layouts.Main}/>  
             <Router path={PATH_MYACCOUNT} component={MyAccount} layout={Layouts.Main}/>   
@@ -65,7 +72,7 @@ export default function Routes() {
             <Router path={PATH_ACTIVE} component={Activate} layout={Layouts.Auth}/>
             <Router path={PATH_EMAIL_VALIDATION} component={Validation} layout={Layouts.Auth}/>
 
-            <Router path={PATH_HOME} exact component={Home} layout={Layouts.Public} />   
+            <Router path={PATH_HOME} exact component={Home} layout={Layouts.Public}  />
         </Switch>
     );
 }
