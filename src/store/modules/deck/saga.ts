@@ -3,9 +3,9 @@ import { all, put, takeLatest } from "redux-saga/effects";
 import { navigatePush } from "@store/modules/navigate/actions";
 import { PATH_EDITDECK, PATH_DECK, PATH_ADDDECK } from '@services/Navigation';
 import { send, retrieve, update } from "@services/Api/requester";
-import { API_DECKS, API_SESSIONSFEED, API_DECKSCLONE, API_DECKSOPTIONS } from "@services/Api/routes";
+import { API_DECKS, API_SESSIONSFEED, API_DECKSCLONE, API_DECKSOPTIONS, API_DECKSPATH } from "@services/Api/routes";
 import { openDeckSuccessAction } from "@store/modules/session/actions";
-import { openSuccessAction, saveSuccessAction, reviewAction, newDeckSuccessAction } from "./actions";
+import { openSuccessAction, saveSuccessAction, reviewAction, newDeckSuccessAction, openPathFailure, openPathSuccess } from "./actions";
 import { loadDeckAction } from "../personal/actions";
 
 function* save({ payload }:any) {
@@ -99,7 +99,17 @@ function* newDeck() {
     yield put(newDeckSuccessAction({ frequencies, themes }));
 }
 
+function* openPath({ payload }:any) {
+    const { path } = payload;
+    const response = yield retrieve({ method: `${API_DECKSPATH}/${path}` });
 
+    if (response.status !== 200) {
+        yield put(openPathFailure())
+        return;
+    }    
+
+    yield put(openPathSuccess({ deck: response.data }))
+}
 
 export default all([
     takeLatest('@deck/SAVE', save),
@@ -113,4 +123,5 @@ export default all([
     takeLatest('@deck/ADD', add),
     takeLatest('@deck/FINISH', finish),
     takeLatest('@deck/LOAD_NEWDECK', newDeck),
+    takeLatest('@deck/OPEN_PATH', openPath),
 ]);

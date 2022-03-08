@@ -1,4 +1,10 @@
 {
+    "loading": {
+        "message": "Carregando..."
+    },
+    "notFound": {
+        "deck": "Sessão não encontrada"
+    },
     "errors": {
         "generic": "Ocorreu um erro ao processar a requisição",
         "mailAlreadyInUse": "E-mail já está em uso.",

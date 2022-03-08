@@ -30,6 +30,27 @@ export function openAction({ deck }) {
         }
     }
 }
+export function openPathAction({ path }) {
+    return {
+        type: '@deck/OPEN_PATH',
+        payload: {
+            path
+        }
+    }
+}
+export function openPathFailure() {
+    return {
+        type: '@deck/OPEN_PATH_FAILURE'
+    }
+}
+export function openPathSuccess({ deck }) {
+    return {
+        type: '@deck/OPEN_PATH_SUCCESS',
+        payload: {
+            deck
+        }
+    }
+}
 export function openPublicAction({ deck }) {
     return {
         type: '@deck/OPEN_PUBLIC',
