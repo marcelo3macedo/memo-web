@@ -87,7 +87,6 @@ export function openPublicAction({ deck }) {
         }
     }
 }
-
 export function reviewAction({ deck }) {
     return {
         type: '@deck/REVIEW',
@@ -173,20 +172,3 @@ export function deleteCardFailure() {
         type: '@deck/DELETE_CARD_FAILURE'
     }
 }
-export function finishAction() {
-    return {
-        type: '@deck/FINISH'
-    }
-}
-
-export function changeThemeId({ themeId }) {
-    return {
-        type: '@deck/CHANGE_THEMEID',
-        payload: {
-            themeId
-        }
-    }
-}
-
-
-

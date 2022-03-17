@@ -6,14 +6,12 @@ export function openModalAction(modal) {
         }
     }
 }
-
 export function saveAction(card) {
     return {
         type: '@card/SAVE',
         card
     }
 }
-
 export function editAction(card) {
     return {
         type: '@card/EDIT',
@@ -22,7 +20,6 @@ export function editAction(card) {
         }
     }
 }
-
 export function confirmEditAction(card) {
     return {
         type: '@card/CONFIRM_EDIT',
@@ -31,7 +28,6 @@ export function confirmEditAction(card) {
         }
     }
 }
-
 export function removeAction(card) {
     return {
         type: '@card/REMOVE',
@@ -40,7 +36,6 @@ export function removeAction(card) {
         }
     }
 }
-
 export function confirmRemoveAction() {
     return {
         type: '@card/CONFIRM_REMOVE'

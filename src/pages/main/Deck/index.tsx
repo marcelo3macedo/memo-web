@@ -21,6 +21,7 @@ export default function Deck() {
   
   function cloneClick({ deck }) {
     dispatch(cloneAction({ deck }));
+    dispatch(navigatePush({ path: PATH_REVIEW }));
   }
 
   function reviewClick({ deck }) {

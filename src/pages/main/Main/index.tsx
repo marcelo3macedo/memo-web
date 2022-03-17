@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 
-import WelcomeMessage from '@components/blocks/WelcomeMessage';
+import WelcomeMessage from '@components/containers/home/WelcomeMessage';
 import AddOrSearchDecks from '@components/blocks/AddOrSearchDecks';
 import FeaturedGallery from '@components/blocks/FeaturedGallery';
 import OpenSessions from '@components/blocks/OpenSessions';

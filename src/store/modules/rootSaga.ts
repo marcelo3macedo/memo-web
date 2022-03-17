@@ -1,6 +1,5 @@
 import { all } from "redux-saga/effects";
 import auth from "./auth/saga";
-import card from "./card/saga";
 import deck from "./deck/saga";
 import menu from "./menu/saga";
 import navigate from "./navigate/saga";
@@ -18,5 +17,5 @@ import sessions from "./sessions/saga";
 import review from "./review/saga";
 
 export default function* rootSaga() {
-    return yield all([auth, user, sessions, card, deck, menu, navigate, validation, gallery, personal, session, search, profile, history, frequencies, review, themes]);
+    return yield all([auth, user, sessions, personal, deck, menu, navigate, validation, gallery, session, search, profile, history, frequencies, review, themes]);
 }

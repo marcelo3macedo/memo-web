@@ -16,12 +16,9 @@ import MyAccount from "@pages/main/MyAccount";
 import AddDeck from "@pages/main/AddDeck";
 import EditDeck from "@pages/main/EditDeck";
 import Session from "@pages/main/Session";
-import SearchDeck from "@pages/main/SearchDeck";
 import PrivacyPolicy from "@pages/main/PrivacyPolicy";
 import SessionCompleted from "@pages/main/SessionCompleted";
 import Home from "@pages/public/Home";
-import AddCard from "@pages/main/AddCard";
-import EditCard from "@pages/main/EditCard";
 import Review from "@pages/main/Review";
 import Account from "@pages/main/Account";
 import Profile from "@pages/main/Profile";
@@ -33,7 +30,7 @@ import { RootState } from "@store/modules/rootReducer";
 import GalleryDeck from "@pages/public/GalleryDeck";
 import Sessions from "@pages/main/Sessions";
 
-import { PATH_FORGOT_PASSWORD, PATH_SESSION, PATH_SIGN_IN, PATH_SIGN_UP, PATH_RECOVERED, PATH_SESSION_COMPLETED, PATH_PRIVACY_POLICY, PATH_ABOUT, PATH_HELP, PATH_MYACCOUNT, PATH_ADDDECK, PATH_SEARCHDECK, PATH_EDITDECK, PATH_ADDCARD, PATH_EDITCARD, PATH_DECK, PATH_REVIEW, PATH_MAIN, PATH_HOME, PATH_ACCOUNT, PATH_PROFILE, PATH_HISTORY, PATH_GALLERY, PATH_ACTIVE, PATH_EMAIL_VALIDATION, PATH_GALLERYDECK, PATH_SESSIONS } from "@services/Navigation";
+import { PATH_FORGOT_PASSWORD, PATH_SESSION, PATH_SIGN_IN, PATH_SIGN_UP, PATH_RECOVERED, PATH_SESSION_COMPLETED, PATH_PRIVACY_POLICY, PATH_ABOUT, PATH_HELP, PATH_MYACCOUNT, PATH_ADDDECK, PATH_EDITDECK, PATH_DECK, PATH_REVIEW, PATH_MAIN, PATH_HOME, PATH_ACCOUNT, PATH_PROFILE, PATH_HISTORY, PATH_GALLERY, PATH_ACTIVE, PATH_EMAIL_VALIDATION, PATH_GALLERYDECK, PATH_SESSIONS } from "@services/Navigation";
 
 export default function Routes() {
     const location = useLocation();
@@ -52,10 +49,7 @@ export default function Routes() {
             <Router path={PATH_MYACCOUNT} component={MyAccount} layout={Layouts.Main}/>   
             <Router path={PATH_DECK + "/:path/:id"} component={Deck} layout={Layouts.Main}/>  
             <Router path={PATH_ADDDECK} component={AddDeck} layout={Layouts.Main}/>  
-            <Router path={PATH_EDITDECK} component={EditDeck} layout={Layouts.Main}/>              
-            <Router path={PATH_SEARCHDECK} component={SearchDeck} layout={Layouts.Main}/>  
-            <Router path={PATH_ADDCARD} component={AddCard} layout={Layouts.Main}/>  
-            <Router path={PATH_EDITCARD} component={EditCard} layout={Layouts.Main}/>  
+            <Router path={PATH_EDITDECK} component={EditDeck} layout={Layouts.Main}/>
             <Router path={PATH_PRIVACY_POLICY} component={PrivacyPolicy} layout={Layouts.Main}/>  
             <Router path={PATH_SESSION + "/:id"} component={Session} layout={Layouts.Main}/>
             <Router path={PATH_ACCOUNT} component={Account} layout={Layouts.Main}/>

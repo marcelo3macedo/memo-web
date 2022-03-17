@@ -1,6 +1,5 @@
 import { combineReducers } from "redux";
 import auth from "./auth/reducer";
-import card from "./card/reducer";
 import deck from "./deck/reducer";
 import menu from "./menu/reducer";
 import navigate from "./navigate/reducer";
@@ -20,7 +19,6 @@ import review from "./review/reducer";
 export const rootReducer = combineReducers({
     auth,
     user,
-    card,
     deck,
     menu,
     navigate,

@@ -27,11 +27,6 @@ export function reviewAction() {
         type: '@session/REVIEW'
     }
 }
-export function flipAction() {
-    return {
-        type: '@session/FLIP'
-    }
-}
 export function optionAction({ option }) {
     return {
         type: '@session/OPTION',
@@ -40,7 +35,6 @@ export function optionAction({ option }) {
         }
     }
 }
-
 export function optionActionSuccess() {
     return {
         type: '@session/OPTION_SUCCESS'
