@@ -21,7 +21,7 @@ export const Content = styled.div`
 export const Section = styled.div`
 `;
 
-export const Body = styled.div`
+export const Body = styled.div`    
 `;
 
 export const Header = styled.div`
@@ -75,7 +75,6 @@ export const Action = styled.div`
 
 export const Image = styled.img`
     width: 120px;
-    border-right: 2px solid var(--neutral60);
     padding-right: 25px;
 
     @media (max-width: 768px) {

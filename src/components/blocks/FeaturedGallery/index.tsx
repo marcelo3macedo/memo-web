@@ -1,22 +1,32 @@
 import React from 'react';
-import Deck from '@components/blocks/Deck';
+import { useTranslation } from 'react-multi-lang';
 
-import { Wrapper, Content, Title, Header, DecksArea, Container } from './styles';
-import IconMedium from '@components/icons/IconMedium';
+import IconLarge from '@components/icons/IconLarge';
+import Public from '@components/decks/Public';
+
+import { Wrapper, Content, Title, Header, DecksArea, DeckItem, Container } from './styles';
 
 export default function FeaturedGallery({featuredDecks=[]}) {
+  const t = useTranslation()
+  
+  if (featuredDecks.length === 0) {
+    return <></>;
+  }
+
   return (
     <Wrapper>
       <Container>
         <Header>
-          <IconMedium name="featured" />
-          <Title>Em Destaque</Title>
+          <IconLarge name="featured" />
+          <Title>{t('blocks.featured')}</Title>
         </Header>
         <Content>
           <DecksArea>
-          {featuredDecks.map(d=> (
-            <Deck key={d.id} data={d.deck} />
-          ))}
+            {featuredDecks.map(d=> (
+              <DeckItem key={d.id}>
+                <Public deck={d.deck} />
+              </DeckItem>
+            ))}
           </DecksArea>
         </Content>
       </Container>

@@ -4,11 +4,11 @@ import { useDispatch } from 'react-redux';
 
 import HeaderPage from '@components/header/HeaderPage';
 import Option from '@components/blocks/Option';
+import { PATH_ABOUT, PATH_HELP, PATH_HISTORY, PATH_PRIVACY_POLICY, PATH_PROFILE, PATH_SESSIONS } from '@services/Navigation';
 import { navigatePush } from '@store/modules/navigate/actions';
+import { logoutAction } from '@store/modules/auth/actions';
 
 import { Wrapper, Content, Options, Title } from './styles';
-import { PATH_ABOUT, PATH_HELP, PATH_HISTORY, PATH_MYDECKS, PATH_PRIVACY_POLICY, PATH_PROFILE } from '@services/Navigation';
-import { logoutAction } from '@store/modules/auth/actions';
 
 export default function Account() {
   const t = useTranslation();
@@ -29,7 +29,7 @@ export default function Account() {
 
         <Options>
           <Title>{t('account.sessions')}</Title>
-          <Option title={t('account.actions.sessions')} action={() => { navigate(PATH_MYDECKS) }} />
+          <Option title={t('account.actions.sessions')} action={() => { navigate(PATH_SESSIONS) }} />
           <Option title={t('account.actions.history')} action={() => { navigate(PATH_HISTORY) }} />
         </Options>
 

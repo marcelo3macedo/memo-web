@@ -1,4 +1,4 @@
-export function loadDecks() {
+export function loadDecksAction() {
     return {
         type: '@personal/LOAD_DECKS'
     }
@@ -11,8 +11,40 @@ export function loadDecksSuccess({ decks }) {
         }
     }
 }
-export function addDecks() {
+export function loadDeckAction() {
     return {
-        type: '@personal/ADD_DECKS'
+        type: '@personal/LOAD_DECK'
+    }
+}
+export function loadDeckSuccess({ deck }) {
+    return {
+        type: '@personal/LOAD_DECK_SUCCESS',
+        payload: {
+            deck
+        }
+    }
+}
+export function removeModalAction({ visible, deck=null }) {
+    return {
+        type: '@personal/REMOVE_MODAL',
+        payload: {
+            visible, deck
+        }
+    }
+}
+export function editAction({ deck }) {
+    return {
+        type: '@personal/EDIT',
+        payload: {
+            deck
+        }
+    }
+}
+export function editSuccessAction({ deck }) {
+    return {
+        type: '@personal/EDIT_SUCCESS',
+        payload: {
+            deck
+        }
     }
 }

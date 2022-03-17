@@ -5,32 +5,46 @@ import { Formik, Form, Field } from "formik";
 
 import ButtonPrimary from '@components/button/ButtonPrimary';
 import ValidationMessage from '@components/validation/ValidationMessage';
+import Themes from '@components/forms/addDeck/Themes';
+import IconMedium from '@components/icons/IconMedium';
 import { initialValues, schema } from '@services/Validation/newDeck.schema';
-import { loadNewDeck, saveAction } from '@store/modules/deck/actions';
+import { loadOptions, saveAction } from '@store/modules/deck/actions';
+import { RootState } from '@store/modules/rootReducer';
+import { selectThemeAction } from '@store/modules/themes/actions';
 
 import { Wrapper, Content, Title, Block, Group, ComboArea, RadioArea, RadioIcon, RadioInfo, RadioTitle, RadioDescription, ComboTitle, FinishArea } from './styles';
-import IconMedium from '@components/icons/IconMedium';
-import { RootState } from '@store/modules/rootReducer';
 
 export default function AddDeck() {
   const dispatch = useDispatch();
-  const { frequency, defaultFrequency } = useSelector((state:RootState) => state.deck);
   const t = useTranslation();
-
+  const { all:themes, selected: themeSelected } = useSelector((state:RootState) => state.themes);
+  const { all:frequencies, default: defaultFrequency } = useSelector((state:RootState) => state.frequencies);
+  
   useEffect(() => {
-    dispatch(loadNewDeck());
+    dispatch(loadOptions());  
   }, [dispatch]);
 
-  function handleSubmit(data) {
-    dispatch(saveAction({
-      name: data.name,
-      isPublic: data.isPublic === "public",
-      frequencyId: data.frequencyId
-    }));
+  if (!themes || themes.length === 0 || !frequencies || frequencies.length === 0) {
+    return <></>;
   }
 
-  if (defaultFrequency) {
-    initialValues.frequencyId = defaultFrequency;
+  initialValues.themeId = themeSelected || themes[0].id;
+  initialValues.frequencyId = defaultFrequency ? defaultFrequency.id : null;
+
+  function handleSubmit(data) {
+    const payload = {
+      name: data.name,
+      description: data.description,
+      isPublic: data.isPublic === "public",
+      frequencyId: data.frequencyId,
+      themeId: themeSelected
+    };
+    
+    dispatch(saveAction(payload));
+  }
+
+  function changeThemeSelected({ themeId }) {
+    dispatch(selectThemeAction({ themeId}));
   }
 
   return (
@@ -45,6 +59,8 @@ export default function AddDeck() {
             <Block>
               <Field name={"name"} type="text" className="input" placeholder={t('newDeck.name')} />
               <ValidationMessage name="name"/>
+              <Field name={"description"} as="textarea" className="input" placeholder={t('newDeck.name')} />
+              <ValidationMessage name="description"/>
               <Group>
                 <Field name={"isPublic"} type="radio" className="input" value="public" />
                 <RadioArea>
@@ -73,11 +89,14 @@ export default function AddDeck() {
                 <ComboTitle>{t('newDeck.interval')}</ComboTitle>
                 
                 <Field name={"frequencyId"} as="select" className="frequency">
-                  {frequency ? frequency.map(f => (
+                  {frequencies ? frequencies.map(f => (
                     <option key={f.id} value={f.id}>{f.name}</option>  
                   )) : null}
                 </Field>
               </ComboArea>
+              
+              <Themes themes={themes} selected={initialValues.themeId} action={changeThemeSelected} />
+
               <FinishArea>
                 <ButtonPrimary type="submit" content={t('newDeck.save')}/>
               </FinishArea>

@@ -1,13 +1,18 @@
-export function loadHistory() {
+export function loadAction() {
     return {
         type: '@history/LOAD'
     }
 }
-export function loadHistorySuccess({ data }) {
+export function loadActionSuccess({ sessions }) {
     return {
         type: '@history/LOAD_SUCCESS',
         payload: {
-            data
+            sessions
         }
+    }
+}
+export function loadFailedAction() {
+    return {
+        type: '@history/LOAD_FAILED'
     }
 }

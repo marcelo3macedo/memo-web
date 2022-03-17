@@ -2,8 +2,10 @@ import * as Yup from "yup";
 
 export const initialValues = {
   name: "",
+  description: "",
   isPublic: "public",
-  frequencyId: null
+  frequencyId: null,
+  themeId: null
 };
 
 export const schema = Yup.object().shape({

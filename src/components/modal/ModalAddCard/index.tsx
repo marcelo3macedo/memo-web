@@ -1,42 +1,28 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-multi-lang';
 import { Formik, Form, Field } from "formik";
-import { initialValues, schema } from '@services/Validation/newCard.schema';
+
 import ValidationMessage from '@components/validation/ValidationMessage';
 import ButtonPrimary from '@components/button/ButtonPrimary';
-import { RootState } from '@store/modules/rootReducer';
+import IconSmall from '@components/icons/IconSmall';
+import { initialValues, schema } from '@services/Validation/newCard.schema';
 
 import { Block, Fields, Wrapper, Content, Title, Header } from './styles';
-import IconSmall from '@components/icons/IconSmall';
-import { closeCreateAction } from '@store/modules/card/actions';
-import { saveAction } from '@store/modules/card/actions';
 
-export default function ModalAddDeck() {
-  const dispatch = useDispatch();
-  const showCreator = useSelector((state:RootState) => state.card.showCreator);
+export default function ModalAddCard({ show, closeAction, submitAction }) {
   const t = useTranslation();
-
-  function handleSubmit(data, { resetForm }) {
-    dispatch(saveAction(data));
-    resetForm();
-  }
-
-  function close() {
-    dispatch(closeCreateAction());
-  }
-
+  
   return (
-    <Wrapper show={showCreator}>
+    <Wrapper show={show}>
       <Content>
-        <Header onClick={close}>
+        <Header onClick={closeAction}>
           <IconSmall name="delete"/>
         </Header>
         <Title>{t('newCard.title')}</Title>
         <Formik 
               enableReinitialize
               initialValues={initialValues}
-              onSubmit={handleSubmit}
+              onSubmit={submitAction}
               validationSchema={schema}>
           <Form>
             <Block>

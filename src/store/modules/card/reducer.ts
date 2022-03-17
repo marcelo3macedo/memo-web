@@ -2,50 +2,37 @@ import produce from "immer";
 
 const INITIAL_STATE = {
     card: {},
-    showEditor: false,
-    showCreator: false,
-    showRemove: false
+    modal: null
 };
 
 export default function navigate(state = INITIAL_STATE, action) {
     return produce(state, draft => {
         switch (action.type) {   
-            case "@card/NEW": {
-                draft.showCreator = true;
+            case "@card/OPEN_MODAL": {
+                draft.modal = action.payload.modal
                 break;
-            }         
-            case "@card/EDIT" : {
-                draft.showEditor = true;
-                draft.card = action.payload.card;
-                break;
-            }
+            } 
             case "@card/REMOVE": {
-                draft.showRemove = true;
+                draft.modal = 'remove-card';
                 draft.card = action.payload.card;
                 break;
             }
-            case "@card/CLOSE_EDIT": {
-                draft.showEditor = false;
+            case "@card/CONFIRM_REMOVE": {
+                draft.modal = null;
                 break;
             }
-            case "@card/CLOSE_CREATE": {
-                draft.showCreator = false;
+            case "@card/EDIT" : {
+                draft.modal = 'edit-card';
+                draft.card = action.payload.card;
                 break;
             }
-            case "@card/CLOSE_REMOVE": {
-                draft.showRemove = false;
+            case "@card/CONFIRM_EDIT" : {
+                draft.modal = null;
+                draft.card = action.payload.card;
                 break;
             }
             case "@card/SAVE": {
-                draft.showCreator = false;
-                break;
-            }
-            case "@card/SAVE_EDITION": {
-                draft.showEditor = false;
-                break;
-            }
-            case "@card/REMOVE_CARD": {
-                draft.showRemove = false;
+                draft.modal = null;
                 break;
             }
             default:

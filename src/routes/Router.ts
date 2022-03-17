@@ -11,13 +11,14 @@ import { checkAuthAction } from "@store/modules/auth/actions";
 export default function RouteWrapper({
     component: Component,
     layout = Layouts.Main,
+    isPublic = false,
     ...rest
 }){
     const dispatch = useDispatch();
 
     onChangePage();
 
-    if (isAuthNeeded(layout.name)) {
+    if (isAuthNeeded(layout.name) && !isPublic) {
         dispatch(checkAuthAction());
     }
 

@@ -1,37 +1,27 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useTranslation } from 'react-multi-lang';
+
+import IconSmall from '@components/icons/IconSmall';
 
 import { Wrapper, Content, Title, Header, Message, Actions, Action, ActionTitle } from './styles';
-import IconSmall from '@components/icons/IconSmall';
-import { closeRemoveAction, removeCardAction } from '@store/modules/card/actions';
-import { RootState } from '@store/modules/rootReducer';
 
-export default function ModalRemoveDeck() {
-  const showRemove = useSelector((state:RootState) => state.card.showRemove);
-  const dispatch = useDispatch();
-
-  function closeRemoveDeck() {
-    dispatch(closeRemoveAction());
-  }
-
-  function removeCard() {
-    dispatch(removeCardAction());
-  }
-
+export default function ModalRemoveCard({ show, submitAction, closeAction }) {
+  const t = useTranslation();
+  
   return (
-    <Wrapper show={showRemove}>
+    <Wrapper show={show}>
       <Content>
-        <Header onClick={closeRemoveDeck}>
+        <Header onClick={() => { closeAction() }}>
           <IconSmall name="delete"/>
         </Header>
-        <Title>Confirmar Remover</Title>
-        <Message>Deseja realmente remover esse card?</Message>
+        <Title>{t('removeCard.title')}</Title>
+        <Message>{t('removeCard.message')}</Message>
         <Actions>
-          <Action onClick={removeCard}>
-            <ActionTitle>Sim</ActionTitle>
+          <Action onClick={() => { submitAction() }}>
+            <ActionTitle>{t('removeCard.positive')}</ActionTitle>
           </Action>
-          <Action onClick={closeRemoveDeck}>            
-            <ActionTitle>Não</ActionTitle>
+          <Action onClick={() => { closeAction() }}>            
+            <ActionTitle>{t('removeCard.negative')}</ActionTitle>
           </Action>
         </Actions>
       </Content>

@@ -1,19 +1,30 @@
 import React from 'react';
-import { useTranslation } from 'react-multi-lang';
+import { useDispatch } from 'react-redux';
 
+import AddDecks from '../AddDecks';
 import SearchDecks from '@components/blocks/SearchDecks';
+import { PATH_GALLERY } from '@services/Navigation';
+import { addAction } from '@store/modules/deck/actions';
+import { navigatePush } from '@store/modules/navigate/actions';
 
 import { Wrapper, Content } from './styles';
-import AddDecks from '../AddDecks';
 
 export default function AddOrSearchDecks() {
-  const t = useTranslation();
+  const dispatch = useDispatch();
+  
+  function searchClick({ query }) {
+    dispatch(navigatePush({ path: `${PATH_GALLERY}/${query}` }));
+  }
+
+  function createSessionClick() {    
+    dispatch(addAction());
+  }
 
   return (
     <Wrapper>
       <Content>
-        <SearchDecks title="" subTitle={t('decks.search')}/>
-        <AddDecks></AddDecks>
+        <SearchDecks action={searchClick} />
+        <AddDecks action={createSessionClick} />
       </Content>
     </Wrapper>
   );
