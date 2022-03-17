@@ -1,43 +1,28 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-multi-lang';
 import { Formik, Form, Field } from "formik";
 
-import { initialValues, schema } from '@services/Validation/newCard.schema';
 import ValidationMessage from '@components/validation/ValidationMessage';
 import ButtonPrimary from '@components/button/ButtonPrimary';
 import IconSmall from '@components/icons/IconSmall';
-import { openModalAction, saveAction } from '@store/modules/card/actions';
-import { RootState } from '@store/modules/rootReducer';
+import { initialValues, schema } from '@services/Validation/newCard.schema';
 
 import { Block, Fields, Wrapper, Content, Title, Header } from './styles';
 
-export default function ModalAddCard() {
-  const dispatch = useDispatch();
+export default function ModalAddCard({ show, closeAction, submitAction }) {
   const t = useTranslation();
-  const modal = useSelector((state:RootState) => state.card.modal);
-  const show = (modal === "add-card")
-
-  function handleSubmit(data, { resetForm }) {
-    dispatch(saveAction(data));
-    resetForm();
-  }
-
-  function closeClick() {
-    dispatch(openModalAction(null))
-  }
-
+  
   return (
     <Wrapper show={show}>
       <Content>
-        <Header onClick={() => { closeClick() }}>
+        <Header onClick={closeAction}>
           <IconSmall name="delete"/>
         </Header>
         <Title>{t('newCard.title')}</Title>
         <Formik 
               enableReinitialize
               initialValues={initialValues}
-              onSubmit={handleSubmit}
+              onSubmit={submitAction}
               validationSchema={schema}>
           <Form>
             <Block>

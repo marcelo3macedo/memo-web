@@ -2,12 +2,13 @@ import React, { useEffect } from 'react';
 import { useTranslation } from 'react-multi-lang';
 import { useDispatch, useSelector } from 'react-redux';
 import { Formik, Form, Field } from "formik";
-import { RootState } from '@store/modules/rootReducer';
 
 import HeaderPage from '@components/header/HeaderPage';
-import { initialValues, schema } from '@services/Validation/profile.schema';
 import ValidationMessage from '@components/validation/ValidationMessage';
 import ButtonPrimary from '@components/button/ButtonPrimary';
+import PageLoading from '@components/loading/PageLoading';
+import { initialValues, schema } from '@services/Validation/profile.schema';
+import { RootState } from '@store/modules/rootReducer';
 import { loadProfile, updateProfile } from '@store/modules/profile/actions';
 
 import { Wrapper, Content, Block, Fields } from './styles';
@@ -15,7 +16,7 @@ import { Wrapper, Content, Block, Fields } from './styles';
 export default function Profile() {
   const t = useTranslation();
   const dispatch = useDispatch();
-  const { profile } = useSelector((state:RootState) => state.profile);
+  const { profile, isLoading } = useSelector((state:RootState) => state.profile);
 
   useEffect(() => {
     dispatch(loadProfile());
@@ -23,6 +24,10 @@ export default function Profile() {
 
   function handleSubmit({ name }) {
     dispatch(updateProfile({ name }));
+  }
+
+  if (isLoading) {
+    return <PageLoading />;
   }
   
   return (

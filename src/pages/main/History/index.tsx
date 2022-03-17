@@ -3,27 +3,31 @@ import { useTranslation } from 'react-multi-lang';
 import { useDispatch, useSelector } from 'react-redux';
 
 import HeaderPage from '@components/header/HeaderPage';
-import { loadHistory } from '@store/modules/history/actions';
+import Histories from '@components/sessions/Histories';
+import PageLoading from '@components/loading/PageLoading';
+import { loadAction } from '@store/modules/history/actions';
+import { RootState } from '@store/modules/rootReducer';
 
 import { Wrapper, Content } from './styles';
-import { RootState } from '@store/modules/rootReducer';
-import Histories from '@components/blocks/Histories';
 
 export default function History() {
   const t = useTranslation();
   const dispatch = useDispatch();
-  const { history } = useSelector((state:RootState) => state.history);
+  const { sessions, isLoading } = useSelector((state:RootState) => state.history);
 
   useEffect(() => {
-    dispatch(loadHistory());
+    dispatch(loadAction());
   }, [dispatch]);
+
+  if (isLoading) {
+    return <PageLoading />;
+  }
  
   return (
     <Wrapper>
       <Content>
-        <HeaderPage title={t('history.title')} subTitle={t('history.subTitle')}></HeaderPage>     
-
-        <Histories data={history} />
+        <HeaderPage title={t('history.title')} subTitle={t('history.subTitle')}></HeaderPage>
+        <Histories sessions={sessions} />
      </Content>
     </Wrapper>
   ); 

@@ -16,9 +16,11 @@ export const DecksArea = styled.div`
 
 export const DeckItem = styled.div`
     min-width: 220px;
+    padding-right: 10px;
 
     @media (min-width: 768px) {
         min-width: 400px;
+        padding-right: 20px;
     }
 `;
 

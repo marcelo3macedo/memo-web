@@ -1,33 +1,17 @@
-import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+  import React from 'react';
 import { useTranslation } from 'react-multi-lang';
 import { Formik, Form, Field } from "formik";
-import { schema } from '@services/Validation/editDeck.schema';
+
 import ValidationMessage from '@components/validation/ValidationMessage';
 import ButtonPrimary from '@components/button/ButtonPrimary';
-import { RootState } from '@store/modules/rootReducer';
-
 import IconSmall from '@components/icons/IconSmall';
-import { openModalAction } from '@store/modules/card/actions';
-import { editAction } from '@store/modules/deck/actions';
+import { schema } from '@services/Validation/editDeck.schema';
 
 import { Block, Fields, Wrapper, Content, Title, Header, FieldName } from './styles';
 
-export default function ModalTitleDeck() {
-  const dispatch = useDispatch();
-  const deck = useSelector((state:RootState) => state.personal.deck);
-  const modal = useSelector((state:RootState) => state.card.modal);
+export default function ModalTitleDeck({ show, deck, submitAction, closeAction }) {
   const t = useTranslation();
-  const show = (modal === "edit-title")
-
-  function handleSubmit(data) {
-    dispatch(editAction(data))
-  }
   
-  function closeAction() {
-    dispatch(openModalAction(null))
-  }
-
   return (
     <Wrapper show={show}>
       <Content>
@@ -38,7 +22,7 @@ export default function ModalTitleDeck() {
         <Formik 
               enableReinitialize
               initialValues={deck}
-              onSubmit={handleSubmit}
+              onSubmit={submitAction}
               validationSchema={schema}>
           <Form>
             <Block>

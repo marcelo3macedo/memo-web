@@ -1,14 +1,11 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-multi-lang';
 
-import { editAction, removeAction } from '@store/modules/card/actions';
 import IconSmall from '@components/icons/IconSmall';
 
 import { Wrapper, Container, Header, Area, Title, Content, SecretContent, Options, OptionsBox, OptionBox, OptionBoxTitle } from './styles';
 
-export default function Private({ card }) {
-  const dispatch = useDispatch();
+export default function Private({ card, actions }) {
   const t = useTranslation();
   const [ options, setOptions ] = useState(false);
 
@@ -16,12 +13,12 @@ export default function Private({ card }) {
     setOptions(!options)
   }
 
-  function editClick() {
-    dispatch(editAction(card))
-  }
+  function actionOpenClick(screen) {
+    if (!actions.open) {
+      return;
+    }
 
-  function removeClick() {
-    dispatch(removeAction(card))
+    actions.open({ screen, card });
   }
   
   return (
@@ -37,10 +34,10 @@ export default function Private({ card }) {
               <IconSmall name="settings" />
 
               <OptionsBox showOptions={options}>
-                <OptionBox onClick={editClick}>
+                <OptionBox onClick={() => { actionOpenClick('edit-card') }}>
                   <OptionBoxTitle>{t('actions.edit')}</OptionBoxTitle>
                 </OptionBox>
-                <OptionBox onClick={removeClick}>
+                <OptionBox onClick={() => { actionOpenClick('remove-card') }}>
                   <OptionBoxTitle>{t('actions.delete')}</OptionBoxTitle>
                 </OptionBox>
               </OptionsBox>

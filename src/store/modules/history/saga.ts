@@ -1,17 +1,17 @@
 
 import { all, put, takeLatest } from "redux-saga/effects";
 import { retrieve } from "@services/Api/requester";
-import { API_HISTORY } from "@services/Api/routes";
-import { loadHistorySuccess } from "./actions";
+import { API_SESSIONS } from "@services/Api/routes";
+import { loadActionSuccess } from "./actions";
 
 function* loadHistory() {
-    const response = yield retrieve({ method: API_HISTORY });
+    const response = yield retrieve({ method: `${API_SESSIONS}?history=true` });
     
     if (response.status !== 200) {
         return;
     }
 
-    yield put(loadHistorySuccess({ data: response.data }));
+    yield put(loadActionSuccess({ sessions: response.data }));
 }
 
 export default all([

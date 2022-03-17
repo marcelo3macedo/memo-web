@@ -3,19 +3,34 @@ export function loadProfile() {
         type: '@profile/LOAD'
     }
 }
-export function loadProfileSuccess({ data }) {
+export function loadProfileSuccess({ profile }) {
     return {
         type: '@profile/LOAD_SUCCESS',
         payload: {
-            data
+            profile
         }
     }
 }
-export function updateProfile(data) {
+export function loadProfileFailure() {
+    return {
+        type: '@profile/LOAD_FAILURE'
+    }
+}
+export function updateProfile({ name }) {
     return {
         type: '@profile/UPDATE',
         payload: {
-            data
+            name
         }
+    }
+}
+export function updateProfileSuccess() {
+    return {
+        type: '@profile/UPDATE_SUCCESS'
+    }
+}
+export function updateProfileFailure() {
+    return {
+        type: '@profile/UPDATE_FAILURE'
     }
 }

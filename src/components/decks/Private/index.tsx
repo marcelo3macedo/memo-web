@@ -2,39 +2,41 @@ import React, { useState } from 'react';
 import { useDispatch } from "react-redux";
 import { useTranslation } from 'react-multi-lang';
 
-import { openAction } from '@store/modules/deck/actions';
 import { randomBackground } from '@config/Backgrounds';
 import IconSmall from '@components/icons/IconSmall';
 import ButtonSecondary from '@components/button/ButtonSecondary';
 import { editAction, removeModalAction } from '@store/modules/personal/actions';
+import { navigatePush } from '@store/modules/navigate/actions';
+import { PATH_DECK } from '@services/Navigation';
 
 import { Wrapper, Content, Title, Block, Header, Footer, Details, SubTitle, Options, Statuses, Status, StatusTitle, View, OptionsBox, OptionBox, OptionBoxTitle, Opacity } from './styles';
 
-export default function Private({ data }) {
+
+export default function Private({ deck }) {
   const t = useTranslation();
   const dispatch = useDispatch();
   const [ options, setOptions ] = useState(false);
-  const background = (data && data.theme && data.theme.src) ? data.theme.src : randomBackground()
-  const statusTitle = data.isPublic ? t('session.public') : t('session.private')
-  const frequencyName = data.frequency ? data.frequency.name : null
+  const background = (deck && deck.theme && deck.theme.src) ? deck.theme.src : randomBackground();
+  const statusTitle = deck.isPublic ? t('session.public') : t('session.private');
+  const frequencyName = deck.frequency ? deck.frequency.name : null;
   
   function openDeckClick() {
-    dispatch(openAction({ deck: data }));
+    dispatch(navigatePush({ path: `${PATH_DECK}/${deck.path}/${deck.id}` }));
   }
 
   function removeDeck() {
-    dispatch(removeModalAction({ visible: true, deck: data }))
+    dispatch(removeModalAction({ visible: true, deck }))
   }
 
   function editDeck() {
-    dispatch(editAction({ deck: data }))
+    dispatch(editAction({ deck }))
   }
 
   function openOptionsBox() {
     setOptions(!options)
   }
 
-  if (!data) {
+  if (!deck) {
     return <></>;
   }
 
@@ -47,7 +49,7 @@ export default function Private({ data }) {
           <Header>
             <Details>
               <SubTitle>{t('decks.header')}</SubTitle>
-              <Title>{data.name}</Title>
+              <Title>{deck.name}</Title>
             </Details>
             <Options onClick={() => { openOptionsBox() }}>
               <IconSmall name="settings" />
@@ -68,10 +70,12 @@ export default function Private({ data }) {
                 <IconSmall name="visibility" />
                 <StatusTitle>{statusTitle}</StatusTitle>
               </Status>
-              <Status>
-                <IconSmall name="repeat" />
-                <StatusTitle>{frequencyName}</StatusTitle>
-              </Status>
+              {frequencyName ? (
+                <Status>
+                  <IconSmall name="repeat" />
+                  <StatusTitle>{frequencyName}</StatusTitle>
+                </Status>
+              ) : <></>}              
             </Statuses>
             <View onClick={openDeckClick}>
               <ButtonSecondary content={t('decks.view')} />

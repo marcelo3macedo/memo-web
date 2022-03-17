@@ -2,20 +2,21 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 
 import { randomBackground } from '@config/Backgrounds';
+import { PATH_DECK } from '@services/Navigation';
+import { navigatePush } from '@store/modules/navigate/actions';
 
 import { Wrapper, Content, Title, Description, Block, Header, Details, Opacity } from './styles';
-import { openAction } from '@store/modules/deck/actions';
 
-export default function Public({ data }) {
-  const dispatch = useDispatch()
-  const background = (data && data.theme && data.theme.src) ? data.theme.src : randomBackground()
+export default function Public({ deck }) {
+  const dispatch = useDispatch();
+  const background = (deck && deck.theme && deck.theme.src) ? deck.theme.src : randomBackground();
   
-  if (!data) {
+  if (!deck) {
     return <></>;
   }
 
   function openDeckClick() {
-    dispatch(openAction({ deck: data }));
+    dispatch(navigatePush({ path: `${PATH_DECK}/${deck.path}/${deck.id}` }));
   }
 
   return (
@@ -26,8 +27,8 @@ export default function Public({ data }) {
         <Block>
           <Header>
             <Details>
-              <Title>{data.name}</Title>
-              <Description>{data.description}</Description>
+              <Title>{deck.name}</Title>
+              <Description>{deck.description}</Description>
             </Details>
           </Header>        
         </Block>        

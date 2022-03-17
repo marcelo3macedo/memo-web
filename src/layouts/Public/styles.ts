@@ -75,7 +75,6 @@ export const Action = styled.div`
 
 export const Image = styled.img`
     width: 120px;
-    border-right: 2px solid var(--neutral60);
     padding-right: 25px;
 
     @media (max-width: 768px) {

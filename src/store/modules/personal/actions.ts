@@ -24,25 +24,11 @@ export function loadDeckSuccess({ deck }) {
         }
     }
 }
-export function addDecks() {
-    return {
-        type: '@personal/ADD_DECKS'
-    }
-}
-
 export function removeModalAction({ visible, deck=null }) {
     return {
         type: '@personal/REMOVE_MODAL',
         payload: {
             visible, deck
-        }
-    }
-}
-export function removeDeckAction({ deck }) {
-    return {
-        type: '@personal/REMOVE_DECK',
-        payload: {
-            deck
         }
     }
 }

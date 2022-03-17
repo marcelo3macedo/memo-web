@@ -1,7 +1,7 @@
 
 import { all, put, select, takeLatest } from "redux-saga/effects";
 import { remove, retrieve } from "@services/Api/requester";
-import { API_DECKS, API_PERSONALDECKS } from "@services/Api/routes";
+import { API_DECKS } from "@services/Api/routes";
 import { editSuccessAction, loadDecksAction, loadDecksSuccess, loadDeckSuccess } from "./actions";
 import { navigatePush } from "../navigate/actions";
 import { PATH_EDITDECK } from "@services/Navigation";
@@ -9,7 +9,7 @@ import * as selectors from './selectors';
 import { openModalAction } from "../card/actions";
 
 function* loadDecks() {
-    const response = yield retrieve({ method: API_PERSONALDECKS });
+    const response = yield retrieve({ method: `${API_DECKS}` });
     
     if (response.status !== 200) {
         return;

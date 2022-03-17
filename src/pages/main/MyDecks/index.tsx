@@ -22,7 +22,7 @@ export default function MyDecks() {
     <Wrapper>
       <Content>
         <HeaderPage title={t('myDeck.title')} subTitle={t('myDeck.subtitle')}></HeaderPage>
-        <Gallery decks={decks} type="private" />
+        <Gallery sessions={decks} type="private" />
       </Content>
     </Wrapper>
   ); 
