@@ -79,11 +79,16 @@ export const Header = styled.div `
     }
 `;
 
-export const Title = styled.h1`
+export const Title = styled.h2`
     font-weight: bold;
     color: var(--secondary10);
     text-align: left;
-    padding: 5px 0;
+    padding-top: 5px;
+
+    @media (max-width: 768px) {
+        max-height: 90px;
+        overflow: hidden;
+    }
 `;
 
 export const Frequency = styled.h5 `

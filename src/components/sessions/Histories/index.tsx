@@ -1,14 +1,13 @@
 import React from 'react';
-
 import { useTranslation } from 'react-multi-lang';
 import Moment from 'moment';
 
 import { Wrapper, Content, HistoryArea, History, Title, Info } from './styles';
 
-export default function Histories({ data }) {
+export default function Histories({ sessions }) {
   const t = useTranslation();
 
-  if (!data) {
+  if (!sessions) {
     return <></>;
   }
 
@@ -16,10 +15,11 @@ export default function Histories({ data }) {
     <Wrapper>
       <Content>
         <HistoryArea>
-          {data.map(d => (
+          {sessions.map(d => (
             <History>
-              <Title><Info>{t('history.dateColumn')}</Info> {Moment(d.createdAt).format('d/MM/YYYY')}</Title>
+              <Title><Info>{t('history.dateColumn')}</Info> {Moment(d.createdAt).format('DD /MM/YYYY')}</Title>
               <Title><Info>{t('history.sessionColumn')}</Info> {d.deck.name}</Title>
+              <Title><Info>{t('history.reviewCardsColumn')}</Info> {d.sessionCards}</Title>
             </History>            
           ))}
         </HistoryArea>

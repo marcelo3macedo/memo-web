@@ -1,3 +1,7 @@
+export const PATH_HOME = "/";
+export const PATH_SESSIONS = "/sessions";
+
+
 export const PATH_FORGOT_PASSWORD = "/forgotpassword";
 export const PATH_SIGN_IN = "/signin";
 export const PATH_SIGN_UP = "/signup";
@@ -24,5 +28,3 @@ export const PATH_PROFILE = "/profile";
 export const PATH_HISTORY = "/history";
 export const PATH_GALLERY = "/gallery";
 export const PATH_GALLERYDECK = "/gallery/deck";
-
-export const PATH_HOME = "/";

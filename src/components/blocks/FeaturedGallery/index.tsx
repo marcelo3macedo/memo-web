@@ -24,7 +24,7 @@ export default function FeaturedGallery({featuredDecks=[]}) {
           <DecksArea>
             {featuredDecks.map(d=> (
               <DeckItem key={d.id}>
-                <Public data={d.deck} />
+                <Public deck={d.deck} />
               </DeckItem>
             ))}
           </DecksArea>

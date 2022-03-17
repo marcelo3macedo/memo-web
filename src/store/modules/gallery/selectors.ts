@@ -1,1 +1,1 @@
-export const page = (state) => state.gallery.page;
+export const gallery = (state) => state.gallery;

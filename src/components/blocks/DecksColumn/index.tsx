@@ -2,7 +2,6 @@ import React from 'react';
 
 import { Wrapper, Content, DeckWrapper, DeckComponent } from './styles';
 import Deck from '../Deck';
-import ModalRemoveDeck from '@components/modal/ModalRemoveDeck';
 
 export default function DecksColumn({decks=[]}) {
   return (
@@ -15,8 +14,6 @@ export default function DecksColumn({decks=[]}) {
             </DeckComponent>
           </DeckWrapper>
         ))}
-
-        <ModalRemoveDeck />
       </Content>
     </Wrapper>
   );

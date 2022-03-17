@@ -2,11 +2,24 @@
 import { all, put, takeLatest } from "redux-saga/effects";
 import { navigatePush } from "@store/modules/navigate/actions";
 import { PATH_EDITDECK, PATH_DECK, PATH_ADDDECK } from '@services/Navigation';
-import { send, retrieve, update } from "@services/Api/requester";
-import { API_DECKS, API_SESSIONSFEED, API_DECKSCLONE, API_DECKSOPTIONS, API_DECKSPATH } from "@services/Api/routes";
-import { openDeckSuccessAction } from "@store/modules/session/actions";
-import { openSuccessAction, saveSuccessAction, reviewAction, newDeckSuccessAction, openPathFailure, openPathSuccess } from "./actions";
-import { loadDeckAction } from "../personal/actions";
+import { send, retrieve, update, remove } from "@services/Api/requester";
+import { API_DECKS, API_SESSIONSFEED, API_DECKSCLONE, API_DECKSOPTIONS, API_DECKSPATH, API_CARDS } from "@services/Api/routes";
+import { openSuccessAction, saveSuccessAction, reviewAction, openPathFailure, openPathSuccess, editFailedAction, editSuccessAction, addCardFailure, addCardSuccess, updateCardFailure, updateCardSuccess, deleteCardFailure, deleteCardSuccess, openFailureAction } from "./actions";
+import { loadFrequenciesSuccess } from "../frequencies/actions";
+import { loadThemesSuccess } from "../themes/actions";
+import { loadAction } from "../review/actions";
+
+function* loadOptions() {
+    const response = yield retrieve({ method: API_DECKSOPTIONS });
+
+    if (response.status !== 200 || !response.data) {
+        return;
+    }
+
+    const { frequencies, themes } = response.data;
+    yield put(loadFrequenciesSuccess({ frequencies }));
+    yield put(loadThemesSuccess({ themes }));
+}
 
 function* save({ payload }:any) {
     const response = yield send({ method: `${API_DECKS}`, data: payload });
@@ -15,17 +28,19 @@ function* save({ payload }:any) {
         return;
     }
 
-    yield put(saveSuccessAction(response.data));
+    yield put(saveSuccessAction({ deck: response.data }));
 }
 
 function* edit({ payload }:any) {
-    const response = yield update({ method: `${API_DECKS}/${payload.id}`, data: payload });
+    const { deck } = payload;
+    const response = yield update({ method: `${API_DECKS}/${deck.id}`, data: deck });
     
     if (response.status !== 200) {
+        yield put(editFailedAction());
         return;
     }
 
-    yield put(loadDeckAction())
+    yield put(editSuccessAction());
 }
 
 function* saveSuccess() {
@@ -36,6 +51,7 @@ function* open({ payload }:any) {
     const response = yield retrieve({ method: `${API_DECKS}/${payload.deck.id}` });
     
     if (response.status !== 200) {
+        yield put(openFailureAction());
         return;
     }
 
@@ -52,10 +68,6 @@ function* openPublic({ payload }:any) {
     yield put(openSuccessAction({ deck: response.data}));
 }
 
-function* openSuccess() {
-    yield put(navigatePush({ path: PATH_DECK }));
-}
-
 function* add() {
     yield put(navigatePush({ path: PATH_ADDDECK }));
 }
@@ -69,7 +81,7 @@ function* review(data) {
         return;
     }
 
-    yield put(openDeckSuccessAction({ session: response.data }));
+    yield put(loadAction({ session: response.data }));
 }
 
 function* finish() {
@@ -87,18 +99,6 @@ function* clone(data) {
     yield put(reviewAction({ deck: response.data }));
 }
 
-function* newDeck() {
-    const response = yield retrieve({ method: `${API_DECKSOPTIONS}` });
-
-    if (response.status !== 200) {
-        return;
-    }
-
-    const { frequencies, themes } = response.data
-
-    yield put(newDeckSuccessAction({ frequencies, themes }));
-}
-
 function* openPath({ payload }:any) {
     const { path } = payload;
     const response = yield retrieve({ method: `${API_DECKSPATH}/${path}` });
@@ -111,17 +111,74 @@ function* openPath({ payload }:any) {
     yield put(openPathSuccess({ deck: response.data }))
 }
 
+function* addCard({ payload }:any) {
+    const { deck, card } = payload;
+
+    if (!deck) {
+        yield put(addCardFailure());
+        return;
+    }
+
+    const response = yield send({ method: `${API_CARDS}/${deck.id}`, data: card});
+    
+    if (response.status !== 201) {
+        yield put(addCardFailure());
+        return;
+    }
+
+    yield put(addCardSuccess({ card: response.data }));    
+}
+
+function* updateCard({ payload }:any) {
+    const { card } = payload;
+
+    if (!card || !card.id) {
+        yield put(updateCardFailure());
+        return;
+    }
+
+    const response = yield update({ method: `${API_CARDS}/${card.id}`, data: card});
+    
+    if (response.status !== 200) {
+        yield put(updateCardFailure());
+        return;
+    }
+
+    yield put(updateCardSuccess({ card }));    
+}
+
+function* deleteCard({ payload }:any) {
+    const { card } = payload;
+
+    if (!card || !card.id) {
+        yield put(deleteCardFailure());
+        return;
+    }
+
+    const response = yield remove({ method: `${API_CARDS}/${card.id}`});
+    
+    if (response.status !== 200) {
+        yield put(deleteCardFailure());
+        return;
+    }
+
+    yield put(deleteCardSuccess({ card }));    
+}
+
 export default all([
+    takeLatest('@deck/OPEN', open),
     takeLatest('@deck/SAVE', save),
     takeLatest('@deck/EDIT', edit),
-    takeLatest('@deck/SAVE_SUCCESS', saveSuccess),
-    takeLatest('@deck/OPEN', open),
+    takeLatest('@deck/SAVE_SUCCESS', saveSuccess),  
+    takeLatest('@deck/ADD_CARD', addCard),
+    takeLatest('@deck/UPDATE_CARD', updateCard),
+    takeLatest('@deck/DELETE_CARD', deleteCard),
+    
+    takeLatest('@deck/LOAD_OPTIONS', loadOptions),
     takeLatest('@deck/OPEN_PUBLIC', openPublic),
-    takeLatest('@deck/OPEN_SUCCESS', openSuccess),
     takeLatest('@deck/REVIEW', review),
     takeLatest('@deck/CLONE', clone),
     takeLatest('@deck/ADD', add),
     takeLatest('@deck/FINISH', finish),
-    takeLatest('@deck/LOAD_NEWDECK', newDeck),
     takeLatest('@deck/OPEN_PATH', openPath),
 ]);

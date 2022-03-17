@@ -5,7 +5,7 @@ import Public from '../Public';
 
 import { Wrapper, Content, Title, Message } from './styles';
 
-export default function Gallery({ cards=[], type }) {
+export default function Gallery({ cards=[], type, actions={} }) {
   const t = useTranslation();
   const hasCards = cards && cards.length > 0;
   
@@ -17,7 +17,7 @@ export default function Gallery({ cards=[], type }) {
         {hasCards ? 
           cards.map((c, i) => (
             (type === "private" ? (
-              <Private key={i} card={c}></Private>) :
+              <Private key={i} card={c} actions={actions}></Private>) :
               <Public key={i} card={c}></Public>
             )
           )) :

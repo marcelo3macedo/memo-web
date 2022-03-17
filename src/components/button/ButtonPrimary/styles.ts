@@ -37,6 +37,7 @@ export const Wrapper = styled.button<Button>`
 `;
 
 export const TextValue = styled.h5`
+    color: var(--neutral10);
 `;
 
 export const Loading = styled.div`

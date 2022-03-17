@@ -3,16 +3,31 @@ export function loadAction() {
         type: '@gallery/LOAD'
     }
 }
-export function loadMoreAction() {
+export function queryAction({ query }) {
     return {
-        type: '@gallery/LOAD_MORE'
+        type: '@gallery/QUERY',
+        payload: {
+            query
+        }
     }
 }
-export function loadSuccessAction({ data }) {
+export function loadSuccessAction({ decks, categories, featured }) {
     return {
         type: '@gallery/LOAD_SUCCESS',
         payload: {
-            data
+            decks,
+            categories,
+            featured
         }
+    }
+}
+export function loadFailedAction() {
+    return {
+        type: '@gallery/LOAD_FAILED'
+    }
+}
+export function loadMoreAction() {
+    return {
+        type: '@gallery/LOAD_MORE'
     }
 }

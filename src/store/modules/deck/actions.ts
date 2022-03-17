@@ -1,3 +1,26 @@
+export function editAction({ deck }) {
+    return {
+        type: '@deck/EDIT',
+        payload: {
+            deck
+        }
+    }
+}
+export function editSuccessAction() {
+    return {
+        type: '@deck/EDIT_SUCCESS'
+    }
+}
+export function editFailedAction() {
+    return {
+        type: '@deck/EDIT_FAILED'
+    }
+}
+export function loadOptions() {
+    return {
+        type: '@deck/LOAD_OPTIONS'
+    }
+}
 export function saveAction({ name, description, isPublic, frequencyId, themeId }) {
     return {
         type: '@deck/SAVE',
@@ -6,19 +29,11 @@ export function saveAction({ name, description, isPublic, frequencyId, themeId }
         }
     }
 }
-export function saveSuccessAction(deck) {
+export function saveSuccessAction({ deck }) {
     return {
         type: '@deck/SAVE_SUCCESS',
         payload: {
             deck
-        }
-    }
-}
-export function editAction({ id, name, description, frequencyId }) {
-    return {
-        type: '@deck/EDIT',
-        payload: {
-            id, name, description, frequencyId
         }
     }
 }
@@ -28,6 +43,19 @@ export function openAction({ deck }) {
         payload: {
             deck
         }
+    }
+}
+export function openSuccessAction({ deck }) {
+    return {
+        type: '@deck/OPEN_SUCCESS',
+        payload: {
+            deck
+        }
+    }
+}
+export function openFailureAction() {
+    return {
+        type: '@deck/OPEN_FAILURE'
     }
 }
 export function openPathAction({ path }) {
@@ -59,14 +87,7 @@ export function openPublicAction({ deck }) {
         }
     }
 }
-export function openSuccessAction({ deck }) {
-    return {
-        type: '@deck/OPEN_SUCCESS',
-        payload: {
-            deck
-        }
-    }
-}
+
 export function reviewAction({ deck }) {
     return {
         type: '@deck/REVIEW',
@@ -88,15 +109,29 @@ export function addAction() {
         type: '@deck/ADD'
     }
 }
-export function addCard({ card }) {
+export function addCard({ deck, card }) {
     return {
         type: '@deck/ADD_CARD',
+        payload: {
+            deck,
+            card
+        }
+    }
+}
+export function addCardSuccess({ card }) {
+    return {
+        type: '@deck/ADD_CARD_SUCCESS',
         payload: {
             card
         }
     }
 }
-export function updateCard({ card }) {
+export function addCardFailure() {
+    return {
+        type: '@deck/ADD_CARD_FAILURE'
+    }
+}
+export function updateCardAction({ card }) {
     return {
         type: '@deck/UPDATE_CARD',
         payload: {
@@ -104,12 +139,20 @@ export function updateCard({ card }) {
         }
     }
 }
-export function finishAction() {
+export function updateCardSuccess({ card }) {
     return {
-        type: '@deck/FINISH'
+        type: '@deck/UPDATE_CARD_SUCCESS',
+        payload: {
+            card
+        }
     }
 }
-export function deleteCard({ card }) {
+export function updateCardFailure() {
+    return {
+        type: '@deck/UPDATE_CARD_FAILURE'
+    }
+}
+export function deleteCardAction({ card }) {
     return {
         type: '@deck/DELETE_CARD',
         payload: {
@@ -117,19 +160,22 @@ export function deleteCard({ card }) {
         }
     }
 }
-export function loadNewDeck() {
+export function deleteCardSuccess({ card }) {
     return {
-        type: '@deck/LOAD_NEWDECK'
+        type: '@deck/DELETE_CARD_SUCCESS',
+        payload: {
+            card
+        }
     }
 }
-
-export function newDeckSuccessAction({ frequencies, themes }) {
+export function deleteCardFailure() {
     return {
-        type: '@deck/NEWDECK_SUCCESS',
-        payload: {
-            frequencies, 
-            themes
-        }
+        type: '@deck/DELETE_CARD_FAILURE'
+    }
+}
+export function finishAction() {
+    return {
+        type: '@deck/FINISH'
     }
 }
 

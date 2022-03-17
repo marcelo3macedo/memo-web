@@ -5,14 +5,18 @@ import deck from "./deck/saga";
 import menu from "./menu/saga";
 import navigate from "./navigate/saga";
 import personal from "./personal/saga";
-import resume from "./resume/saga";
 import session from "./session/saga";
 import search from "./search/saga";
 import profile from "./profile/saga";
 import history from "./history/saga";
 import gallery from "./gallery/saga";
 import validation from "./validation/saga";
+import frequencies from "./frequencies/saga";
+import themes from "./themes/saga";
+import user from "./user/saga";
+import sessions from "./sessions/saga";
+import review from "./review/saga";
 
 export default function* rootSaga() {
-    return yield all([auth, card, deck, menu, navigate, validation, gallery, personal, resume, session, search, profile, history]);
+    return yield all([auth, user, sessions, card, deck, menu, navigate, validation, gallery, personal, session, search, profile, history, frequencies, review, themes]);
 }

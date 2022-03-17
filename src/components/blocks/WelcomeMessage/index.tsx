@@ -1,20 +1,19 @@
 import React from 'react';
-import { useSelector } from "react-redux";
 import { useTranslation } from 'react-multi-lang';
 
-import { RootState } from '@store/modules/rootReducer';
 import { Wrapper, Content, Title, Message } from './styles';
 
-export default function WelcomeMessage() {
-  const t = useTranslation()
-  const userName = useSelector((state:RootState) => state.auth.name);
-  const sessions = useSelector((state:RootState) => state.resume.sessions);
-
+export default function WelcomeMessage({ sessions, name }) {
+  const t = useTranslation();
+  const hasSessions = !sessions || sessions.length === 0;
+  
   return (
     <Wrapper>
       <Content>
-        <Title>{t('welcome.title')} {userName}!</Title>
-        <Message>{ !sessions || sessions.length === 0 ? t('welcome.new') : t('welcome.message')}</Message>
+        {name ? (
+          <Title>{t('welcome.title')} {name}!</Title>
+        ): <></>}        
+        <Message>{ hasSessions ? t('welcome.new') : t('welcome.message')}</Message>
       </Content>
     </Wrapper>
   );

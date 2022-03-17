@@ -1,30 +1,43 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 
+import PageLoading from '@components/loading/PageLoading';
 import IconMedium from '@components/icons/IconMedium';
 import { RootState } from '@store/modules/rootReducer';
+import { backAction } from '@store/modules/navigate/actions';
+import { loadOptionsAction, setOptionAction } from '@store/modules/review/actions';
 
 import { Wrapper, Body, Content, Position, Header, Info, Card, CardArea, Flip, Message, Actions, Action, ActionValue } from './styles';
-import { backAction } from '@store/modules/navigate/actions';
-import { flipAction, optionAction } from '@store/modules/session/actions';
 
 export default function Review() {
   const dispatch = useDispatch();
-  const { element, session } = useSelector((state:RootState) => state.session);
+  const { session, options, position, isLoading } = useSelector((state:RootState) => state.review);
+  const [ isFlipped, setIsFlipped ] = useState(false);
+  const card = session && session.cards ? session.cards[position] : null;
+
+  useEffect(() => {
+    dispatch(loadOptionsAction());
+  }, [ dispatch ]);
   
   function flipClick() {
-    dispatch(flipAction());
+    setIsFlipped(!isFlipped);
   }
 
   function optionClick(option) {
-    dispatch(optionAction({ option }));    
+    setIsFlipped(false);
+    
+    dispatch(setOptionAction({ card, option }));    
   }
 
   function backClick() {
     dispatch(backAction());
   }
 
-  if (!element || !element.selectedCard) {
+  if (isLoading) {
+    return <PageLoading />;
+  }
+
+  if (!card) {
     return <></>;
   }
 
@@ -32,25 +45,25 @@ export default function Review() {
     <Wrapper>
       <Content>
         <Header>
-            <IconMedium name="back" action={backClick} />
+          <IconMedium name="back" action={backClick} />
         </Header>
         <Body className='no-select'>
           <Position>
-            <Info>{element.cardPosition}/{session.cards.length}</Info>
+            <Info>{position}/{session.cards.length}</Info>
           </Position>
           <CardArea onClick={flipClick}>
-            <Card show={!element.isFlipped}>
-              <Message>{element.selectedCard.content}</Message>
+            <Card show={!isFlipped}>
+              <Message>{card.content}</Message>
             </Card>
-            <Card show={element.isFlipped}>
-              <Message>{element.selectedCard.secretContent}</Message>
+            <Card show={isFlipped}>
+              <Message>{card.secretContent}</Message>
             </Card>
             <Flip>
               <IconMedium name={"rotate"}/>
             </Flip>
           </CardArea>
-          <Actions show={element.isFlipped}>
-            {element.options.map(o => (
+          <Actions show={isFlipped}>
+            {options.map(o => (
               <Action key={o.id} onClick={() => optionClick(o)}>
                 <ActionValue>{o.name}</ActionValue>
               </Action>

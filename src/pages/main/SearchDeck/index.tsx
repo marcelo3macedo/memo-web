@@ -37,7 +37,7 @@ export default function SearchDeck() {
           <IconMedium name="search" onClick={doSearch}/>
         </SearchArea>
 
-        <Categories data={categories}></Categories>
+        <Categories categories={categories} categoryAction=""></Categories>
 
         { searchQuery ? (
           <Results>
