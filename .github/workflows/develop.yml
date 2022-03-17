@@ -2,14 +2,14 @@ name: CI
 
 on:
   push:
-    branches: [ main ]
+    branches: [ develop ]
   
   workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    environment: Production
+    environment: Develop
     steps:
       - uses: actions/checkout@v2
 
@@ -36,5 +36,5 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           passphrase: ${{ secrets.SSH_PASSPHRASE }}
           source: "., !node_modules"
-          target: "~/memo/main/frontend"
+          target: "~/memo/develop/frontend"
           
