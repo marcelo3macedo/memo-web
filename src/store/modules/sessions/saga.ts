@@ -25,7 +25,19 @@ function* index({ payload }:any) {
     yield put(indexSuccessAction({ session: response.data }));
 }
 
+function* search({ payload }:any) {
+    const { term } = payload;
+    const response = yield retrieve({ method: `${API_DECKS}?name=${term}` });
+    
+    if (response.status !== 200 || !response.data) {
+        return yield put(loadFailedAction());
+    }
+
+    yield put(loadSuccessAction({ sessions: response.data }));
+}
+
 export default all([
     takeLatest('@sessions/LOAD', load),
     takeLatest('@sessions/INDEX', index),
+    takeLatest('@sessions/SEARCH', search),
 ]);

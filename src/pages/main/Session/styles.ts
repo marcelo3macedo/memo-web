@@ -12,12 +12,12 @@ export const Content = styled.div`
     padding: 0 10px;
 `;
 
-export const Title = styled.h1`
-    color: var(--neutral90);    
+export const Title = styled.h2`
+    color: var(--secondaryDark);    
 `;
 
-export const Info = styled.h3`
-    color: var(--neutral90);    
+export const Info = styled.h5`
+    color: var(--neutral100);    
 `;
 
 export const Frequency = styled.h4`
@@ -25,13 +25,14 @@ export const Frequency = styled.h4`
     padding: 5px 0;   
 `;
 
-export const Description = styled.span`
-    color: var(--neutral90); 
+export const Description = styled.h5`
+    color: var(--neutral100); 
     white-space: pre-line;  
+    padding: 10px 0;
 `;
 
-export const SubTitle = styled.h4`
-    color: var(--neutral90);   
+export const SubTitle = styled.h5`
+    color: var(--neutral100);   
     padding: 5px 0;
     margin-bottom: 5px;
 `;
@@ -83,19 +84,21 @@ export const Action = styled.div`
 `;
 
 export const Themes = styled.div`
+    padding: 20px 0;
 `;
 
-export const ThemeTitle = styled.h3`
-    color: var(--neutral90);
+export const ThemeTitle = styled.h4`
+    color: var(--neutral100);
     font-weight: bold;
+    padding: 10px 0;
 `;
 
 export const Card = styled.div`
-    padding: 15px 20px;
+    padding: 5px 20px;
     border-radius: 10px;
     margin: 10px 0;
 `;
 
-export const CardName = styled.h4`
-    color: var(--neutral90);
+export const CardName = styled.h5`
+    color: var(--neutral100);
 `;

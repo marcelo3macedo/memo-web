@@ -21,11 +21,11 @@ export function loadOptions() {
         type: '@deck/LOAD_OPTIONS'
     }
 }
-export function saveAction({ name, description, isPublic, frequencyId, themeId }) {
+export function saveAction({ name, description, isPublic, frequencyId }) {
     return {
         type: '@deck/SAVE',
         payload: {
-            name, description, isPublic, frequencyId, themeId
+            name, description, isPublic, frequencyId
         }
     }
 }

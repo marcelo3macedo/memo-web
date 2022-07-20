@@ -43,7 +43,7 @@ export default function Account() {
 
         <Options>
           <Title>{t('account.system')}</Title>
-          <Option title={`${t('account.actions.version')} - ${process.env.REACT_APP_VERSION}`} />
+          <Option title={`${t('account.actions.version')} - `} />
           <Option title={t('account.actions.about')} action={() => { navigate(PATH_ABOUT) }} />
         </Options>
       </Content>

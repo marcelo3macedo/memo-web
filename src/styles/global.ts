@@ -3,7 +3,7 @@ import { createGlobalStyle } from "styled-components";
 export const GlobalStyle = createGlobalStyle`
     :root {
         --primary: #333333;
-        --secondaryDark: #1c5e5d;
+        --secondaryDark: #177472;
         --secondary100: #21b3af;
         --secondary90: #5ee4e1;
         --secondary80: #b6dddc;
@@ -11,18 +11,20 @@ export const GlobalStyle = createGlobalStyle`
         --secondary40: #e4fdfd;
         --secondary30: #eefbfb;
         --secondary20: #d4efef;
+        --secondary15: #f3f6f6;
         --secondary10: #f7ffff;
 
         --neutral100: #333333;
-        --neutral90: #646f71;
+        --neutral90: #a6a6a6;
         --neutral80: #8a9a9c;
         --neutral60: #c1c2c5;
         --neutral50: #dfe0e2;
         --neutral30: #f9f9f9;
         --neutral10: #f7ffff;
+        --neutral0: #fff;
 
         --warm01: #fee1e8;
-        --warm30: #f3acbe;
+        --warm30: #e9859e;
         --warm50: #e794a9;
         --warm80: #ff63b1;
         --warm90: #cd4a8b;
@@ -49,7 +51,7 @@ export const GlobalStyle = createGlobalStyle`
     * {
         margin: 0;
         padding: 0; 
-        font-family: 'Merienda', cursive;
+        font-family: 'Roboto Slab', serif;
     }
 
     h4, h5, h6 {
@@ -90,7 +92,7 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     body {
-        background: var(--secondary40);    
+        background: var(--secondary20);    
     }
 
     .fade-enter {
@@ -158,7 +160,8 @@ export const GlobalStyle = createGlobalStyle`
         }
 
         h1 {
-            font-size: 1.5em;
+            font-size: 1.7em;
+            font-weight: 800;
         }
 
         h2 {

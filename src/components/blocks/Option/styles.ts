@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-    border: 1px solid var(--neutral60);
+    background: var(--neutral0);
 
     &:hover {
         cursor: pointer;

@@ -12,7 +12,7 @@ export const Wrapper = styled.div`
 
 export const Container = styled.div`
     display: flex;
-    align-items: center;
+    align-items: end;
     flex-direction: column;
     padding: 10px;
 
@@ -20,16 +20,21 @@ export const Container = styled.div`
         padding: 20px;
         height: 200px;
     }
+
+    &:hover {
+        cursor: pointer;
+        opacity: 0.8;
+    }
 `;
 
 export const Area = styled.div<ICard>`
-    border: 2px solid var(--neutral50);
+    border: none;
     width: 100%;
     padding: 10px;
     border-radius: 10px;
     display: flex;
     flex-direction: row;
-    background: var(--secondary20);
+    background: var(--neutral0);
 
     @media (min-width: 768px) {
         height: 200px;
@@ -43,13 +48,12 @@ export const Header = styled.div`
 `;
 
 export const Title = styled.h6`
-    margin-bottom: 5px;
     color: var(--neutral90);
 `;
 
 export const Content = styled.h3`
     margin-bottom: 5px;
-    color: var(--neutral90);
+    color: var(--secondaryDark);
 `;
 
 export const SecretContent = styled.h5`
@@ -90,3 +94,16 @@ export const OptionBoxTitle = styled.h6`
     color: var(--neutral100);
 `;
 
+export const RemoveArea = styled.div`
+    position: absolute;
+    z-index: 8;
+    background: var(--neutral90);
+    padding: 8px;
+    border-radius: 100%;
+    margin-right: -15px;
+    margin-top: -15px;
+
+    svg path {
+        fill: var(--neutral0)!important;
+    }
+`;

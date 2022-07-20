@@ -20,9 +20,14 @@ import { ReactComponent as LoadingIcon } from "@assets/icons/loading.svg";
 import { ReactComponent as SettingsIcon } from "@assets/icons/settings.svg";
 import { ReactComponent as VisibilityIcon } from "@assets/icons/visibility.svg";
 import { ReactComponent as RepeatIcon } from "@assets/icons/repeat.svg";
+import { ReactComponent as AlertIcon } from "@assets/icons/alert.svg";
+import { ReactComponent as UsersIcon } from "@assets/icons/users.svg";
+import { ReactComponent as TimeIcon } from "@assets/icons/time.svg";
+import { ReactComponent as UserRoundedIcon } from "@assets/icons/user-rounded.svg";
 
 export const Icons = {
     user: UserIcon,
+    users: UsersIcon,
     password: PasswordIcon,
     home: HomeIcon,
     list: ListIcon,
@@ -43,5 +48,8 @@ export const Icons = {
     loading: LoadingIcon,
     settings: SettingsIcon,
     visibility: VisibilityIcon,
-    repeat: RepeatIcon
+    repeat: RepeatIcon,
+    alert: AlertIcon,
+    time: TimeIcon,
+    userRounded: UserRoundedIcon
 }

@@ -15,6 +15,9 @@ import themes from "./themes/reducer";
 import user from "./user/reducer";
 import sessions from "./sessions/reducer";
 import review from "./review/reducer";
+import deckRemove from "./deck/remove/reducer";
+import deckEdit from "./deck/edit/reducer";
+import deckOpen from "./deck/open/reducer";
 
 export const rootReducer = combineReducers({
     auth,
@@ -31,6 +34,9 @@ export const rootReducer = combineReducers({
     validation,
     frequencies,
     sessions,
+    deckRemove,
+    deckEdit,
+    deckOpen,
     review,
     themes
 })

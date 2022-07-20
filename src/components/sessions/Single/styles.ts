@@ -1,106 +1,76 @@
 import styled from "styled-components";
-import { DeckCard } from "@interfaces/Deck/deckCard.interface";
 
 export const Wrapper = styled.div`
     margin-right: 10px;
     position: relative;
-    width: 220px;
-    max-width: 100%;
+    width: 100%;
+    max-width: 200px;
     height: 200px;
     border-radius: 10px;
+    background: var(--neutral0);
     overflow: hidden;
+
+
+    @media (min-width: 768px) {
+        max-width: 100%;
+    }
+`;
+
+export const Content = styled.div`
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px;
 
     &:hover {
         cursor: pointer;
-        opacity: 0.8;
-    }
-
-    @media (min-width: 768px) {
-        width: 400px;
-        height: 200px;
-        margin-right: 20px;
+        opacity: 0.7;
     }
 `;
 
-export const Content = styled.div<DeckCard>`
-    position: absolute;
-    background: url("${props => props.background}") center center;
-    background-size: cover;
+export const Header = styled.div`
+    height: 140px;
     width: 100%;
-    height: 100%;
     display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    flex-direction: column;
-`;
-
-export const Info = styled.div`
-    padding: 10px 10px 20px 10px;
-    display: flex;
-    justify-content: baseline;
     align-items: center;
-    width: 100%;
-
-    svg path {
-        fill: var(--secondary10)!important;
-    }
+    justify-content: center;
 `;
 
-export const Quantity = styled.h2`
-    color: var(--secondary10);
-    font-weight: bold;
-    padding-left: 5px;
-`;
-
-
-export const Opacity = styled.div `
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, var(--alphaStrong));
-`;
-
-export const Block = styled.div `
-    position: absolute;
-    width: 100%;
-    height: 100%;
+export const Details = styled.div`
+    height: 60px;
     display: flex;
-    align-items: baseline;
+    align-items: center;
     justify-content: space-between;
-    flex-direction: column;
-`;
-
-export const Header = styled.div `
-    padding: 15px;
-
-    @media (min-width: 768px) {
-        max-height: 100px;
-        overflow: hidden;
-    }
+    width: 100%;
 `;
 
 export const Title = styled.h2`
-    font-weight: bold;
-    color: var(--secondary10);
-    text-align: left;
-    padding-top: 5px;
+    color: var(--secondaryDark);
+    padding: 0 10px;
+`;
 
-    @media (max-width: 768px) {
-        max-height: 90px;
-        overflow: hidden;
+export const Status = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    svg {
+        path {
+            fill: var(--neutral80);
+        }
     }
 `;
 
-export const Frequency = styled.h5 `
-    color: var(--secondary10);
+export const StatusTitle = styled.h6`  
+    color: var(--neutral80);
+    padding: 0 5px;
+    font-weight: normal;
 `;
 
-export const Body = styled.div `
-    padding: 15px;
-    display: flex;
-    align-items: center;
+export const Deck = styled.div`
+    text-align: center;
 
-    svg path {
-        fill: var(--secondary10)!important;
+    @media (min-width: 768px) {
+        width: 400px;
     }
 `;

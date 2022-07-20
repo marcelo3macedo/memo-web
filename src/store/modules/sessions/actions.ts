@@ -16,6 +16,14 @@ export function loadFailedAction() {
         type: '@sessions/LOAD_FAILED'
     }
 }
+export function searchAction({ term }) {
+    return {
+        type: '@sessions/SEARCH',
+        payload: {
+            term
+        }
+    }
+}
 export function indexAction({ id }) {
     return {
         type: '@sessions/INDEX',

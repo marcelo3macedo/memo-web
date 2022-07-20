@@ -5,6 +5,7 @@ export const Wrapper = styled.div<ICardEdit>`
     position: fixed;
     left: 0;
     top: 0;
+    z-index: 10;
     width: 100%;
     height: 100vH;
     background: rgba(0,0,0,0.4);

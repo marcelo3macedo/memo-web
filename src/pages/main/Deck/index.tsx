@@ -8,16 +8,17 @@ import ButtonPrimary from '@components/button/ButtonPrimary';
 import PageLoading from '@components/loading/PageLoading';
 import { PATH_REVIEW } from '@services/Navigation';
 import { RootState } from '@store/modules/rootReducer';
-import { cloneAction, openAction, reviewAction } from '@store/modules/deck/actions';
+import { cloneAction, reviewAction } from '@store/modules/deck/actions';
 import { navigatePush } from '@store/modules/navigate/actions';
 
 import { Wrapper, Content, Title, Header, Action, Info, Description } from './styles';
+import { loadAction } from '@store/modules/deck/open/actions';
 
 export default function Deck() {
   const dispatch = useDispatch();
   const t = useTranslation();
   const { id } = useParams() as any;
-  const deck:any = useSelector((state:RootState) => state.deck.deck);
+  const deck:any = useSelector((state:RootState) => state.deckOpen.deck);
   
   function cloneClick({ deck }) {
     dispatch(cloneAction({ deck }));
@@ -30,11 +31,7 @@ export default function Deck() {
   }
 
   useEffect(() => {
-    const deck = { 
-      id 
-    };
-
-    dispatch(openAction({ deck }));  
+    dispatch(loadAction({ deckId: id }));
   }, [dispatch, id]);
 
   if (!deck) {

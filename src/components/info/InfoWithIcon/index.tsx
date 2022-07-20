@@ -8,11 +8,10 @@ export default function InfoWithIcon({ data }) {
     <Wrapper>
       <Content>
         <Header>
-          <IconSmall name={data.icon}/>
+          <Value>{data.value}</Value>
         </Header>
         <Info>
           <Title>{data.title}</Title>
-          <Value>{data.value}</Value>
         </Info>
       </Content>
     </Wrapper>

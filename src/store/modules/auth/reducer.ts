@@ -36,6 +36,10 @@ export default function auth(state = INITIAL_STATE, action) {
                 draft.validation.type = action.payload.type;
                 break;
             }
+            case "@auth/SERVER_FAILURE": {
+                draft.isLoading = false;
+                break;
+            }
             case "@auth/SIGN_IN_SUCCESS": {
                 draft.signed = true;
                 draft.isLoading = false;

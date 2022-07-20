@@ -1,13 +1,11 @@
-FROM node:10-alpine as build-step
+FROM node:14
 
-RUN mkdir /app
+WORKDIR /usr/src/app/my-app
 
-WORKDIR /app
-
-COPY package.json /app
+COPY package*.json ./
 
 RUN yarn
 
-COPY . /app
+EXPOSE 3000
 
-RUN yarn start
+CMD ["yarn", "start"]

@@ -3,7 +3,8 @@ import produce from "immer";
 const INITIAL_STATE = {
     isLoading: false,
     sessions: [],
-    session: null
+    session: null,
+    term: null
 };
 
 export default function personal(state = INITIAL_STATE, action) {
@@ -11,6 +12,12 @@ export default function personal(state = INITIAL_STATE, action) {
         switch (action.type) {
             case "@sessions/LOAD": {
                 draft.isLoading = true;
+                draft.term = null;
+                break;
+            }
+            case "@sessions/SEARCH": {
+                draft.isLoading = true;
+                draft.term = action.payload.term;
                 break;
             }
             case "@sessions/LOAD_FAILED": {

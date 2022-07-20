@@ -73,3 +73,8 @@ export function loadActivateFailed() {
         type: '@auth/LOAD_ACTIVATE_FAILED'
     }
 }
+export function serverFailureAction() {
+    return {
+        type: '@auth/SERVER_FAILURE'
+    }
+}
