@@ -27,7 +27,7 @@ jobs:
           REACT_APP_API_URL: ${{ secrets.REACT_APP_API_URL }}
           REACT_APP_PROJECT: ${{ secrets.REACT_APP_PROJECT }}
           REACT_APP_VERSION: ${{ secrets.REACT_APP_VERSION }}
-          REACT_APP_PROJECT: ${{ secrets.REACT_APP_PROJECT }}
+          REACT_APP_NAME: ${{ secrets.REACT_APP_NAME }}
           REACT_APP_CONTACT: ${{ secrets.REACT_APP_CONTACT }}
         
       - uses: appleboy/scp-action@master
