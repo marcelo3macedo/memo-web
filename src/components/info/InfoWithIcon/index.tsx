@@ -1,6 +1,5 @@
 import React from 'react';
 
-import IconSmall from "@components/icons/IconSmall";
 import { Wrapper, Content, Header, Info, Title, Value } from './styles';
 
 export default function InfoWithIcon({ data }) {
