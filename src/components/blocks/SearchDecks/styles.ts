@@ -4,10 +4,11 @@ export const Wrapper = styled.div`
 `;
 
 export const Content = styled.div`
+    padding: 0 10px;
 `;
 
 export const Title = styled.h3`
-    color: var(--neutral90);
+    color: var(--secondaryDark);
 `;
 
 export const Search = styled.div`
@@ -22,6 +23,7 @@ export const Search = styled.div`
     max-width: 500px;
     margin-top: 15px;
     margin-bottom: 15px;
+
 `;
 
 export const SearchInput = styled.input`

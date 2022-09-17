@@ -3,12 +3,11 @@ import { useTranslation } from 'react-multi-lang';
 
 import logo from "@assets/logo.png";
 
-import { Wrapper, Content, Group, Link, FooterContainer, Picture, Title, Info, SubTitle } from './styles';
+import { Wrapper, Content, Group, FooterContainer, Picture, Title, Info, SubTitle } from './styles';
 
 export default function Footer() {
   const t = useTranslation();
-  const link = process.env.REACT_APP_PROJECT;
-
+  
   return (
     <Wrapper>
       <Content>
@@ -23,8 +22,6 @@ export default function Footer() {
                 {t('home.blockFooter.subTitle').split("|").map((v, index) =>(
                   <SubTitle key={index}>{v}</SubTitle>
                 ))}
-
-                <Link href={link}>{link}</Link>
             </Info>
             
 

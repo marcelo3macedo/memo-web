@@ -7,13 +7,13 @@ import Categories from '@components/blocks/Categories';
 import Gallery from '@components/decks/Gallery';
 import Pagination from '@components/blocks/Pagination';
 import HeaderPage from '@components/header/HeaderPage';
-import SearchSecondary from '@components/search/SearchSecondary';
 import PageLoading from '@components/loading/PageLoading';
 import SearchResults from '@components/search/SearchResults';
 import { loadAction, loadMoreAction, queryAction } from '@store/modules/gallery/actions';
 import { RootState } from '@store/modules/rootReducer';
 
 import { Wrapper, Content } from './styles';
+import SearchDeck from '@components/decks/Search';
 
 export default function GalleryPage() {
   const dispatch = useDispatch();
@@ -50,7 +50,7 @@ export default function GalleryPage() {
     <Wrapper>
       <Content>
         <HeaderPage title={t('gallery.title')} subTitle={t('gallery.subTitle')} />
-        <SearchSecondary searchAction={searchAction} />
+        <SearchDeck action={searchAction} />
         <Categories categories={categories} categoryAction={categoryAction} />
         <SearchResults query={query} />
         <Gallery sessions={decks} type="public" />

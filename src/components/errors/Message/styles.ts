@@ -20,9 +20,14 @@ export const MessageArea = styled.div`
     padding: 10px;
     display: flex;
     align-items: center;
+
+    svg path {
+        fill: var(--neutral0);
+    }
 `;
 
 export const MessageText = styled.h5`
+    color: var(--neutral0);
 `;
 
 export const Messages = styled.div`

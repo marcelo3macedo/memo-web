@@ -6,8 +6,9 @@ import ButtonSecondary from '@components/button/ButtonSecondary';
 import { navigatePush } from '@store/modules/navigate/actions';
 import { PATH_MYDECKS } from '@services/Navigation';
 
-import { Wrapper, Content, Footer, Block } from './styles';
+import { Wrapper, Content, Footer, Block, Header, Title } from './styles';
 import Carousel from '@components/sessions/Carousel';
+import IconLarge from '@components/icons/IconLarge';
 
 export default function OpenSessions({ sessions }) {
   const dispatch = useDispatch();
@@ -22,6 +23,11 @@ export default function OpenSessions({ sessions }) {
   return (
     <Wrapper show={show}>
       <Content>
+        <Header>
+          <IconLarge name="card" />
+          <Title>{t('session.active')}</Title>
+        </Header>
+
         <Carousel sessions={sessions} />
 
         {hasMore ? (

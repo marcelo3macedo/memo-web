@@ -10,8 +10,22 @@ export const Wrapper = styled.div<PendingDecks>`
 export const Content = styled.div`
 `;
 
-export const Title = styled.h3`
-    color: var(--secondary10);
+export const Title = styled.h2`
+    padding: 10px 0;
+    color: var(--secondaryDark);
+`;
+
+export const Header = styled.div`
+    display: flex;
+    align-items: center;
+    
+    svg {
+        padding-right: 5px;
+
+        path {
+            fill: var(--secondaryDark);
+        }        
+    }
 `;
 
 export const Footer = styled.div`

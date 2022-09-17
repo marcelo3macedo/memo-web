@@ -53,8 +53,8 @@ export const Finish = styled.div`
     }
 `;
 
-export const Title = styled.h1`
-    color: var(--neutral90);
+export const Title = styled.h2`
+    color: var(--secondaryDark);
 `;
 
 export const Paragraph = styled.h5`
@@ -85,12 +85,30 @@ export const Header = styled.div`
 `;
 
 export const PageTitle = styled.h5`
-    color: var(--neutral90);
+    color: var(--secondaryDark);
     font-weight: bold;    
 `;
 
 export const EditTitle = styled.div`
-    padding: 5px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    background: var(--secondaryDark);
+    border-radius: 5px;
+
+    svg path {
+        fill: var(--neutral0);
+    }
+
+    &:hover {
+        cursor: pointer;
+        opacity: 0.8;
+    }
+`;
+
+export const EditText = styled.h5`
+    padding: 0 10px;
+    color: var(--neutral0);
 `;
 
 export const Fields = styled.div`
@@ -131,8 +149,9 @@ export const NewCard = styled.div`
 `;
 
 export const FrequencyTitle = styled.h5`
-    color: var(--neutral90);
+    color: var(--neutral100);
     margin-top: 10px;
+    font-weight: bold;
 `;
 
 export const FrequencyOptions = styled.select`
@@ -140,12 +159,14 @@ export const FrequencyOptions = styled.select`
     padding: 10px 10px;
     width: 100%;
     color: var(--neutral90);
+    background: var(--neutral0);
+    border: none;
 `;
 
 export const Info = styled.div`
 `;
 
-export const Description = styled.span`
+export const Description = styled.h5`
     white-space: pre-line;
     color: var(--neutral90);
     margin: 10px 0;

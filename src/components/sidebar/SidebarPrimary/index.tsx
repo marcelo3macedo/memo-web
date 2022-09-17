@@ -7,7 +7,7 @@ import { RootState } from '@store/modules/rootReducer';
 import { navigatePush } from '@store/modules/navigate/actions';
 import { PATH_ACCOUNT, PATH_GALLERY, PATH_MAIN, PATH_SESSIONS } from '@services/Navigation';
 
-import { Wrapper, Content, Item, Title } from './styles';
+import { Wrapper, Content, Item, Title, Items } from './styles';
 
 export default function SidebarPrimary() {
   const dispatch = useDispatch();
@@ -26,7 +26,8 @@ export default function SidebarPrimary() {
 
   return (
     <Wrapper>
-        <Content className="no-select">
+      <Content className="no-select">
+        <Items>
           <Item onClick={() => { navigateClick(PATH_MAIN)} } className={isActive(PATH_MAIN)}>
             <IconMedium name="home" />
             <Title>{t('menu.home')}</Title>
@@ -36,14 +37,15 @@ export default function SidebarPrimary() {
             <Title>{t('menu.sessions')}</Title>
           </Item>
           <Item onClick={() => { navigateClick(PATH_GALLERY)} }className={isActive(PATH_GALLERY)}>
-            <IconMedium name="gallery" />
+            <IconMedium name="search" />
             <Title>{t('menu.gallery')}</Title>
           </Item>
           <Item onClick={() => { navigateClick(PATH_ACCOUNT)} } className={isActive(PATH_ACCOUNT)}>
             <IconMedium name="user" />
             <Title>{t('menu.account')}</Title>
-          </Item>          
-        </Content>
+          </Item>
+        </Items>
+      </Content>
     </Wrapper>
   );
 }

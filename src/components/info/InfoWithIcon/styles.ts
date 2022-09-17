@@ -4,13 +4,13 @@ export const Wrapper = styled.div`
     background: var(--secondary10);
     border-radius: 10px;
     overflow: hidden;
-    margin: 10px 0;
+    margin: 10px;
 `;
 
 export const Content = styled.div`
     display: flex;
     align-items: center;
-    width: 100%;    
+    width: 100%;
 `;
 
 export const Header = styled.div`

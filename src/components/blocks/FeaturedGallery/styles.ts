@@ -26,7 +26,7 @@ export const DeckItem = styled.div`
 
 export const Title = styled.h2`
     padding: 10px 0;
-    color: var(--neutral90);
+    color: var(--secondaryDark);
 `;
 
 export const Header = styled.div`
@@ -37,7 +37,7 @@ export const Header = styled.div`
         padding-right: 5px;
 
         path {
-            fill: var(--secondary100);
+            fill: var(--secondaryDark);
         }        
     }
 `;

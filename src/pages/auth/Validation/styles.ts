@@ -24,6 +24,8 @@ export const Content = styled.div`
 
     @media (max-width: 768px) {
         padding: 15px;
+        background: var(--neutral0);
+        align-items: center;
     }
 `;
 
@@ -48,12 +50,15 @@ export const ActionArea = styled.div`
     padding: 15px 0;
 `;
 
-export const SubTitle = styled.div`
-
+export const SubTitle = styled.h5`
+    @media (max-width: 768px) {
+        text-align: center;
+        padding: 5px 0;
+    }
 `;
 
 export const HomeLink = styled.div`
     max-width: 200px;
-    margin-top: 50px;
+    margin-top: 20px;
 `;
 

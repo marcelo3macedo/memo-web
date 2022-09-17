@@ -12,13 +12,12 @@ import { loadAction } from '@store/modules/review/actions';
 import { navigatePush } from '@store/modules/navigate/actions';
 import { PATH_REVIEW } from '@services/Navigation';
 
-import { Wrapper, Content, Title, Header, SubTitle, Description, Info, Frequency, Action, Themes, ThemeTitle, Card, CardName } from './styles';
+import { Wrapper, Content, Title, Header, SubTitle, Description, Info, Action, Themes, ThemeTitle, Card, CardName } from './styles';
 
 export default function Session() {
   const dispatch = useDispatch();
   const t = useTranslation();
   const { isLoading, session } = useSelector((state:RootState) => state.sessions);
-  const frequency = session && session.deck && session.deck.frequency ? session.deck.frequency.name : '';
   const { id } = useParams() as any;
   
   function reviewClick() {
@@ -44,7 +43,6 @@ export default function Session() {
         <Header>
           <Info>{t('decks.title')}</Info>
           <Title>{session.deck.name}</Title>
-          <Frequency>{t('session.frequency')} {frequency}</Frequency>
           <SubTitle>{t('session.createdAt')} {formatDateField(session.createdAt)}</SubTitle>
         </Header>
         <Description>{session.deck.description}</Description>

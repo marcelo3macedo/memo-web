@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-    padding: 10px;
+    padding: 0 10px;
     min-height: 100vH;
 
     @media (min-width: 768px) {
@@ -10,11 +10,10 @@ export const Wrapper = styled.div`
 `;
 
 export const Content = styled.div`
-    padding: 10px 0;
 `;
 
 export const Title = styled.h1`
-    color: var(--neutral90);
+    color: var(--secondaryDark);
 `;
 
 export const Paragraph = styled.h5`
@@ -24,22 +23,7 @@ export const Paragraph = styled.h5`
 export const Block = styled.div`
     display: flex;
     flex-direction: column;
-
-    input[type="text"] {
-        margin: 20px 0 10px 0;
-        padding: 15px 10px;
-        border-radius: 10px;
-        border: 1px solid var(--neutral60);
-    }
-
-    textarea {
-        background: none;
-        margin: 10px 0 10px 0;
-        height: 60px;
-        padding: 15px 10px;
-        border-radius: 10px;
-        border: 1px solid var(--neutral60);
-    }
+    padding: 20px 0;
 
     @media (min-width: 768px) {
         button {
@@ -90,6 +74,8 @@ export const ComboArea = styled.div`
         margin-top: 10px;
         width: 100%;
         color: var(--neutral90);
+        background: var(--neutral0);
+        border: none;
     }
 `;
 
@@ -105,4 +91,8 @@ export const FinishArea = styled.div`
     button {
         width: 100%;
     }
+`;
+
+export const InputText = styled.h6`
+    font-weight: bold;    
 `;

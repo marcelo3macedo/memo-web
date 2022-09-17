@@ -13,7 +13,7 @@ export const Options = styled.div`
 `;
 
 export const Title = styled.h4`
-    color: var(--neutral90);
+    color: var(--neutral100);
     font-weight: bold;
     margin: 10px 0;
 `;

@@ -4,7 +4,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/marcelo3macedo/Memo-Frontend">
+  <a href="https://github.com/marcelo3macedo/memo-web">
     <img src="public/logo.png" alt="Logo" width="120" height="120">
   </a>
 
@@ -18,9 +18,9 @@
     <br />
     <a href="https://memo.professoraantenada.com.br">View Demo</a>
     ·
-    <a href="https://github.com/marcelo3macedo/Memo-Frontend/issues">Report Bug</a>
+    <a href="https://github.com/marcelo3macedo/memo-web/issues">Report Bug</a>
     ·
-    <a href="https://github.com/marcelo3macedo/Memo-Frontend/issues">Request Feature</a>
+    <a href="https://github.com/marcelo3macedo/memo-web/issues">Request Feature</a>
   </p>
 </div>
 
@@ -65,7 +65,7 @@ Read more: https://en.wikipedia.org/wiki/Spaced_repetition
 
 This project is divided in:
 * Memo-Backend (https://github.com/marcelo3macedo/Memo-Backend): Backend logic of application 
-* Memo-Frontend (https://github.com/marcelo3macedo/Memo-Frontend): Frontend logic of application
+* memo-web (https://github.com/marcelo3macedo/memo-web): Frontend logic of application
 * Memo-Feeder (https://github.com/marcelo3macedo/Memo-Feeder): Scripts to feed the project database.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -111,7 +111,7 @@ _Below is an example of how you can instruct your audience on installing and set
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/marcelo3macedo/Memo-Frontend.git
+   git clone https://github.com/marcelo3macedo/memo-web.git
    ```
 2. Install Yarn packages
    ```sh

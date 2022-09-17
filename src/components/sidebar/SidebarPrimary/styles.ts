@@ -2,26 +2,30 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div`
     display: none;
-    width: 100%;
-    position: fixed;
-    bottom: 0;
-    background: var(--secondary10);
 
     @media (max-width: 768px) {
         display: block;
+        width: 100%;
+        position: fixed;
+        bottom: 0;
     }
 `;
 
 export const Content = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    border-top: 2px solid var(--neutral50);
-    padding: 10px 5px;
+    padding: 10px;
 
     svg { 
         fill: var(--neutral60);
     }
+`;
+
+export const Items = styled.div`
+    background: var(--neutral0);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 10px 5px;
+    border-radius: 10px;
 `;
 
 export const Item = styled.div`

@@ -48,3 +48,11 @@ export function editSuccessAction({ deck }) {
         }
     }
 }
+export function viewAction({ deck }) {
+    return {
+        type: '@personal/VIEW',
+        payload: {
+            deck
+        }
+    }
+}

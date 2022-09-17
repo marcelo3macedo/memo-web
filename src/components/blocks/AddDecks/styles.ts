@@ -12,7 +12,7 @@ export const Content = styled.div`
 
 export const Title = styled.h4`
     font-weight: bold;
-    color: var(--neutral90);
+    color: var(--secondaryDark);
 `;
 
 export const AddArea = styled.div`

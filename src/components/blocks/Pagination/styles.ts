@@ -7,13 +7,20 @@ export const Wrapper = styled.div<Gallery>`
 `;
 
 export const Content = styled.div`
-    border: 1px solid var(--neutral80);
+    background: var(--neutral0);
+    border: 1px solid var(--neutral50);
     width: 50%;
     margin: auto;
     text-align: center;
+    border-radius: 10px;
+    
+    &:hover {
+      cursor: pointer;
+      opacity: 0.8;
+    }
 `;
 
 export const Title = styled.h5`
-    padding: 10px;
+    padding: 15px;
     color: var(--neutral90);
 `;

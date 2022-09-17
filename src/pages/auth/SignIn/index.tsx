@@ -3,8 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useTranslation } from 'react-multi-lang';
 import { Formik, Form } from "formik";
 
-import { Wrapper, Content, Title, ActionArea, Fields, NewUser } from './styles';
-import InputIcon from '@components/input/InputIcon';
+import InputArea from '@components/input/InputArea';
 import ButtonPrimary from '@components/button/ButtonPrimary';
 import TextLinked from '@components/link/TextLinked';
 import ValidationMessage from '@components/validation/ValidationMessage';
@@ -13,7 +12,8 @@ import { navigatePush } from '@store/modules/navigate/actions';
 import { RootState } from '@store/modules/rootReducer';
 import { PATH_FORGOT_PASSWORD, PATH_SIGN_UP } from '@services/Navigation';
 import { initialValues, schema } from '@services/Validation/signIn.schema';
-import ButtonSecondary from '@components/button/ButtonSecondary';
+
+import { Wrapper, Content, FormArea, ActionArea, Fields, NewUser, InputText, InfoText, InfoFeaturedText } from './styles';
 
 export default function SignIn() {
   const t = useTranslation()
@@ -39,28 +39,32 @@ export default function SignIn() {
   return (
     <Wrapper>
         <Content>
-          <Title>{t('auth.loginTitle')}</Title>
-            <Formik 
-              initialValues={initialValues}
-              onSubmit={handleSubmit}
-              validationSchema={schema}>
-            <Form>
+          <Formik 
+            initialValues={initialValues}
+            onSubmit={handleSubmit}
+            validationSchema={schema}>
+          <Form>
+            <FormArea>
               <Fields>
-                <InputIcon name="user" icon="user" placeholder={t('auth.mailPlaceholder')}/>
+                <InputText>{t('auth.user')}</InputText>
+                <InputArea name="user" placeholder={t('auth.mailPlaceholder')}/>
                 <ValidationMessage name="user" />
-
-                <InputIcon name="password" icon="password" type="password" placeholder={t('auth.passwordPlaceholder')}/>
+                
+                <InputText>{t('auth.password')}</InputText>
+                <InputArea name="password" type="password" placeholder={t('auth.passwordPlaceholder')}/>
                 <ValidationMessage name="password" />
               </Fields>
               <ActionArea>
                   <TextLinked content={t('auth.forgotPassword')} action={forgotPasswordClick}/>
                   <ButtonPrimary type="submit" content={t('auth.enter')} loading={isLoading}/>
               </ActionArea>
-            </Form>
-          </Formik>
+            </FormArea>
+          </Form>
+        </Formik>
 
           <NewUser>
-              <ButtonSecondary content={t('auth.register')} action={signUpClick} />
+              <InfoText>{t('auth.notRegistered')}</InfoText>
+              <InfoFeaturedText onClick={signUpClick}>{t('auth.newAccount')}</InfoFeaturedText>
           </NewUser>
         </Content>
     </Wrapper>

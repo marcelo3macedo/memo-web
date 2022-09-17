@@ -8,8 +8,9 @@ import OpenSessions from '@components/blocks/OpenSessions';
 import PageLoading from '@components/loading/PageLoading';
 import { RootState } from '@store/modules/rootReducer';
 import { loadAction } from '@store/modules/user/actions';
+import background from "@assets/pages/home/background.png";
 
-import { Wrapper, Content } from './styles';
+import { Wrapper, Content, Background } from './styles';
 
 export default function Main() {
   const dispatch = useDispatch();
@@ -27,7 +28,8 @@ export default function Main() {
   return (
     <Wrapper>
       <Content>
-        <WelcomeMessage name={name} sessions={sessions} />
+        <Background src={background} />
+        <WelcomeMessage name={name} />
         <OpenSessions sessions={sessions} />
         <AddOrSearchDecks />
         <FeaturedGallery featuredDecks={featuredDecks} />

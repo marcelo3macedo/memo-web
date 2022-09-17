@@ -13,7 +13,7 @@ import ButtonPrimary from '@components/button/ButtonPrimary';
 import IconSmall from '@components/icons/IconSmall';
 import PageLoading from '@components/loading/PageLoading';
 
-import { Wrapper, Content, Title, Header, PageTitle, EditTitle, NewCard, Frequency, FrequencyTitle, FrequencyOptions, Info, Description } from './styles';
+import { Wrapper, Content, Title, Header, PageTitle, EditTitle, NewCard, Frequency, FrequencyTitle, FrequencyOptions, Info, Description, EditText } from './styles';
 
 export default function EditDeck() {
   const dispatch = useDispatch();
@@ -90,6 +90,7 @@ export default function EditDeck() {
           </Info>
           <EditTitle onClick={() => { openModal({ screen: 'title-deck' }); }}>
             <IconSmall name="edit"></IconSmall>
+            <EditText>{t('decks.actions.edit')}</EditText>
           </EditTitle>
         </Header>
         <Frequency>

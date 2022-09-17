@@ -18,7 +18,7 @@ export const SubTitle = styled.h5`
 `;
 
 export const Title = styled.h1`
-    color: var(--neutral90);    
+    color: var(--secondaryDark);    
 `;
 
 export const Paragraph = styled.h5`
@@ -68,9 +68,10 @@ export const Action = styled.div`
 export const Themes = styled.div`
 `;
 
-export const Description = styled.span`
-    color: var(--neutral90); 
+export const Description = styled.h5`
+    color: var(--neutral100); 
     white-space: pre-line;  
+    padding: 10px 0;
 `;
 
 export const ThemeTitle = styled.h5`
@@ -78,6 +79,6 @@ export const ThemeTitle = styled.h5`
     font-weight: bold;
 `;
 
-export const Info = styled.h3`
-    color: var(--neutral90);    
+export const Info = styled.h5`
+    color: var(--neutral100);    
 `;

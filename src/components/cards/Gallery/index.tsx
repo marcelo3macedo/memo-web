@@ -1,9 +1,8 @@
 import React from 'react';
 import { useTranslation } from 'react-multi-lang';
 import Private from '../Private';
-import Public from '../Public';
 
-import { Wrapper, Content, Title, Message } from './styles';
+import { Wrapper, Content, ThemeTitle, Message, Card, CardName } from './styles';
 
 export default function Gallery({ cards=[], type, actions={} }) {
   const t = useTranslation();
@@ -12,15 +11,23 @@ export default function Gallery({ cards=[], type, actions={} }) {
   return (
     <Wrapper>
       <Content>
-        <Title>{t('editCard.title')}</Title>
+        <ThemeTitle>{t('decks.themeTitle')}</ThemeTitle>
 
         {hasCards ? 
-          cards.map((c, i) => (
-            (type === "private" ? (
-              <Private key={i} card={c} actions={actions}></Private>) :
-              <Public key={i} card={c}></Public>
+          (type === "private" ? (
+            cards.map((c, i) => (
+                <Private key={i} card={c} actions={actions}></Private>)
             )
-          )) :
+          ) : (
+            cards.map(i => i.title)
+              .filter((value, index, self) => {
+                return self.indexOf(value) === index;
+              }).sort().map(d => (
+                <Card key={d} className='no-select'>
+                  <CardName>{d}</CardName>
+                </Card>
+              ))
+           )) :
           (<Message>{t('editCard.emptyCards')}</Message>)}
       </Content>
     </Wrapper>

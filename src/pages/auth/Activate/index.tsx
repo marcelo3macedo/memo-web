@@ -7,6 +7,7 @@ import { loadActivate } from '@store/modules/auth/actions';
 import { RootState } from '@store/modules/rootReducer';
 
 import { Wrapper, Content, Title, SubTitle } from './styles';
+import PageLoading from '@components/loading/PageLoading';
 
 export default function Activate() {
   const t = useTranslation()
@@ -16,9 +17,19 @@ export default function Activate() {
     
   useEffect(() => {
     const params = new URLSearchParams(location.search);
+    const token = params.get("token");
+
+    if (!token) {
+      return;
+    }
     
-    dispatch(loadActivate({ token: params.get("token") }));
+    dispatch(loadActivate({ token }));
   }, [dispatch, location]);
+
+  if (!activation) {
+    return <PageLoading/>;
+  }
+
 
   return (
     <Wrapper>

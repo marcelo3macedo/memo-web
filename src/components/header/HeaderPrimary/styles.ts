@@ -1,8 +1,7 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-    padding: 15px;
-    border-bottom: 2px solid var(--secondary60);    
+    padding: 15px 10px;
 
     @media (min-width: 768px) {
         display: none;
@@ -22,7 +21,11 @@ export const Header = styled.div`
     justify-content: space-between;   
     
     svg path, svg polygon {
-        fill: var(--neutral80);
+        fill: var(--neutral90);
+    }
+
+    svg.list path, svg.list polygon {
+        fill: var(--neutral0);
     }
 
     @media (min-width: 768px) {
@@ -33,16 +36,4 @@ export const Header = styled.div`
             display: none;
         }
     }
-`;
-
-export const Logo = styled.img`
-    display: none;
-
-    @media (max-width: 768px) {
-        display: block;
-        height: 32px;
-    }
-`;
-
-export const Block = styled.div`
 `;

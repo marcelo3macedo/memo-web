@@ -5,16 +5,14 @@ import { Wrapper, Content, Section, Body } from './styles';
 import HeaderPrimary from '@components/header/HeaderPrimary';
 import FooterPrimary from '@components/footer/FooterPrimary';
 import MenuPrimary from '@components/menu/MenuPrimary';
-import HeaderMaster from '@components/header/HeaderMaster';
 import SearchPrimary from '@components/search/SearchPrimary';
 
 export default function MainLayout ({ children }) {
   return (
     <Wrapper>
         <Content>
-          <HeaderMaster />
-          <MenuPrimary/>
           <Section>
+            <MenuPrimary/>          
             <HeaderPrimary />
             <Body>
               {children}

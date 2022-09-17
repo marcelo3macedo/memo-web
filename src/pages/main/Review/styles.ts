@@ -100,4 +100,5 @@ export const Action = styled.div`
 
 export const ActionValue = styled.h6`
     font-weight: bold;
+    color: #fff;
 `;

@@ -5,7 +5,8 @@ type WrapperProps = {
 }
 
 export const Wrapper = styled.div<WrapperProps>`
-    background: var(--secondary10);
+    background: var(--neutral0);
+    width: 30%;
     
     @media (max-width:768px) {
         position: fixed;
@@ -17,29 +18,34 @@ export const Wrapper = styled.div<WrapperProps>`
         z-index: 999;
         display: ${props => props.show ? "block": "none"};
     }    
-
-    @media (min-width:768px) {
-        display: none;
-    }
 `;
 
 export const Content = styled.div`
     width: 70%;
-    height: 100vH;
-    background: var(--neutral10);
+    height: 100%;
+    background: var(--secondaryDark);
+    padding: 0 5px;
+    text-align: center; 
 
     @media (min-width: 768px) {
-        max-width: 300px;
         width: 100%;
     }
 `;
 
 export const Header = styled.div`    
     text-align: center;
-    padding: 20px 0;
-    padding: 10px;
-    border-bottom: 1px solid var(--neutral60);
-    background: var(--secondary100);
+    padding: 30px 10px;
+    display: flex;
+
+    svg path:last-child {
+        fill: var(--neutral50);
+    }
+`;
+
+export const Picture = styled.img`
+    max-width: 100px;
+    padding: 10px 0;
+    text-align: center;
 `;
 
 export const Logo = styled.img`
@@ -53,8 +59,45 @@ export const Logo = styled.img`
 
 export const Title = styled.h3`
     color: var(--textSecondary100);
+    text-transform: lowercase;
+    letter-spacing: 1px;
 `;
 
 export const Options = styled.div`
-    padding: 10px;
+    padding: 0 10px;
+`;
+
+export const User = styled.div`
+    padding: 0 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: initial;
+    text-align: initial;
+`;
+
+export const Username = styled.h4`
+    font-weight: bold;
+    color: var(--neutral50);
+`;
+
+export const Logout = styled.h5`
+    color: var(--neutral50);
+    text-decoration: underline;
+
+    &:hover {
+        cursor: pointer;
+    }
+`;
+
+export const OptionTitle = styled.h5`
+    color: var(--neutral50);
+    text-transform: uppercase; 
+    font-weight: bold;
+    padding: 10px 0;
+    margin-top: 10px;
+    text-align: left;
+`;
+
+export const LogoArea = styled.div`
+    padding: 10px 0;
 `;

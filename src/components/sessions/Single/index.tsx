@@ -1,42 +1,49 @@
 import React from 'react';
+import Moment from 'moment';
+import 'moment/locale/pt-br';
+
 import { useDispatch } from "react-redux";
 
-import { randomBackground } from '@config/Backgrounds';
-import IconMedium from '@components/icons/IconMedium';
+import IconSmall from '@components/icons/IconSmall';
 import PageLoading from '@components/loading/PageLoading';
 import { PATH_SESSION } from '@services/Navigation';
 import { navigatePush } from '@store/modules/navigate/actions';
 
-import { Wrapper, Content, Quantity,  Title, Opacity, Block, Header, Frequency, Body } from './styles';
+import { Wrapper, Content, Deck,  Title, Header, Details, Status, StatusTitle } from './styles';
+
 
 export default function Single({ session }) {
   const dispatch = useDispatch();
-  const icon = "card";
-  const frequencyName = (session && session.deck && session.deck.frequency) ? session.deck.frequency.name : '';
-  const background = (session && session.deck && session.deck.theme) ? session.deck.theme.src : randomBackground();
+  const { deck } = session || {};
   
   function openSessionClick() {
     dispatch(navigatePush({ path: `${PATH_SESSION}/${session.id}` }));
   }
 
-  if (!session || !session.deck) {
+  Moment.locale('pt-br');
+
+  if (!session) {
     return <PageLoading />;
   }
 
   return (
     <Wrapper onClick={openSessionClick} className='no-select'>
-      <Content background={background}>
-        <Opacity></Opacity>
-        <Block>
+      <Content>
+        <Deck>
           <Header>
-            <Frequency>{frequencyName}</Frequency>
-            <Title>{session.deck.name}</Title>
+            <Title>{deck.name}</Title>
           </Header>
-          <Body>
-            <IconMedium name={icon} />
-            <Quantity>{session.sessionCards}</Quantity>
-          </Body>
-        </Block>
+          <Details>
+            <Status>
+              <IconSmall name="card" />
+              <StatusTitle>{session.sessionCards}</StatusTitle>
+            </Status>
+            <Status>
+              <IconSmall name="time" />
+              <StatusTitle>{Moment(session.createdAt).fromNow()}</StatusTitle>
+            </Status>
+          </Details>
+        </Deck>
       </Content>
     </Wrapper>
   );

@@ -1,19 +1,21 @@
 import React from 'react';
 import { useTranslation } from 'react-multi-lang';
 
-import { Wrapper, Content, Title, Message } from './styles';
+import logo from "@assets/logo.png";
 
-export default function WelcomeMessage({ sessions, name }) {
+import { Wrapper, Content, Title, Picture, Message } from './styles';
+
+export default function WelcomeMessage({ name }) {
   const t = useTranslation();
-  const hasSessions = !sessions || sessions.length === 0;
   
   return (
     <Wrapper>
       <Content>
+        <Picture src={logo}/>
         {name ? (
           <Title>{t('welcome.title')} {name}!</Title>
         ): <></>}        
-        <Message>{ hasSessions ? t('welcome.new') : t('welcome.message')}</Message>
+        <Message>{t('welcome.message')}</Message>
       </Content>
     </Wrapper>
   );

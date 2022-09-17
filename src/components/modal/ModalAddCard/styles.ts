@@ -5,6 +5,7 @@ export const Wrapper = styled.div<ICardEdit>`
     position: fixed;
     left: 0;
     top: 0;
+    z-index: 9;
     width: 100%;
     height: 100vH;
     background: rgba(0,0,0,0.4);
@@ -13,7 +14,7 @@ export const Wrapper = styled.div<ICardEdit>`
 `;
 
 export const Content = styled.div`
-    background: var(--neutral10);
+    background: var(--secondary15);
     padding: 30px 20px;
     margin: auto;
     width: 80%;    
@@ -36,14 +37,16 @@ export const Fields = styled.div`
         margin-bottom: 5px;
         padding: 15px 10px;
         border-radius: 10px;
-        border: 1px solid var(--neutral60);        
+        border: none;
+        background: var(--neutral0);       
     }
 
     textarea {
         margin-bottom: 5px;
         padding: 15px 10px;
         border-radius: 10px;
-        border: 1px solid var(--neutral60);
+        border: none;
+        background: var(--neutral0);
         resize: none;
         height: 75px;
     }
@@ -51,7 +54,7 @@ export const Fields = styled.div`
 
 export const Title = styled.h2`
     margin-bottom: 10px;
-    color: var(--neutral90);
+    color: var(--secondaryDark);
 `;
 
 export const Header = styled.div`

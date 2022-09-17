@@ -1,7 +1,11 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-    padding: 8px 0;
+    padding: 5px;
+
+    @media (max-width: 768px) {
+        background: var(--neutral0);
+    }
 
     &:hover {
         cursor: pointer;
@@ -12,7 +16,7 @@ export const Wrapper = styled.div`
 export const Content = styled.div`
     display: flex;
     align-items: center;
-    width: 100%;    
+    width: 100%;   
 `;
 
 export const Header = styled.div`
@@ -21,16 +25,16 @@ export const Header = styled.div`
     align-items: center;   
 
     svg path {
-        fill: var(--neutral90);
+        fill: var(--neutral50);
     }
 `;
 
 export const Info = styled.div`
-    padding: 10px;
+    padding: 7px;
 `;
 
 export const Title = styled.h5`    
-    color: var(--neutral90);
+    color: var(--neutral50);
 `;
 
 export const Value = styled.h2`

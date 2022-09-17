@@ -6,6 +6,7 @@ export const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
+    background: var(--neutral0);
 
     @media (max-width: 768px) {
         width: 100%;
@@ -13,6 +14,7 @@ export const Wrapper = styled.div`
         margin: auto;
         padding: 0px;
         display: block;
+        background: none;
     }
 `;
 
@@ -38,13 +40,42 @@ export const Title = styled.h2`
 `;
 
 export const Fields = styled.div`
-    padding: 20px 0;
 `;
 
 export const ActionArea = styled.div`
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    align-items: end;
     justify-content: space-between;
     padding: 15px 0;
+
+    button {
+        width: 100%;
+        margin-top: 20px;
+    }
+`;
+
+export const FormArea = styled.div`
+    background: #fff;
+    padding: 20px;
+`;
+
+export const InputText = styled.h6`
+    font-weight: bold;    
+`;
+
+export const InfoText = styled.h4`
+    padding: 0 5px;
+`;
+
+export const InfoFeaturedText = styled.h4`
+    padding: 0 5px;
+    color: var(--secondaryDark);
+    font-weight: bold;
+    text-decoration: underline;
+
+    &:hover {
+        cursor: pointer;
+    }
 `;
 

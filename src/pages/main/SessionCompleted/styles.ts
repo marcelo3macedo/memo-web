@@ -9,7 +9,12 @@ export const Content = styled.div`
 `;
 
 export const Actions = styled.div`
-    padding: 20px 0;
+    padding: 20px 0; 
+
+    @media (min-width: 768px) {
+        max-width: 400px;
+        margin: auto;
+    }
 `;
 
 export const Resume = styled.div`
@@ -18,4 +23,16 @@ export const Resume = styled.div`
 
 export const ResumeTitle = styled.h3`
     color: var(--neutral90);
+`;
+
+export const ResumeItem = styled.div`    
+    @media (min-width: 768px) {
+        display: flex;
+
+        div {
+            width: 25%;
+            display: flex;
+            align-items: center;
+        }
+    }
 `;

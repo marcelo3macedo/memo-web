@@ -1,21 +1,24 @@
 import React from 'react';
 import PropTypes from "prop-types";
 
-import logo from '../../assets/logo.png';
-import { Wrapper, Content, Header, Logo, Title } from './styles';
+import logo from '@assets/logo.png';
+import background from "@assets/pages/auth/background.png";
 import ValidationAlert from '@components/validation/ValidationAlert';
+
+import { Wrapper, Content, Header, Logo, Title, Background } from './styles';
 
 export default function AuthLayout ({ children }) {
   return (
     <Wrapper>
-        <Content>
-          <Header>
-            <Logo src={logo}></Logo>
-            <Title>memorizator</Title>
-          </Header>
-          {children}
-          <ValidationAlert/>
-        </Content>
+      <Background src={background} />
+      <Content>
+        <Header>
+          <Logo src={logo}></Logo>
+          <Title></Title>
+        </Header>
+        {children}
+        <ValidationAlert/>
+      </Content>
     </Wrapper>
   );
 }

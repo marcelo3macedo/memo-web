@@ -9,7 +9,7 @@ import { PATH_MAIN } from '@services/Navigation';
 import { RootState } from '@store/modules/rootReducer';
 import { navigatePush } from '@store/modules/navigate/actions';
 
-import { Wrapper, Content, Actions, Resume, ResumeTitle } from './styles';
+import { Wrapper, Content, Actions, Resume, ResumeTitle, ResumeItem } from './styles';
 
 export default function SessionCompleted() {
   const dispatch = useDispatch();
@@ -35,9 +35,11 @@ export default function SessionCompleted() {
 
         <Resume>
           <ResumeTitle>{t('sessionCompleted.resume')}</ResumeTitle>
-          {options.map(o => (
-            <InfoWithIcon key={o.id} data={ generateInfoData(o) } />
-          ))}
+          <ResumeItem>
+            {options.map(o => (
+              <InfoWithIcon key={o.id} data={ generateInfoData(o) } />
+            ))}
+          </ResumeItem>
         </Resume>
 
         <Actions>

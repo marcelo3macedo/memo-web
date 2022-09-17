@@ -3,8 +3,7 @@ import { useDispatch } from "react-redux";
 import { useTranslation } from 'react-multi-lang';
 import { Formik, Form } from "formik";
 
-import { Wrapper, Content, Title, ActionArea, Fields } from './styles';
-import InputIcon from '@components/input/InputIcon';
+import { Wrapper, Content, ActionArea, Fields, FormArea, InputText } from './styles';
 import ButtonPrimary from '@components/button/ButtonPrimary';
 import TextLinked from '@components/link/TextLinked';
 import ValidationMessage from '@components/validation/ValidationMessage';
@@ -12,6 +11,7 @@ import { navigatePush } from '@store/modules/navigate/actions';
 import { PATH_SIGN_IN } from '@services/Navigation';
 import { schema, initialValues } from '@services/Validation/recover.schema';
 import { forgotPasswordAction } from '@store/modules/auth/actions';
+import InputArea from '@components/input/InputArea';
 
 export default function Recover() {
   const t = useTranslation()
@@ -33,15 +33,17 @@ export default function Recover() {
                 onSubmit={handleSubmit}
                 validationSchema={schema}>
             <Form>
-              <Title>{t('auth.recoverTitle')}</Title>
-              <Fields>
-                <InputIcon name="user" icon="user" placeholder={t('auth.mailPlaceholder')}/>
-                <ValidationMessage name="user" />
-              </Fields>
-              <ActionArea>
-                  <TextLinked content={t('auth.goToLogin')} action={signInClick} />
-                  <ButtonPrimary type="submit" content={t('auth.recover')} />
-              </ActionArea>
+              <FormArea>
+                <Fields>
+                  <InputText>{t('recover.fields.mail')}</InputText>
+                  <InputArea name="user" placeholder={t('auth.mailPlaceholder')}/>
+                  <ValidationMessage name="user" />
+                </Fields>
+                <ActionArea>
+                    <TextLinked content={t('auth.goToLogin')} action={signInClick} />
+                    <ButtonPrimary type="submit" content={t('auth.recover')} />
+                </ActionArea>
+              </FormArea>
             </Form>
           </Formik>
         </Content>
