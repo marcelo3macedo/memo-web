@@ -1,12 +1,14 @@
 import React from 'react';
 
-import SeeMore from '@modules/components/elements/SeeMore';
 
-import { Wrapper, Content } from './styles';
 import { SEE_MORE_TYPE_END } from '@constants/SeeMore';
+import SeeMore from '@modules/components/elements/SeeMore';
+import IListSessions from '@modules/sessions/dtos/IListSessions';
 import IndexActive from '../IndexActive';
 
-export default function List({ sessions, type }) {
+import { Wrapper, Content } from './styles';
+
+export default function List({ sessions, type }:IListSessions) {
   function getSessionByType(session, type) {
     return <IndexActive key={session.id} session={session} />;
   }

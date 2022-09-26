@@ -52,4 +52,9 @@ export const SearchIcon = styled.div`
             fill: var(--neutral0);
         }
     }
+
+    &:hover {
+        cursor: pointer;
+        opacity: var(--opacity);
+    }
 `;
