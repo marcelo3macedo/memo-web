@@ -6,7 +6,7 @@ import ISeeMoreOptions from '@modules/components/dtos/ISeeMoreOptions';
 
 import { Wrapper, Content } from './styles';
 
-export default function SeeMore({ elements }:ISeeMoreOptions) {
+export default function SeeMore({ elements, callback }:ISeeMoreOptions) {
   const t = useTranslation()
 
   if (!elements || elements.length < ELEMENTS_MIN_EXTEND) {
@@ -14,7 +14,7 @@ export default function SeeMore({ elements }:ISeeMoreOptions) {
   }
 
   return (
-    <Wrapper>
+    <Wrapper onClick={callback}>
       <Content>{t('elements.seeMore')}</Content>
     </Wrapper>
   );

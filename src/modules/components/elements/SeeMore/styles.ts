@@ -5,6 +5,11 @@ export const Wrapper = styled.div`
     display: flex;
     justify-content: end;
     align-items: flex-end;
+
+    &:hover {
+        cursor: pointer;
+        opacity: var(--opacity);
+    }
 `;
 
 export const Content = styled.h6`

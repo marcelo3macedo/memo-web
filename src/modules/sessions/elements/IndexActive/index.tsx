@@ -6,11 +6,14 @@ import { getTimeFromNow } from '@helpers/DateHelper';
 
 import { Wrapper, Content, Header, Title, Footer, Card, Action } from './styles';
 
-export default function IndexDated({ session }) {
+export default function IndexActive({ session }) {
   const { deck } = session || {}
 
+  function sessionClick() {    
+  }
+
   return (
-    <Wrapper>
+    <Wrapper onClick={sessionClick}>
       <Content>
         <Card>
           <Header>

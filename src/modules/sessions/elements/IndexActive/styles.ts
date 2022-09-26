@@ -11,6 +11,11 @@ export const Content = styled.div`
     padding: 15px;
     display: flex;
     justify-content: space-between;
+
+    &:hover {
+        cursor: pointer;
+        opacity: var(--opacity);
+    }
 `;
 
 export const Header = styled.div`   
