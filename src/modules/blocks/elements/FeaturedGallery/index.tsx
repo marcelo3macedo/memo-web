@@ -2,9 +2,10 @@ import React from 'react';
 import { useTranslation } from 'react-multi-lang';
 import { useSelector } from 'react-redux';
 
-import List from '@components/featured/List';
-import Subtitle from '@modules/headers/elements/Subtitle';
+import { SESSIONS_LIST_FEATURED } from '@constants/SessionLists';
+import SubTitle from '@components/elements/SubTitle';
 import { RootState } from '@store/modules/rootReducer';
+import List from '@modules/sessions/elements/List';
 
 import { Wrapper, Container } from './styles';
 
@@ -19,8 +20,8 @@ export default function FeaturedGallery() {
   return (
     <Wrapper>
       <Container>
-        <Subtitle title={t('blocks.featured')} />
-        <List sessions={featuredDecks} />
+        <SubTitle title={t('blocks.featured')} />
+        <List sessions={featuredDecks} type={SESSIONS_LIST_FEATURED} />
       </Container>
     </Wrapper>
   );

@@ -1,16 +1,19 @@
 import React from 'react';
 
-
+import { SESSIONS_LIST_TIMEPASSED } from '@constants/SessionLists';
 import { SEE_MORE_TYPE_END } from '@constants/SeeMore';
 import SeeMore from '@modules/components/elements/SeeMore';
 import IListSessions from '@modules/sessions/dtos/IListSessions';
 import IndexActive from '../IndexActive';
+import IndexFeatured from '../IndexFeatured';
 
 import { Wrapper, Content } from './styles';
 
 export default function List({ sessions, type }:IListSessions) {
   function getSessionByType(session, type) {
-    return <IndexActive key={session.id} session={session} />;
+    return type === SESSIONS_LIST_TIMEPASSED ?
+        (<IndexActive key={session.id} session={session} />) :
+        (<IndexFeatured key={session.id} session={session} />);
   }
 
   function seeMoreAction() {
