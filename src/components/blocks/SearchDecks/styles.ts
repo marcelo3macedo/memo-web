@@ -14,9 +14,10 @@ export const Title = styled.h3`
 export const Search = styled.div`
     padding: 5px 0;
     display: flex; 
-    align-items: center;
-    justify-content: center;
+    align-items: initial;
+    justify-content: initial;
     border: 1px solid var(--neutral60);
+    box-shadow: 0 0 1px 1px var(--neutral50);
     border-radius: 10px;
     width: 90%;
     margin: auto;

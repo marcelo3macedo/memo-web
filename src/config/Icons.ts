@@ -24,6 +24,9 @@ import { ReactComponent as AlertIcon } from "@assets/icons/alert.svg";
 import { ReactComponent as UsersIcon } from "@assets/icons/users.svg";
 import { ReactComponent as TimeIcon } from "@assets/icons/time.svg";
 import { ReactComponent as UserRoundedIcon } from "@assets/icons/user-rounded.svg";
+import { ReactComponent as NextIcon } from "@assets/icons/next.svg";
+import { ReactComponent as PlusIcon } from "@assets/icons/plus.svg";
+import { ReactComponent as NewIcon } from "@assets/icons/new.svg";
 
 export const Icons = {
     user: UserIcon,
@@ -51,5 +54,8 @@ export const Icons = {
     repeat: RepeatIcon,
     alert: AlertIcon,
     time: TimeIcon,
-    userRounded: UserRoundedIcon
+    userRounded: UserRoundedIcon,
+    next: NextIcon,
+    plus: PlusIcon,
+    new: NewIcon
 }

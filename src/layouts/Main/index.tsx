@@ -6,6 +6,7 @@ import HeaderPrimary from '@components/header/HeaderPrimary';
 import FooterPrimary from '@components/footer/FooterPrimary';
 import MenuPrimary from '@components/menu/MenuPrimary';
 import SearchPrimary from '@components/search/SearchPrimary';
+import SidebarPrimary from '@components/sidebar/SidebarPrimary';
 
 export default function MainLayout ({ children }) {
   return (
@@ -18,6 +19,7 @@ export default function MainLayout ({ children }) {
               {children}
             </Body>
           </Section>
+          <SidebarPrimary />
           <FooterPrimary />
           <SearchPrimary/>
         </Content>

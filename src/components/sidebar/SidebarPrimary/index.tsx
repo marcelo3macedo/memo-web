@@ -37,7 +37,7 @@ export default function SidebarPrimary() {
             <Title>{t('menu.sessions')}</Title>
           </Item>
           <Item onClick={() => { navigateClick(PATH_GALLERY)} }className={isActive(PATH_GALLERY)}>
-            <IconMedium name="search" />
+            <IconMedium name="gallery" />
             <Title>{t('menu.gallery')}</Title>
           </Item>
           <Item onClick={() => { navigateClick(PATH_ACCOUNT)} } className={isActive(PATH_ACCOUNT)}>

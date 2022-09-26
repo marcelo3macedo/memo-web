@@ -1,10 +1,10 @@
 import React from 'react';
 import { useTranslation } from 'react-multi-lang';
 
-import IconLarge from '@components/icons/IconLarge';
-import Public from '@components/decks/Public';
+import SubTitle from '@components/elements/SubTitle';
+import List from '@components/featured/List';
 
-import { Wrapper, Content, Title, Header, DecksArea, DeckItem, Container } from './styles';
+import { Wrapper, Container } from './styles';
 
 export default function FeaturedGallery({featuredDecks=[]}) {
   const t = useTranslation()
@@ -16,19 +16,8 @@ export default function FeaturedGallery({featuredDecks=[]}) {
   return (
     <Wrapper>
       <Container>
-        <Header>
-          <IconLarge name="featured" />
-          <Title>{t('blocks.featured')}</Title>
-        </Header>
-        <Content>
-          <DecksArea>
-            {featuredDecks.map(d=> (
-              <DeckItem key={d.id}>
-                <Public deck={d.deck} />
-              </DeckItem>
-            ))}
-          </DecksArea>
-        </Content>
+        <SubTitle title={t('blocks.featured')} />
+        <List sessions={featuredDecks} />
       </Container>
     </Wrapper>
   );

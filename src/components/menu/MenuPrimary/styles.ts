@@ -23,8 +23,8 @@ export const Wrapper = styled.div<WrapperProps>`
 export const Content = styled.div`
     width: 70%;
     height: 100%;
-    background: var(--secondaryDark);
-    padding: 0 5px;
+    background: var(--neutral30);
+    box-shadow: 0 0 2px 2px var(--neutral60);
     text-align: center; 
 
     @media (min-width: 768px) {

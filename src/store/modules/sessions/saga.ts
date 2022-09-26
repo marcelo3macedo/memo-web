@@ -4,8 +4,10 @@ import { API_DECKS, API_SESSIONS } from "@services/Api/routes";
 import { all, put, takeLatest } from "redux-saga/effects";
 import { indexFailedAction, indexSuccessAction, loadFailedAction, loadSuccessAction } from "./actions";
 
-function* load() {
-    const response = yield retrieve({ method: API_DECKS });
+function* load({ payload }:any) {
+    const { search } = payload || {}
+    const method = getMethod(search)
+    const response = yield retrieve({ method });
     
     if (response.status !== 200 || !response.data) {
         return yield put(loadFailedAction());
@@ -34,6 +36,10 @@ function* search({ payload }:any) {
     }
 
     yield put(loadSuccessAction({ sessions: response.data }));
+}
+
+function getMethod(search) {
+    return search ? `${API_DECKS}?name=${search}` : API_DECKS
 }
 
 export default all([

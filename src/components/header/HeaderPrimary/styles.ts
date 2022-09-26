@@ -21,11 +21,11 @@ export const Header = styled.div`
     justify-content: space-between;   
     
     svg path, svg polygon {
-        fill: var(--neutral90);
+        fill: var(--neutral100);
     }
 
     svg.list path, svg.list polygon {
-        fill: var(--neutral0);
+        fill: var(--neutral100);
     }
 
     @media (min-width: 768px) {
