@@ -77,7 +77,7 @@
         "subTitle": "Informações e detalhes sobre sua conta",
         "fields": {
             "name": "Seu nome",
-            "email": "E-mail pessoal",
+            "email": "E-mail",
             "createdAt": "Data criação da conta"
         }
     },
