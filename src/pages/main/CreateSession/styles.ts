@@ -12,10 +12,6 @@ export const Wrapper = styled.div`
 export const Content = styled.div`
 `;
 
-export const Title = styled.h1`
-    color: var(--secondaryDark);
-`;
-
 export const Paragraph = styled.h5`
     padding: 10px 0;
 `;
@@ -48,7 +44,7 @@ export const RadioIcon = styled.div`
     padding: 0 5px;
 
     svg {
-        fill: var(--neutral90);        
+        fill: var(--neutral100);        
     }
 `;
 
@@ -59,11 +55,11 @@ export const RadioInfo = styled.div`
 `;
 
 export const RadioTitle = styled.h5`
-    color: var(--neutral90);
+    color: var(--neutral100);
 `;
 
 export const RadioDescription = styled.h6`
-    color: var(--neutral90);
+    color: var(--neutral100);
 `;
 
 export const ComboArea = styled.div`
@@ -73,14 +69,14 @@ export const ComboArea = styled.div`
     select {
         margin-top: 10px;
         width: 100%;
-        color: var(--neutral90);
+        color: var(--neutral100);
         background: var(--neutral0);
         border: none;
     }
 `;
 
 export const ComboTitle = styled.h4`
-    color: var(--neutral90);
+    color: var(--neutral100);
 `;
 
 

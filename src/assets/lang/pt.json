@@ -159,6 +159,7 @@
     },
     "newDeck": {
         "title": "Nova Sessão",
+        "info": "Informe os dados de sua nova sessão",
         "name": "Escolha um nome para a sua sessão...",
         "description": "Descreva sobre o que é a sua sessão...",
         "save": "Criar",
