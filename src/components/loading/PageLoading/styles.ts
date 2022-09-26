@@ -11,7 +11,7 @@ export const Content = styled.div`
     margin: auto;
 `;
 
-export const Title = styled.h3`
-    padding: 10px 0;
-    color: var(--neutral80);
+export const Title = styled.h2`
+    padding: 15px 0;
+    color: var(--neutral100);
 `;
