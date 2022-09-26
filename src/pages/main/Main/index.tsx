@@ -7,8 +7,8 @@ import OpenSessions from '@components/blocks/OpenSessions';
 import PageLoading from '@components/loading/PageLoading';
 import { RootState } from '@store/modules/rootReducer';
 import { loadAction } from '@store/modules/user/actions';
-import Options from '@components/containers/home/Options';
 import MessageWelcome from '@modules/blocks/elements/MessageWelcome';
+import ActionsWelcome from '@modules/blocks/elements/ActionsWelcome';
 
 import { Wrapper, Content } from './styles';
 
@@ -28,7 +28,7 @@ export default function Main() {
     <Wrapper>
       <Content>
         <MessageWelcome />
-        <Options />
+        <ActionsWelcome />
         <OpenSessions sessions={sessions} />
         <AddOrSearchDecks />
         <FeaturedGallery featuredDecks={featuredDecks} />
