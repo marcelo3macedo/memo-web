@@ -11,6 +11,7 @@ import ActionsWelcome from '@modules/blocks/elements/ActionsWelcome';
 import ActiveSessionWelcome from '@modules/blocks/elements/ActiveSessionWelcome';
 
 import { Wrapper, Content } from './styles';
+import SearchWelcome from '@modules/blocks/elements/SearchWelcome';
 
 export default function Main() {
   const dispatch = useDispatch();
@@ -30,7 +31,7 @@ export default function Main() {
         <MessageWelcome />
         <ActionsWelcome />
         <ActiveSessionWelcome />
-        <AddOrSearchDecks />
+        <SearchWelcome />
         <FeaturedGallery featuredDecks={featuredDecks} />
       </Content>
     </Wrapper>
