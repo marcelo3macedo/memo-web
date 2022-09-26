@@ -1,6 +1,6 @@
 import React from 'react';
 
-import IPageHeader from '@modules/header/dtos/IPageHeader';
+import IPageHeader from '@modules/headers/dtos/IPageHeader';
 
 import { Wrapper, Content, Title, Message } from './styles';
 

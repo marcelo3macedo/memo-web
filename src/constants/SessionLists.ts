@@ -1,0 +1,1 @@
+export const SESSIONS_LIST_TIMEPASSED = 'sessions-time-passed';

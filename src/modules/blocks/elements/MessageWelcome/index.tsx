@@ -3,7 +3,7 @@ import { useTranslation } from 'react-multi-lang';
 import { useSelector } from 'react-redux';
 import { RootState } from '@store/modules/rootReducer';
 
-import PageHeader from '@modules/header/elements/PageHeader';
+import PageHeader from '@modules/headers/elements/PageHeader';
 
 import { Wrapper } from './styles';
 
