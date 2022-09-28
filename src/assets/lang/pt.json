@@ -170,7 +170,8 @@
         }
     },
     "editDeck": {
-        "title": "Editar Sessão",
+        "title": "Edição da Sessão",
+        "details": "Adicione cards e edite as informações da sessão",
         "editName": "Editar Nome",
         "namePlaceholder": "Escolha o nome da sua sessão",
         "name": "Nome:",
@@ -183,7 +184,7 @@
         "negative": "Não"
     },
     "removeCard": {
-        "title": "Deseja realmente remove esse card?",
+        "title": "Deseja remover esse card?",
         "positive": "Sim",
         "negative": "Não"
     },
@@ -196,13 +197,23 @@
         "header": "Escolha um título para seu card",
         "content": "Escolha o conteúdo de seu card...",
         "secretContent": "Escolha a resposta de seu card...",
-        "save": "Salvar"
+        "save": "Salvar",
+        "inputs": {
+            "title": "Título",
+            "content": "Conteúdo",
+            "secret": "Conteúdo Verso"
+        }
     },
     "editCard": {
         "title": "Lista de Cards",
         "notFound": "Nenhum card encontrado",
         "emptyCards": "Nenhum card encontrado",
-        "card": "Edição de Card"
+        "card": "Edição de Card",
+        "inputs": {
+            "title": "Título",
+            "content": "Conteúdo",
+            "secret": "Conteúdo Verso"
+        }
     },
     "searchDeck": {
         "title": "Pesquisar",

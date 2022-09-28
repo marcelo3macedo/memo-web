@@ -4,7 +4,7 @@ import { remove, retrieve } from "@services/Api/requester";
 import { API_DECKS } from "@services/Api/routes";
 import { editSuccessAction, loadDecksAction, loadDecksSuccess, loadDeckSuccess } from "./actions";
 import { navigatePush } from "../navigate/actions";
-import { PATH_DECK, PATH_EDITDECK } from "@services/Navigation";
+import { PATH_DECK, PATH_EDITSESSION } from "@services/Navigation";
 import * as selectors from './selectors';
 import { openModalAction } from "../card/actions";
 
@@ -55,7 +55,7 @@ function* edit({ payload }:any) {
 }
 
 function* editSuccess() {
-    yield put(navigatePush({ path: PATH_EDITDECK }));
+    yield put(navigatePush({ path: PATH_EDITSESSION }));
 }
 
 function* view({ payload }:any) {

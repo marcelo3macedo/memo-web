@@ -4,12 +4,10 @@ import { initialValues, schema } from '@services/Validation/profile.schema';
 import { Form, Formik } from 'formik';
 import { useTranslation } from 'react-multi-lang';
 import Field from '../Field';
-import { FIELD_INPUT, FIELD_INPUT_HIDDEN, FIELD_TEXTAREA } from '@constants/Field';
-import ComboBox from '../ComboBox';
+import { FIELD_INPUT, FIELD_INPUT_HIDDEN } from '@constants/Field';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@store/modules/rootReducer';
 import ButtonPrimary from '@components/button/ButtonPrimary';
-import RadioBox from '../RadioBox';
 import { updateProfile } from '@store/modules/profile/actions';
 
 import { Wrapper, Content, Action } from './styles';

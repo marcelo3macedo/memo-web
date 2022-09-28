@@ -1,7 +1,7 @@
 
 import { all, put, takeLatest } from "redux-saga/effects";
 import { navigatePush } from "@store/modules/navigate/actions";
-import { PATH_EDITDECK, PATH_DECK, PATH_ADDDECK } from '@services/Navigation';
+import { PATH_DECK, PATH_ADDDECK, PATH_EDITSESSION } from '@services/Navigation';
 import { send, retrieve, update, remove } from "@services/Api/requester";
 import { API_DECKS, API_SESSIONSFEED, API_DECKSCLONE, API_DECKSOPTIONS, API_DECKSPATH, API_CARDS } from "@services/Api/routes";
 import { openSuccessAction, saveSuccessAction, reviewAction, openPathFailure, openPathSuccess, editFailedAction, editSuccessAction, addCardFailure, addCardSuccess, updateCardFailure, updateCardSuccess, deleteCardFailure, deleteCardSuccess, openFailureAction } from "./actions";
@@ -44,7 +44,7 @@ function* edit({ payload }:any) {
 }
 
 function* saveSuccess() {
-    yield put(navigatePush({ path: PATH_EDITDECK }));
+    yield put(navigatePush({ path: PATH_EDITSESSION }));
 }
 
 function* open({ payload }:any) {

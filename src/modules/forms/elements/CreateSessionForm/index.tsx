@@ -1,19 +1,21 @@
 import React from 'react';
-
-import { initialValues, schema } from '@services/Validation/newSession.schema';
 import { Form, Formik } from 'formik';
 import { useTranslation } from 'react-multi-lang';
+import { useDispatch, useSelector } from 'react-redux';
+
+import RadioBox from '../RadioBox';
+import ComboBox from '../ComboBox';
 import Field from '../Field';
 import { FIELD_INPUT, FIELD_TEXTAREA } from '@constants/Field';
-import ComboBox from '../ComboBox';
-import { useSelector } from 'react-redux';
-import { RootState } from '@store/modules/rootReducer';
 import ButtonPrimary from '@components/button/ButtonPrimary';
-import RadioBox from '../RadioBox';
+import { RootState } from '@store/modules/rootReducer';
+import { saveAction } from '@store/modules/deck/actions';
+import { initialValues, schema } from '@services/Validation/newSession.schema';
 
 import { Wrapper, Content, Action } from './styles';
 
 export default function CreateSessionForm() {
+  const dispatch = useDispatch()
   const t = useTranslation()
   const { all:frequencies, default: defaultFrequency } = useSelector((state:RootState) => state.frequencies);
   initialValues.frequencyId = defaultFrequency ? defaultFrequency.id : null;
@@ -30,7 +32,7 @@ export default function CreateSessionForm() {
       frequencyId: data.frequencyId
     };
 
-    console.log(payload)
+    dispatch(saveAction(payload))
   }
 
   return (

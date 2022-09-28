@@ -17,8 +17,8 @@ export default function List({ sessions }:IListHistories) {
     <Wrapper>
       <Content>
         <HistoryArea>
-          {sessions.map(d => (
-            <History>
+          {sessions.map((d, i) => (
+            <History key={i}>
               <Title><Info>{t('history.dateColumn')}</Info> {Moment(d.createdAt).format('DD /MM/YYYY')}</Title>
               <Title><Info>{t('history.sessionColumn')}</Info> {d.deck.name}</Title>
               <Title><Info>{t('history.reviewCardsColumn')}</Info> {d.sessionCards}</Title>
