@@ -19,7 +19,13 @@ import deckRemove from "./deck/remove/reducer";
 import deckEdit from "./deck/edit/reducer";
 import deckOpen from "./deck/open/reducer";
 
+import modal from "../mods/modals/reducer";
+import cards from "../mods/cards/reducer";
+
 export const rootReducer = combineReducers({
+    modal,
+    cards,
+    
     auth,
     user,
     deck,

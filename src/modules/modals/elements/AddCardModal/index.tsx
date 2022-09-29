@@ -1,24 +1,39 @@
 import React from 'react';
 import { useTranslation } from 'react-multi-lang';
+import { useDispatch, useSelector } from 'react-redux';
 import { Formik, Form } from "formik";
 
+import { SESSIONMODAL_ADDCARD } from '@constants/SessionModal';
 import { FIELD_INPUT, FIELD_TEXTAREA } from '@constants/Field';
 import ButtonPrimary from '@components/button/ButtonPrimary';
 import IconSmall from '@components/icons/IconSmall';
 import Field from '@modules/forms/elements/Field';
 import { initialValues, schema } from '@services/Validation/newCard.schema';
+import { RootState } from '@store/modules/rootReducer';
+import { closeAction } from '@store/mods/modals/actions';
+import { addSubmit } from '@store/mods/cards/actions';
 
 import { Wrapper, Content, Title, Header, Action } from './styles';
 
-export default function AddCardModal({ show, closeAction, submitAction }) {
+export default function AddCardModal({ deckId }) {
   const t = useTranslation()
+  const dispatch = useDispatch()
+  const { name: modalName } = useSelector((state:RootState) => state.modal)
+  
+  function closeClick() {
+    dispatch(closeAction())
+  }
+
+  function submitAction(card) {
+    dispatch(addSubmit({ deckId, card }))
+  }
   
   return (
-    <Wrapper show={show}>
+    <Wrapper show={modalName === SESSIONMODAL_ADDCARD}>
       <Content>
         <Header>
           <Title>{t('newCard.title')}</Title>
-          <Action onClick={closeAction}>
+          <Action onClick={closeClick}>
             <IconSmall name="delete"/>
           </Action>          
         </Header>    

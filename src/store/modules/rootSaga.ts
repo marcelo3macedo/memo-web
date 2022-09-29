@@ -19,6 +19,11 @@ import deckEdit from "./deck/edit/saga";
 import deckOpen from "./deck/open/saga";
 import review from "./review/saga";
 
+import cards from "../mods/cards/saga";
+
 export default function* rootSaga() {
-    return yield all([auth, user, sessions, deckRemove, deckEdit, deckOpen, personal, deck, menu, navigate, validation, gallery, session, search, profile, history, frequencies, review, themes]);
+    return yield all([
+        cards,
+        auth, user, sessions, deckRemove, deckEdit, deckOpen, personal, deck, menu, navigate, validation, gallery, session, search, profile, history, frequencies, review, themes
+    ])
 }
