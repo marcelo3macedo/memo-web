@@ -279,7 +279,8 @@
         "public": "Público",
         "private": "Privado",
         "createdAt": "Criado em:",
-        "removeConfirm": "Tem certeza que deseja remover essa sessão?"
+        "removeConfirm": "Tem certeza que deseja remover essa sessão?",
+        "noCards": "Nenhum card encontrado. Adicione um Card."
     },
     "home": {
         "access": "Acesse Agora",

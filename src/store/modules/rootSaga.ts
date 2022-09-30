@@ -20,10 +20,11 @@ import deckOpen from "./deck/open/saga";
 import review from "./review/saga";
 
 import cards from "../mods/cards/saga";
+import decks from "../mods/decks/saga";
 
 export default function* rootSaga() {
     return yield all([
-        cards,
+        cards, decks,
         auth, user, sessions, deckRemove, deckEdit, deckOpen, personal, deck, menu, navigate, validation, gallery, session, search, profile, history, frequencies, review, themes
     ])
 }

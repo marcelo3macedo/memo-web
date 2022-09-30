@@ -21,10 +21,12 @@ import deckOpen from "./deck/open/reducer";
 
 import modal from "../mods/modals/reducer";
 import cards from "../mods/cards/reducer";
+import decks from "../mods/decks/reducer";
 
 export const rootReducer = combineReducers({
     modal,
     cards,
+    decks,
     
     auth,
     user,

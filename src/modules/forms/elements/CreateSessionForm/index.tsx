@@ -6,14 +6,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import RadioBox from '../RadioBox';
 import ComboBox from '../ComboBox';
 import Field from '../Field';
+import { SESSIONS_PUBLIC } from '@constants/Sessions';
 import { FIELD_INPUT, FIELD_TEXTAREA } from '@constants/Field';
 import ButtonPrimary from '@components/button/ButtonPrimary';
-import { RootState } from '@store/modules/rootReducer';
-import { saveAction } from '@store/modules/deck/actions';
 import { initialValues, schema } from '@services/Validation/newSession.schema';
+import { RootState } from '@store/modules/rootReducer';
+import { addSubmit } from '@store/mods/decks/actions';
 
 import { Wrapper, Content, Action } from './styles';
-
 export default function CreateSessionForm() {
   const dispatch = useDispatch()
   const t = useTranslation()
@@ -25,14 +25,14 @@ export default function CreateSessionForm() {
   ]
 
   function handleSubmit(data) {
-    const payload = {
+    const deck = {
       name: data.name,
       description: data.description,
-      isPublic: data.isPublic === "public",
+      isPublic: data.isPublic === SESSIONS_PUBLIC,
       frequencyId: data.frequencyId
-    };
+    }
 
-    dispatch(saveAction(payload))
+    dispatch(addSubmit({ deck }))
   }
 
   return (

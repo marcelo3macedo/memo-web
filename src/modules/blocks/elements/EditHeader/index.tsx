@@ -14,7 +14,7 @@ export default function EditHeader({ name, description, action }:IEditHeader) {
         <Title>{name}</Title>
         <Description>{description}</Description>
       </Content>
-      <Action onClick={action}>
+      <Action onClick={action} className="no-select">
         <IconSmall name="edit"/>
         <ActionDescription>{t('decks.actions.edit')}</ActionDescription>
       </Action>

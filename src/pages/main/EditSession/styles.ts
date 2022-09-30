@@ -40,3 +40,6 @@ export const FrequencyOptions = styled.select`
     background: var(--neutral0);
     border: none;
 `;
+
+export const Modals = styled.div`
+`;

@@ -19,9 +19,10 @@ export function addSubmit({ deckId, card }) {
     }
 }
 
-export function addSubmitSuccess() {
+export function addSubmitSuccess({ card }) {
     return {
-        type: '@cards/ADD_SUBMIT_SUCCESS'
+        type: '@cards/ADD_SUBMIT_SUCCESS',
+        payload: { card }
     }
 }
 
@@ -32,9 +33,10 @@ export function editSubmit({ card }) {
     }
 }
 
-export function editSubmitSuccess() {
+export function editSubmitSuccess({ card }) {
     return {
-        type: '@cards/EDIT_SUBMIT_SUCCESS'
+        type: '@cards/EDIT_SUBMIT_SUCCESS',
+        payload: { card }
     }
 }
 
@@ -44,8 +46,16 @@ export function editConfirmRemove() {
     }
 }
 
-export function editRemoveSuccess() {
+export function removeSubmitSuccess({ card }) {
     return {
-        type: '@cards/CONFIRM_REMOVE_SUCCESS'
+        type: '@cards/CONFIRM_REMOVE_SUCCESS',
+        payload: { card }
+    }
+}
+
+export function updateListAction({ list }) {
+    return {
+        type: '@cards/UPDATE_LIST',
+        payload: { list }
     }
 }

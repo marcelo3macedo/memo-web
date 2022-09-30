@@ -15,17 +15,19 @@ import { addSubmit } from '@store/mods/cards/actions';
 
 import { Wrapper, Content, Title, Header, Action } from './styles';
 
-export default function AddCardModal({ deckId }) {
+export default function AddCardModal() {
   const t = useTranslation()
   const dispatch = useDispatch()
   const { name: modalName } = useSelector((state:RootState) => state.modal)
+  const { selected } = useSelector((state:RootState) => state.decks)
   
   function closeClick() {
     dispatch(closeAction())
   }
 
   function submitAction(card) {
-    dispatch(addSubmit({ deckId, card }))
+    dispatch(addSubmit({ deckId: selected.id, card }))
+    dispatch(closeAction())
   }
   
   return (
