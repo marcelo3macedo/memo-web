@@ -5,6 +5,7 @@ import { API_DECKS } from "@services/Api/routes";
 import { addSubmitSuccess, editSubmitActionSuccess } from "./actions";
 import { navigatePush } from "@store/modules/navigate/actions";
 import { PATH_EDITSESSION } from "@services/Navigation";
+import { updateListAction } from "../cards/actions";
 
 function* addSubmitAction({ payload }:any) {
     const { deck } = payload || {}
@@ -21,6 +22,7 @@ function* addSubmitAction({ payload }:any) {
 }
 
 function* addSubmitSuccessAction() {
+    yield put(updateListAction({ list: [] }))
     yield put(navigatePush({ path: `${PATH_EDITSESSION}` }))
 }
 
