@@ -9,8 +9,7 @@ import { Wrapper, Content, Title, Options } from './styles';
 export default function EditComboBox({ deck }) {
   const t = useTranslation()
   const dispatch = useDispatch()
-  const { all:frequencies, default: defaultFrequency } = useSelector((state:RootState) => state.frequencies)
-  const selectedFrequency = deck && deck.frequencyId ? deck.frequencyId : defaultFrequency
+  const { frequencies } = useSelector((state:RootState) => state.options)
 
   function frequencyChanged(event) {
     const payload = {
@@ -25,7 +24,7 @@ export default function EditComboBox({ deck }) {
     <Wrapper className='no-select'>
       <Content>
         <Title>{t('decks.frequency')}</Title>
-        <Options name={"frequencyId"} defaultValue={selectedFrequency} onChange={frequencyChanged}>
+        <Options name={"frequencyId"} defaultValue={deck.frequencyId} onChange={frequencyChanged}>
           {frequencies ? frequencies.map(f => (
             <option key={f.id} value={f.id}>{f.name}</option>  
           )) : <></>}

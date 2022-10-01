@@ -17,8 +17,7 @@ import { Wrapper, Content, Action } from './styles';
 export default function CreateSessionForm() {
   const dispatch = useDispatch()
   const t = useTranslation()
-  const { all:frequencies, default: defaultFrequency } = useSelector((state:RootState) => state.frequencies);
-  initialValues.frequencyId = defaultFrequency ? defaultFrequency.id : null;
+  const { frequencies } = useSelector((state:RootState) => state.options)
   const visibilities = [ 
     { value: 'public', icon: 'unlock', title: t('privacy.public'), description: t('privacy.publicDescription') },
     { value: 'private', icon: 'lock', title: t('privacy.private'), description: t('privacy.privateDescription') }
