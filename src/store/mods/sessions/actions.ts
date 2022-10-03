@@ -22,3 +22,21 @@ export function loadIndexSuccess({ session }) {
         }
     }
 }
+
+export function loadListAction(search=null) {
+    return {
+        type: '@sessions/LOAD_LIST',
+        payload: {
+            search
+        }
+    }
+}
+
+export function loadListSuccessAction({ sessions }) {
+    return {
+        type: '@sessions/LOAD_LIST_SUCCESS',
+        payload: {
+            sessions
+        }
+    }
+}

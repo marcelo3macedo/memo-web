@@ -18,7 +18,16 @@ export default function auth(state = INITIAL_STATE, action) {
                 draft.index = action.payload.session;
                 draft.isLoading = false;
                 break;
-            }            
+            }   
+            case "@sessions/LOAD_LIST": {
+                draft.isLoading = true;
+                break;
+            }        
+            case "@sessions/LOAD_LIST_SUCCESS": {
+                draft.sessions = action.payload.sessions;
+                draft.isLoading = false;
+                break;
+            }     
             default:
                 return state;
         }
