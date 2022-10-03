@@ -6,9 +6,9 @@ import SeeMore from '@modules/components/elements/SeeMore';
 import IListSessions from '@modules/sessions/dtos/IListSessions';
 import IndexActive from '../IndexActive';
 import IndexFeatured from '../IndexFeatured';
+import IndexGallery from '../IndexGallery';
 
 import { Wrapper, Content } from './styles';
-import IndexGallery from '../IndexGallery';
 
 export default function List({ sessions, type }:IListSessions) {
   function getSessionByType(session, type) {

@@ -7,7 +7,7 @@ import InfoWithIcon from "@components/info/InfoWithIcon";
 import ButtonSecondary from '@components/button/ButtonSecondary';
 import { PATH_MAIN } from '@services/Navigation';
 import { RootState } from '@store/modules/rootReducer';
-import { navigatePush } from '@store/modules/navigate/actions';
+import { navigatePush } from '@store/mods/navigate/actions';
 
 import { Wrapper, Content, Actions, Resume, ResumeTitle, ResumeItem } from './styles';
 

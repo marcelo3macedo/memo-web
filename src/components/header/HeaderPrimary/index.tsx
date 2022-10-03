@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch } from "react-redux";
 import { useLocation } from 'react-router-dom';
 
-import { backAction } from '@store/modules/navigate/actions';
+import { backAction } from '@store/mods/navigate/actions';
 
 import { Wrapper, Content, Header } from './styles';
 import IconLarge from '@components/icons/IconLarge';

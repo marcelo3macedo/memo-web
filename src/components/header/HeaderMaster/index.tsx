@@ -4,7 +4,7 @@ import { useTranslation } from 'react-multi-lang';
 
 import IconMedium from '@components/icons/IconMedium';
 import logo from '@assets/logo.png';
-import { navigatePush } from '@store/modules/navigate/actions';
+import { navigatePush } from '@store/mods/navigate/actions';
 import { PATH_ACCOUNT, PATH_GALLERY, PATH_MAIN, PATH_SESSIONS } from '@services/Navigation';
 
 import { Wrapper, Content, Header, Logo, Options, Option, Menu, MenuItem, MenuContent } from './styles';

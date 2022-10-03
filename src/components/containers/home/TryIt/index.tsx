@@ -4,7 +4,7 @@ import { useTranslation } from 'react-multi-lang';
 
 import ButtonPrimary from '@components/button/ButtonPrimary';
 import { PATH_SIGN_IN } from '@services/Navigation';
-import { navigatePush } from '@store/modules/navigate/actions';
+import { navigatePush } from '@store/mods/navigate/actions';
 
 import { Wrapper, Content, Group, Title, Actions } from './styles';
 

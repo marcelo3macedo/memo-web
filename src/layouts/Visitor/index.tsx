@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import logo from "@assets/logoHorizontal.png";
 import ButtonSecondary from '@components/button/ButtonSecondary';
 import { useDispatch } from 'react-redux';
-import { navigatePush } from '@store/modules/navigate/actions';
+import { navigatePush } from '@store/mods/navigate/actions';
 import { PATH_SIGN_IN } from '@services/Navigation';
 
 import { Wrapper, Content, Header, LogoArea, Action, Image, Body } from './styles';

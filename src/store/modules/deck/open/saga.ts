@@ -3,7 +3,7 @@ import { retrieve } from "@services/Api/requester";
 import { API_DECKS } from "@services/Api/routes";
 import { loadFailureAction, loadSuccessAction } from "./actions";
 import { PATH_DECK } from "@services/Navigation";
-import { navigatePush } from "@store/modules/navigate/actions";
+import { navigatePush } from "@store/mods/navigate/actions";
 
 function* open({ payload }:any) {
     const { deck } = payload

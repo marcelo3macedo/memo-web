@@ -1,6 +1,6 @@
 
 import { all, put, takeLatest } from "redux-saga/effects";
-import { navigatePush } from "@store/modules/navigate/actions";
+import { navigatePush } from "@store/mods/navigate/actions";
 import { PATH_DECK, PATH_ADDDECK, PATH_EDITSESSION } from '@services/Navigation';
 import { send, retrieve, update, remove } from "@services/Api/requester";
 import { API_DECKS, API_SESSIONSFEED, API_DECKSCLONE, API_DECKSOPTIONS, API_DECKSPATH, API_CARDS } from "@services/Api/routes";

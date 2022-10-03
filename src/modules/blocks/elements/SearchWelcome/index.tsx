@@ -4,7 +4,7 @@ import { useTranslation } from 'react-multi-lang';
 
 import SearchBox from '@modules/components/elements/SearchBox';
 import { PATH_GALLERY } from '@services/Navigation';
-import { navigatePush } from '@store/modules/navigate/actions';
+import { navigatePush } from '@store/mods/navigate/actions';
 
 import { Wrapper, Content, Title } from './styles';
 

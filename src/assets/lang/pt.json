@@ -69,7 +69,8 @@
             "help": "Ajuda",
             "logout": "Sair",
             "version": "Versão",
-            "about": "Sobre"
+            "about": "Sobre",
+            "integrations": "Integrações"
         }
     },
     "profile": {

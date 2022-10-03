@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import PageLoading from '@components/loading/PageLoading';
 import IconMedium from '@components/icons/IconMedium';
 import { RootState } from '@store/modules/rootReducer';
-import { backAction } from '@store/modules/navigate/actions';
+import { backAction } from '@store/mods/navigate/actions';
 import { loadOptionsAction, setOptionAction } from '@store/modules/review/actions';
 
 import { Wrapper, Body, Content, Position, Header, Info, Card, CardArea, Flip, Message, Actions, Action, ActionValue } from './styles';

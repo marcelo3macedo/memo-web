@@ -9,7 +9,7 @@ import TextLinked from '@components/link/TextLinked';
 import ValidationMessage from '@components/validation/ValidationMessage';
 import { initialValues, schema } from '@services/Validation/signUp.schema';
 import { PATH_SIGN_IN } from '@services/Navigation';
-import { navigatePush } from '@store/modules/navigate/actions';
+import { navigatePush } from '@store/mods/navigate/actions';
 import { signUpAction } from '@store/modules/auth/actions';
 import { RootState } from '@store/modules/rootReducer';
 import InputArea from '@components/input/InputArea';

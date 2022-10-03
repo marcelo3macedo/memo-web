@@ -6,7 +6,7 @@ import queryString from 'query-string';
 import SearchDeck from '@components/decks/Search';
 
 import { Content, SearchTitle, Wrapper } from './styles';
-import { navigatePush } from '@store/modules/navigate/actions';
+import { navigatePush } from '@store/mods/navigate/actions';
 import { PATH_SESSIONS } from '@services/Navigation';
 import { useTranslation } from 'react-multi-lang';
 

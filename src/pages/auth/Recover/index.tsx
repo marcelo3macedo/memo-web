@@ -7,7 +7,7 @@ import { Wrapper, Content, ActionArea, Fields, FormArea, InputText } from './sty
 import ButtonPrimary from '@components/button/ButtonPrimary';
 import TextLinked from '@components/link/TextLinked';
 import ValidationMessage from '@components/validation/ValidationMessage';
-import { navigatePush } from '@store/modules/navigate/actions';
+import { navigatePush } from '@store/mods/navigate/actions';
 import { PATH_SIGN_IN } from '@services/Navigation';
 import { schema, initialValues } from '@services/Validation/recover.schema';
 import { forgotPasswordAction } from '@store/modules/auth/actions';

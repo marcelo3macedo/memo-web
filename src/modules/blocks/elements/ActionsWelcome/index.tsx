@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 
 import SquareAction from '@modules/actions/elements/SquareAction';
 import { PATH_CREATESESSION, PATH_GALLERY } from '@services/Navigation';
-import { navigatePush } from '@store/modules/navigate/actions';
+import { navigatePush } from '@store/mods/navigate/actions';
 
 import { Wrapper, Content } from './styles';
 

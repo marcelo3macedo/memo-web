@@ -3,7 +3,7 @@ import { all, put, takeLatest } from "redux-saga/effects";
 import { send, update } from "@services/Api/requester";
 import { API_DECKS } from "@services/Api/routes";
 import { addSubmitSuccess, editSubmitActionSuccess } from "./actions";
-import { navigatePush } from "@store/modules/navigate/actions";
+import { navigatePush } from "@store/mods/navigate/actions";
 import { PATH_EDITSESSION } from "@services/Navigation";
 import { updateListAction } from "../cards/actions";
 

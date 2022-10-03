@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 
 import ButtonSecondary from '@components/button/ButtonSecondary';
 import { PATH_HOME } from '@services/Navigation';
-import { navigatePush } from '@store/modules/navigate/actions';
+import { navigatePush } from '@store/mods/navigate/actions';
 
 import { Wrapper, Content, Title, SubTitle, HomeLink } from './styles';
 

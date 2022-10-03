@@ -2,7 +2,7 @@
 import { all, takeLatest, put, select } from "redux-saga/effects";
 import { authenticate, send } from "@services/Api/requester";
 import { API_ACTIVATE, API_REFRESHTOKEN, API_SESSION, API_USERS } from "@services/Api/routes";
-import { navigatePush } from "@store/modules/navigate/actions";
+import { navigatePush } from "@store/mods/navigate/actions";
 import { PATH_EMAIL_VALIDATION, PATH_HOME, PATH_MAIN, PATH_SIGN_IN } from "@services/Navigation";
 import { loadActivateFailed, refreshTokenAction, serverFailureAction, signInFailureAction, signInSuccessAction } from "./actions";
 import { LS_REFRESHTOKEN } from "@services/LocalStorage";

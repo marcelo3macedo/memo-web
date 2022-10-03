@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 
 import Empty from '@components/decks/Empty';
-import { navigatePush } from '@store/modules/navigate/actions';
+import { navigatePush } from '@store/mods/navigate/actions';
 import { PATH_ADDDECK } from '@services/Navigation';
 import { SESSIONS_PRIVATE } from '@constants/Sessions';
 
