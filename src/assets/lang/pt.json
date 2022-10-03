@@ -85,6 +85,10 @@
     "alert": {
         "title": "Alerta"
     },
+    "integrations": {
+        "title": "Integrações",
+        "subTitle": "Essa área mostra as integrações com outros sistemas"
+    },
     "auth": {
         "loginTitle": "Login",
         "registerTitle": "Registrar",

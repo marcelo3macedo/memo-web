@@ -27,6 +27,7 @@ import { ReactComponent as UserRoundedIcon } from "@assets/icons/user-rounded.sv
 import { ReactComponent as NextIcon } from "@assets/icons/next.svg";
 import { ReactComponent as PlusIcon } from "@assets/icons/plus.svg";
 import { ReactComponent as NewIcon } from "@assets/icons/new.svg";
+import { ReactComponent as TelegramIcon } from "@assets/icons/telegram.svg";
 
 export const Icons = {
     user: UserIcon,
@@ -57,5 +58,6 @@ export const Icons = {
     userRounded: UserRoundedIcon,
     next: NextIcon,
     plus: PlusIcon,
-    new: NewIcon
+    new: NewIcon,
+    telegram: TelegramIcon
 }

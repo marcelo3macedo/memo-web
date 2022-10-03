@@ -31,7 +31,9 @@ import Sessions from "@pages/main/Sessions";
 import EditSession from "@pages/main/EditSession";
 import Featured from "@pages/main/Featured";
 
-import { PATH_FORGOT_PASSWORD, PATH_SESSION, PATH_SIGN_IN, PATH_SIGN_UP, PATH_RECOVERED, PATH_SESSION_COMPLETED, PATH_PRIVACY_POLICY, PATH_ABOUT, PATH_HELP, PATH_MYACCOUNT, PATH_DECK, PATH_REVIEW, PATH_MAIN, PATH_HOME, PATH_ACCOUNT, PATH_PROFILE, PATH_HISTORY, PATH_GALLERY, PATH_ACTIVE, PATH_EMAIL_VALIDATION, PATH_GALLERYDECK, PATH_SESSIONS, PATH_CREATESESSION, PATH_EDITSESSION, PATH_FEATURED } from "@services/Navigation";
+import { PATH_FORGOT_PASSWORD, PATH_SESSION, PATH_SIGN_IN, PATH_SIGN_UP, PATH_RECOVERED, PATH_SESSION_COMPLETED, PATH_PRIVACY_POLICY, PATH_ABOUT, PATH_HELP, PATH_MYACCOUNT, PATH_DECK, PATH_REVIEW, PATH_MAIN, PATH_HOME, PATH_ACCOUNT, PATH_PROFILE, PATH_HISTORY, PATH_GALLERY, PATH_ACTIVE, PATH_EMAIL_VALIDATION, PATH_GALLERYDECK, PATH_SESSIONS, PATH_CREATESESSION, PATH_EDITSESSION, PATH_FEATURED, PATH_INTEGRATION, PATH_INTEGRATION_TELEGRAM } from "@services/Navigation";
+import Integration from "@pages/main/Integration";
+import IntegrationTelegram from "@pages/main/IntegrationTelegram";
 
 export default function Routes() {
     const location = useLocation();
@@ -57,6 +59,8 @@ export default function Routes() {
             <Router path={PATH_PROFILE} component={Profile} layout={Layouts.Main}/>
             <Router path={PATH_HISTORY} component={History} layout={Layouts.Main}/>
             <Router path={PATH_CREATESESSION} component={CreateSession} layout={Layouts.Main}/>  
+            <Router path={PATH_INTEGRATION_TELEGRAM} component={IntegrationTelegram} layout={Layouts.Main}/>  
+            <Router path={PATH_INTEGRATION} component={Integration} layout={Layouts.Main}/>  
                         
             <Router path={PATH_REVIEW} component={Review} layout={Layouts.Full}/>              
             <Router path={PATH_SESSION_COMPLETED} component={SessionCompleted} layout={Layouts.Full}/>                          

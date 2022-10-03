@@ -30,3 +30,5 @@ export const PATH_GALLERY = "/gallery";
 export const PATH_GALLERYDECK = "/gallery/deck";
 export const PATH_CREATESESSION = "/create-session";
 export const PATH_FEATURED = "/featured";
+export const PATH_INTEGRATION = "/integration";
+export const PATH_INTEGRATION_TELEGRAM = "/integration/telegram";
