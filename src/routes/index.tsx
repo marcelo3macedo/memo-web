@@ -28,9 +28,10 @@ import Validation from "@pages/auth/Validation";
 import { RootState } from "@store/modules/rootReducer";
 import GalleryDeck from "@pages/public/GalleryDeck";
 import Sessions from "@pages/main/Sessions";
-
-import { PATH_FORGOT_PASSWORD, PATH_SESSION, PATH_SIGN_IN, PATH_SIGN_UP, PATH_RECOVERED, PATH_SESSION_COMPLETED, PATH_PRIVACY_POLICY, PATH_ABOUT, PATH_HELP, PATH_MYACCOUNT, PATH_DECK, PATH_REVIEW, PATH_MAIN, PATH_HOME, PATH_ACCOUNT, PATH_PROFILE, PATH_HISTORY, PATH_GALLERY, PATH_ACTIVE, PATH_EMAIL_VALIDATION, PATH_GALLERYDECK, PATH_SESSIONS, PATH_CREATESESSION, PATH_EDITSESSION } from "@services/Navigation";
 import EditSession from "@pages/main/EditSession";
+import Featured from "@pages/main/Featured";
+
+import { PATH_FORGOT_PASSWORD, PATH_SESSION, PATH_SIGN_IN, PATH_SIGN_UP, PATH_RECOVERED, PATH_SESSION_COMPLETED, PATH_PRIVACY_POLICY, PATH_ABOUT, PATH_HELP, PATH_MYACCOUNT, PATH_DECK, PATH_REVIEW, PATH_MAIN, PATH_HOME, PATH_ACCOUNT, PATH_PROFILE, PATH_HISTORY, PATH_GALLERY, PATH_ACTIVE, PATH_EMAIL_VALIDATION, PATH_GALLERYDECK, PATH_SESSIONS, PATH_CREATESESSION, PATH_EDITSESSION, PATH_FEATURED } from "@services/Navigation";
 
 export default function Routes() {
     const location = useLocation();
@@ -51,6 +52,7 @@ export default function Routes() {
             <Router path={PATH_EDITSESSION} component={EditSession} layout={Layouts.Main}/>
             <Router path={PATH_PRIVACY_POLICY} component={PrivacyPolicy} layout={Layouts.Main}/>  
             <Router path={PATH_SESSION + "/:id"} component={Session} layout={Layouts.Main}/>
+            <Router path={PATH_FEATURED + "/:id"} component={Featured} layout={Layouts.Main}/>
             <Router path={PATH_ACCOUNT} component={Account} layout={Layouts.Main}/>
             <Router path={PATH_PROFILE} component={Profile} layout={Layouts.Main}/>
             <Router path={PATH_HISTORY} component={History} layout={Layouts.Main}/>

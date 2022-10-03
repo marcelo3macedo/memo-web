@@ -22,10 +22,11 @@ import options from "../mods/options/saga";
 import sessions from "../mods/sessions/saga";
 import review from "../mods/review/saga";
 import navigate from "../mods/navigate/saga";
+import featured from "../mods/featured/saga";
 
 export default function* rootSaga() {
     return yield all([
-        cards, decks, options, sessions,
+        cards, decks, options, sessions, featured,
         auth, user, deckRemove, deckEdit, deckOpen, personal, deck, menu, navigate, validation, gallery, session, search, profile, history, frequencies, review, themes
     ])
 }

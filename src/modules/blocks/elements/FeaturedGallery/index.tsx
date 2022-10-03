@@ -4,8 +4,8 @@ import { useSelector } from 'react-redux';
 
 import { SESSIONS_LIST_FEATURED } from '@constants/SessionLists';
 import SubTitle from '@components/elements/SubTitle';
-import { RootState } from '@store/modules/rootReducer';
 import List from '@modules/sessions/elements/List';
+import { RootState } from '@store/modules/rootReducer';
 
 import { Wrapper, Container } from './styles';
 

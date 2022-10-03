@@ -23,6 +23,7 @@ import options from "../mods/options/reducer";
 import sessions from "../mods/sessions/reducer";
 import review from "../mods/review/reducer";
 import navigate from "../mods/navigate/reducer";
+import featured from "../mods/featured/reducer";
 
 export const rootReducer = combineReducers({
     modal,
@@ -31,6 +32,7 @@ export const rootReducer = combineReducers({
     options,
     sessions,
     review,
+    featured,
     
     auth,
     user,

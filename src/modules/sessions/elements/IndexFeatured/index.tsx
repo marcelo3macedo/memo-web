@@ -1,19 +1,23 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 
 import IconMedium from '@components/icons/IconMedium';
 import IconNamed from '@modules/components/elements/IconNamed';
 import IIndexActiveSessions from '@modules/sessions/dtos/IIndexActiveSessions';
 
 import { Wrapper, Content, Header, Title, Footer, Card, Action } from './styles';
+import { navigateTo } from '@store/mods/featured/actions';
 
 export default function IndexFeatured({ session }:IIndexActiveSessions) {
+  const dispatch = useDispatch()
   const { deck } = session || {}
 
-  function sessionClick() {    
+  function featuredClick() {
+    dispatch(navigateTo({ deckId: deck.id }))
   }
 
   return (
-    <Wrapper onClick={sessionClick}>
+    <Wrapper onClick={featuredClick}>
       <Content>
         <Card>
           <Header>
