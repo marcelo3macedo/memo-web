@@ -15,6 +15,18 @@ export default function decks(state = INITIAL_STATE, action) {
                 draft.selected = action.payload.deck;
                 break;
             }
+            case "@decks/OPEN_SUCCESS": {
+                draft.selected = action.payload.deck;
+                break;
+            }
+            case "@decks/SET": {
+                draft.selected = action.payload.deck;
+                break;
+            }
+            case "@decks/REMOVE_SUBMIT_SUCCESS": {
+                draft.selected = null;
+                break;
+            }
             default:
                 return state;
         }

@@ -40,3 +40,12 @@ export function loadListSuccessAction({ sessions }) {
         }
     }
 }
+
+export function removeFromListAction({ id }) {
+    return {
+        type: '@sessions/REMOVE_FROM_LIST',
+        payload: {
+            id
+        }
+    }
+}
