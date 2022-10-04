@@ -36,7 +36,7 @@ export default function List({ sessions, type }:IListSessions) {
     <Wrapper>
       <Content>
         { sessions.map(s => getSessionByType(s, type))}
-        <MorePages pages={pages} actualPage={actualPage} action={loadMoreClick} />
+        { type === SESSIONS_LIST_GALLERY ? (<MorePages pages={pages} actualPage={actualPage} action={loadMoreClick} />) : <></> }
       </Content>
     </Wrapper>
   );
