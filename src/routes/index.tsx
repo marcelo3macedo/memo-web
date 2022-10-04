@@ -59,7 +59,8 @@ export default function Routes() {
             <Router path={PATH_PROFILE} component={Profile} layout={Layouts.Main}/>
             <Router path={PATH_HISTORY} component={History} layout={Layouts.Main}/>
             <Router path={PATH_CREATESESSION} component={CreateSession} layout={Layouts.Main}/>  
-            <Router path={PATH_INTEGRATION_TELEGRAM} component={IntegrationTelegram} layout={Layouts.Main}/>  
+            <Router path={PATH_INTEGRATION_TELEGRAM + "/:id"} component={IntegrationTelegram} layout={Layouts.Main}/>  
+            <Router path={PATH_INTEGRATION_TELEGRAM} component={IntegrationTelegram} layout={Layouts.Main}/>
             <Router path={PATH_INTEGRATION} component={Integration} layout={Layouts.Main}/>  
                         
             <Router path={PATH_REVIEW} component={Review} layout={Layouts.Full}/>              

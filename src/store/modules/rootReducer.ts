@@ -24,6 +24,7 @@ import review from "../mods/review/reducer";
 import navigate from "../mods/navigate/reducer";
 import featured from "../mods/featured/reducer";
 import histories from "../mods/histories/reducer";
+import integrations from "../mods/integrations/reducer";
 
 export const rootReducer = combineReducers({
     modal,
@@ -34,6 +35,7 @@ export const rootReducer = combineReducers({
     review,
     featured,
     histories,
+    integrations,
     
     auth,
     user,

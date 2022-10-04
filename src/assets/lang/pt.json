@@ -87,7 +87,14 @@
     },
     "integrations": {
         "title": "Integrações",
-        "subTitle": "Essa área mostra as integrações com outros sistemas"
+        "subTitle": "Essa área mostra as integrações com outros sistemas",
+        "telegram": {
+            "title": "Telegram",
+            "subTitle": "Para realizar a integração envie uma mensagem para nosso bot",
+            "myUsers": "Meus Usuários",
+            "addMessage": "Um novo usuário solicitou para ser incluído",
+            "add": "Adicionar"
+        }
     },
     "auth": {
         "loginTitle": "Login",
