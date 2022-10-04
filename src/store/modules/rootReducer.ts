@@ -6,7 +6,6 @@ import personal from "./personal/reducer";
 import profile from "./profile/reducer";
 import session from "./session/reducer";
 import search from "./search/reducer";
-import history from "./history/reducer";
 import gallery from "./gallery/reducer";
 import validation from "./validation/reducer";
 import frequencies from "./frequencies/reducer";
@@ -24,6 +23,7 @@ import sessions from "../mods/sessions/reducer";
 import review from "../mods/review/reducer";
 import navigate from "../mods/navigate/reducer";
 import featured from "../mods/featured/reducer";
+import histories from "../mods/histories/reducer";
 
 export const rootReducer = combineReducers({
     modal,
@@ -33,6 +33,7 @@ export const rootReducer = combineReducers({
     sessions,
     review,
     featured,
+    histories,
     
     auth,
     user,
@@ -43,7 +44,6 @@ export const rootReducer = combineReducers({
     profile,
     session,
     search,
-    history,
     gallery,
     validation,
     frequencies,

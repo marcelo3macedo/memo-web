@@ -6,7 +6,6 @@ import personal from "./personal/saga";
 import session from "./session/saga";
 import search from "./search/saga";
 import profile from "./profile/saga";
-import history from "./history/saga";
 import gallery from "./gallery/saga";
 import validation from "./validation/saga";
 import frequencies from "./frequencies/saga";
@@ -23,10 +22,11 @@ import sessions from "../mods/sessions/saga";
 import review from "../mods/review/saga";
 import navigate from "../mods/navigate/saga";
 import featured from "../mods/featured/saga";
+import histories from "../mods/histories/saga";
 
 export default function* rootSaga() {
     return yield all([
-        cards, decks, options, sessions, featured,
-        auth, user, deckRemove, deckEdit, deckOpen, personal, deck, menu, navigate, validation, gallery, session, search, profile, history, frequencies, review, themes
+        cards, decks, options, sessions, featured, histories,
+        auth, user, deckRemove, deckEdit, deckOpen, personal, deck, menu, navigate, validation, gallery, session, search, profile, frequencies, review, themes
     ])
 }

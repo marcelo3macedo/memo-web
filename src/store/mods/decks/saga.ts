@@ -1,4 +1,4 @@
-import { all, put, take, takeLatest } from "redux-saga/effects";
+import { all, put, takeLatest } from "redux-saga/effects";
 
 import { remove, retrieve, send, update } from "@services/Api/requester";
 import { API_DECKS } from "@services/Api/routes";
