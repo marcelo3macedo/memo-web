@@ -32,11 +32,11 @@ export function loadListAction(search=null) {
     }
 }
 
-export function loadListSuccessAction({ sessions }) {
+export function loadListSuccessAction({ data }) {
     return {
         type: '@sessions/LOAD_LIST_SUCCESS',
         payload: {
-            sessions
+            data
         }
     }
 }
@@ -46,6 +46,25 @@ export function removeFromListAction({ id }) {
         type: '@sessions/REMOVE_FROM_LIST',
         payload: {
             id
+        }
+    }
+}
+
+export function loadMoreListAction(search=null) {
+    return {
+        type: '@sessions/LOAD_MORE_LIST',
+        payload: {
+            search
+        }
+    }
+}
+
+export function loadMoreListSuccessAction({ data, actualPage }) {
+    return {
+        type: '@sessions/LOAD_MORE_LIST_SUCCESS',
+        payload: {
+            data, 
+            actualPage
         }
     }
 }

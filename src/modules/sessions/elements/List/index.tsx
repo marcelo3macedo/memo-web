@@ -11,6 +11,11 @@ import IndexGallery from '../IndexGallery';
 import { Wrapper, Content } from './styles';
 
 export default function List({ sessions, type }:IListSessions) {
+  if (!sessions || sessions.length === 0) {
+    return <></>;
+  }
+
+  
   function getSessionByType(session, type) {
     switch (type) {
       case SESSIONS_LIST_TIMEPASSED: return (<IndexActive key={session.id} session={session} />);

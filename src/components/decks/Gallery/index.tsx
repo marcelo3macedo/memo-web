@@ -7,6 +7,11 @@ import { SESSIONS_PRIVATE } from '@constants/Sessions';
 import { Wrapper, Content, DeckWrapper, DeckComponent } from './styles';
 
 export default function Gallery({sessions=[], type}) {
+  if (!sessions || sessions.length === 0) {
+    return <></>;
+  }
+
+  
   return (
     <Wrapper>
       <Content>

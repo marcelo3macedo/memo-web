@@ -1,7 +1,7 @@
 import { all, put, select, takeLatest } from "redux-saga/effects";
 
 import * as selectors from './selectors';
-import { loadIndexSuccess, loadListSuccessAction } from "./actions";
+import { loadIndexSuccess, loadListSuccessAction, loadMoreListSuccessAction } from "./actions";
 import { retrieve } from "@services/Api/requester";
 import { API_DECKS, API_SESSION, API_SESSIONS } from "@services/Api/routes";
 import { navigatePush } from "@store/mods/navigate/actions";
@@ -26,14 +26,30 @@ function* loadIndex({ payload }:any) {
 
 function* loadList({ payload }:any) {
     const { search } = payload || {}
-    const method = getMethod(search)
-    const response = yield retrieve({ method });
+    const method = getMethod(search, 0)
+    const response = yield retrieve({ method })
+
+    if (response.status !== 200 || !response.data) {
+        return
+    }
+
+    yield put(loadListSuccessAction({ data: response.data }));
+}
+
+function* loadMoreList({ payload }:any) {
+    const { search } = payload || {}
+    const actualPage = yield select(selectors.actualPage)
+    const sessions = yield select(selectors.sessions)
+    const nextPage = actualPage + 1
+    const method = getMethod(search, nextPage)
+    const response = yield retrieve({ method })
     
     if (response.status !== 200 || !response.data) {
         return
     }
 
-    yield put(loadListSuccessAction({ sessions: response.data }));
+    const data = sessions.concat(response.data.results)
+    yield put(loadMoreListSuccessAction({ data, actualPage: nextPage }));
 }
 
 function* removeFromList({ payload }:any) {
@@ -44,16 +60,17 @@ function* removeFromList({ payload }:any) {
         return i.id !== id
     })
 
-    yield put(loadListSuccessAction({ sessions: result }));
+    yield put(loadListSuccessAction({ data: { result } }));
 }
 
-function getMethod(search) {
-    return search ? `${API_DECKS}?name=${search}` : API_DECKS
+function getMethod(search, nextPage) {
+    return search ? `${API_DECKS}?name=${search}&page=` + nextPage : `${API_DECKS}?page=${nextPage}`
 }
 
 export default all([
     takeLatest('@sessions/NAVIGATE_TO', navigateTo),
     takeLatest('@sessions/LOAD_INDEX', loadIndex),
     takeLatest('@sessions/LOAD_LIST', loadList),
+    takeLatest('@sessions/LOAD_MORE_LIST', loadMoreList),
     takeLatest('@sessions/REMOVE_FROM_LIST', removeFromList),
 ])

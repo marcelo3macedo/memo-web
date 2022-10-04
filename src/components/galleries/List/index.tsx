@@ -7,6 +7,11 @@ import Private from '../Private';
 import Public from '../Public';
 
 export default function List({ sessions, type }) {
+  if (!sessions || sessions.length === 0) {
+    return <></>;
+  }
+
+  
   return (
     <Wrapper>
       <Content>
