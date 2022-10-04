@@ -6,7 +6,6 @@ import personal from "./personal/reducer";
 import profile from "./profile/reducer";
 import session from "./session/reducer";
 import search from "./search/reducer";
-import gallery from "./gallery/reducer";
 import validation from "./validation/reducer";
 import frequencies from "./frequencies/reducer";
 import themes from "./themes/reducer";
@@ -15,6 +14,7 @@ import deckRemove from "./deck/remove/reducer";
 import deckEdit from "./deck/edit/reducer";
 import deckOpen from "./deck/open/reducer";
 
+import gallery from "../mods/gallery/reducer";
 import modal from "../mods/modals/reducer";
 import cards from "../mods/cards/reducer";
 import decks from "../mods/decks/reducer";

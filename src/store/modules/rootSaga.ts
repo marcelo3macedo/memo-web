@@ -6,7 +6,6 @@ import personal from "./personal/saga";
 import session from "./session/saga";
 import search from "./search/saga";
 import profile from "./profile/saga";
-import gallery from "./gallery/saga";
 import validation from "./validation/saga";
 import frequencies from "./frequencies/saga";
 import themes from "./themes/saga";
@@ -15,6 +14,7 @@ import deckRemove from "./deck/remove/saga";
 import deckEdit from "./deck/edit/saga";
 import deckOpen from "./deck/open/saga";
 
+import gallery from "../mods/gallery/saga";
 import cards from "../mods/cards/saga";
 import decks from "../mods/decks/saga";
 import options from "../mods/options/saga";
