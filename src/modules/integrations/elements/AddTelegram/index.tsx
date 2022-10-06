@@ -30,7 +30,7 @@ export default function AddTelegram({ id }) {
     <Wrapper>
       <Content>
         <Title>{t('integrations.telegram.addMessage')}</Title>
-        <SubTitle>{index.externalId} - {index.externalName}</SubTitle>
+        <SubTitle>{index.externalName}</SubTitle>
         <Action>
           <ButtonPrimary content={t('integrations.telegram.add')} action={addClick} />
         </Action>

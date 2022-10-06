@@ -1,8 +1,8 @@
 
 import { all, put, takeLatest } from "redux-saga/effects";
-import { retrieve } from "@services/Api/requester";
+import { retrieve, update } from "@services/Api/requester";
 import { API_INTEGRATION } from "@services/Api/routes";
-import { indexActionSuccess, loadActionSuccess, updateActionSuccess } from "./actions";
+import { indexActionSuccess, loadAction, loadActionSuccess, updateActionSuccess } from "./actions";
 import { PATH_INTEGRATION } from "@services/Navigation";
 import { navigatePush } from "../navigate/actions";
 
@@ -30,7 +30,7 @@ function* indexIntegration({ payload }:any) {
 
 function* updateIntegration({ payload }:any) {
     const { type, id } = payload || {}
-    const response = yield retrieve({ method: `${API_INTEGRATION}/${type}/${id}` });
+    const response = yield update({ method: `${API_INTEGRATION}/${type}/${id}` });
     
     if (response.status !== 200) {
         return;
@@ -41,6 +41,7 @@ function* updateIntegration({ payload }:any) {
 
 function* updateIntegrationSuccess({ payload }:any) {
     const { type } = payload || {}
+    yield put(loadAction({ type }))
     yield put(navigatePush({ path: `${PATH_INTEGRATION}/${type}` }));
 }
 
