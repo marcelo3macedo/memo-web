@@ -6,7 +6,7 @@ import { Route } from "react-router-dom";
 import { Layouts } from "@config/Layouts";
 import { isAuthNeeded } from "@services/Navigation/auth";
 import { onChangePage } from "@services/Navigation/router";
-import { checkAuthAction } from "@store/modules/auth/actions";
+import { verifyAction } from "@store/mods/auth/actions";
 
 export default function RouteWrapper({
     component: Component,
@@ -14,12 +14,11 @@ export default function RouteWrapper({
     isPublic = false,
     ...rest
 }){
-    const dispatch = useDispatch();
-
-    onChangePage();
+    const dispatch = useDispatch()
+    onChangePage()
 
     if (isAuthNeeded(layout.name) && !isPublic) {
-        dispatch(checkAuthAction());
+        dispatch(verifyAction());
     }
 
     return (React.createElement(Route, Object.assign({}, rest, { 

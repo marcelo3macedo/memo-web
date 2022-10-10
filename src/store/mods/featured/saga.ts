@@ -2,9 +2,10 @@ import { all, put, takeLatest } from "redux-saga/effects";
 
 import { navigatePush } from "@store/mods/navigate/actions";
 import { PATH_FEATURED } from "@services/Navigation";
-import { retrieve } from "@services/Api/requester";
 import { API_DECKS } from "@services/Api/routes";
 import { loadIndexSuccess } from "./actions";
+import { REQUESTER_GET } from "@constants/Requester";
+import { request } from "@services/Api/requester";
 
 function* navigateTo({ payload }:any) {
     const { deckId } = payload || {}
@@ -15,7 +16,7 @@ function* navigateTo({ payload }:any) {
 
 function* loadIndex({ payload }:any) {
     const { id } = payload;
-    const response = yield retrieve({ method: `${API_DECKS}/${id}` });
+    const response = yield request({  type: REQUESTER_GET, method: `${API_DECKS}/${id}` });
     
     if (response.status !== 200 || !response.data) {
         return

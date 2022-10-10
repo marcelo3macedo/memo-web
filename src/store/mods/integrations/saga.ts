@@ -1,14 +1,15 @@
 
 import { all, put, takeLatest } from "redux-saga/effects";
-import { retrieve, update } from "@services/Api/requester";
 import { API_INTEGRATION } from "@services/Api/routes";
 import { indexActionSuccess, loadAction, loadActionSuccess, updateActionSuccess } from "./actions";
 import { PATH_INTEGRATION } from "@services/Navigation";
 import { navigatePush } from "../navigate/actions";
+import { REQUESTER_GET, REQUESTER_PUT } from "@constants/Requester";
+import { request } from "@services/Api/requester";
 
 function* loadIntegration({ payload }:any) {
     const { type } = payload || {}
-    const response = yield retrieve({ method: `${API_INTEGRATION}/${type}` });
+    const response = yield request({ type: REQUESTER_GET, method: `${API_INTEGRATION}/${type}` });
     
     if (response.status !== 200) {
         return;
@@ -19,7 +20,7 @@ function* loadIntegration({ payload }:any) {
 
 function* indexIntegration({ payload }:any) {
     const { type, id } = payload || {}
-    const response = yield retrieve({ method: `${API_INTEGRATION}/${type}/${id}` });
+    const response = yield request({ type: REQUESTER_GET, method: `${API_INTEGRATION}/${type}/${id}` });
     
     if (response.status !== 200) {
         return;
@@ -30,7 +31,7 @@ function* indexIntegration({ payload }:any) {
 
 function* updateIntegration({ payload }:any) {
     const { type, id } = payload || {}
-    const response = yield update({ method: `${API_INTEGRATION}/${type}/${id}` });
+    const response = yield request({ type: REQUESTER_PUT, method: `${API_INTEGRATION}/${type}/${id}` });
     
     if (response.status !== 200) {
         return;

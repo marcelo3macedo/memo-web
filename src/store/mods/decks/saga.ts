@@ -1,12 +1,13 @@
 import { all, put, takeLatest } from "redux-saga/effects";
 
-import { remove, retrieve, send, update } from "@services/Api/requester";
 import { API_DECKS } from "@services/Api/routes";
 import { addSubmitSuccess, editSubmitActionSuccess, openActionSuccess, removeSubmitActionSuccess } from "./actions";
 import { navigatePush } from "@store/mods/navigate/actions";
 import { PATH_EDITSESSION } from "@services/Navigation";
 import { updateListAction } from "../cards/actions";
 import { removeFromListAction } from "../sessions/actions";
+import { request } from "@services/Api/requester";
+import { REQUESTER_DELETE, REQUESTER_GET, REQUESTER_POST, REQUESTER_PUT } from "@constants/Requester";
 
 function* addSubmitAction({ payload }:any) {
     const { deck } = payload || {}
@@ -14,7 +15,7 @@ function* addSubmitAction({ payload }:any) {
         return;
     }
 
-    const response = yield send({ method: `${API_DECKS}`, data: deck });
+    const response = yield request({ type: REQUESTER_POST, method: `${API_DECKS}`, data: deck });
     if (!response || response.status !== 201) {
         return;
     }
@@ -29,7 +30,7 @@ function* addSubmitSuccessAction() {
 
 function* openAction({ payload }:any) {
     const { id } = payload || {}
-    const response = yield retrieve({ method: `${API_DECKS}/${id}`})
+    const response = yield request({ type: REQUESTER_GET, method: `${API_DECKS}/${id}`})
 
     if (response.status !== 200) {
         return;
@@ -47,7 +48,7 @@ function* openSuccessAction({ payload }:any) {
 
 function* editSubmitAction({ payload }:any) {
     const { deck } = payload;
-    const response = yield update({ method: `${API_DECKS}/${deck.id}`, data: deck });
+    const response = yield request({ type: REQUESTER_PUT, method: `${API_DECKS}/${deck.id}`, data: deck });
     
     if (response.status !== 200) {
         return;
@@ -58,7 +59,7 @@ function* editSubmitAction({ payload }:any) {
 
 function* removeAction({ payload }:any) {
     const { id } = payload || {}
-    const response = yield remove({ method: `${API_DECKS}/${id}` });
+    const response = yield request({ type: REQUESTER_DELETE, method: `${API_DECKS}/${id}` });
 
     if (response.status !== 200) {
         return

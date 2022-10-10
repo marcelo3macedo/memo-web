@@ -1,9 +1,10 @@
 import { all, put, takeLatest } from "redux-saga/effects";
-import { retrieve } from "@services/Api/requester";
 import { API_DECKS } from "@services/Api/routes";
 import { loadFailureAction, loadSuccessAction } from "./actions";
 import { PATH_DECK } from "@services/Navigation";
 import { navigatePush } from "@store/mods/navigate/actions";
+import { request } from "@services/Api/requester";
+import { REQUESTER_GET } from "@constants/Requester";
 
 function* open({ payload }:any) {
     const { deck } = payload
@@ -12,7 +13,7 @@ function* open({ payload }:any) {
     yield put(navigatePush({ path }))    
 }
 function* load({ payload }:any) {
-    const response = yield retrieve({ method: `${API_DECKS}/${payload.deckId}` });
+    const response = yield request({ type: REQUESTER_GET, method: `${API_DECKS}/${payload.deckId}` });
     
     if (response.status !== 200) {
         yield put(loadFailureAction());

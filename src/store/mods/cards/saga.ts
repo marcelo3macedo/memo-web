@@ -3,8 +3,9 @@ import { all, put, select, takeLatest } from "redux-saga/effects";
 import * as selectors from './selectors';
 import { addSubmitSuccess, editSubmitSuccess, removeSubmitSuccess, updateListAction } from "./actions";
 import { closeAction } from "../modals/actions";
-import { remove, send, update } from "@services/Api/requester";
 import { API_CARDS } from "@services/Api/routes";
+import { request } from "@services/Api/requester";
+import { REQUESTER_DELETE, REQUESTER_POST, REQUESTER_PUT } from "@constants/Requester";
 
 function* addSubmitAction({ payload }:any) {
     const { deckId, card } = payload || {}    
@@ -12,7 +13,7 @@ function* addSubmitAction({ payload }:any) {
         return;
     }
 
-    const response = yield send({ method: `${API_CARDS}/${deckId}`, data: card})    
+    const response = yield request({ type: REQUESTER_POST, method: `${API_CARDS}/${deckId}`, data: card})    
     if (response.status !== 201) {
         return;
     }
@@ -22,7 +23,7 @@ function* addSubmitAction({ payload }:any) {
 
 function* editSubmitAction({ payload }:any) {
     const { card } = payload || {}
-    const response = yield update({ method: `${API_CARDS}/${card.id}`, data: card});
+    const response = yield request({ type: REQUESTER_PUT, method: `${API_CARDS}/${card.id}`, data: card});
 
     if (response.status !== 200) {
         return;
@@ -33,7 +34,7 @@ function* editSubmitAction({ payload }:any) {
 
 function* confirmRemoveAction() {
     const card = yield select(selectors.card)
-    const response = yield remove({ method: `${API_CARDS}/${card.id}`})
+    const response = yield request({ type: REQUESTER_DELETE, method: `${API_CARDS}/${card.id}`})
 
     if (response.status !== 200) {
         return;

@@ -1,5 +1,6 @@
 
-import { retrieve } from "@services/Api/requester";
+import { REQUESTER_GET } from "@constants/Requester";
+import { request } from "@services/Api/requester";
 import { API_DECKS, API_SESSIONS } from "@services/Api/routes";
 import { all, put, takeLatest } from "redux-saga/effects";
 import { indexFailedAction, indexSuccessAction, loadFailedAction, loadSuccessAction } from "./actions";
@@ -7,7 +8,7 @@ import { indexFailedAction, indexSuccessAction, loadFailedAction, loadSuccessAct
 function* load({ payload }:any) {
     const { search } = payload || {}
     const method = getMethod(search)
-    const response = yield retrieve({ method });
+    const response = yield request({ type: REQUESTER_GET, method });
     
     if (response.status !== 200 || !response.data) {
         return yield put(loadFailedAction());
@@ -18,7 +19,7 @@ function* load({ payload }:any) {
 
 function* index({ payload }:any) {
     const { id } = payload;
-    const response = yield retrieve({ method: `${API_SESSIONS}/${id}` });
+    const response = yield request({ type: REQUESTER_GET, method: `${API_SESSIONS}/${id}` });
     
     if (response.status !== 200 || !response.data) {
         return yield put(indexFailedAction());
@@ -29,7 +30,7 @@ function* index({ payload }:any) {
 
 function* search({ payload }:any) {
     const { term } = payload;
-    const response = yield retrieve({ method: `${API_DECKS}?name=${term}` });
+    const response = yield request({ type: REQUESTER_GET, method: `${API_DECKS}?name=${term}` });
     
     if (response.status !== 200 || !response.data) {
         return yield put(loadFailedAction());

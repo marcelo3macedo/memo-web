@@ -1,4 +1,5 @@
-import { remove } from "@services/Api/requester";
+import { REQUESTER_DELETE } from "@constants/Requester";
+import { request } from "@services/Api/requester";
 import { API_DECKS } from "@services/Api/routes";
 import { loadAction } from "@store/modules/sessions/actions";
 import { all, put, select, takeLatest } from "redux-saga/effects";
@@ -12,7 +13,7 @@ function* removeDeck() {
         return yield(put(removeSessionFailureAction()));
     }
 
-    const response = yield remove({ method: `${API_DECKS}/${deckRemove.target.id}` });
+    const response = yield request({ type: REQUESTER_DELETE,method: `${API_DECKS}/${deckRemove.target.id}` });
 
     if (response.status !== 200) {
         return yield(put(removeSessionFailureAction()));

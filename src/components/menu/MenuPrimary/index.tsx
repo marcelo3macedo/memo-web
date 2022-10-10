@@ -12,7 +12,7 @@ import { Wrapper, Content } from './styles';
 export default function MenuPrimary() {
   const dispatch = useDispatch();
   const show = useSelector((state:RootState) => state.menu.menu);
-  const { name } = useSelector((state:RootState) => state.auth);
+  const { user } = useSelector((state:RootState) => state.auth);
 
   function menuClick() {
     dispatch(menuAction());
@@ -22,7 +22,7 @@ export default function MenuPrimary() {
     <Wrapper onClick={menuClick} show={show}>
       <Content>
         <MenuHeader />
-        <MenuUser name={name} />
+        <MenuUser name={user.name} />
         <MenuOptions />
       </Content>
     </Wrapper>

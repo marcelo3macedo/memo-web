@@ -1,5 +1,4 @@
 import { all } from "redux-saga/effects";
-import auth from "./auth/saga";
 import deck from "./deck/saga";
 import menu from "./menu/saga";
 import personal from "./personal/saga";
@@ -14,6 +13,7 @@ import deckRemove from "./deck/remove/saga";
 import deckEdit from "./deck/edit/saga";
 import deckOpen from "./deck/open/saga";
 
+import auth from "../mods/auth/saga";
 import gallery from "../mods/gallery/saga";
 import cards from "../mods/cards/saga";
 import decks from "../mods/decks/saga";
@@ -22,12 +22,13 @@ import sessions from "../mods/sessions/saga";
 import review from "../mods/review/saga";
 import navigate from "../mods/navigate/saga";
 import featured from "../mods/featured/saga";
+import redirect from "../mods/redirect/saga";
 import histories from "../mods/histories/saga";
 import integrations from "../mods/integrations/saga";
 
 export default function* rootSaga() {
     return yield all([
-        cards, decks, options, sessions, featured, histories, integrations,
+        cards, decks, options, sessions, featured, histories, redirect, integrations,
         auth, user, deckRemove, deckEdit, deckOpen, personal, deck, menu, navigate, validation, gallery, session, search, profile, frequencies, review, themes
     ])
 }

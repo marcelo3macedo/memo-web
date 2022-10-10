@@ -1,14 +1,15 @@
 
 import { all, put, select, takeLatest } from "redux-saga/effects";
-import { retrieve } from "@services/Api/requester";
 import { API_SEARCH } from "@services/Api/routes";
 import { loadFailedAction, loadMoreActionSuccess, loadSuccessAction } from "./actions";
 import * as selectors from './selectors';
+import { request } from "@services/Api/requester";
+import { REQUESTER_GET } from "@constants/Requester";
 
 function* load() {
     const { query } = yield select(selectors.gallery);
     const params = `${query ? ("/" + query):""}`;
-    const response = yield retrieve({ method: `${API_SEARCH}${params}` });
+    const response = yield request({ type: REQUESTER_GET, method: `${API_SEARCH}${params}` });
 
     if (response.status !== 200 || !response.data) {
         return yield put(loadFailedAction());
@@ -22,7 +23,7 @@ function* loadMore() {
     const { actualPage, query, decks } = yield select(selectors.gallery)
     const params = `${query ? ("/" + query):""}`;
     const nextPage = actualPage + 1
-    const response = yield retrieve({ method: `${API_SEARCH}${params}?page=${nextPage}` });
+    const response = yield request({ type: REQUESTER_GET, method: `${API_SEARCH}${params}?page=${nextPage}` });
     
     if (response.status !== 200) {
         return;

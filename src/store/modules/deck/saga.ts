@@ -2,15 +2,16 @@
 import { all, put, takeLatest } from "redux-saga/effects";
 import { navigatePush } from "@store/mods/navigate/actions";
 import { PATH_DECK, PATH_ADDDECK, PATH_EDITSESSION } from '@services/Navigation';
-import { send, retrieve, update, remove } from "@services/Api/requester";
 import { API_DECKS, API_SESSIONSFEED, API_DECKSCLONE, API_DECKSOPTIONS, API_DECKSPATH, API_CARDS } from "@services/Api/routes";
 import { openSuccessAction, saveSuccessAction, reviewAction, openPathFailure, openPathSuccess, editFailedAction, editSuccessAction, addCardFailure, addCardSuccess, updateCardFailure, updateCardSuccess, deleteCardFailure, deleteCardSuccess, openFailureAction } from "./actions";
 import { loadFrequenciesSuccess } from "../frequencies/actions";
 import { loadThemesSuccess } from "../themes/actions";
 import { loadAction } from "../review/actions";
+import { REQUESTER_DELETE, REQUESTER_GET, REQUESTER_POST, REQUESTER_PUT } from "@constants/Requester";
+import { request } from "@services/Api/requester";
 
 function* loadOptions() {
-    const response = yield retrieve({ method: API_DECKSOPTIONS });
+    const response = yield request({ type: REQUESTER_GET, method: API_DECKSOPTIONS });
 
     if (response.status !== 200 || !response.data) {
         return;
@@ -22,7 +23,7 @@ function* loadOptions() {
 }
 
 function* save({ payload }:any) {
-    const response = yield send({ method: `${API_DECKS}`, data: payload });
+    const response = yield request({ type: REQUESTER_POST, method: `${API_DECKS}`, data: payload });
     
     if (response.status !== 201) {
         return;
@@ -33,8 +34,8 @@ function* save({ payload }:any) {
 
 function* edit({ payload }:any) {
     const { deck } = payload;
-    const response = yield update({ method: `${API_DECKS}/${deck.id}`, data: deck });
-    
+    const response = yield request({ type: REQUESTER_PUT ,method: `${API_DECKS}/${deck.id}`, data: deck });
+     
     if (response.status !== 200) {
         yield put(editFailedAction());
         return;
@@ -48,7 +49,7 @@ function* saveSuccess() {
 }
 
 function* open({ payload }:any) {
-    const response = yield retrieve({ method: `${API_DECKS}/${payload.deck.id}` });
+    const response = yield request({ type: REQUESTER_GET, method: `${API_DECKS}/${payload.deck.id}` });
     
     if (response.status !== 200) {
         yield put(openFailureAction());
@@ -59,7 +60,7 @@ function* open({ payload }:any) {
 }
 
 function* openPublic({ payload }:any) {
-    const response = yield retrieve({ method: `${API_DECKS}/${payload.deck.id}?isPublic=true` });
+    const response = yield request({ type: REQUESTER_GET, method: `${API_DECKS}/${payload.deck.id}?isPublic=true` });
     
     if (response.status !== 200) {
         return;
@@ -75,7 +76,7 @@ function* add() {
 function* review(data) {
     const { deck } = data.payload;
 
-    const response = yield retrieve({ method: `${API_SESSIONSFEED}/${deck.id}` });
+    const response = yield request({ type: REQUESTER_GET, method: `${API_SESSIONSFEED}/${deck.id}` });
 
     if (response.status !== 200) {
         return;
@@ -90,7 +91,7 @@ function* finish() {
 
 function* clone(data) {
     const { deck } = data.payload;
-    const response = yield retrieve({ method: `${API_DECKSCLONE}/${deck.id}` });
+    const response = yield request({type: REQUESTER_GET,  method: `${API_DECKSCLONE}/${deck.id}` });
 
     if (response.status !== 201) {
         return;
@@ -101,7 +102,7 @@ function* clone(data) {
 
 function* openPath({ payload }:any) {
     const { path } = payload;
-    const response = yield retrieve({ method: `${API_DECKSPATH}/${path}` });
+    const response = yield request({ type: REQUESTER_GET, method: `${API_DECKSPATH}/${path}` });
 
     if (response.status !== 200) {
         yield put(openPathFailure())
@@ -119,7 +120,7 @@ function* addCard({ payload }:any) {
         return;
     }
 
-    const response = yield send({ method: `${API_CARDS}/${deck.id}`, data: card});
+    const response = yield request({ type: REQUESTER_POST, method: `${API_CARDS}/${deck.id}`, data: card});
     
     if (response.status !== 201) {
         yield put(addCardFailure());
@@ -137,7 +138,7 @@ function* updateCard({ payload }:any) {
         return;
     }
 
-    const response = yield update({ method: `${API_CARDS}/${card.id}`, data: card});
+    const response = yield request({ type: REQUESTER_PUT, method: `${API_CARDS}/${card.id}`, data: card});
     
     if (response.status !== 200) {
         yield put(updateCardFailure());
@@ -155,7 +156,7 @@ function* deleteCard({ payload }:any) {
         return;
     }
 
-    const response = yield remove({ method: `${API_CARDS}/${card.id}`});
+    const response = yield request({ type: REQUESTER_DELETE, method: `${API_CARDS}/${card.id}`});
     
     if (response.status !== 200) {
         yield put(deleteCardFailure());

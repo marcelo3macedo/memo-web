@@ -1,6 +1,6 @@
 
 import { all, takeLatest, put, select } from "redux-saga/effects";
-import { authenticate, send } from "@services/Api/requester";
+import { authenticate, request } from "@services/Api/requester";
 import { API_ACTIVATE, API_REFRESHTOKEN, API_SESSION, API_USERS } from "@services/Api/routes";
 import { navigatePush } from "@store/mods/navigate/actions";
 import { PATH_EMAIL_VALIDATION, PATH_HOME, PATH_MAIN, PATH_SIGN_IN } from "@services/Navigation";
@@ -8,9 +8,11 @@ import { loadActivateFailed, redirectClearUser, redirectUser, refreshTokenAction
 import { LS_REFRESHTOKEN } from "@services/LocalStorage";
 import * as selectors from './selectors';
 import { createBrowserHistory } from "history";
+import { REQUESTER_POST } from "@constants/Requester";
 
 function* signIn({ payload }:any) {
-    const response = yield send({ 
+    const response = yield request({ 
+        type: REQUESTER_POST,
         method: API_SESSION, 
         data: {
             email: payload.user,
@@ -37,11 +39,15 @@ function* signIn({ payload }:any) {
 }
 
 function* signUp({ payload }:any) {
-    yield send({ method: API_USERS, data: {
-        name: payload.fullName,
-        email: payload.user,
-        password: payload.password
-    }});
+    yield request({ 
+        type: REQUESTER_POST,
+        method: API_USERS, 
+        data: {
+            name: payload.fullName,
+            email: payload.user,
+            password: payload.password
+        }
+    });
 
     yield put(navigatePush({ path: PATH_EMAIL_VALIDATION }));
 }
@@ -74,7 +80,8 @@ function* checkAuth({ payload }:any) {
 }
 
 function* refreshToken({ payload }:any) {
-    const response = yield send({ method: API_REFRESHTOKEN, data: {
+    const response = yield request({ 
+        type: REQUESTER_POST, method: API_REFRESHTOKEN, data: {
         token: payload.refreshToken
     }});
 
@@ -84,7 +91,7 @@ function* refreshToken({ payload }:any) {
     }
 
     const { token, refreshToken, user } = response.data;
-    const { name, email } = user;
+    const { name, email     } = user;
 
     yield authenticate({ token, refreshToken});
 
@@ -96,7 +103,8 @@ function* activate({ payload }:any) {
         return
     }
 
-    const response = yield send({ method: API_ACTIVATE, data: {
+    const response = yield request({ 
+        type: REQUESTER_POST, method: API_ACTIVATE, data: {
         token: payload.token
     }});
 

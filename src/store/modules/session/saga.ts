@@ -1,14 +1,15 @@
 
 import { all, put, takeLatest, select } from "redux-saga/effects";
-import { retrieve, update } from "@services/Api/requester";
 import { openSuccessAction, optionActionSuccess, reviewAction } from "./actions";
 import { navigatePush } from "@store/mods/navigate/actions";
 import { API_SESSIONS } from "@services/Api/routes";
 import { PATH_REVIEW, PATH_SESSION, PATH_SESSION_COMPLETED } from "@services/Navigation";
 import * as selectors from './selectors';
+import { REQUESTER_GET, REQUESTER_PUT } from "@constants/Requester";
+import { request } from "@services/Api/requester";
 
 function* open(data) {    
-    const response = yield retrieve({ method: `${API_SESSIONS}/${data.payload.sessionId}` });
+    const response = yield request({ type: REQUESTER_GET, method: `${API_SESSIONS}/${data.payload.sessionId}` });
     
     if (response.status !== 200) {
         return;
@@ -38,7 +39,7 @@ function* option() {
     }
 
     const answered = yield select(selectors.answered);
-    const response = yield update({ method: `${API_SESSIONS}/${session.id}/cards`, data: { cards: answered } });
+    const response = yield request({ type: REQUESTER_PUT, method: `${API_SESSIONS}/${session.id}/cards`, data: { cards: answered } });
     
     if (response.status !== 204) {
         return;

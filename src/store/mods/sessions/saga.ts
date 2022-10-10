@@ -2,9 +2,10 @@ import { all, put, select, takeLatest } from "redux-saga/effects";
 
 import * as selectors from './selectors';
 import { loadIndexSuccess, loadListSuccessAction, loadMoreListSuccessAction } from "./actions";
-import { retrieve } from "@services/Api/requester";
 import { API_DECKS, API_SESSION, API_SESSIONS } from "@services/Api/routes";
 import { navigatePush } from "@store/mods/navigate/actions";
+import { REQUESTER_GET } from "@constants/Requester";
+import { request } from "@services/Api/requester";
 
 function* navigateTo({ payload }:any) {
     const { sessionId } = payload || {}
@@ -15,7 +16,7 @@ function* navigateTo({ payload }:any) {
 
 function* loadIndex({ payload }:any) {
     const { id } = payload;
-    const response = yield retrieve({ method: `${API_SESSIONS}/${id}` });
+    const response = yield request({ type: REQUESTER_GET, method: `${API_SESSIONS}/${id}` });
     
     if (response.status !== 200 || !response.data) {
         return
@@ -27,7 +28,7 @@ function* loadIndex({ payload }:any) {
 function* loadList({ payload }:any) {
     const { search } = payload || {}
     const method = getMethod(search, 0)
-    const response = yield retrieve({ method })
+    const response = yield request({ type: REQUESTER_GET, method })
 
     if (response.status !== 200 || !response.data) {
         return
@@ -42,7 +43,7 @@ function* loadMoreList({ payload }:any) {
     const sessions = yield select(selectors.sessions)
     const nextPage = actualPage + 1
     const method = getMethod(search, nextPage)
-    const response = yield retrieve({ method })
+    const response = yield request({ type: REQUESTER_GET, method })
     
     if (response.status !== 200 || !response.data) {
         return

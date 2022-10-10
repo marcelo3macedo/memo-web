@@ -1,5 +1,4 @@
 import { combineReducers } from "redux";
-import auth from "./auth/reducer";
 import deck from "./deck/reducer";
 import menu from "./menu/reducer";
 import personal from "./personal/reducer";
@@ -14,6 +13,7 @@ import deckRemove from "./deck/remove/reducer";
 import deckEdit from "./deck/edit/reducer";
 import deckOpen from "./deck/open/reducer";
 
+import auth from "../mods/auth/reducer";
 import gallery from "../mods/gallery/reducer";
 import modal from "../mods/modals/reducer";
 import cards from "../mods/cards/reducer";
@@ -23,6 +23,7 @@ import sessions from "../mods/sessions/reducer";
 import review from "../mods/review/reducer";
 import navigate from "../mods/navigate/reducer";
 import featured from "../mods/featured/reducer";
+import redirect from "../mods/redirect/reducer";
 import histories from "../mods/histories/reducer";
 import integrations from "../mods/integrations/reducer";
 
@@ -34,6 +35,7 @@ export const rootReducer = combineReducers({
     sessions,
     review,
     featured,
+    redirect,
     histories,
     integrations,
     
