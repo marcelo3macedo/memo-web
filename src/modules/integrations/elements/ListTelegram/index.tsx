@@ -15,7 +15,7 @@ export default function ListTelegram() {
     return <PageLoading />;
   }
 
-  if (!list) {
+  if (!list || list.length == 0) {
     return <></>;
   }
 

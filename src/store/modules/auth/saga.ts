@@ -4,9 +4,10 @@ import { authenticate, send } from "@services/Api/requester";
 import { API_ACTIVATE, API_REFRESHTOKEN, API_SESSION, API_USERS } from "@services/Api/routes";
 import { navigatePush } from "@store/mods/navigate/actions";
 import { PATH_EMAIL_VALIDATION, PATH_HOME, PATH_MAIN, PATH_SIGN_IN } from "@services/Navigation";
-import { loadActivateFailed, refreshTokenAction, serverFailureAction, signInFailureAction, signInSuccessAction } from "./actions";
+import { loadActivateFailed, redirectClearUser, redirectUser, refreshTokenAction, serverFailureAction, setRedirectUrl, signInFailureAction, signInSuccessAction } from "./actions";
 import { LS_REFRESHTOKEN } from "@services/LocalStorage";
 import * as selectors from './selectors';
+import { createBrowserHistory } from "history";
 
 function* signIn({ payload }:any) {
     const response = yield send({ 
@@ -32,7 +33,7 @@ function* signIn({ payload }:any) {
 
     yield authenticate({ token, refreshToken});
     yield put(signInSuccessAction({ name, email }));
-    yield put(navigatePush({ path: PATH_MAIN }));
+    yield put(redirectUser());
 }
 
 function* signUp({ payload }:any) {
@@ -56,6 +57,7 @@ function* logout() {
 
 function* checkAuth({ payload }:any) {
     const signed = yield select(selectors.signed);
+    const history = createBrowserHistory()
     
     if (signed && !payload.force) {
         return true;
@@ -66,9 +68,9 @@ function* checkAuth({ payload }:any) {
         yield put(refreshTokenAction({ refreshToken }));
         return;
     }
-    
+
+    yield put(setRedirectUrl({ redirectTo: history.location.pathname }))        
     yield put(navigatePush({ path: PATH_SIGN_IN }));
-    return;
 }
 
 function* refreshToken({ payload }:any) {
@@ -111,6 +113,13 @@ function* activate({ payload }:any) {
     yield put(navigatePush({ path: PATH_MAIN }));
 }
 
+function* redirect() {
+    const redirectTo = yield select(selectors.redirectTo);
+    const path = redirectTo ? redirectTo : PATH_MAIN
+    yield put(redirectClearUser())
+    yield put(navigatePush({ path }))
+}
+
 export default all([
     takeLatest('@auth/SIGN_IN', signIn),
     takeLatest('@auth/SIGN_UP', signUp),
@@ -118,5 +127,6 @@ export default all([
     takeLatest('@auth/FORGOT_PASSWORD', forgotPassword),
     takeLatest('@auth/CHECK_AUTH', checkAuth),
     takeLatest('@auth/REFRESH_TOKEN', refreshToken),
-    takeLatest('@auth/LOAD_ACTIVATE', activate)
+    takeLatest('@auth/LOAD_ACTIVATE', activate),
+    takeLatest('@auth/REDIRECT_USER', redirect)
 ]);
