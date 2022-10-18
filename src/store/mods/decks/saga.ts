@@ -1,11 +1,12 @@
 import { all, put, takeLatest } from "redux-saga/effects";
 
-import { API_DECKS } from "@services/Api/routes";
-import { addSubmitSuccess, editSubmitActionSuccess, loadActionSuccess, openActionSuccess, removeSubmitActionSuccess } from "./actions";
+import { API_DECKS, API_DECKSCLONE, API_SESSIONSFEED } from "@services/Api/routes";
+import { addSubmitSuccess, editSubmitActionSuccess, feedAction, loadActionSuccess, openActionSuccess, removeSubmitActionSuccess } from "./actions";
 import { navigatePush } from "@store/mods/navigate/actions";
 import { PATH_EDITSESSION, PATH_SESSIONPUBLIC } from "@services/Navigation";
 import { updateListAction } from "../cards/actions";
 import { removeFromListAction } from "../sessions/actions";
+import { loadAction as loadReviewAction } from "../review/actions";
 import { request } from "@services/Api/requester";
 import { REQUESTER_DELETE, REQUESTER_GET, REQUESTER_POST, REQUESTER_PUT } from "@constants/Requester";
 
@@ -95,6 +96,29 @@ function* redirectAction({ payload }:any) {
     yield put(navigatePush({ path: `${PATH_SESSIONPUBLIC}/${id}` }))
 }
 
+function* cloneAction({ payload }:any) {
+    const { id } = payload;
+    const response = yield request({type: REQUESTER_GET,  method: `${API_DECKSCLONE}/${id}` });
+
+    if (response.status !== 201) {
+        return;
+    }
+
+    yield put(feedAction({ deck: response.data }));
+}
+
+function* feedSessionAction({ payload }:any) {
+    const { deck } = payload;
+    const response = yield request({ type: REQUESTER_GET, method: `${API_SESSIONSFEED}/${deck.id}` });
+
+    if (response.status !== 200) {
+        return;
+    }
+
+    const session = response.data || {}    
+    yield put(loadReviewAction({ session }));
+}
+
 export default all([
     takeLatest('@decks/ADD_SUBMIT', addSubmitAction),
     takeLatest('@decks/ADD_SUBMIT_SUCCESS', addSubmitSuccessAction),  
@@ -105,5 +129,7 @@ export default all([
     takeLatest('@decks/LOAD_SUCCESS', loadSuccessAction),
     takeLatest('@decks/REMOVE_SUBMIT', removeAction),
     takeLatest('@decks/REMOVE_SUBMIT_SUCCESS', removeActionSuccess),
-    takeLatest('@decks/REDIRECT', redirectAction)
+    takeLatest('@decks/REDIRECT', redirectAction),
+    takeLatest('@decks/CLONE', cloneAction),
+    takeLatest('@decks/FEED', feedSessionAction)
 ])

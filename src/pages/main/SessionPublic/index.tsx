@@ -9,7 +9,7 @@ import PageHeader from '@modules/headers/elements/PageHeader';
 import ViewCards from '@modules/blocks/elements/ViewCards';
 import { formatDateField } from '@services/Format';
 import { RootState } from '@store/modules/rootReducer';
-import { loadAction } from '@store/mods/decks/actions';
+import { cloneAction, loadAction } from '@store/mods/decks/actions';
 
 import { Wrapper, Content, Description, Action } from './styles';
 
@@ -20,7 +20,7 @@ export default function SessionPublic() {
   const { id } = useParams() as any;
 
   function reviewClick() {
-    
+    dispatch(cloneAction({ id }))
   }
   
   useEffect(() => {

@@ -81,3 +81,21 @@ export function loadActionSuccess({ deck }) {
         payload: { deck }
     }
 }
+
+export function cloneAction({ id }) {
+    return {
+        type: '@decks/CLONE',
+        payload: {
+            id
+        }
+    }
+}
+
+export function feedAction({ deck }) {
+    return {
+        type: '@decks/FEED',
+        payload: {
+            deck
+        }
+    }
+}
