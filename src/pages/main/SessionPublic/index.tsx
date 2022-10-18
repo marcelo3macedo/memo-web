@@ -18,6 +18,10 @@ export default function SessionPublic() {
   const t = useTranslation();
   const { selected } = useSelector((state:RootState) => state.decks);
   const { id } = useParams() as any;
+
+  function reviewClick() {
+    
+  }
   
   useEffect(() => {
     dispatch(loadAction({ id }))
@@ -37,7 +41,7 @@ export default function SessionPublic() {
         <PageHeader title={selected.name} subTitle={`${t('session.createdAt')} ${formatDateField(selected.createdAt)}`} />
         <Description>{selected.description}</Description>
         <Action>
-          <ButtonPrimary content={t('actions.review')}/>
+          <ButtonPrimary content={t('actions.review')} action={reviewClick} />
         </Action>
         <ViewCards />
       </Content>
