@@ -1,9 +1,9 @@
 import { all, put, takeLatest } from "redux-saga/effects";
 
 import { API_DECKS } from "@services/Api/routes";
-import { addSubmitSuccess, editSubmitActionSuccess, openActionSuccess, removeSubmitActionSuccess } from "./actions";
+import { addSubmitSuccess, editSubmitActionSuccess, loadActionSuccess, openActionSuccess, removeSubmitActionSuccess } from "./actions";
 import { navigatePush } from "@store/mods/navigate/actions";
-import { PATH_EDITSESSION } from "@services/Navigation";
+import { PATH_EDITSESSION, PATH_SESSIONPUBLIC } from "@services/Navigation";
 import { updateListAction } from "../cards/actions";
 import { removeFromListAction } from "../sessions/actions";
 import { request } from "@services/Api/requester";
@@ -46,6 +46,23 @@ function* openSuccessAction({ payload }:any) {
     yield put(navigatePush({ path: `${PATH_EDITSESSION}` }))
 }
 
+function* loadAction({ payload }:any) {
+    const { id } = payload || {}
+    const response = yield request({ type: REQUESTER_GET, method: `${API_DECKS}/${id}`})
+
+    if (response.status !== 200) {
+        return;
+    }
+
+    yield put(loadActionSuccess({ deck: response.data }))
+}
+
+function* loadSuccessAction({ payload }:any) {
+    const { deck } = payload || {}
+
+    yield put(updateListAction({ list: deck.cards }))
+}
+
 function* editSubmitAction({ payload }:any) {
     const { deck } = payload;
     const response = yield request({ type: REQUESTER_PUT, method: `${API_DECKS}/${deck.id}`, data: deck });
@@ -69,8 +86,13 @@ function* removeAction({ payload }:any) {
 }
 
 function* removeActionSuccess({ payload }:any) {
-    const { id } = payload || {}    
+    const { id } = payload || {}
     yield put(removeFromListAction({ id }))
+}
+
+function* redirectAction({ payload }:any) {
+    const { id } = payload || {}
+    yield put(navigatePush({ path: `${PATH_SESSIONPUBLIC}/${id}` }))
 }
 
 export default all([
@@ -79,6 +101,9 @@ export default all([
     takeLatest('@decks/EDIT_SUBMIT', editSubmitAction),
     takeLatest('@decks/OPEN', openAction),
     takeLatest('@decks/OPEN_SUCCESS', openSuccessAction),
+    takeLatest('@decks/LOAD', loadAction),
+    takeLatest('@decks/LOAD_SUCCESS', loadSuccessAction),
     takeLatest('@decks/REMOVE_SUBMIT', removeAction),
-    takeLatest('@decks/REMOVE_SUBMIT_SUCCESS', removeActionSuccess)
+    takeLatest('@decks/REMOVE_SUBMIT_SUCCESS', removeActionSuccess),
+    takeLatest('@decks/REDIRECT', redirectAction)
 ])

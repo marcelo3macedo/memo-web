@@ -14,6 +14,7 @@ export const PATH_MYACCOUNT = "/my-account";
 export const PATH_MYDECKS = "/my-decks";
 export const PATH_ADDDECK = "/add-deck";
 export const PATH_EDITSESSION = "/edit-session";
+export const PATH_SESSIONPUBLIC = "/session/public";
 export const PATH_SEARCHDECK = "/search-deck";
 export const PATH_DECK = "/deck";
 export const PATH_REVIEW = "/review";

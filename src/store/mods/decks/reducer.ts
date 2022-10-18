@@ -27,6 +27,14 @@ export default function decks(state = INITIAL_STATE, action) {
                 draft.selected = null;
                 break;
             }
+            case "@decks/LOAD": {
+                draft.selected = null;
+                break;
+            }
+            case "@decks/LOAD_SUCCESS": {
+                draft.selected = action.payload.deck;
+                break;
+            }
             default:
                 return state;
         }

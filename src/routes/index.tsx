@@ -34,6 +34,7 @@ import Featured from "@pages/main/Featured";
 import { PATH_FORGOT_PASSWORD, PATH_SESSION, PATH_SIGN_IN, PATH_SIGN_UP, PATH_RECOVERED, PATH_SESSION_COMPLETED, PATH_PRIVACY_POLICY, PATH_ABOUT, PATH_HELP, PATH_MYACCOUNT, PATH_DECK, PATH_REVIEW, PATH_MAIN, PATH_HOME, PATH_ACCOUNT, PATH_PROFILE, PATH_HISTORY, PATH_GALLERY, PATH_ACTIVE, PATH_EMAIL_VALIDATION, PATH_GALLERYDECK, PATH_SESSIONS, PATH_CREATESESSION, PATH_EDITSESSION, PATH_FEATURED, PATH_INTEGRATION, PATH_INTEGRATION_TELEGRAM } from "@services/Navigation";
 import Integration from "@pages/main/Integration";
 import IntegrationTelegram from "@pages/main/IntegrationTelegram";
+import SessionPublic from "@pages/main/SessionPublic";
 
 export default function Routes() {
     const location = useLocation();
@@ -53,6 +54,7 @@ export default function Routes() {
             <Router path={PATH_DECK + "/:path/:id"} component={Deck} layout={Layouts.Main}/>  
             <Router path={PATH_EDITSESSION} component={EditSession} layout={Layouts.Main}/>
             <Router path={PATH_PRIVACY_POLICY} component={PrivacyPolicy} layout={Layouts.Main}/>  
+            <Router path={PATH_SESSION + "/public/:id"} component={SessionPublic} layout={Layouts.Main}/>
             <Router path={PATH_SESSION + "/:id"} component={Session} layout={Layouts.Main}/>
             <Router path={PATH_FEATURED + "/:id"} component={Featured} layout={Layouts.Main}/>
             <Router path={PATH_ACCOUNT} component={Account} layout={Layouts.Main}/>

@@ -19,6 +19,13 @@ export function setAction({ deck }) {
     }
 }
 
+export function redirectAction({ id }) {
+    return {
+        type: '@decks/REDIRECT',
+        payload: { id }
+    }
+}
+
 export function openAction({ id }) {
     return {
         type: '@decks/OPEN',
@@ -58,5 +65,19 @@ export function removeSubmitActionSuccess({ id }) {
     return {
         type: '@decks/REMOVE_SUBMIT_SUCCESS',
         payload: { id }
+    }
+}
+
+export function loadAction({ id }) {
+    return {
+        type: '@decks/LOAD',
+        payload: { id }
+    }
+}
+
+export function loadActionSuccess({ deck }) {
+    return {
+        type: '@decks/LOAD_SUCCESS',
+        payload: { deck }
     }
 }
