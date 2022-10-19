@@ -13,6 +13,10 @@ export default function MenuPrimary() {
   const dispatch = useDispatch();
   const show = useSelector((state:RootState) => state.menu.menu);
   const { user } = useSelector((state:RootState) => state.auth);
+ 
+  if (!user) {
+    return <></>
+  }
 
   function menuClick() {
     dispatch(menuAction());
