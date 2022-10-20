@@ -13,7 +13,7 @@ export default function MainLayout ({ children }) {
     <Wrapper>
         <Content>
           <Section>
-            <MenuPrimary/>          
+            <MenuPrimary/>
             <HeaderPrimary />
             <Body>
               {children}

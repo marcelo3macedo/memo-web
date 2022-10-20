@@ -5,19 +5,14 @@ type WrapperProps = {
 }
 
 export const Wrapper = styled.div<WrapperProps>`
-    background: var(--neutral0);
-    width: 30%;
-    
-    @media (max-width:768px) {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100vH;
-        background: rgba(var(--alphaColor), var(--alpha));
-        z-index: 999;
-        display: ${props => props.show ? "block": "none"};
-    }    
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vH;
+    background: rgba(var(--alphaColor), var(--alpha));
+    z-index: 999;
+    display: ${props => props.show ? "block": "none"};
 `;
 
 export const Content = styled.div`
@@ -28,7 +23,7 @@ export const Content = styled.div`
     text-align: center; 
 
     @media (min-width: 768px) {
-        width: 100%;
+        max-width: 500px;
     }
 `;
 
