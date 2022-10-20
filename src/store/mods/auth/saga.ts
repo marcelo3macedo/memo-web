@@ -129,7 +129,7 @@ function* activate({ payload }:any) {
 }
 
 function* activated() {
-    yield put(navigatePush({ path: PATH_MAIN }));
+    yield put(redirectAction());
 }
 
 function forgotPassword({ payload }:any) {
