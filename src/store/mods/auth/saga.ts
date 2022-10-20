@@ -5,7 +5,7 @@ import { authenticate, request } from "@services/Api/requester";
 import { API_ACTIVATE, API_SESSION, API_USERS } from "@services/Api/routes";
 import { renewToken } from "@services/Api/validation";
 import { parseToken } from "@services/Authentication";
-import { PATH_EMAIL_VALIDATION, PATH_HOME, PATH_MAIN, PATH_SIGN_IN } from "@services/Navigation";
+import { PATH_EMAIL_VALIDATION, PATH_HOME, PATH_SIGN_IN } from "@services/Navigation";
 import { all, put, select, takeLatest } from "redux-saga/effects";
 import { navigatePush } from "../navigate/actions";
 import { redirectAction, setRedirectUrlAction } from "../redirect/actions";
