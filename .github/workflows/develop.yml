@@ -37,6 +37,6 @@ jobs:
           port: ${{ secrets.QA_SSH_PORT }}
           key: ${{ secrets.QA_SSH_KEY }}
           passphrase: ${{ secrets.QA_SSH_PASSPHRASE }}
-          source: "., !node_modules"
+          source: "./build"
           target: "/var/www/html/memorizou/web"
           

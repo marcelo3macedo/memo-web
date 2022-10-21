@@ -4,15 +4,13 @@ export const Wrapper = styled.div`
     padding: 15px 10px;
 
     @media (min-width: 768px) {
-        display: none;
+        background: var(--secondary15);
+        width: 70%;
+        padding: 15px 20px;
     }
 `;
 
 export const Content = styled.div`
-    @media (min-width: 768px) {
-        display: flex;
-        flex-direction: row-reverse;
-    }
 `;
 
 export const Header = styled.div`
@@ -21,19 +19,10 @@ export const Header = styled.div`
     justify-content: space-between;   
     
     svg path, svg polygon {
-        fill: var(--neutral90);
+        fill: var(--neutral100);
     }
 
     svg.list path, svg.list polygon {
-        fill: var(--neutral0);
-    }
-
-    @media (min-width: 768px) {
-        width: 100%;
-        padding: 10px;
-
-        .list { 
-            display: none;
-        }
+        fill: var(--neutral100);
     }
 `;

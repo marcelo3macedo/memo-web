@@ -1,13 +1,14 @@
 
 import { all, put, takeLatest } from "redux-saga/effects";
-import { retrieve } from "@services/Api/requester";
+import { request } from "@services/Api/requester";
 import { API_SEARCH } from "@services/Api/routes";
 import { loadSuccessAction } from "./actions";
 import { navigatePush } from "../navigate/actions";
 import { PATH_SEARCHDECK } from "@services/Navigation";
+import { REQUESTER_GET } from "@constants/Requester";
 
 function* load() {
-    const response = yield retrieve({ method: `${API_SEARCH}` });
+    const response = yield request({ type: REQUESTER_GET, method: `${API_SEARCH}` });
     
     if (response.status !== 200) {
         return;
@@ -18,7 +19,7 @@ function* load() {
 
 function* search(data) {
     const { term } = data.payload;
-    const response = yield retrieve({ method: `${API_SEARCH}/${term}` });
+    const response = yield request({ type: REQUESTER_GET, method: `${API_SEARCH}/${term}` });
     
     if (response.status !== 200) {
         return;

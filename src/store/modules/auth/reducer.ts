@@ -5,6 +5,7 @@ const INITIAL_STATE = {
     signed: false,
     name: null,
     email: null,
+    redirectTo: null,
     validation: {
         visible: false,
         type: null
@@ -67,6 +68,14 @@ export default function auth(state = INITIAL_STATE, action) {
             }
             case "@auth/LOAD_ACTIVATE_FAILED": {
                 draft.activation.status = 'failed';
+                break;
+            }
+            case "@auth/SET_REDIRECTTO": {
+                draft.redirectTo = !draft.redirectTo ? action.payload.redirectTo : draft.redirectTo;
+                break;
+            }
+            case "@auth/REDIRECT_CLEAR_USER": {
+                draft.redirectTo = null;
                 break;
             }
             default:

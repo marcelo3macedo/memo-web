@@ -6,7 +6,7 @@ import project1 from "@assets/banners/project1.png";
 
 import ButtonPrimary from '@components/button/ButtonPrimary';
 import { PATH_SIGN_IN } from '@services/Navigation';
-import { navigatePush } from '@store/modules/navigate/actions';
+import { navigatePush } from '@store/mods/navigate/actions';
 
 import { Wrapper, Content, Group, Picture, Title, Info, SubTitle, Actions } from './styles';
 

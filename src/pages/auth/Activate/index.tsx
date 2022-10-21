@@ -3,17 +3,18 @@ import { useDispatch, useSelector } from "react-redux";
 import { useTranslation } from 'react-multi-lang';
 import { useLocation } from 'react-router-dom';
 
-import { loadActivate } from '@store/modules/auth/actions';
+import { ACTIVATE_FAILED, ACTIVATE_LOADING } from '@constants/Activate';
+import PageLoading from '@components/loading/PageLoading';
 import { RootState } from '@store/modules/rootReducer';
+import { activateAction } from '@store/mods/auth/actions';
 
 import { Wrapper, Content, Title, SubTitle } from './styles';
-import PageLoading from '@components/loading/PageLoading';
 
 export default function Activate() {
   const t = useTranslation()
   const dispatch = useDispatch();
   const location = useLocation();
-  const { activation } = useSelector((state:RootState) => state.auth);
+  const { activateStatus } = useSelector((state:RootState) => state.auth);
     
   useEffect(() => {
     const params = new URLSearchParams(location.search);
@@ -23,21 +24,26 @@ export default function Activate() {
       return;
     }
     
-    dispatch(loadActivate({ token }));
+    dispatch(activateAction({ token }));
   }, [dispatch, location]);
 
-  if (!activation) {
+  if (!activateStatus) {
     return <PageLoading/>;
   }
 
+  function getMessage(status) {
+    if (status === ACTIVATE_LOADING) return t('auth.activateCheck')
+
+    return status === ACTIVATE_FAILED ?
+      t('auth.activateFailed') :
+      t('auth.activateSuccess')
+  }
 
   return (
     <Wrapper>
         <Content>
           <Title>{t('auth.activateTitle')}</Title>
-          {activation.status === "loading" ? (<SubTitle>{t('auth.activateCheck')}</SubTitle>) : <></>}
-          {activation.status === "failed" ? (<SubTitle>{t('auth.activateFailed')}</SubTitle>) : <></>}
-          {activation.status === "success" ? (<SubTitle>{t('auth.activateSuccess')}</SubTitle>) : <></>}
+          <SubTitle>{getMessage(activateStatus)}</SubTitle>
         </Content>
     </Wrapper>
   ); 

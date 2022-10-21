@@ -4,65 +4,45 @@ import { useTranslation } from 'react-multi-lang';
 import { useParams } from 'react-router-dom';
 
 import ButtonPrimary from '@components/button/ButtonPrimary';
+import PageLoading from '@components/loading/PageLoading';
+import PageHeader from '@modules/headers/elements/PageHeader';
 import { formatDateField } from '@services/Format';
 import { RootState } from '@store/modules/rootReducer';
-import { indexAction } from '@store/modules/sessions/actions';
-import PageLoading from '@components/loading/PageLoading';
-import { loadAction } from '@store/modules/review/actions';
-import { navigatePush } from '@store/modules/navigate/actions';
-import { PATH_REVIEW } from '@services/Navigation';
+import { loadIndexAction } from '@store/mods/sessions/actions';
+import { loadAction } from '@store/mods/review/actions';
 
-import { Wrapper, Content, Title, Header, SubTitle, Description, Info, Action, Themes, ThemeTitle, Card, CardName } from './styles';
+import { Wrapper, Content, Description, Action } from './styles';
 
 export default function Session() {
   const dispatch = useDispatch();
   const t = useTranslation();
-  const { isLoading, session } = useSelector((state:RootState) => state.sessions);
+  const { isLoading, index } = useSelector((state:RootState) => state.sessions);
   const { id } = useParams() as any;
   
   function reviewClick() {
-    dispatch(loadAction({ session }));
-    dispatch(navigatePush({ path: PATH_REVIEW }));
+    dispatch(loadAction({ session: index }))
   }
 
   useEffect(() => {
-    dispatch(indexAction({ id }));  
-  }, [dispatch, id]);
+    dispatch(loadIndexAction({ id }))
+  }, [dispatch, id])
 
-  if (isLoading) {
-    return <PageLoading />;
-  }
-
-  if (!session || !session.deck) {
-    return <></>;
+  if (isLoading || !index || !index.deck) {
+    return (
+      <Wrapper>
+        <PageLoading />
+      </Wrapper>
+    )
   }
 
   return (
     <Wrapper>
       <Content>
-        <Header>
-          <Info>{t('decks.title')}</Info>
-          <Title>{session.deck.name}</Title>
-          <SubTitle>{t('session.createdAt')} {formatDateField(session.createdAt)}</SubTitle>
-        </Header>
-        <Description>{session.deck.description}</Description>
+        <PageHeader title={index.deck.name} subTitle={`${t('session.createdAt')} ${formatDateField(index.createdAt)}`} />
+        <Description>{index.deck.description}</Description>
         <Action>
           <ButtonPrimary content={t('actions.review')} action={reviewClick}/>
         </Action>
-
-        <Themes>
-          <ThemeTitle>{t('decks.themeTitle')}</ThemeTitle>
-          { session.cards ? 
-            session.cards.map(i => i.title)
-              .filter((value, index, self) => {
-                return self.indexOf(value) === index;
-              }).map(d => (
-                <Card key={d} className='no-select'>
-                  <CardName>{d}</CardName>
-                </Card>
-              ))
-            : <></> }
-        </Themes>
       </Content>
     </Wrapper>
   ); 

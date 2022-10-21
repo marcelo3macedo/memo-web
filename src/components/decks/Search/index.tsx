@@ -7,12 +7,18 @@ import { Wrapper, Content, Search, SearchInput, SearchIcon } from './styles';
 export default function SearchDeck({ action }) {
   const t = useTranslation();
   const [ term, setTerm ] = useState("");
+
+  function keyUpAction(e) {
+    if (e.key === 'Enter') {
+      action(term)
+    }
+  }
   
   return (
     <Wrapper>
       <Content>
         <Search>
-          <SearchInput placeholder={t("decks.searchPlaceholder")} onChange={e=>setTerm(e.target.value)}/>
+          <SearchInput placeholder={t("decks.searchPlaceholder")} onChange={e=>setTerm(e.target.value)} onKeyUp={keyUpAction}/>
           <SearchIcon onClick={() => {action(term)}}>
             <IconSmall name={"search"} />
           </SearchIcon>

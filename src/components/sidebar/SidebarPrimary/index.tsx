@@ -4,7 +4,7 @@ import { useTranslation } from 'react-multi-lang';
 
 import IconMedium from '@components/icons/IconMedium';
 import { RootState } from '@store/modules/rootReducer';
-import { navigatePush } from '@store/modules/navigate/actions';
+import { navigatePush } from '@store/mods/navigate/actions';
 import { PATH_ACCOUNT, PATH_GALLERY, PATH_MAIN, PATH_SESSIONS } from '@services/Navigation';
 
 import { Wrapper, Content, Item, Title, Items } from './styles';
@@ -37,7 +37,7 @@ export default function SidebarPrimary() {
             <Title>{t('menu.sessions')}</Title>
           </Item>
           <Item onClick={() => { navigateClick(PATH_GALLERY)} }className={isActive(PATH_GALLERY)}>
-            <IconMedium name="search" />
+            <IconMedium name="gallery" />
             <Title>{t('menu.gallery')}</Title>
           </Item>
           <Item onClick={() => { navigateClick(PATH_ACCOUNT)} } className={isActive(PATH_ACCOUNT)}>

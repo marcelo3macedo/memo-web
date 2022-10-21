@@ -1,15 +1,16 @@
 
 import { all, put, select, takeLatest } from "redux-saga/effects";
-import { remove, retrieve } from "@services/Api/requester";
 import { API_DECKS } from "@services/Api/routes";
 import { editSuccessAction, loadDecksAction, loadDecksSuccess, loadDeckSuccess } from "./actions";
 import { navigatePush } from "../navigate/actions";
-import { PATH_DECK, PATH_EDITDECK } from "@services/Navigation";
+import { PATH_DECK, PATH_EDITSESSION } from "@services/Navigation";
 import * as selectors from './selectors';
 import { openModalAction } from "../card/actions";
+import { REQUESTER_DELETE, REQUESTER_GET } from "@constants/Requester";
+import { request } from "@services/Api/requester";
 
 function* loadDecks() {
-    const response = yield retrieve({ method: `${API_DECKS}` });
+    const response = yield request({ type: REQUESTER_GET, method: `${API_DECKS}` });
     
     if (response.status !== 200) {
         return;
@@ -20,7 +21,7 @@ function* loadDecks() {
 
 function* loadDeck() {
     const deck = yield select(selectors.deck);
-    const response = yield retrieve({ method: `${API_DECKS}/${deck.id}` });
+    const response = yield request({ type: REQUESTER_GET, method: `${API_DECKS}/${deck.id}` });
     
     if (response.status !== 200) {
         return;
@@ -35,7 +36,7 @@ function* loadDeckSuccesAction() {
 
 function* removeDeck({ payload }:any) {
     const { deck } = payload || {}
-    const response = yield remove({ method: `${API_DECKS}/${deck.id}` });
+    const response = yield request({ type: REQUESTER_DELETE, method: `${API_DECKS}/${deck.id}` });
 
     if (response.status !== 200) {
         return;
@@ -45,7 +46,7 @@ function* removeDeck({ payload }:any) {
 }
 
 function* edit({ payload }:any) {
-    const response = yield retrieve({ method: `${API_DECKS}/${payload.deck.id}` });
+    const response = yield request({ type: REQUESTER_GET, method: `${API_DECKS}/${payload.deck.id}` });
     
     if (response.status !== 200) {
         return;
@@ -55,7 +56,7 @@ function* edit({ payload }:any) {
 }
 
 function* editSuccess() {
-    yield put(navigatePush({ path: PATH_EDITDECK }));
+    yield put(navigatePush({ path: PATH_EDITSESSION }));
 }
 
 function* view({ payload }:any) {

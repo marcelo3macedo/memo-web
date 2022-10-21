@@ -1,12 +1,13 @@
 
 import { all, put, takeLatest } from "redux-saga/effects";
-import { retrieve, update } from "@services/Api/requester";
 import { API_PROFILE } from "@services/Api/routes";
 import { formatDateField } from "@services/Format";
 import { loadProfileFailure, loadProfileSuccess, updateProfileFailure, updateProfileSuccess } from "./actions";
+import { REQUESTER_GET, REQUESTER_PUT } from "@constants/Requester";
+import { request } from "@services/Api/requester";
 
 function* loadProfile() {
-    const response = yield retrieve({ method: API_PROFILE });
+    const response = yield request({ type: REQUESTER_GET, method: API_PROFILE });
     
     if (response.status !== 200) {
         return yield put(loadProfileFailure());
@@ -24,7 +25,7 @@ function* loadProfile() {
 }
 
 function* updateProfile({ payload }:any) {
-    const response = yield update({ method: API_PROFILE, data: payload });
+    const response = yield request({ type: REQUESTER_PUT,method: API_PROFILE, data: payload });
     
     if (response.status !== 200) {
         return yield put(updateProfileFailure());

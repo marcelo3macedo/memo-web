@@ -2,54 +2,38 @@ import React, { useEffect } from 'react';
 import { RootState } from '@store/modules/rootReducer';
 import { useDispatch, useSelector } from "react-redux";
 import { useTranslation } from 'react-multi-lang';
+import { useLocation } from 'react-router-dom';
+import queryString from 'query-string';
 
-import Gallery from '@components/decks/Gallery';
-import HeaderPage from '@components/header/HeaderPage';
-import PageLoading from '@components/loading/PageLoading';
-import SearchDeck from '@components/decks/Search';
-import RemoveModal from '@components/decks/RemoveModal';
-import Empty from '@components/decks/Empty';
-import { PATH_ADDDECK } from '@services/Navigation';
-import { loadAction, searchAction } from '@store/modules/sessions/actions';
-import { navigatePush } from '@store/modules/navigate/actions';
+import SessionSearch from '@components/containers/sessions/SessionSearch';
+import SessionList from '@components/containers/sessions/SearchList';
+import PageHeader from '@modules/headers/elements/PageHeader';
+import LoadingPage from '@modules/loading/elements/LoadingPage';
+import { loadListAction } from '@store/mods/sessions/actions';
 
 import { Wrapper, Content } from './styles';
-import EditModal from '@components/decks/EditModal';
 
 export default function Sessions() {
-  const t = useTranslation();
-  const dispatch = useDispatch();
-  const { isLoading, sessions } = useSelector((state:RootState) => state.sessions);
-
-  useEffect(() => {
-    dispatch(loadAction());
-  }, [dispatch]);
+  const t = useTranslation()
+  const dispatch = useDispatch()
+  const { isLoading, sessions } = useSelector((state:RootState) => state.sessions)
+  const location = useLocation()
+  const { search } = queryString.parse(location.search) || {}
   
-  function createSessionClick() {
-    dispatch(navigatePush({ path: PATH_ADDDECK }));
-  }
-
-  function searchEvent(term) {
-    dispatch(searchAction({ term }));
-  }
+  useEffect(() => {
+    dispatch(loadListAction(search))
+  }, [dispatch, search])
   
   if (isLoading) {
-    return <PageLoading />;
+    return <LoadingPage />
   }
 
   return (
     <Wrapper>
       <Content>
-        <HeaderPage title={t('myDeck.title')} subTitle={t('myDeck.subtitle')}></HeaderPage>
-        <SearchDeck action={searchEvent} />
-
-        { sessions.length === 0 ? 
-          (<Empty action={createSessionClick}/>): 
-          (<Gallery sessions={sessions} type="private" />)
-        }
-
-        <RemoveModal />
-        <EditModal />
+        <PageHeader title={t('myDeck.title')} subTitle={t('myDeck.subtitle')} />
+        <SessionSearch />
+        <SessionList sessions={sessions} />        
       </Content>
     </Wrapper>
   ); 

@@ -3,15 +3,16 @@ import { useDispatch } from "react-redux";
 import { useTranslation } from 'react-multi-lang';
 import { Formik, Form } from "formik";
 
-import { Wrapper, Content, ActionArea, Fields, FormArea, InputText } from './styles';
 import ButtonPrimary from '@components/button/ButtonPrimary';
 import TextLinked from '@components/link/TextLinked';
+import InputArea from '@components/input/InputArea';
 import ValidationMessage from '@components/validation/ValidationMessage';
-import { navigatePush } from '@store/modules/navigate/actions';
 import { PATH_SIGN_IN } from '@services/Navigation';
 import { schema, initialValues } from '@services/Validation/recover.schema';
-import { forgotPasswordAction } from '@store/modules/auth/actions';
-import InputArea from '@components/input/InputArea';
+import { forgotPasswordAction } from '@store/mods/auth/actions';
+import { navigatePush } from '@store/mods/navigate/actions';
+
+import { Wrapper, Content, ActionArea, Fields, FormArea, InputText } from './styles';
 
 export default function Recover() {
   const t = useTranslation()

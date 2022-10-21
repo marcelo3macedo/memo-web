@@ -17,3 +17,4 @@ export const API_FREQUENCIES = "/frequencies";
 export const API_ACTIVATE = "/activate";
 export const API_DECKSPATH = "/decks/path";
 export const API_DIFFICULTIES = "/difficulties";
+export const API_INTEGRATION = "/integrations";

@@ -1,17 +1,16 @@
 import React from 'react';
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useTranslation } from 'react-multi-lang';
 
-import { RootState } from '@store/modules/rootReducer';
-
-import { Wrapper, Content, Title, MessageArea, Message, Actions } from './styles';
 import ButtonSecondary from '@components/button/ButtonSecondary';
 import { closeAlertAction } from '@store/modules/auth/actions';
+
+import { Wrapper, Content, Title, MessageArea, Message, Actions } from './styles';
 
 export default function ValidationAlert() {  
   const t = useTranslation()
   const dispatch = useDispatch();
-  const validation = useSelector((state:RootState) => state.auth.validation);
+  const validation = null;//useSelector((state:RootState) => state.auth.validation);
 
   function closeAlert() {
     dispatch(closeAlertAction());

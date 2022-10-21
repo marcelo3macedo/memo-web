@@ -1,34 +1,26 @@
 import React from 'react';
 import { useTranslation } from 'react-multi-lang';
+import { useSelector } from 'react-redux';
 
-import IconLarge from '@components/icons/IconLarge';
-import Public from '@components/decks/Public';
+import List from '@components/featured/List';
+import Subtitle from '@modules/headers/elements/Subtitle';
+import { RootState } from '@store/modules/rootReducer';
 
-import { Wrapper, Content, Title, Header, DecksArea, DeckItem, Container } from './styles';
+import { Wrapper, Container } from './styles';
 
-export default function FeaturedGallery({featuredDecks=[]}) {
+export default function FeaturedGallery() {
   const t = useTranslation()
+  const { featuredDecks } = useSelector((state:RootState) => state.users);
   
-  if (featuredDecks.length === 0) {
+  if (!featuredDecks || featuredDecks.length === 0) {
     return <></>;
   }
 
   return (
     <Wrapper>
       <Container>
-        <Header>
-          <IconLarge name="featured" />
-          <Title>{t('blocks.featured')}</Title>
-        </Header>
-        <Content>
-          <DecksArea>
-            {featuredDecks.map(d=> (
-              <DeckItem key={d.id}>
-                <Public deck={d.deck} />
-              </DeckItem>
-            ))}
-          </DecksArea>
-        </Content>
+        <Subtitle title={t('blocks.featured')} />
+        <List sessions={featuredDecks} />
       </Container>
     </Wrapper>
   );

@@ -12,20 +12,17 @@ export const Wrapper = styled.div`
 `;
 
 export const Content = styled.div`
-    padding: 10px;
-
     svg { 
         fill: var(--neutral60);
     }
 `;
 
 export const Items = styled.div`
-    background: var(--neutral0);
+    background: var(--secondary10);
     display: flex;
     align-items: center;
     justify-content: space-around;
     padding: 10px 5px;
-    border-radius: 10px;
 `;
 
 export const Item = styled.div`

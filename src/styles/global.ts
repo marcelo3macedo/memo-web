@@ -23,6 +23,8 @@ export const GlobalStyle = createGlobalStyle`
         --neutral10: #f7ffff;
         --neutral0: #fff;
 
+        --cold100: #3179c3;
+
         --warm01: #fee1e8;
         --warm30: #e9859e;
         --warm50: #e794a9;
@@ -51,7 +53,7 @@ export const GlobalStyle = createGlobalStyle`
     * {
         margin: 0;
         padding: 0; 
-        font-family: 'Roboto Slab', serif;
+        font-family: 'Barlow', serif;
     }
 
     h4, h5, h6 {

@@ -2,27 +2,49 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div`
     @media (max-width: 768px) {
-        padding-top: 100px;
+        padding-bottom: 80px;
     }
+
+    margin-top: 20px;
+    background: var(--neutral100);
 `;
 
 export const Content = styled.div`
 `;
 
-export const Container = styled.div`
-    max-width: 1100px;
-    margin: auto;
-`;
-
-export const Footer = styled.div`
-    background: var(--neutral100);
-    padding 10px 0;
-`;
-
 export const Copyright = styled.div`
     text-align: center;
+    padding: 10px 0;
 `;
 
-export const CopyrightMessage = styled.h5`
+export const CopyrightMessage = styled.h4`
     color: var(--neutral10);
+    padding: 10px 0;
+`;
+
+export const Info = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+`;
+
+export const Picture = styled.img`
+    width: 80px;
+`;
+
+export const Title = styled.h3`
+    color: var(--neutral0);
+`;
+
+export const Options = styled.div`
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+`;
+
+export const Option = styled.h5`
+    padding: 5px 0;
+    color: var(--neutral0);
 `;

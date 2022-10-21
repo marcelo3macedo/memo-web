@@ -6,7 +6,7 @@ import IconSmall from '@components/icons/IconSmall';
 import ButtonPrimary from '@components/button/ButtonPrimary';
 import { RootState } from '@store/modules/rootReducer';
 import { initAction } from '@store/modules/deck/edit/actions';
-import { navigatePush } from '@store/modules/navigate/actions';
+import { navigatePush } from '@store/mods/navigate/actions';
 import { PATH_REVIEW } from '@services/Navigation';
 import { editAction } from '@store/modules/personal/actions';
 import { reviewAction } from '@store/modules/deck/actions';

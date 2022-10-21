@@ -1,6 +1,9 @@
-export function loadAction() {
+export function loadAction(search=null) {
     return {
-        type: '@sessions/LOAD'
+        type: '@sessions/LOAD',
+        payload: {
+            search
+        }
     }
 }
 export function loadSuccessAction({ sessions }) {

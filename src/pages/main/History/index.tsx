@@ -2,32 +2,38 @@ import React, { useEffect } from 'react';
 import { useTranslation } from 'react-multi-lang';
 import { useDispatch, useSelector } from 'react-redux';
 
-import HeaderPage from '@components/header/HeaderPage';
-import Histories from '@components/sessions/Histories';
-import PageLoading from '@components/loading/PageLoading';
-import { loadAction } from '@store/modules/history/actions';
+import LoadingPage from '@modules/loading/elements/LoadingPage';
+import PageHeader from '@modules/headers/elements/PageHeader';
+import List from '@modules/histories/elements/List';
+import MorePages from '@modules/pagination/elements/MorePages';
+import { loadAction, loadMoreAction } from '@store/mods/histories/actions';
 import { RootState } from '@store/modules/rootReducer';
 
 import { Wrapper, Content } from './styles';
 
 export default function History() {
   const t = useTranslation();
-  const dispatch = useDispatch();
-  const { sessions, isLoading } = useSelector((state:RootState) => state.history);
-
+  const dispatch = useDispatch()
+  const { sessions, isLoading, pages, actualPage } = useSelector((state:RootState) => state.histories);
+  
   useEffect(() => {
-    dispatch(loadAction());
-  }, [dispatch]);
+    dispatch(loadAction())
+  }, [dispatch])
+
+  function loadMoreClick() {
+    dispatch(loadMoreAction())
+  }
 
   if (isLoading) {
-    return <PageLoading />;
+    return <LoadingPage />
   }
  
   return (
     <Wrapper>
       <Content>
-        <HeaderPage title={t('history.title')} subTitle={t('history.subTitle')}></HeaderPage>
-        <Histories sessions={sessions} />
+        <PageHeader title={t('history.title')} subTitle={t('history.subTitle')} />
+        <List sessions={sessions} />
+        <MorePages pages={pages} actualPage={actualPage} action={loadMoreClick} />
      </Content>
     </Wrapper>
   ); 

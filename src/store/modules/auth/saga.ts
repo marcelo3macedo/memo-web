@@ -1,15 +1,18 @@
 
 import { all, takeLatest, put, select } from "redux-saga/effects";
-import { authenticate, send } from "@services/Api/requester";
+import { authenticate, request } from "@services/Api/requester";
 import { API_ACTIVATE, API_REFRESHTOKEN, API_SESSION, API_USERS } from "@services/Api/routes";
-import { navigatePush } from "@store/modules/navigate/actions";
+import { navigatePush } from "@store/mods/navigate/actions";
 import { PATH_EMAIL_VALIDATION, PATH_HOME, PATH_MAIN, PATH_SIGN_IN } from "@services/Navigation";
-import { loadActivateFailed, refreshTokenAction, serverFailureAction, signInFailureAction, signInSuccessAction } from "./actions";
+import { loadActivateFailed, redirectClearUser, redirectUser, refreshTokenAction, serverFailureAction, setRedirectUrl, signInFailureAction, signInSuccessAction } from "./actions";
 import { LS_REFRESHTOKEN } from "@services/LocalStorage";
 import * as selectors from './selectors';
+import { createBrowserHistory } from "history";
+import { REQUESTER_POST } from "@constants/Requester";
 
 function* signIn({ payload }:any) {
-    const response = yield send({ 
+    const response = yield request({ 
+        type: REQUESTER_POST,
         method: API_SESSION, 
         data: {
             email: payload.user,
@@ -32,15 +35,19 @@ function* signIn({ payload }:any) {
 
     yield authenticate({ token, refreshToken});
     yield put(signInSuccessAction({ name, email }));
-    yield put(navigatePush({ path: PATH_MAIN }));
+    yield put(redirectUser());
 }
 
 function* signUp({ payload }:any) {
-    yield send({ method: API_USERS, data: {
-        name: payload.fullName,
-        email: payload.user,
-        password: payload.password
-    }});
+    yield request({ 
+        type: REQUESTER_POST,
+        method: API_USERS, 
+        data: {
+            name: payload.fullName,
+            email: payload.user,
+            password: payload.password
+        }
+    });
 
     yield put(navigatePush({ path: PATH_EMAIL_VALIDATION }));
 }
@@ -56,6 +63,7 @@ function* logout() {
 
 function* checkAuth({ payload }:any) {
     const signed = yield select(selectors.signed);
+    const history = createBrowserHistory()
     
     if (signed && !payload.force) {
         return true;
@@ -66,13 +74,14 @@ function* checkAuth({ payload }:any) {
         yield put(refreshTokenAction({ refreshToken }));
         return;
     }
-    
+
+    yield put(setRedirectUrl({ redirectTo: history.location.pathname }))        
     yield put(navigatePush({ path: PATH_SIGN_IN }));
-    return;
 }
 
 function* refreshToken({ payload }:any) {
-    const response = yield send({ method: API_REFRESHTOKEN, data: {
+    const response = yield request({ 
+        type: REQUESTER_POST, method: API_REFRESHTOKEN, data: {
         token: payload.refreshToken
     }});
 
@@ -82,7 +91,7 @@ function* refreshToken({ payload }:any) {
     }
 
     const { token, refreshToken, user } = response.data;
-    const { name, email } = user;
+    const { name, email     } = user;
 
     yield authenticate({ token, refreshToken});
 
@@ -94,7 +103,8 @@ function* activate({ payload }:any) {
         return
     }
 
-    const response = yield send({ method: API_ACTIVATE, data: {
+    const response = yield request({ 
+        type: REQUESTER_POST, method: API_ACTIVATE, data: {
         token: payload.token
     }});
 
@@ -111,6 +121,13 @@ function* activate({ payload }:any) {
     yield put(navigatePush({ path: PATH_MAIN }));
 }
 
+function* redirect() {
+    const redirectTo = yield select(selectors.redirectTo);
+    const path = redirectTo ? redirectTo : PATH_MAIN
+    yield put(redirectClearUser())
+    yield put(navigatePush({ path }))
+}
+
 export default all([
     takeLatest('@auth/SIGN_IN', signIn),
     takeLatest('@auth/SIGN_UP', signUp),
@@ -118,5 +135,6 @@ export default all([
     takeLatest('@auth/FORGOT_PASSWORD', forgotPassword),
     takeLatest('@auth/CHECK_AUTH', checkAuth),
     takeLatest('@auth/REFRESH_TOKEN', refreshToken),
-    takeLatest('@auth/LOAD_ACTIVATE', activate)
+    takeLatest('@auth/LOAD_ACTIVATE', activate),
+    takeLatest('@auth/REDIRECT_USER', redirect)
 ]);

@@ -9,7 +9,7 @@ import PageLoading from '@components/loading/PageLoading';
 import { PATH_REVIEW } from '@services/Navigation';
 import { RootState } from '@store/modules/rootReducer';
 import { cloneAction, reviewAction } from '@store/modules/deck/actions';
-import { navigatePush } from '@store/modules/navigate/actions';
+import { navigatePush } from '@store/mods/navigate/actions';
 
 import { Wrapper, Content, Title, Header, Action, Info, Description } from './styles';
 import { loadAction } from '@store/modules/deck/open/actions';

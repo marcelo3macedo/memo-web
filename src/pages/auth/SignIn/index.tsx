@@ -8,7 +8,7 @@ import ButtonPrimary from '@components/button/ButtonPrimary';
 import TextLinked from '@components/link/TextLinked';
 import ValidationMessage from '@components/validation/ValidationMessage';
 import { loadAction, signInAction } from '@store/modules/auth/actions';
-import { navigatePush } from '@store/modules/navigate/actions';
+import { navigatePush } from '@store/mods/navigate/actions';
 import { RootState } from '@store/modules/rootReducer';
 import { PATH_FORGOT_PASSWORD, PATH_SIGN_UP } from '@services/Navigation';
 import { initialValues, schema } from '@services/Validation/signIn.schema';

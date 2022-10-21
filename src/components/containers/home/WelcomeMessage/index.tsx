@@ -1,22 +1,16 @@
 import React from 'react';
 import { useTranslation } from 'react-multi-lang';
 
-import logo from "@assets/logo.png";
-
-import { Wrapper, Content, Title, Picture, Message } from './styles';
+import HeaderPage from '@components/header/HeaderPage';
+import { Wrapper } from './styles';
 
 export default function WelcomeMessage({ name }) {
   const t = useTranslation();
+  const userName = name ? name : t('welcome.user')
   
   return (
     <Wrapper>
-      <Content>
-        <Picture src={logo}/>
-        {name ? (
-          <Title>{t('welcome.title')} {name}!</Title>
-        ): <></>}        
-        <Message>{t('welcome.message')}</Message>
-      </Content>
+      <HeaderPage title={`${t('welcome.title')} ${userName} !`} subTitle={t('welcome.message')}></HeaderPage>
     </Wrapper>
   );
 }

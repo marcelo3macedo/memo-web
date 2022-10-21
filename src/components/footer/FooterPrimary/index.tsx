@@ -1,9 +1,9 @@
 import React from 'react';
 import { useTranslation } from 'react-multi-lang';
 
-import SidebarPrimary from '@components/sidebar/SidebarPrimary';
+import logoWhite from "@assets/logoWhite.png";
 
-import { Wrapper, Content, Container, Footer, Copyright, CopyrightMessage } from './styles';
+import { Wrapper, Content, Copyright, CopyrightMessage, Info, Picture, Title, Options, Option } from './styles';
 
 export default function FooterPrimary() {
   const t = useTranslation()
@@ -11,16 +11,18 @@ export default function FooterPrimary() {
   return (
     <Wrapper>
       <Content>
-          <SidebarPrimary />
-
-          <Footer>
-            <Container>
-
-              <Copyright>
-                <CopyrightMessage>{t('home.blockFooter.footer')}</CopyrightMessage>  
-              </Copyright>
-            </Container>
-          </Footer>
+        <Info>
+          <Picture src={logoWhite} alt={t('application.name')}/>
+          <Title>{t('application.name')}</Title>
+        </Info>
+        <Options>
+          <Option>{t('menu.policy')}</Option>
+          <Option>{t('menu.help')}</Option>
+          <Option>{t('menu.about')}</Option>
+        </Options>
+        <Copyright>
+          <CopyrightMessage>{t('home.blockFooter.footer')}</CopyrightMessage>  
+        </Copyright>
       </Content>
     </Wrapper>
   );

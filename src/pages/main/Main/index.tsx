@@ -1,22 +1,21 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 
-import WelcomeMessage from '@components/containers/home/WelcomeMessage';
-import AddOrSearchDecks from '@components/blocks/AddOrSearchDecks';
-import FeaturedGallery from '@components/blocks/FeaturedGallery';
-import OpenSessions from '@components/blocks/OpenSessions';
 import PageLoading from '@components/loading/PageLoading';
+import MessageWelcome from '@modules/blocks/elements/MessageWelcome';
+import ActionsWelcome from '@modules/blocks/elements/ActionsWelcome';
+import ActiveSessionWelcome from '@modules/blocks/elements/ActiveSessionWelcome';
+import SearchWelcome from '@modules/blocks/elements/SearchWelcome';
+import FeaturedGallery from '@modules/blocks/elements/FeaturedGallery';
 import { RootState } from '@store/modules/rootReducer';
-import { loadAction } from '@store/modules/user/actions';
-import background from "@assets/pages/home/background.png";
+import { loadAction } from '@store/mods/users/actions';
 
-import { Wrapper, Content, Background } from './styles';
+import { Wrapper, Content } from './styles';
 
 export default function Main() {
   const dispatch = useDispatch();
-  const { isLoading, sessions, featuredDecks } = useSelector((state:RootState) => state.user);
-  const { name } = useSelector((state:RootState) => state.auth);
-
+  const { isLoading } = useSelector((state:RootState) => state.users);
+  
   useEffect(() => {
     dispatch(loadAction());
   }, [dispatch]);
@@ -28,11 +27,11 @@ export default function Main() {
   return (
     <Wrapper>
       <Content>
-        <Background src={background} />
-        <WelcomeMessage name={name} />
-        <OpenSessions sessions={sessions} />
-        <AddOrSearchDecks />
-        <FeaturedGallery featuredDecks={featuredDecks} />
+        <MessageWelcome />
+        <ActionsWelcome />
+        <ActiveSessionWelcome />
+        <SearchWelcome />
+        <FeaturedGallery />
       </Content>
     </Wrapper>
   ); 

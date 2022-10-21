@@ -7,7 +7,7 @@ import { useDispatch } from "react-redux";
 import IconSmall from '@components/icons/IconSmall';
 import PageLoading from '@components/loading/PageLoading';
 import { PATH_SESSION } from '@services/Navigation';
-import { navigatePush } from '@store/modules/navigate/actions';
+import { navigatePush } from '@store/mods/navigate/actions';
 
 import { Wrapper, Content, Deck,  Title, Header, Details, Status, StatusTitle } from './styles';
 

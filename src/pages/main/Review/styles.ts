@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
     align-items: center;
     justify-content: center;
     height: 100vH;
-    background: var(--warm01);
+    background: var(--secondary20);
 `;
 
 export const Content = styled.div`
@@ -31,7 +31,8 @@ export const Header = styled.div`
 
 export const Body = styled.div`
     background: var(--neutral30);
-    border-radius: 10px;
+    box-shadow: 0 0 2px 2px var(--neutral50);
+    border-radius: 5px;
     width: 95%;
     margin: auto;
     padding: 20px 10px;
@@ -46,6 +47,7 @@ export const Position = styled.div`
 `;
 
 export const Info = styled.h5`
+    color: var(--neutral100);
 `;
 
 export const Title = styled.h5`
@@ -64,7 +66,7 @@ export const CardArea = styled.div`
 `;
 
 export const Message = styled.h1`
-    color: var(--neutral80);
+    color: var(--neutral100);
 `;
 
 export const Flip = styled.div`
@@ -72,7 +74,7 @@ export const Flip = styled.div`
     margin-top: -40px;
 
     svg {
-        fill: var(--neutral60);
+        fill: var(--neutral100);
     }
 `;
 
@@ -84,8 +86,8 @@ export const Actions = styled.div<IActions>`
 `;
 
 export const Action = styled.div`
-    border: 1px solid var(--neutral60);
-    background: var(--neutral80);
+    border: 1px solid var(--neutral100);
+    background: var(--neutral100);
     color: #fff;
     border-radius: 10px;
     width: 100%;

@@ -78,3 +78,19 @@ export function serverFailureAction() {
         type: '@auth/SERVER_FAILURE'
     }
 }
+export function setRedirectUrl({ redirectTo }) {
+    return {
+        type: '@auth/SET_REDIRECTTO',
+        payload: { redirectTo }
+    }
+}
+export function redirectUser() {
+    return {
+        type: '@auth/REDIRECT_USER'
+    }
+}
+export function redirectClearUser() {
+    return {
+        type: '@auth/REDIRECT_CLEAR_USER'
+    }
+}
