@@ -25,10 +25,11 @@ import featured from "../mods/featured/saga";
 import redirect from "../mods/redirect/saga";
 import histories from "../mods/histories/saga";
 import integrations from "../mods/integrations/saga";
+import users from "../mods/users/saga";
 
 export default function* rootSaga() {
     return yield all([
-        cards, decks, options, sessions, featured, histories, redirect, integrations,
+        cards, decks, options, sessions, featured, histories, redirect, integrations, users,
         auth, user, deckRemove, deckEdit, deckOpen, personal, deck, menu, navigate, validation, gallery, session, search, profile, frequencies, review, themes
     ])
 }

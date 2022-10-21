@@ -10,7 +10,7 @@ import { Wrapper, Container } from './styles';
 
 export default function FeaturedGallery() {
   const t = useTranslation()
-  const { featuredDecks } = useSelector((state:RootState) => state.user);
+  const { featuredDecks } = useSelector((state:RootState) => state.users);
   
   if (!featuredDecks || featuredDecks.length === 0) {
     return <></>;

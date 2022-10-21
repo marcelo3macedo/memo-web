@@ -26,6 +26,7 @@ import featured from "../mods/featured/reducer";
 import redirect from "../mods/redirect/reducer";
 import histories from "../mods/histories/reducer";
 import integrations from "../mods/integrations/reducer";
+import users from "../mods/users/reducer";
 
 export const rootReducer = combineReducers({
     modal,
@@ -38,6 +39,7 @@ export const rootReducer = combineReducers({
     redirect,
     histories,
     integrations,
+    users,
     
     auth,
     user,

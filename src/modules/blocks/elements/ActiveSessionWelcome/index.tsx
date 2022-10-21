@@ -11,7 +11,7 @@ import { Wrapper, Content } from './styles';
 
 export default function ActiveSessionWelcome() {
   const t = useTranslation()
-  const { sessions } = useSelector((state:RootState) => state.user);
+  const { sessions } = useSelector((state:RootState) => state.users);
 
   if (!sessions || sessions.length === 0) {
     return <></>
