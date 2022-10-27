@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from "prop-types";
+import { useTranslation } from 'react-multi-lang';
 
 import logo from '@assets/logo.png';
 import background from "@assets/pages/auth/background.png";
@@ -8,13 +9,15 @@ import ValidationAlert from '@components/validation/ValidationAlert';
 import { Wrapper, Content, Header, Logo, Title, Background } from './styles';
 
 export default function AuthLayout ({ children }) {
+  const t = useTranslation()
+
   return (
     <Wrapper>
       <Background src={background} />
       <Content>
         <Header>
           <Logo src={logo}></Logo>
-          <Title></Title>
+          <Title>{t('application.name')}</Title>
         </Header>
         {children}
         <ValidationAlert/>
