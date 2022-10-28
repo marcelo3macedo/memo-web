@@ -4,9 +4,7 @@ export const Wrapper = styled.div`
     padding: 15px 10px;
 
     @media (min-width: 768px) {
-        background: var(--secondary15);
-        width: 70%;
-        padding: 15px 20px;
+        display: none;
     }
 `;
 
