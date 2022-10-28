@@ -1,0 +1,22 @@
+import React from 'react';
+import { useTranslation } from 'react-multi-lang';
+
+import IconMedium from '@components/icons/IconMedium';
+
+import { Wrapper, Content, Details, Action, ActionName } from './styles';
+
+export default function CardOptions() {
+  const t = useTranslation()
+  
+  return (
+    <Wrapper>
+      <Content>
+        <Action>
+          <IconMedium name={"flip"} />
+          <ActionName>{t('review.seeResults')}</ActionName>
+        </Action>
+        <Details>{t('review.details')}</Details>
+      </Content>
+    </Wrapper>
+  );
+}
