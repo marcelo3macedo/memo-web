@@ -9,6 +9,10 @@ export const Content = styled.div`
     align-items: center;
     justify-content: space-around;
     width: 100%;
+
+    @media (max-width: 768px) {
+        flex-wrap: wrap;
+    }    
 `;
 
 export const Message = styled.h3`
@@ -33,10 +37,15 @@ export const Action = styled.div`
     background: var(--neutral50);
     min-width: 150px;
     border-radius: 10px;
-
+    
     &:hover {
         cursor: pointer;
         opacity: 0.8;
+    }
+
+    @media (max-width: 768px) {
+        margin: 5px 0;
+        width: 100%;
     }
 `;
 

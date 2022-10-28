@@ -1,11 +1,21 @@
 import styled from 'styled-components';
 
-export const Wrapper = styled.div`
-    padding: 10px;
+export const Wrapper = styled.div` 
+    padding: 15px 0;
+    max-width: 800px;    
+    margin: auto;
 `;
 
 export const Content = styled.div`
-    padding: 10px 0;
+    min-height: 500px;
+    padding: 0 40px;
+    text-align: center;
+    background: var(--neutral0);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
 `;
 
 export const Actions = styled.div`
