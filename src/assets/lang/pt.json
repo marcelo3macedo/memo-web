@@ -339,5 +339,16 @@
     },
     "blocks": {
         "featured": "Em Destaque"
+    },
+    "review": {
+        "think": "Antes de ver a ",
+        "seeResults": "Ver resposta",
+        "subTitle": "Sessão",
+        "question": "Pergunta",
+        "of": "de",
+        "theme": "Tema",
+        "details": "Antes de visualizar a resposta, recomendamos analisar a pergunta por alguns segundos.",
+        "choose": "Qual foi sua dificuldade para relembrar essa resposta?",
+        "next": "Sua resposta irá auxiliar o memorizou para criar suas futuras sessões. Ao selecionar uma resposta você será redirecionado a próxima pergunta"
     }
 }
