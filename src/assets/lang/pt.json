@@ -350,5 +350,11 @@
         "details": "Antes de visualizar a resposta, recomendamos analisar a pergunta por alguns segundos.",
         "choose": "Qual foi sua dificuldade para relembrar essa resposta?",
         "next": "Sua resposta irá auxiliar o memorizou para criar suas futuras sessões. Ao selecionar uma resposta você será redirecionado a próxima pergunta"
+    },
+    "reviewCompleted": {
+        "congrats": "Parabéns!",
+        "subTitle": "Você completou a sessão:",
+        "check": "Iremos analisar suas respostas e em breve selecionar novas perguntas para auxiliar na memorização desse tema",
+        "back": "Voltar para Home"
     }
 }
