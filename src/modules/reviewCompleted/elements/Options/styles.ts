@@ -8,6 +8,11 @@ export const Content = styled.div`
     text-align: center;
     display: flex;
     padding: 0 40px;
+
+    @media (max-width: 768px) {
+        padding: 0;
+        flex-wrap: wrap;
+    }
 `;
 
 export const Option = styled.div`

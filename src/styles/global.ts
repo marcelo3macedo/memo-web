@@ -162,12 +162,16 @@ export const GlobalStyle = createGlobalStyle`
         }
 
         h1 {
-            font-size: 1.7em;
+            font-size: 1.6em;
             font-weight: 800;
         }
 
         h2 {
-            font-size: 1.3em;
+            font-size: 1.2em;
+        }
+
+        h3 {
+            font-size: 1.1em;
         }
     }
 `;

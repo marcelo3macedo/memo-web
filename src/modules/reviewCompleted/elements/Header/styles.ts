@@ -29,4 +29,9 @@ export const Name = styled.h1`
 export const Image = styled.img`
     max-width: 120px;
     padding: 0 0 0 40px;
+
+    @media (max-width: 768px) {
+        max-width: 70px;
+        padding: 0 0 0 20px;
+    }
 `;
