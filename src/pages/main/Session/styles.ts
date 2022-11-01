@@ -1,11 +1,7 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-    min-height: 100vH;
-
-    @media (min-width: 768px) {
-        max-width: 800px;
-    }
+    min-height: 100vH;    
 `;
 
 export const Content = styled.div`
@@ -19,9 +15,16 @@ export const Description = styled.h4`
 
 export const Action = styled.div`
     width: 100%;
-    margin: 10px auto;
+    max-width: 400px;
+    margin: 10px 0;
 
     button {
         width: 100%;
     }
+`;
+
+export const TutorialArea = styled.div`
+    margin: 40px 0;
+    padding: 10px 0;
+    border-top: 2px solid var(--neutral50);
 `;

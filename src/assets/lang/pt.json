@@ -15,7 +15,8 @@
         "integrations": "Integrações",
         "company": "Institucional",
         "policy": "Políticas de Privacidade",
-        "about": "Sobre"
+        "about": "Sobre",
+        "new": "Criar Sessão"
     },
     "search": {
         "results": "Resultados de: "
@@ -356,5 +357,14 @@
         "subTitle": "Você completou a sessão:",
         "check": "Iremos analisar suas respostas e em breve selecionar novas perguntas para auxiliar na memorização desse tema",
         "back": "Voltar para Home"
+    },
+    "tutorial": {
+        "reviewTitle": "Tutorial de Revisão",
+        "analyse": "Analise o card apresentado",
+        "analyseDescription": "Leia o tema e a questão apresentada, poderá vir em forma de pergunta ou para que seja completado uma sentença.|Recomendamos que você reflita por um momento sobre qual pode ser a resposta da questão.",
+        "answer": "Veja a resposta",
+        "answerDescription": "Clique em ver resposta.|Com essa ação, o card será virado e a resposta da pergunta será exibida.",
+        "rate": "Avalie",
+        "rateDescription": "Analise a resposta apresentada e avalie como foi para você relembrar o conteúdo.|Algumas opções será mostradas: Não lembrei, Fácil, Médio e Difícil.|Com base na sua resposta, o memorizou irá criar no futuro uma nova sessão visando a melhor memorização do tema em questão."
     }
 }

@@ -29,6 +29,7 @@ import { ReactComponent as PlusIcon } from "@assets/icons/plus.svg";
 import { ReactComponent as NewIcon } from "@assets/icons/new.svg";
 import { ReactComponent as TelegramIcon } from "@assets/icons/telegram.svg";
 import { ReactComponent as FlipIcon } from "@assets/icons/flip.svg";
+import { ReactComponent as UserCoveredIcon } from "@assets/icons/userCovered.svg";
 
 export const Icons = {
     user: UserIcon,
@@ -61,5 +62,6 @@ export const Icons = {
     plus: PlusIcon,
     new: NewIcon,
     telegram: TelegramIcon,
-    flip: FlipIcon
+    flip: FlipIcon,
+    userCovered: UserCoveredIcon
 }
