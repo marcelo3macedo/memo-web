@@ -5,13 +5,15 @@ import { useParams } from 'react-router-dom';
 
 import ButtonPrimary from '@components/button/ButtonPrimary';
 import PageLoading from '@components/loading/PageLoading';
+import { getTimeFromNow } from '@helpers/DateHelper';
 import PageHeader from '@modules/headers/elements/PageHeader';
-import { formatDateField } from '@services/Format';
+import Review from '@modules/tutorial/elements/Review';
+import Details from '@modules/decks/elements/Details';
 import { RootState } from '@store/modules/rootReducer';
 import { loadIndexAction } from '@store/mods/sessions/actions';
 import { loadAction } from '@store/mods/review/actions';
 
-import { Wrapper, Content, Description, Action } from './styles';
+import { Wrapper, Content, Description, Action, TutorialArea } from './styles';
 
 export default function Session() {
   const dispatch = useDispatch();
@@ -38,11 +40,15 @@ export default function Session() {
   return (
     <Wrapper>
       <Content>
-        <PageHeader title={index.deck.name} subTitle={`${t('session.createdAt')} ${formatDateField(index.createdAt)}`} />
-        <Description>{index.deck.description}</Description>
+        <PageHeader title={index.deck.name} subTitle={''} />
+        {index.deck.description ? (<Description>{index.deck.description}</Description>):<></>}
+        <Details cardNumber={index.cards.length} passedTime={getTimeFromNow(index.createdAt)} />
         <Action>
           <ButtonPrimary content={t('actions.review')} action={reviewClick}/>
         </Action>
+        <TutorialArea>
+          <Review />
+        </TutorialArea>
       </Content>
     </Wrapper>
   ); 

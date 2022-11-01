@@ -6,9 +6,10 @@ import FooterPrimary from '@components/footer/FooterPrimary';
 import MenuPrimary from '@components/menu/MenuPrimary';
 import SearchPrimary from '@components/search/SearchPrimary';
 import SidebarPrimary from '@components/sidebar/SidebarPrimary';
-
-import { Wrapper, Content, Section, Body, PageContainer } from './styles';
 import MenuSidebar from '@components/menu/MenuSidebar';
+import MenuUserTop from '@components/menu/MenuUserTop';
+
+import { Wrapper, Content, Section, Body, PageContainer, PageWrapper } from './styles';
 
 export default function MainLayout ({ children }) {
   return (
@@ -19,9 +20,13 @@ export default function MainLayout ({ children }) {
             <HeaderPrimary />
             <Body>
               <MenuSidebar/>
-              <PageContainer>
-                {children}
-              </PageContainer>
+              <PageWrapper>
+                <MenuUserTop />
+                <PageContainer>
+                  {children}
+                </PageContainer>
+              </PageWrapper>
+              
             </Body>
           </Section>
           <SidebarPrimary />

@@ -33,7 +33,12 @@ export const Body = styled.div`
 
 export const PageContainer = styled.div`
     @media (min-width: 768px) {
-        padding: 20px;
+        padding: 20px;        
+    }
+`;
+
+export const PageWrapper = styled.div`
+    @media (min-width: 768px) {
         width: 100%;
     }
 `;
