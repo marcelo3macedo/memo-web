@@ -18,3 +18,5 @@ export const API_ACTIVATE = "/activate";
 export const API_DECKSPATH = "/decks/path";
 export const API_DIFFICULTIES = "/difficulties";
 export const API_INTEGRATION = "/integrations";
+export const API_PLANS = "/plans";
+export const API_PLANS_OPTION = "/plans/options";

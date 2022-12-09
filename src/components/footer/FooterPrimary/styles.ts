@@ -47,4 +47,9 @@ export const Options = styled.div`
 export const Option = styled.h5`
     padding: 5px 0;
     color: var(--neutral0);
+
+    &:hover {
+        cursor: pointer;
+        opacity: var(--opacity);
+    }
 `;

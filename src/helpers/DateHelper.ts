@@ -7,6 +7,11 @@ function getTimeFromNow(date) {
     return Moment(date).fromNow()
 }
 
+function formatTimeAsString(date) {
+    return Moment(date).format("DD/MM/YYYY")
+}
+
 export {
-    getTimeFromNow
+    getTimeFromNow,
+    formatTimeAsString
 } 

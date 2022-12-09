@@ -9,7 +9,7 @@ import { Wrapper } from './styles';
 
 export default function MessageWelcome() {
   const t = useTranslation()
-  const { name } = useSelector((state:RootState) => state.auth.user);
+  const { name } = useSelector((state:RootState) => state.auth.user) || {};
   const userName = name ? name : t('welcome.user')
   
   return (

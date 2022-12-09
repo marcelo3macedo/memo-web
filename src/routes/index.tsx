@@ -17,7 +17,6 @@ import CreateSession from "@pages/main/CreateSession";
 import Session from "@pages/main/Session";
 import PrivacyPolicy from "@pages/main/PrivacyPolicy";
 import SessionCompleted from "@pages/main/SessionCompleted";
-import Home from "@pages/public/Home";
 import Review from "@pages/main/Review";
 import Account from "@pages/main/Account";
 import Profile from "@pages/main/Profile";
@@ -30,11 +29,16 @@ import GalleryDeck from "@pages/public/GalleryDeck";
 import Sessions from "@pages/main/Sessions";
 import EditSession from "@pages/main/EditSession";
 import Featured from "@pages/main/Featured";
-
-import { PATH_FORGOT_PASSWORD, PATH_SESSION, PATH_SIGN_IN, PATH_SIGN_UP, PATH_RECOVERED, PATH_SESSION_COMPLETED, PATH_PRIVACY_POLICY, PATH_ABOUT, PATH_HELP, PATH_MYACCOUNT, PATH_DECK, PATH_REVIEW, PATH_MAIN, PATH_HOME, PATH_ACCOUNT, PATH_PROFILE, PATH_HISTORY, PATH_GALLERY, PATH_ACTIVE, PATH_EMAIL_VALIDATION, PATH_GALLERYDECK, PATH_SESSIONS, PATH_CREATESESSION, PATH_EDITSESSION, PATH_FEATURED, PATH_INTEGRATION, PATH_INTEGRATION_TELEGRAM } from "@services/Navigation";
 import Integration from "@pages/main/Integration";
 import IntegrationTelegram from "@pages/main/IntegrationTelegram";
 import SessionPublic from "@pages/main/SessionPublic";
+import Tutorial from "@pages/main/Tutorial";
+
+import { PATH_FORGOT_PASSWORD, PATH_SESSION, PATH_SIGN_IN, PATH_SIGN_UP, PATH_RECOVERED, PATH_SESSION_COMPLETED, PATH_PRIVACY_POLICY, PATH_ABOUT, PATH_HELP, PATH_MYACCOUNT, PATH_DECK, PATH_REVIEW, PATH_MAIN, PATH_HOME, PATH_ACCOUNT, PATH_PROFILE, PATH_HISTORY, PATH_GALLERY, PATH_ACTIVE, PATH_EMAIL_VALIDATION, PATH_GALLERYDECK, PATH_SESSIONS, PATH_CREATESESSION, PATH_EDITSESSION, PATH_FEATURED, PATH_INTEGRATION, PATH_INTEGRATION_TELEGRAM, PATH_TUTORIAL, PATH_TUTORIAL_CARDS, PATH_PLANS } from "@services/Navigation";
+import TutorialCards from "@pages/main/TutorialCards";
+import Plans from "@pages/public/Plans";
+import PlanType from "@pages/main/PlanType";
+
 
 export default function Routes() {
     const location = useLocation();
@@ -64,9 +68,13 @@ export default function Routes() {
             <Router path={PATH_INTEGRATION_TELEGRAM + "/:id"} component={IntegrationTelegram} layout={Layouts.Main}/>  
             <Router path={PATH_INTEGRATION_TELEGRAM} component={IntegrationTelegram} layout={Layouts.Main}/>
             <Router path={PATH_INTEGRATION} component={Integration} layout={Layouts.Main}/>  
+            <Router path={PATH_TUTORIAL_CARDS} component={TutorialCards} layout={Layouts.Main}/>  
+            <Router path={PATH_TUTORIAL} component={Tutorial} layout={Layouts.Main}/>            
+            <Router path={PATH_PLANS + "/:type"} component={PlanType} layout={Layouts.Main} />
+            <Router path={PATH_PLANS} component={Plans} layout={Layouts.Main} />
                         
             <Router path={PATH_REVIEW} component={Review} layout={Layouts.Full}/>              
-            <Router path={PATH_SESSION_COMPLETED} component={SessionCompleted} layout={Layouts.Full}/>                          
+            <Router path={PATH_SESSION_COMPLETED} component={SessionCompleted} layout={Layouts.Full}/>
             
             <Router path={PATH_SIGN_IN} component={SignIn} layout={Layouts.Auth}/>    
             <Router path={PATH_FORGOT_PASSWORD} component={Recover} layout={Layouts.Auth}/>
@@ -75,7 +83,7 @@ export default function Routes() {
             <Router path={PATH_ACTIVE} component={Activate} layout={Layouts.Auth}/>
             <Router path={PATH_EMAIL_VALIDATION} component={Validation} layout={Layouts.Auth}/>
 
-            <Router path={PATH_HOME} exact component={Home} layout={Layouts.Public}  />
+            <Router path={PATH_HOME} exact component={Main} layout={Layouts.Main}  />
         </Switch>
     );
 }
