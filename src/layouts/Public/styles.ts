@@ -25,7 +25,7 @@ export const Body = styled.div`
 `;
 
 export const Header = styled.div`
-    max-width: 1100px;
+    max-width: var(--maxWidth);
     margin: auto;   
     padding: 15px 0;
     display: flex;

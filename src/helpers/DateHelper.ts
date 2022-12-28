@@ -11,7 +11,12 @@ function formatTimeAsString(date) {
     return Moment(date).format("DD/MM/YYYY")
 }
 
+function formatDateTimeAsString(date) {
+    return Moment(date).format("DD/MM/YYYY HH:mm:ss")
+}
+
 export {
     getTimeFromNow,
-    formatTimeAsString
+    formatTimeAsString,
+    formatDateTimeAsString
 } 

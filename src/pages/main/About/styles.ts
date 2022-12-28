@@ -17,14 +17,13 @@ export const Title = styled.h1`
     }
 `;
 
-export const Paragraph = styled.h5`
+export const Paragraph = styled.h4`
     padding: 10px 0;
     line-height: 20px;
     color: var(--neutral100);
 
     @media (min-width: 768px) {
-        line-height: 24px;
-        font-size: 11pt;
+        line-height: 32px;
     }
 `;
 

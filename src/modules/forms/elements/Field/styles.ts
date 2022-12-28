@@ -8,7 +8,7 @@ export const Content = styled.div`
 
 export const Title = styled.h5`
     color: var(--neutral100);
-    padding: 2px 0;
+    padding: 5px 0;
 `;
 
 

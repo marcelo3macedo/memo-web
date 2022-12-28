@@ -3,6 +3,12 @@
         "name": "Memorizou",
         "title": "Sua ferramenta de memorização"
     },
+    "options": {
+        "search": "Buscar",
+        "inGallery": "Na Galeria",
+        "create": "Criar",
+        "newSession": "Nova Sessão"
+    },
     "menu": {
         "home": "Home",
         "sessions": "Sessões",
@@ -378,6 +384,7 @@
         "title": "Planos",
         "subtitle": "Detalhes do seu plano de assinatura",
         "advantages": "Vantagens do Plano PRO",
+        "history": "Ver histórico de Transações",
         "type": {
             "standard": "Standard",
             "pro": "PRO"
@@ -418,6 +425,15 @@
             "error": "CPF/CNPJ inválidos",
             "payNow": "Pague agora com o PIX",
             "useCode": "Ou utilize o código gerado"
+        }
+    },
+    "transaction": {
+        "title": "Histórico de Transações",
+        "subtitle": "Veja as suas últimas transações realizadas na plataforma",
+        "notFound": "Nenhuma transacão encontrada.",
+        "options": {
+            "date": "Data Transação",
+            "value": "Valor"
         }
     }
 }

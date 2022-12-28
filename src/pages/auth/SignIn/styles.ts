@@ -69,7 +69,7 @@ export const FormArea = styled.div`
 `;
 
 export const InputText = styled.h6`
-    font-weight: bold;    
+    font-weight: bold; 
 `;
 
 export const InfoText = styled.h4`
@@ -78,7 +78,7 @@ export const InfoText = styled.h4`
 
 export const InfoFeaturedText = styled.h4`
     padding: 0 5px;
-    color: var(--secondaryDark);
+    color: var(--pallete03);
     font-weight: bold;
     text-decoration: underline;
 

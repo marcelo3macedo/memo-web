@@ -27,12 +27,11 @@ function* signIn({ payload }:any) {
     }
 
     const { token, refreshToken } = response.data;
-    const { sub, email, name, isPro } = parseToken(token);
+    const { sub, email, name } = parseToken(token);
     const user = {
         id: sub,
         email,
-        name,
-        isPro
+        name
     }
     
     yield authenticate({ token, refreshToken});

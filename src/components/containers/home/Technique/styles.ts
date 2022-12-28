@@ -9,7 +9,7 @@ export const Content = styled.div`
     justify-content: center;
     flex-direction: column; 
     width: 100%;
-    max-width: 1100px; 
+    max-width: var(--maxWidth); 
     margin: auto;    
     min-height: 700px;
 

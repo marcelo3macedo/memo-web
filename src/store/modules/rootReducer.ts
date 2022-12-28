@@ -29,6 +29,7 @@ import integrations from "../mods/integrations/reducer";
 import users from "../mods/users/reducer";
 import plans from "../mods/plans/reducer";
 import planOptions from "../mods/planOptions/reducer";
+import transactions from "../mods/transactions/reducer";
 
 export const rootReducer = combineReducers({
     modal,
@@ -44,6 +45,7 @@ export const rootReducer = combineReducers({
     users,
     plans,
     planOptions,
+    transactions,
     
     auth,
     user,

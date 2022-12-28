@@ -11,6 +11,6 @@ export const Content = styled.div`
 `;
 
 export const Picture = styled.img`
-    width: 100px;
+    width: 130px;
     margin: auto;
 `;

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-    background-image: linear-gradient(var(--secondary15), var(--secondary10));
+    background: var(--pallete01);
     height: 100vH;
     padding: 40px 0;
 
@@ -31,7 +31,7 @@ export const Header = styled.div`
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    background: var(--secondaryDark);
+    background: var(--pallete02);
 
     @media (max-width: 768px) {
         width: 100%;
@@ -41,7 +41,7 @@ export const Header = styled.div`
 `;
 
 export const Logo = styled.img`
-    width: 150px;
+    width: 180px;
     padding: 20px 0;
 
     @media (max-width: 768px) {
@@ -51,7 +51,7 @@ export const Logo = styled.img`
 `;
 
 export const Title = styled.h1`
-    color: var(--secondaryDark);
+    color: var(--pallete03);
     
     @media (min-width: 768px) {
         color: var(--neutral10);

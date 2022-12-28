@@ -2,6 +2,10 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div`
     width: 100%;
+
+    @media (max-width: 768px) {
+        display: none;
+    }
 `;
 
 export const Content = styled.div`

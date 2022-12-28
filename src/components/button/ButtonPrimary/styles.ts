@@ -4,7 +4,7 @@ import styled from "styled-components";
 export const Wrapper = styled.button<Button>`
     padding: 10px 20px;
     border-radius: 5px;
-    background: var(--secondaryDark);
+    background: var(--pallete03);
     color: var(--textSecondary100);
     border: none;
     min-width: 100px;

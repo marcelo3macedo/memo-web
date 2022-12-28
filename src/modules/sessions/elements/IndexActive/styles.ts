@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`    
-    margin: 5px 0;
+    margin: 15px 0;
 `;
 
 export const Content = styled.div`
@@ -19,6 +19,7 @@ export const Content = styled.div`
 `;
 
 export const Header = styled.div`   
+    padding: 10px 0;
 `;
 
 export const Footer = styled.div`    

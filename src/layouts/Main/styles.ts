@@ -12,7 +12,7 @@ export const Content = styled.div`
 
 export const Section = styled.div`
     @media (min-width: 768px) {
-        max-width: 1100px;
+        max-width: var(--maxWidth);
         margin: auto;
         display: flex;
         align-items: center;

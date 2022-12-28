@@ -28,10 +28,11 @@ import integrations from "../mods/integrations/saga";
 import users from "../mods/users/saga";
 import plans from "../mods/plans/saga";
 import planOptions from "../mods/planOptions/saga";
+import transactions from "../mods/transactions/saga";
 
 export default function* rootSaga() {
     return yield all([
-        cards, decks, options, sessions, featured, histories, redirect, integrations, users, plans, planOptions,
+        cards, decks, options, sessions, featured, histories, redirect, integrations, users, plans, planOptions, transactions,
         auth, user, deckRemove, deckEdit, deckOpen, personal, deck, menu, navigate, validation, gallery, session, search, profile, frequencies, review, themes
     ])
 }

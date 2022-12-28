@@ -34,7 +34,7 @@ export const Action = styled.div`
 
 export const Title = styled.h3`
     color: var(--neutral0);
-    padding-top: 10px;
+    padding: 10px 0 5px 0;
 `;
 
 export const SubTitle = styled.h4`

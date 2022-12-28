@@ -2,10 +2,10 @@ import React from 'react';
 import { useTranslation } from 'react-multi-lang';
 import { useDispatch } from 'react-redux';
 
-import logoWhite from "@assets/logoWhite.png";
+import logo from "@assets/logos/logo.png";
 import { navigatePush } from '@store/mods/navigate/actions';
 
-import { Wrapper, Content, Copyright, CopyrightMessage, Info, Picture, Title, Options, Option } from './styles';
+import { Wrapper, Content, Copyright, CopyrightMessage, Info, Picture, Options, Option } from './styles';
 import { PATH_ABOUT, PATH_HELP, PATH_HOME, PATH_PRIVACY_POLICY } from '@services/Navigation';
 
 export default function FooterPrimary() {
@@ -20,8 +20,7 @@ export default function FooterPrimary() {
     <Wrapper>
       <Content>
         <Info>
-          <Picture src={logoWhite} alt={t('application.name')}/>
-          <Title>{t('application.name')}</Title>
+          <Picture src={logo} alt={t('application.name')}/>
         </Info>
         <Options>
           <Option onClick={() => { navigateTo(PATH_HOME) }}>{t('menu.home')}</Option>

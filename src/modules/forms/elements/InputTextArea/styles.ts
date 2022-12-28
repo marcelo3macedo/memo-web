@@ -24,6 +24,7 @@ export const Content = styled.div<AddDeck>`
         background: none;
         width: 100%;
         height: 80px;
+        font-size: 12pt;
     
         &::placeholder {
             color: var(--neutral60);

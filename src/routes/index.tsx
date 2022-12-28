@@ -33,11 +33,12 @@ import Integration from "@pages/main/Integration";
 import IntegrationTelegram from "@pages/main/IntegrationTelegram";
 import SessionPublic from "@pages/main/SessionPublic";
 import Tutorial from "@pages/main/Tutorial";
-
-import { PATH_FORGOT_PASSWORD, PATH_SESSION, PATH_SIGN_IN, PATH_SIGN_UP, PATH_RECOVERED, PATH_SESSION_COMPLETED, PATH_PRIVACY_POLICY, PATH_ABOUT, PATH_HELP, PATH_MYACCOUNT, PATH_DECK, PATH_REVIEW, PATH_MAIN, PATH_HOME, PATH_ACCOUNT, PATH_PROFILE, PATH_HISTORY, PATH_GALLERY, PATH_ACTIVE, PATH_EMAIL_VALIDATION, PATH_GALLERYDECK, PATH_SESSIONS, PATH_CREATESESSION, PATH_EDITSESSION, PATH_FEATURED, PATH_INTEGRATION, PATH_INTEGRATION_TELEGRAM, PATH_TUTORIAL, PATH_TUTORIAL_CARDS, PATH_PLANS } from "@services/Navigation";
 import TutorialCards from "@pages/main/TutorialCards";
 import Plans from "@pages/public/Plans";
 import PlanType from "@pages/main/PlanType";
+import Transaction from "@pages/main/Transaction";
+
+import { PATH_FORGOT_PASSWORD, PATH_SESSION, PATH_SIGN_IN, PATH_SIGN_UP, PATH_RECOVERED, PATH_SESSION_COMPLETED, PATH_PRIVACY_POLICY, PATH_ABOUT, PATH_HELP, PATH_MYACCOUNT, PATH_DECK, PATH_REVIEW, PATH_MAIN, PATH_HOME, PATH_ACCOUNT, PATH_PROFILE, PATH_HISTORY, PATH_GALLERY, PATH_ACTIVE, PATH_EMAIL_VALIDATION, PATH_GALLERYDECK, PATH_SESSIONS, PATH_CREATESESSION, PATH_EDITSESSION, PATH_FEATURED, PATH_INTEGRATION, PATH_INTEGRATION_TELEGRAM, PATH_TUTORIAL, PATH_TUTORIAL_CARDS, PATH_PLANS, PATH_TRANSACTIONS } from "@services/Navigation";
 
 
 export default function Routes() {
@@ -72,6 +73,7 @@ export default function Routes() {
             <Router path={PATH_TUTORIAL} component={Tutorial} layout={Layouts.Main}/>            
             <Router path={PATH_PLANS + "/:type"} component={PlanType} layout={Layouts.Main} />
             <Router path={PATH_PLANS} component={Plans} layout={Layouts.Main} />
+            <Router path={PATH_TRANSACTIONS} component={Transaction} layout={Layouts.Main} />
                         
             <Router path={PATH_REVIEW} component={Review} layout={Layouts.Full}/>              
             <Router path={PATH_SESSION_COMPLETED} component={SessionCompleted} layout={Layouts.Full}/>

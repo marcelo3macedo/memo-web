@@ -1,5 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useTranslation } from 'react-multi-lang';
 
 import SquareAction from '@modules/actions/elements/SquareAction';
 import { PATH_CREATESESSION, PATH_GALLERY } from '@services/Navigation';
@@ -10,9 +11,9 @@ import { RootState } from '@store/modules/rootReducer';
 
 export default function ActionsWelcome() {
   const dispatch = useDispatch()
-  const user = useSelector((state:RootState) => state.auth.user)
-  const { isPro } = user || {}
-
+  const t = useTranslation()
+  const { userRole:isPro } = useSelector((state:RootState) => state.users)
+  
   function galleryAction() {
     dispatch(navigatePush({ path: PATH_GALLERY }))
   }
@@ -24,8 +25,8 @@ export default function ActionsWelcome() {
   return (
     <Wrapper>
       <Content>
-         <SquareAction title={"Buscar"} subTitle={"na galeria"} icon={"gallery"} action={galleryAction} />
-         { isPro ? <SquareAction title={"Criar"} subTitle={"nova sessão"} icon={"new"} template={"cold"} action={createAction} /> : <></> }
+         <SquareAction title={t('options.search')} subTitle={t('options.inGallery')} icon={"gallery"} action={galleryAction} />
+         { isPro ? <SquareAction title={t('options.create')} subTitle={t('options.newSession')} icon={"new"} template={"cold"} action={createAction} /> : <></> }
       </Content>
     </Wrapper>
   );

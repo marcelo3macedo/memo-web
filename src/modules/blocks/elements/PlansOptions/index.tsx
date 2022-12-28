@@ -13,14 +13,19 @@ export default function PlansOptions() {
   const t = useTranslation()
   const dispatch = useDispatch()
   const { plans } = useSelector((state:RootState) => state.plans)
-  const options = plans.reduce((a, o) => (o.options.map(oa => a.push(oa) ), a), [])
-
+  const { userRole } = useSelector((state:RootState) => state.users)
+  const options = plans.reduce((a, current) => a.concat(current.options), [])
+  
   function getTypeName(price) {
     return `R$ ${price}`
   }
 
   function openOption(name) {
     dispatch(navigatePush({ path: `${PATH_PLANS}/${name}` }))
+  }
+
+  if (userRole) {
+    return <></>
   }
 
   return (

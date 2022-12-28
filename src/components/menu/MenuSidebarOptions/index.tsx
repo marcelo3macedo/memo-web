@@ -12,9 +12,8 @@ import { Wrapper, Content } from './styles';
 export default function MenuSidebarOptions() {
   const dispatch = useDispatch()
   const t = useTranslation()
-  const user = useSelector((state:RootState) => state.auth.user)
-  const { isPro } = user || {}
-
+  const { userRole:isPro } = useSelector((state:RootState) => state.users)
+  
   function navigate(path) {
     dispatch(navigatePush({ path: path }))
   }

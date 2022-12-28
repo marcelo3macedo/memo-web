@@ -10,8 +10,7 @@ import { Wrapper, Content, Picture, Title, SubTitle } from './styles';
 
 export default function MenuHeader() {
   const t = useTranslation()
-  const user = useSelector((state:RootState) => state.auth.user);
-  const { isPro } = user || {}
+  const { userRole:isPro } = useSelector((state:RootState) => state.users);
   const logoUrl = isPro ? logoPro : logo
 
   return (

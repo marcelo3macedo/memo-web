@@ -33,10 +33,6 @@ export const Picture = styled.img`
     width: 80px;
 `;
 
-export const Title = styled.h3`
-    color: var(--neutral0);
-`;
-
 export const Options = styled.div`
     padding: 10px 20px;
     display: flex;
