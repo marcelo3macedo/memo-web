@@ -35,7 +35,7 @@ export const Wrapper = styled.button<Button>`
     }
 `;
 
-export const TextValue = styled.h4`
+export const TextValue = styled.h5`
     color: var(--neutral10);
     letter-spacing: 1px;
     font-weight: bold;

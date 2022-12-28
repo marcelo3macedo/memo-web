@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-    padding: 10px 0;
+    padding: 20px 0;
 `;
 
 export const Content = styled.label`
@@ -30,12 +30,13 @@ export const RadioInfo = styled.div`
     padding: 0 5px;
 `;
 
-export const RadioTitle = styled.h5`
+export const RadioTitle = styled.h4`
     color: var(--neutral100);
 `;
 
-export const RadioDescription = styled.h6`
+export const RadioDescription = styled.h5`
     color: var(--neutral100);
+    padding: 5px 0;
 `;
 
 

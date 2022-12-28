@@ -58,7 +58,7 @@ export const RadioTitle = styled.h5`
     color: var(--neutral100);
 `;
 
-export const RadioDescription = styled.h6`
+export const RadioDescription = styled.h5`
     color: var(--neutral100);
 `;
 
@@ -89,6 +89,6 @@ export const FinishArea = styled.div`
     }
 `;
 
-export const InputText = styled.h6`
+export const InputText = styled.h5`
     font-weight: bold;    
 `;

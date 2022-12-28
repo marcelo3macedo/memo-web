@@ -29,7 +29,6 @@ export const Footer = styled.div`
 
 export const Title = styled.h4`
     color: var(--primary);
-    font-weight: bold;
 `;
 
 export const Action = styled.div`

@@ -14,8 +14,7 @@ export const Paragraph = styled.h4`
     color: var(--neutral100);
 
     @media (min-width: 768px) {
-        line-height: 24px;
-        font-size: 11pt;
+        line-height: 28px;
     }
 `;
 
