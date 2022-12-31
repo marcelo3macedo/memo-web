@@ -15,16 +15,16 @@ export const Content = styled.div`
     }    
 `;
 
-export const Message = styled.h3`
+export const Message = styled.h4`
     width: 100%;
     padding: 0px 0 20px 0;
     color: var(--primary);
     font-weight: normal;
 `;
 
-export const Info = styled.h4`
+export const Info = styled.h5`
     width: 100%;
-    padding: 20px 0 0px 0;
+    padding: 40px 0 0px 0;
     color: var(--primary);
     font-style: italic;    
 `;
