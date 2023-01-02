@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-multi-lang';
 import { useDispatch, useSelector } from 'react-redux';
 
+import PixCode from '../PixCode';
 import ButtonPrimary from '@components/button/ButtonPrimary';
 import BlockLoading from '@modules/loading/elements/BlockLoading';
 import { RootState } from '@store/modules/rootReducer';
+import { paymentAction } from '@store/mods/planOptions/actions';
 
 import { Wrapper, Container, Title, Subtitle, Steps, Info, InfoInput, InfoTitle, Total, Value, ValueDescription, InfoErrorMessage } from "./styles";
-import { paymentAction } from '@store/mods/planOptions/actions';
-import PixCode from '../PixCode';
 
 export default function PlanPix() {
   const t = useTranslation()
@@ -21,7 +21,7 @@ export default function PlanPix() {
   }
 
   function paymentClick() {
-    dispatch(paymentAction({ document }))
+    dispatch(paymentAction({ document, option }))
   }
 
   return (

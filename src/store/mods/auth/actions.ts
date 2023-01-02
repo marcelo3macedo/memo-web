@@ -3,7 +3,6 @@ export function loadAction() {
         type: '@auth/LOAD'
     }
 }
-
 export function signInAction({ user, password }) {
     return {
         type: '@auth/SIGN_IN',
@@ -22,20 +21,17 @@ export function signInFailureAction({ type }) {
         payload: { type }
     }
 }
-
 export function signUpAction({ fullName, user, password }) {
     return {
         type: '@auth/SIGN_UP',
         payload: { fullName, user, password }
     }
 }
-
 export function signOutAction() {
     return {
         type: '@auth/SIGN_OUT'
     }
 }
-
 export function refreshTokenAction({ refreshToken }) {
     return {
         type: '@auth/REFRESH_TOKEN',
@@ -48,7 +44,6 @@ export function verifyAction() {
         type: '@auth/VERIFY'
     }
 }
-
 export function activateAction({ token }) {
     return {
         type: '@auth/ACTIVATE',
@@ -65,10 +60,14 @@ export function activateFailed() {
         type: '@auth/ACTIVATE_FAILED'
     }
 }
-
 export function forgotPasswordAction({ user }) {
     return {
         type: '@auth/FORGOT_PASSWORD',
         payload: { user }
+    }
+}
+export function logoutAction() {
+    return {
+        type: '@auth/LOGOUT'
     }
 }

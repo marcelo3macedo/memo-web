@@ -1,9 +1,10 @@
-import { REQUESTER_GET } from "@constants/Requester";
+import { REQUESTER_GET, REQUESTER_POST } from "@constants/Requester";
+import { delay } from "@helpers/TimeHelper";
 import { request } from "@services/Api/requester";
-import { API_PLANS_OPTION } from "@services/Api/routes";
+import { API_PAYMENTS, API_PAYMENTS_DETAILS, API_PLANS_OPTION } from "@services/Api/routes";
 import { isValidDocument } from "@services/Document";
 import { all, put, takeLatest } from "redux-saga/effects";
-import { indexSuccess, paymentFailed, paymentSuccess } from "./actions";
+import { indexSuccess, paymentCheck, paymentFailed, paymentSuccess } from "./actions";
 
 function* index({ payload }:any) {
     const { name } = payload || {}
@@ -20,22 +21,52 @@ function* index({ payload }:any) {
 }
 
 function* payment({ payload }:any) {
-    const { document } = payload || {}
+    const { document, option } = payload || {}
 
     if (!isValidDocument(document)) {
         return yield put(paymentFailed())
     }
-    
-    // TODO: REQUEST
-    const payment = {
-        qrCodeUrl: 'https://d1q276s95tpn93.cloudfront.net/production/2022/12/09/itau/N109880751_qrcode.svg',
-        code: '21341698498461651984194186419849848916198198189189'
+
+    const data = {
+        document,
+        planOptionId: option.id,
+        paymentTypeId: process.env.REACT_APP_PIX_ID
     }
 
-    yield put(paymentSuccess({ payment }))
+    const response = yield request({ 
+        type: REQUESTER_POST, 
+        method: `${API_PAYMENTS}`,
+        data
+    })
+
+    if (response.status !== 200) {
+        yield put(paymentFailed())    
+    }
+
+    const { id } = response.data;
+
+    yield put(paymentCheck({ id }))
+}
+
+function* validate({ payload }:any) {
+    const { id } = payload || {}
+
+    yield delay(5000);
+
+    const response = yield request({ 
+        type: REQUESTER_GET, 
+        method: `${API_PAYMENTS_DETAILS}/${id}`
+    })
+
+    if (response.status !== 200 || response.data == null) {
+        yield put(paymentCheck({ id }))
+    }
+
+    yield put(paymentSuccess({ payment: response.data }))
 }
 
 export default all([
     takeLatest('@planOptions/INDEX', index),
     takeLatest('@planOptions/PAYMENT', payment),
+    takeLatest('@planOptions/PAYMENT_CHECK', validate),
 ])

@@ -4,6 +4,7 @@ const INITIAL_STATE = {
     option: null,
     loading: false,
     failed: false,
+    paymentId: null,
     payment: null
 };
 
@@ -17,6 +18,10 @@ export default function auth(state = INITIAL_STATE, action) {
             case "@planOptions/PAYMENT": {
                 draft.loading = true;
                 draft.failed = false;
+                break;
+            }
+            case "@planOptions/PAYMENT_CHECK": {
+                draft.paymentId = action.payload.paymentId;
                 break;
             }
             case "@planOptions/PAYMENT_SUCCESS": {

@@ -16,11 +16,21 @@ export function indexSuccess({ option }) {
     }
 }
 
-export function paymentAction({ document }) {
+export function paymentAction({ document, option }) {
     return {
         type: '@planOptions/PAYMENT',
         payload: {
-            document
+            document,
+            option
+        }
+    }
+}
+
+export function paymentCheck({ id }) {
+    return {
+        type: '@planOptions/PAYMENT_CHECK',
+        payload: {
+            id
         }
     }
 }

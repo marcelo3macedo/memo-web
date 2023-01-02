@@ -19,5 +19,7 @@ export const API_DECKSPATH = "/decks/path";
 export const API_DIFFICULTIES = "/difficulties";
 export const API_INTEGRATION = "/integrations";
 export const API_PLANS = "/plans";
+export const API_PAYMENTS = "/payments";
+export const API_PAYMENTS_DETAILS = "/payments/details";
 export const API_PLANS_OPTION = "/plans/options";
 export const API_TRANSACTIONS = "/transactions";

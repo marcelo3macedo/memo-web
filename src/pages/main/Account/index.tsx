@@ -5,9 +5,9 @@ import { useDispatch } from 'react-redux';
 import PageHeader from '@modules/headers/elements/PageHeader';
 import Subtitle from '@modules/headers/elements/Subtitle';
 import { PATH_ABOUT, PATH_HELP, PATH_HISTORY, PATH_INTEGRATION, PATH_PRIVACY_POLICY, PATH_PROFILE, PATH_SESSIONS } from '@services/Navigation';
-import { navigatePush } from '@store/mods/navigate/actions';
-import { logoutAction } from '@store/modules/auth/actions';
 import Option from '@modules/actions/elements/Option';
+import { navigatePush } from '@store/mods/navigate/actions';
+import { logoutAction } from '@store/mods/auth/actions';
 
 import { Wrapper, Content, Options } from './styles';
 

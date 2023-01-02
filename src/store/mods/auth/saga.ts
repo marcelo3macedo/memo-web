@@ -135,11 +135,18 @@ function* activated() {
 function forgotPassword({ payload }:any) {
 }
 
+function* logout() {
+    localStorage.clear();
+    
+    yield put(navigatePush({ path: PATH_SIGN_IN }));
+}
+
 export default all([
     takeLatest('@auth/SIGN_IN', signIn),
     takeLatest('@auth/SIGN_IN_SUCCESS', signInSuccess),
     takeLatest('@auth/SIGN_UP', signUp),
     takeLatest('@auth/SIGN_OUT', signOut),
+    takeLatest('@auth/LOGOUT', logout),
     takeLatest('@auth/REFRESH_TOKEN', refreshToken),
     takeLatest('@auth/VERIFY', verify),
     takeLatest('@auth/ACTIVATE', activate),

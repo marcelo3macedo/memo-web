@@ -41,6 +41,11 @@ export default function auth(state = INITIAL_STATE, action) {
                 draft.activateStatus = 'failed';
                 break;
             }
+            case "@auth/LOGOUT" : {
+                draft.signed = false;
+                draft.user = null;
+                break;
+            }
             default:
                 return state;
         }
