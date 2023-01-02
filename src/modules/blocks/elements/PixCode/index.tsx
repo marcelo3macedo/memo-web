@@ -30,7 +30,7 @@ export default function PixCode({ payment }) {
 
           <CodeText>
             <CodeTextInfo>{t('planOptions.pix.useCode')}</CodeTextInfo>
-            <CodeInputInfo value={payment.code} />
+            <CodeInputInfo value={payment.qrCode} />
           </CodeText>
         </Container>
     </Wrapper>
