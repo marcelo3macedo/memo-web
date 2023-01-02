@@ -7,8 +7,6 @@ import { Wrapper, Container, Title, CodeArea, Subtitle, Steps, Info, CodeText, C
 export default function PixCode({ payment }) {
   const t = useTranslation()
 
-  console.log(payment)
-
   return (
     <Wrapper>
         <Container>
