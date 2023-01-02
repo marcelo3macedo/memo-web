@@ -15,7 +15,7 @@ export default function PixCode({ payment }) {
           <Title>{t('planOptions.pix.payNow')}</Title>
 
           <CodeArea>
-            <QrCode data={payment.qrCodeUrl} height="200" width="200" />
+            <QrCode data={payment.qrCode} height="200" width="200" />
             <Info>
               {t('planOptions.pix.subtitle').split("|").map((v, index) =>(
                 <Subtitle key={index}>{v}</Subtitle>
