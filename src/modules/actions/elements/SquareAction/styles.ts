@@ -3,6 +3,7 @@ import { IOption } from "@interfaces/Option/option.interface";
 
 export const Wrapper = styled.div`
     width: 100%;
+    max-width: 500px;
 `;
 
 export const Content = styled.div<IOption>`
@@ -11,7 +12,7 @@ export const Content = styled.div<IOption>`
     display: flex;
     justify-content: space-between;
     align-items: end;
-    padding: 25px 5px;
+    padding: 25px 10px;
 
     svg {
         path {
@@ -26,12 +27,15 @@ export const Content = styled.div<IOption>`
 `;
 
 export const Details = styled.div`  
+    text-align: left;
+
     @media (max-width: 768px) {
         width: 100%;
+        text-align: center;
     }  
 `;
 
-export const Action = styled.div`    
+export const Action = styled.div`
     @media (max-width: 768px) {
         display: none;
     }
@@ -40,6 +44,11 @@ export const Action = styled.div`
 export const Title = styled.h3`
     color: var(--neutral0);
     padding: 10px 0 5px 0;
+    text-align: left;
+
+    @media (max-width: 768px) {
+        text-align: center;
+    }
 `;
 
 export const SubTitle = styled.h4`
