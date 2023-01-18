@@ -16,7 +16,7 @@
     <a><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://memo.professoraantenada.com.br">View Demo</a>
+    <a href="https://memorizou.com.br">View Demo</a>
     ·
     <a href="https://github.com/marcelo3macedo/memo-web/issues">Report Bug</a>
     ·
@@ -117,7 +117,7 @@ _Below is an example of how you can instruct your audience on installing and set
    ```sh
    yarn
    ```
-3. Run backend project https://github.com/marcelo3macedo/Memo-Backend.git
+3. Run api project https://github.com/marcelo3macedo/memo-api
 
 4. Run project for development
    ```sh
@@ -161,7 +161,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 Marcelo Alberico Macedo - marcelo3macedo@gmail.com
 
-Project Link: [https://github.com/marcelo3macedo/Memo-Backend](https://github.com/marcelo3macedo/Memo-Backend)
+Project Link: [https://github.com/marcelo3macedo/memo](https://github.com/marcelo3macedo/memo)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
