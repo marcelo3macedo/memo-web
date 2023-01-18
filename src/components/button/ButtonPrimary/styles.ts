@@ -2,7 +2,7 @@ import { Button } from "@interfaces/Button/button.interface";
 import styled from "styled-components";
 
 export const Wrapper = styled.button<Button>`
-    padding: 10px 20px;
+    padding: 15px 20px;
     border-radius: 5px;
     background: var(--pallete03);
     color: var(--textSecondary100);

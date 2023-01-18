@@ -53,7 +53,7 @@ export const GlobalStyle = createGlobalStyle`
         --alpha: 0.3;
         --alphaStrong: 0.65;
         --opacity: 0.8;
-        --maxWidth: 1400px;
+        --maxWidth: 1200px;
     }
 
     * {
@@ -64,6 +64,10 @@ export const GlobalStyle = createGlobalStyle`
 
     h1 {
         font-size: 30pt;
+    }
+
+    h2 {
+        font-size: 22pt;
     }
 
     h3 {
@@ -179,13 +183,22 @@ export const GlobalStyle = createGlobalStyle`
             font-size: 1.6em;
             font-weight: 800;
         }
-
+    
         h2 {
-            font-size: 1.2em;
+            font-size: 1.4em;
         }
-
+    
         h3 {
+            font-size: 1.3em;
+            font-weight: normal;
+        }
+    
+        h4 {
             font-size: 1.1em;
+        }
+    
+        h5 {
+            font-size: 1em;
         }
     }
 `;

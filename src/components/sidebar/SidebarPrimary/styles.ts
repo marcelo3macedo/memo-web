@@ -18,7 +18,7 @@ export const Content = styled.div`
 `;
 
 export const Items = styled.div`
-    background: var(--secondary10);
+    background: var(--pallete03);
     display: flex;
     align-items: center;
     justify-content: space-around;

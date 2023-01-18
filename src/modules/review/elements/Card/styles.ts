@@ -3,8 +3,12 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div`    
     padding: 15px 0;
-    max-width: 800px;    
+    max-width: 800px;
     margin: auto;
+
+    @media (max-width: 768px) {
+        max-width: 100%;
+    }
 `;
 
 export const Content = styled.div<IReviewCard>`

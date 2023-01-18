@@ -2,10 +2,11 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div`
     padding: 60px 0;
+    max-width: 700px;
+    margin: auto;
 
-    @media (min-width: 768px) {
-        max-width: 700px;
-        margin: auto;
+    @media (max-width: 768px) {
+        padding: 20px 0 40px 0;
     }
 `;
 

@@ -30,11 +30,6 @@ export const Info = styled.h5`
 `;
 
 export const Action = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px 0;
-    background: var(--neutral50);
     min-width: 150px;
     border-radius: 10px;
     
@@ -44,13 +39,19 @@ export const Action = styled.div`
     }
 
     @media (max-width: 768px) {
-        margin: 5px 0;
-        width: 100%;
+        width: 50%;
+        min-width: inherit;
     }
 `;
 
 export const ActionValue = styled.h4`
-    padding: 5px;
     letter-spacing: 1px;
     color: var(--primary);
+`;
+
+export const ActionWrapper = styled.div`
+    background: var(--neutral50);
+    padding: 15px 0;
+    margin: 10px 5px;
+    max-width: 100%;
 `;

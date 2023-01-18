@@ -24,7 +24,8 @@ export const Content = styled.div`
     justify-content: space-around;
 
     @media (max-width: 768px) {
-        padding: 40px;
+        padding: 20px;
+        min-height: 400px;
     }
 `;
 
@@ -40,7 +41,9 @@ export const Message = styled.h1`
 export const Image = styled.img`
     position: absolute;
     right: 0;
-    opacity: 0.5;
+    opacity: 0.3;
     max-width: 200px;
     z-index: 0;
+
+    
 `;

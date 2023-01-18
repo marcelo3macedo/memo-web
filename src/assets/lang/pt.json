@@ -300,8 +300,12 @@
         "public": "Público",
         "private": "Privado",
         "createdAt": "Criado em:",
+        "created": "Criado",
         "removeConfirm": "Tem certeza que deseja remover essa sessão?",
-        "noCards": "Nenhum card encontrado. Adicione um Card."
+        "noCards": "Nenhum card encontrado. Adicione um Card.",
+        "availableCards": "cards disponíveis",
+        "doubtAboutReview": "Dúvidas de como fazer a revisão?",
+        "seeOurTutorial": "Veja nosso tutorial, clique aqui"
     },
     "home": {
         "access": "Acesse Agora",
@@ -427,6 +431,12 @@
             "useCode": "Ou utilize o código gerado"
         }
     },
+    "lastReview": {
+        "title": "Última Sessão"
+    },
+    "evolution": {
+        "title": "Evolução da retenção do conteúdo"
+    },
     "transaction": {
         "title": "Histórico de Transações",
         "subtitle": "Veja as suas últimas transações realizadas na plataforma",
@@ -434,6 +444,15 @@
         "options": {
             "date": "Data Transação",
             "value": "Valor"
+        }
+    },
+    "historic": {
+        "sessionsCompleted": "revisões realizadas", 
+        "cardsReviewed": "cards visualizados", 
+        "themesViewed": "temas estudados", 
+        "retention": "retenção do conteúdo",
+        "evolution": {
+            "lastSessions": "Últimas Sessões Realizadas"
         }
     }
 }

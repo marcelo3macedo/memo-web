@@ -1,7 +1,11 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div` 
-    margin: 10px 0;
+    width: 50%;
+
+    @media (max-width: 768px) {
+        width: 100%;
+    }
 `;
 
 export const Content = styled.div`
@@ -9,6 +13,7 @@ export const Content = styled.div`
     box-shadow: 0 0 1px 1px var(--neutral50);
     border-radius: 10px;
     padding: 15px;
+    margin: 10px;
     display: flex;
     justify-content: space-between;
 

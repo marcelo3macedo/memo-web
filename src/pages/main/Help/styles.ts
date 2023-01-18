@@ -10,7 +10,7 @@ export const Content = styled.div`
 `;
 
 export const Title = styled.h1`
-    color: var(--secondaryDark);
+    color: var(--pallete03);
     padding-bottom: 20px;
 `;
 

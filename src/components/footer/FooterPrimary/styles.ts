@@ -1,12 +1,13 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-    @media (max-width: 768px) {
-        padding-bottom: 80px;
-    }
-
     margin-top: 20px;
     background: var(--neutral100);
+    
+    @media (max-width: 768px) {
+        padding-bottom: 80px;
+        margin-top: 0;
+    }
 `;
 
 export const Content = styled.div`

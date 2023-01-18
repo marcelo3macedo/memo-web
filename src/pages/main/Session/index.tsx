@@ -5,15 +5,17 @@ import { useParams } from 'react-router-dom';
 
 import ButtonPrimary from '@components/button/ButtonPrimary';
 import PageLoading from '@components/loading/PageLoading';
-import { getTimeFromNow } from '@helpers/DateHelper';
 import PageHeader from '@modules/headers/elements/PageHeader';
 import Review from '@modules/tutorial/elements/Review';
 import Details from '@modules/decks/elements/Details';
+import SessionDoubt from '@modules/blocks/elements/SessionDoubt';
+import Historic from '@modules/decks/elements/Historic';
+import RetentionEvolution from '@modules/decks/elements/RetentionEvolution';
 import { RootState } from '@store/modules/rootReducer';
 import { loadIndexAction } from '@store/mods/sessions/actions';
 import { loadAction } from '@store/mods/review/actions';
 
-import { Wrapper, Content, Description, Action, TutorialArea } from './styles';
+import { Wrapper, Content, Action, TutorialArea } from './styles';
 
 export default function Session() {
   const dispatch = useDispatch();
@@ -40,12 +42,14 @@ export default function Session() {
   return (
     <Wrapper>
       <Content>
-        <PageHeader title={index.deck.name} subTitle={''} />
-        {index.deck.description ? (<Description>{index.deck.description}</Description>):<></>}
-        <Details cardNumber={index.cards.length} passedTime={getTimeFromNow(index.createdAt)} />
+        <PageHeader title={index.deck.name} subTitle={index.deck.description} />
+        <Details session={index} />
         <Action>
           <ButtonPrimary content={t('actions.review')} action={reviewClick}/>
         </Action>
+        <SessionDoubt />
+        <Historic historic={index.historic} />
+        <RetentionEvolution historic={index.historic} />
         <TutorialArea>
           <Review />
         </TutorialArea>

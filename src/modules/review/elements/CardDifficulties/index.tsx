@@ -4,7 +4,7 @@ import { useTranslation } from 'react-multi-lang';
 
 import { setOptionAction } from '@store/modules/review/actions';
 
-import { Wrapper, Content, Action, ActionValue, Message, Info } from './styles';
+import { Wrapper, Content, Action, ActionValue, ActionWrapper, Message, Info } from './styles';
 
 export default function CardDifficulties({ card, options, action }) {
   const t = useTranslation()
@@ -21,7 +21,9 @@ export default function CardDifficulties({ card, options, action }) {
       <Content>
         {options.map(o => (
           <Action key={o.id} onClick={() => optionClick(o)}>
-            <ActionValue>{o.name}</ActionValue>
+            <ActionWrapper>
+              <ActionValue>{o.name}</ActionValue>
+            </ActionWrapper>
           </Action>
         ))}
       </Content>
