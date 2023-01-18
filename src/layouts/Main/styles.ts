@@ -11,13 +11,14 @@ export const Content = styled.div`
 `;
 
 export const Section = styled.div`
+    background: var(--secondary15);
+
     @media (min-width: 768px) {
-        max-width: 1100px;
+        max-width: var(--maxWidth);
         margin: auto;
         display: flex;
         align-items: center;
         flex-direction: column;
-        background: var(--secondary15);
     }
 `;
 
@@ -33,7 +34,7 @@ export const Body = styled.div`
 
 export const PageContainer = styled.div`
     @media (min-width: 768px) {
-        padding: 20px;        
+        padding: 0 20px;        
     }
 `;
 

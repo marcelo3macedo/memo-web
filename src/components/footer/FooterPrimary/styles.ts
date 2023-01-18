@@ -1,12 +1,13 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-    @media (max-width: 768px) {
-        padding-bottom: 80px;
-    }
-
     margin-top: 20px;
     background: var(--neutral100);
+    
+    @media (max-width: 768px) {
+        padding-bottom: 80px;
+        margin-top: 0;
+    }
 `;
 
 export const Content = styled.div`
@@ -33,10 +34,6 @@ export const Picture = styled.img`
     width: 80px;
 `;
 
-export const Title = styled.h3`
-    color: var(--neutral0);
-`;
-
 export const Options = styled.div`
     padding: 10px 20px;
     display: flex;
@@ -47,4 +44,9 @@ export const Options = styled.div`
 export const Option = styled.h5`
     padding: 5px 0;
     color: var(--neutral0);
+
+    &:hover {
+        cursor: pointer;
+        opacity: var(--opacity);
+    }
 `;

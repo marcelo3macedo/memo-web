@@ -8,9 +8,10 @@ export const Content = styled.div`
     
 `;
 
-export const Details = styled.h4`
+export const Details = styled.h5`
     font-style: italic;
     max-width: 400px;   
+    padding: 20px 0;
 `;
 
 export const Action = styled.div`

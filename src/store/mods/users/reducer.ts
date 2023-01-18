@@ -5,7 +5,8 @@ const INITIAL_STATE = {
     lastSession: null,
     sessions: [],
     featuredDecks: [],
-    decks: []
+    decks: [],
+    userRole: null
 };
 
 export default function personal(state = INITIAL_STATE, action) {
@@ -23,6 +24,7 @@ export default function personal(state = INITIAL_STATE, action) {
                 draft.sessions = action.payload.sessions;
                 draft.lastSession = action.payload.lastSession;
                 draft.featuredDecks = action.payload.featuredDecks;
+                draft.userRole = action.payload.userRole;
                 draft.isLoading = false;
                 break;
             }

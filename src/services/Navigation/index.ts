@@ -33,3 +33,7 @@ export const PATH_CREATESESSION = "/create-session";
 export const PATH_FEATURED = "/featured";
 export const PATH_INTEGRATION = "/integration";
 export const PATH_INTEGRATION_TELEGRAM = "/integration/telegram";
+export const PATH_TUTORIAL = "/tutorial";
+export const PATH_TUTORIAL_CARDS = "/tutorial/cards";
+export const PATH_PLANS = "/plans";
+export const PATH_TRANSACTIONS = "/transactions";

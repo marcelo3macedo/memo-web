@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div`    
     padding: 20px 0;
-    background: var(--secondaryDark);
+    background: var(--pallete03);
     border-bottom-left-radius: 40px;
     border-bottom-right-radius: 40px;
 `;
@@ -18,9 +18,4 @@ export const Picture = styled.img`
 
 export const Title = styled.h3`
     color: var(--textSecondary100);
-`;
-
-export const SubTitle = styled.h5`
-    color: var(--textSecondary100);
-    padding: 5px 0;
 `;

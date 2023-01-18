@@ -1,20 +1,34 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-    box-shadow: 0 0 2px 0px var(--neutral80);
     width: 100%;
+
+    @media (max-width: 768px) {
+        display: none;
+    }
 `;
 
 export const Content = styled.div`
     display: flex;
     justify-content: space-between;
-    padding: 20px;
+    padding: 20px 20px 0 0;
 `;
 
 export const Info = styled.div`
 `;
 
 export const Options = styled.div`
+    display: flex;
+    align-items: center;
+`;
+
+export const Option = styled.div`
+    padding: 0 10px;
+
+    svg path {
+        fill: var(--neutral80);
+    }
+
     &:hover {
         cursor: pointer;
         opacity: 0.8;

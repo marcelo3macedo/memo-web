@@ -9,7 +9,7 @@ export const Content = styled.div`
     align-items: center;
     justify-content: center;
     width: 100%;
-    max-width: 1100px; 
+    max-width: var(--maxWidth); 
     margin: auto;    
     min-height: 550px;
     padding: 40px 0;

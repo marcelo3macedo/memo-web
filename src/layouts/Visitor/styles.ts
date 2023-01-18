@@ -22,13 +22,13 @@ export const Section = styled.div`
 `;
 
 export const Body = styled.div`    
-    max-width: 1100px;
+    max-width: var(--maxWidth);
     margin: auto;
     padding: 20px 0;    
 `;
 
 export const Header = styled.div`
-    max-width: 1100px;
+    max-width: var(--maxWidth);
     margin: auto;   
     padding: 15px 0;
     display: flex;

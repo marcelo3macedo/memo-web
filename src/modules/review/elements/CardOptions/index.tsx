@@ -11,11 +11,11 @@ export default function CardOptions() {
   return (
     <Wrapper>
       <Content>
+        <Details>{t('review.details')}</Details>
         <Action>
           <IconMedium name={"flip"} />
           <ActionName>{t('review.seeResults')}</ActionName>
         </Action>
-        <Details>{t('review.details')}</Details>
       </Content>
     </Wrapper>
   );

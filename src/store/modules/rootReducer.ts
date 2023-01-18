@@ -27,6 +27,9 @@ import redirect from "../mods/redirect/reducer";
 import histories from "../mods/histories/reducer";
 import integrations from "../mods/integrations/reducer";
 import users from "../mods/users/reducer";
+import plans from "../mods/plans/reducer";
+import planOptions from "../mods/planOptions/reducer";
+import transactions from "../mods/transactions/reducer";
 
 export const rootReducer = combineReducers({
     modal,
@@ -40,6 +43,9 @@ export const rootReducer = combineReducers({
     histories,
     integrations,
     users,
+    plans,
+    planOptions,
+    transactions,
     
     auth,
     user,

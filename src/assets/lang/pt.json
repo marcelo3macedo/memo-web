@@ -3,6 +3,12 @@
         "name": "Memorizou",
         "title": "Sua ferramenta de memorização"
     },
+    "options": {
+        "search": "Buscar",
+        "inGallery": "Na Galeria",
+        "create": "Criar",
+        "newSession": "Nova Sessão"
+    },
     "menu": {
         "home": "Home",
         "sessions": "Sessões",
@@ -16,7 +22,8 @@
         "company": "Institucional",
         "policy": "Políticas de Privacidade",
         "about": "Sobre",
-        "new": "Criar Sessão"
+        "new": "Criar Sessão",
+        "plans": "Planos"
     },
     "search": {
         "results": "Resultados de: "
@@ -293,8 +300,12 @@
         "public": "Público",
         "private": "Privado",
         "createdAt": "Criado em:",
+        "created": "Criado",
         "removeConfirm": "Tem certeza que deseja remover essa sessão?",
-        "noCards": "Nenhum card encontrado. Adicione um Card."
+        "noCards": "Nenhum card encontrado. Adicione um Card.",
+        "availableCards": "cards disponíveis",
+        "doubtAboutReview": "Dúvidas de como fazer a revisão?",
+        "seeOurTutorial": "Veja nosso tutorial, clique aqui"
     },
     "home": {
         "access": "Acesse Agora",
@@ -359,12 +370,89 @@
         "back": "Voltar para Home"
     },
     "tutorial": {
+        "title": "Tutoriais",
+        "subtitle": "Seleção de tutoriais sobre como utilizar a aplicação",
         "reviewTitle": "Tutorial de Revisão",
         "analyse": "Analise o card apresentado",
         "analyseDescription": "Leia o tema e a questão apresentada, poderá vir em forma de pergunta ou para que seja completado uma sentença.|Recomendamos que você reflita por um momento sobre qual pode ser a resposta da questão.",
         "answer": "Veja a resposta",
         "answerDescription": "Clique em ver resposta.|Com essa ação, o card será virado e a resposta da pergunta será exibida.",
         "rate": "Avalie",
-        "rateDescription": "Analise a resposta apresentada e avalie como foi para você relembrar o conteúdo.|Algumas opções será mostradas: Não lembrei, Fácil, Médio e Difícil.|Com base na sua resposta, o memorizou irá criar no futuro uma nova sessão visando a melhor memorização do tema em questão."
+        "rateDescription": "Analise a resposta apresentada e avalie como foi para você relembrar o conteúdo.|Algumas opções será mostradas: Não lembrei, Fácil, Médio e Difícil.|Com base na sua resposta, o memorizou irá criar no futuro uma nova sessão visando a melhor memorização do tema em questão.",
+        "review": {
+            "title": "Como revisar os Cards?",
+            "description": "Veja como realizar a revisão dos cards da sua sessão."
+        }
+    },
+    "plans": {
+        "title": "Planos",
+        "subtitle": "Detalhes do seu plano de assinatura",
+        "advantages": "Vantagens do Plano PRO",
+        "history": "Ver histórico de Transações",
+        "type": {
+            "standard": "Standard",
+            "pro": "PRO"
+        },
+        "features": {
+            "simultaneos": "Número de sessões simultâneas",
+            "cardsPerSession": "Número de cards por sessão",
+            "ads": "Sem exibição de anúncios",
+            "integration": "Integração com Telegram",
+            "evolution": "Análise detalhada de Evolução"
+        },
+        "options": {
+            "sign": "Assine Já!",
+            "get": "Quero esse!"
+        },
+        "details": {
+            "title": "Seu Plano Atual",
+            "expiresAt": "Expira em "
+        },
+        "payment": {
+            "title": "Formas de Pagamento"
+        }
+    },
+    "planOptions": {
+        "title": "Plano",
+        "subtitle": "meses de acesso PRO",
+        "subtitleSingle": "mês de acesso PRO",
+        "type": {
+            "pix": "Pix"
+        },
+        "pix": {
+            "title": "Pagar com Pix",
+            "subtitle": "Pague com Pix em qualquer dia e a qualquer hora!|O pagamento é instantâneo, prático e pode ser feito em poucos segundos.|É muito rápido e seguro.",
+            "steps": "1. abra o app do seu banco ou instituição financeira e entre no ambiente Pix|2. escolha a opção pagar com qr code e escaneie o código que será gerado no fechamento deste pedido|3. confirme as informações e finalize a compra",
+            "infoTitle": "Informe o CPF ou CNPJ",
+            "payment": "Pagar com o PIX",
+            "value": "Valor Gerado",
+            "error": "CPF/CNPJ inválidos",
+            "payNow": "Pague agora com o PIX",
+            "useCode": "Ou utilize o código gerado"
+        }
+    },
+    "lastReview": {
+        "title": "Última Sessão"
+    },
+    "evolution": {
+        "title": "Evolução da retenção do conteúdo"
+    },
+    "transaction": {
+        "title": "Histórico de Transações",
+        "subtitle": "Veja as suas últimas transações realizadas na plataforma",
+        "notFound": "Nenhuma transacão encontrada.",
+        "options": {
+            "date": "Data Transação",
+            "value": "Valor"
+        }
+    },
+    "historic": {
+        "sessionsCompleted": "revisões realizadas", 
+        "cardsReviewed": "cards visualizados", 
+        "themesViewed": "temas estudados", 
+        "retention": "retenção do conteúdo",
+        "evolution": {
+            "lastSessions": "Últimas Sessões Realizadas"
+        }
     }
 }

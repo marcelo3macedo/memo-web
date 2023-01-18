@@ -42,7 +42,7 @@ export const Header = styled.div`
     background: var(--secondaryDark);
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-    padding: 30px 20px;
+    padding: 20px 15px;
 `;
 
 export const Title = styled.h2`

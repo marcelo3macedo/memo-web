@@ -19,7 +19,7 @@ export default function ActionsGallery() {
     <Wrapper>
       <Content>
         {categories.map(d => (
-          <SquareAction key={d.id} title={d.name} subTitle={"Categoria"} icon={"gallery"} action={() => { categoryAction(d.name) }} />
+          <SquareAction key={d.id} title={d.name} subTitle={""} icon={"gallery"} action={() => { categoryAction(d.name) }} />
         ))}
       </Content>
     </Wrapper>

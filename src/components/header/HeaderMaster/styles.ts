@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
 `;
 
 export const Content = styled.div`
-    max-width: 1100px;
+    max-width: var(--maxWidth);
     margin: auto;
 `;
 

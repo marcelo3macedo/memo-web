@@ -2,9 +2,9 @@ import { Button } from "@interfaces/Button/button.interface";
 import styled from "styled-components";
 
 export const Wrapper = styled.button<Button>`
-    padding: 10px 20px;
+    padding: 15px 20px;
     border-radius: 5px;
-    background: var(--secondaryDark);
+    background: var(--pallete03);
     color: var(--textSecondary100);
     border: none;
     min-width: 100px;
@@ -35,7 +35,7 @@ export const Wrapper = styled.button<Button>`
     }
 `;
 
-export const TextValue = styled.h4`
+export const TextValue = styled.h5`
     color: var(--neutral10);
     letter-spacing: 1px;
     font-weight: bold;

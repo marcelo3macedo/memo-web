@@ -1,11 +1,12 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-    padding: 20px 0;
+    padding: 60px 0;
+    max-width: 700px;
+    margin: auto;
 
-    @media (min-width: 768px) {
-        max-width: 700px;
-        margin: auto;
+    @media (max-width: 768px) {
+        padding: 20px 0 40px 0;
     }
 `;
 
@@ -14,7 +15,7 @@ export const Content = styled.div`
     margin: auto;
 `;
 
-export const Title = styled.h3`
-    color: var(--secondaryDark);
-    padding: 5px 0;
+export const Title = styled.h2`
+    color: var(--pallete03);
+    padding: 10px 0;
 `;

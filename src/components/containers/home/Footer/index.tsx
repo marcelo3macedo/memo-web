@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-multi-lang';
 
-import logo from "@assets/logo.png";
+import logo from "@assets/logos/logo.png";
 
 import { Wrapper, Content, Group, FooterContainer, Picture, Title, Info, SubTitle } from './styles';
 

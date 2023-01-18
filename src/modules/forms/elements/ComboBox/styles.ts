@@ -15,9 +15,10 @@ export const Content = styled.div`
     }
 `;
 
-export const Title = styled.h5`
+export const Title = styled.h4`
     color: var(--neutral100);
     padding: 2px 0;
+    margin-top: 10px;
 `;
 
 

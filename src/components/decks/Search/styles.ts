@@ -36,17 +36,17 @@ export const SearchInput = styled.input`
     font-size: 9pt;
 
     @media (min-width: 768px) {
-        font-size: 11pt;
+        font-size: 14pt;
     }
 `;
 
 export const SearchIcon = styled.div`
     svg {
-        background: var(--secondaryDark);
+        background: var(--pallete03);
         padding: 5px;
         border-radius: 100%;
-        width: 24px;
-        height: 24px;
+        width: 35px;
+        height: 35px;
         
         path {
             fill: var(--neutral0);

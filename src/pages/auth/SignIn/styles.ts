@@ -68,17 +68,17 @@ export const FormArea = styled.div`
     padding: 20px;
 `;
 
-export const InputText = styled.h6`
-    font-weight: bold;    
+export const InputText = styled.h5`
+    margin-top: 10px;    
 `;
 
-export const InfoText = styled.h4`
+export const InfoText = styled.h5`
     padding: 0 5px;
 `;
 
-export const InfoFeaturedText = styled.h4`
+export const InfoFeaturedText = styled.h5`
     padding: 0 5px;
-    color: var(--secondaryDark);
+    color: var(--pallete03);
     font-weight: bold;
     text-decoration: underline;
 

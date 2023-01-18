@@ -12,8 +12,8 @@ function* load() {
         return yield put(loadFailedAction());
     }
 
-    const { lastSession, sessions, featuredDecks } = response.data;
-    yield put(loadSuccessAction({ lastSession, sessions, featuredDecks }));
+    const { lastSession, sessions, featuredDecks, userRole } = response.data;
+    yield put(loadSuccessAction({ lastSession, sessions, featuredDecks, userRole }));
 }
 
 export default all([
