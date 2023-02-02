@@ -1,11 +1,7 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`    
-    margin: 5px 0;
-
-    @media (max-width: 768px) {
-        margin: 15px 0;
-    }
+    margin: 15px 0;
 `;
 
 export const Content = styled.div`
@@ -20,7 +16,7 @@ export const Content = styled.div`
 export const Card = styled.div`   
 `;
 
-export const Header = styled.div`   
+export const Header = styled.div`
 `;
 
 export const Title = styled.h5`
@@ -31,7 +27,7 @@ export const Title = styled.h5`
 export const CardContent = styled.h4`
     color: var(--primary);
     font-weight: bold;
-    padding: 5px 0;
+    padding: 10px 0;
 `;
 
 export const SecretContent = styled.h4`

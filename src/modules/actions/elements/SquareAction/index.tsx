@@ -6,11 +6,11 @@ import ISquareAction from '@modules/actions/dtos/ISquareAction';
 
 import { Wrapper, Content, Details, Action, Title, SubTitle, Box } from './styles';
 
-export default function SquareAction({ title, subTitle, icon, action, template }:ISquareAction) {
+export default function SquareAction({ active=null, title, subTitle, icon, action }:ISquareAction) {
   return (
     <Wrapper onClick={action} className="no-select">
       <Box>
-        <Content template={template}>
+        <Content template={active}>
             <Details>
               <IconFull name={icon} />
               <Title>{ title }</Title>

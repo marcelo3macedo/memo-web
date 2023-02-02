@@ -6,7 +6,7 @@ import IconNamed from '@modules/components/elements/IconNamed';
 import IIndexGallerySessions from '@modules/sessions/dtos/IIndexGallerySessions';
 import { redirectAction } from '@store/mods/decks/actions';
 
-import { Wrapper, Content, Header, Title, Description, Footer, Card, Action } from './styles';
+import { Wrapper, Content, Header, Title, Description, Footer, Card, Action, Group } from './styles';
 
 export default function IndexGallery({ session }:IIndexGallerySessions) {
   const dispatch = useDispatch()
@@ -24,6 +24,7 @@ export default function IndexGallery({ session }:IIndexGallerySessions) {
             <Description>{ session.description }</Description>
           </Header>
           <Footer>
+            { session.group ? <Group>{ session.group }</Group> : <></> }            
             <IconNamed icon={'card'} title={session.cardsCount} />
           </Footer>
         </Card>

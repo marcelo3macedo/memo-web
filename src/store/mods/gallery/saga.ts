@@ -7,8 +7,8 @@ import { request } from "@services/Api/requester";
 import { REQUESTER_GET } from "@constants/Requester";
 
 function* load() {
-    const { query } = yield select(selectors.gallery);
-    const params = `${query ? ("/" + query):""}`;
+    const { query, category } = yield select(selectors.gallery);
+    const params = `${query ? ("/" + query):""}${category ? `?category=${category}` : ''}`;
     const response = yield request({ type: REQUESTER_GET, method: `${API_SEARCH}${params}` });
 
     if (response.status !== 200 || !response.data) {
@@ -36,5 +36,6 @@ function* loadMore() {
 export default all([
     takeLatest('@gallery/LOAD', load),
     takeLatest('@gallery/QUERY', load),
+    takeLatest('@gallery/CATEGORY', load),
     takeLatest('@gallery/LOAD_MORE', loadMore)
 ]);

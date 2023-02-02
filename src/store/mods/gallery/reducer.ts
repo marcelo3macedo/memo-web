@@ -8,7 +8,8 @@ const INITIAL_STATE = {
     actualPage: 0,
     total: 0,
     isLoading: false,
-    query: null
+    query: null,
+    category: null
 };
 
 export default function navigate(state = INITIAL_STATE, action) {
@@ -30,6 +31,15 @@ export default function navigate(state = INITIAL_STATE, action) {
                 draft.categories = [];
                 draft.featured = [];
                 draft.query = action.payload.query;
+                break;
+            }
+            case "@gallery/CATEGORY": {
+                draft.isLoading = true;
+                draft.actualPage = 0;
+                draft.decks = [];
+                draft.categories = [];
+                draft.featured = [];
+                draft.category = action.payload.category;
                 break;
             }
             case "@gallery/LOAD_SUCCESS" : {

@@ -11,6 +11,14 @@ export function queryAction({ query }) {
         }
     }
 }
+export function queryCategoryAction({ category }) {
+    return {
+        type: '@gallery/CATEGORY',
+        payload: {
+            category
+        }
+    }
+}
 export function loadSuccessAction({ decks, categories, featured }) {
     return {
         type: '@gallery/LOAD_SUCCESS',

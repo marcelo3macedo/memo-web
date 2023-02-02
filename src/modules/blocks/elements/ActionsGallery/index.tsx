@@ -5,21 +5,21 @@ import { RootState } from '@store/modules/rootReducer';
 import SquareAction from '@modules/actions/elements/SquareAction';
 
 import { Wrapper, Content } from './styles';
-import { queryAction } from '@store/modules/gallery/actions';
+import { queryCategoryAction } from '@store/mods/gallery/actions';
 
 export default function ActionsGallery() {
   const dispatch = useDispatch()
-  const { categories } = useSelector((state:RootState) => state.gallery)
+  const { categories, category } = useSelector((state:RootState) => state.gallery)
 
-  function categoryAction(category) {
-    dispatch(queryAction({ query: category }));
+  function categoryAction(selected) {
+    dispatch(queryCategoryAction({ category: category === selected ? '' : selected }));
   }
 
   return (
     <Wrapper>
       <Content>
         {categories.map(d => (
-          <SquareAction key={d.id} title={d.name} subTitle={""} icon={"gallery"} action={() => { categoryAction(d.name) }} />
+          <SquareAction active={d.name === category} key={d.id} title={d.name} subTitle={""} icon={"gallery"} action={() => { categoryAction(d.name) }} />
         ))}
       </Content>
     </Wrapper>

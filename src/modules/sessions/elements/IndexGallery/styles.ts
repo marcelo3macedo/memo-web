@@ -28,18 +28,21 @@ export const Header = styled.div`
 
 export const Footer = styled.div`    
     display: flex;
+    align-items: center;
     padding: 5px 0;
 `;
 
 export const Title = styled.h4`
     color: var(--primary);
+    font-weight: bold;
 `;
 
 export const Description = styled.h5`
     color: var(--primary);
     padding: 5px 0;
-    height: 50px;
+    margin: 10px 0;
     overflow: hidden;
+    min-height: 50px;
 
     @media (max-width: 768px) {
         height: auto;
@@ -58,4 +61,10 @@ export const Action = styled.div`
 `;
 
 export const Card = styled.div`   
+`;
+
+export const Group = styled.h6`
+    color: var(--pallete02);
+    font-weight: bold;
+    padding-right: 20px;
 `;

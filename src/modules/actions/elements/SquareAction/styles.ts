@@ -3,11 +3,11 @@ import { IOption } from "@interfaces/Option/option.interface";
 
 export const Wrapper = styled.div`
     width: 100%;
-    max-width: 500px;
+    max-width: 400px;
 `;
 
 export const Content = styled.div<IOption>`
-    background: ${props => props.template ? 'var(--cold100)': 'var(--secondaryDark)'};
+    background: ${props => props.template ? 'var(--pallete01)': 'var(--pallete03)'};
     border-radius: 10px;
     display: flex;
     justify-content: space-between;
