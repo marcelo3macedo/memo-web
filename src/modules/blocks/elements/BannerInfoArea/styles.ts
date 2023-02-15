@@ -22,7 +22,8 @@ export const Info = styled.div`
 export const Picture = styled.img`
     max-width: 100%;
     width: 400px;
-    
+    padding: 0 20px;
+
     &:hover {
         opacity: var(--opacity);
         cursor: pointer;

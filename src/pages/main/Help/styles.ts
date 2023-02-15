@@ -25,6 +25,7 @@ export const Option = styled.div`
 
 export const OptionDescription = styled.h4`
     padding: 20px 0;
+    line-height: 25px;
     text-align: left;
 `;
 
