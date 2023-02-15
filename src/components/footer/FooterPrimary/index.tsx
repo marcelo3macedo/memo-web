@@ -6,7 +6,7 @@ import logo from "@assets/logos/logo.png";
 import { navigatePush } from '@store/mods/navigate/actions';
 
 import { Wrapper, Content, Copyright, CopyrightMessage, Info, Picture, Options, Option } from './styles';
-import { PATH_ABOUT, PATH_HELP, PATH_HOME, PATH_PRIVACY_POLICY } from '@services/Navigation';
+import { PATH_ABOUT, PATH_HELP, PATH_HOME, PATH_PRIVACY_POLICY, PATH_TERMS_CONDITIONS } from '@services/Navigation';
 
 export default function FooterPrimary() {
   const t = useTranslation()
@@ -25,6 +25,7 @@ export default function FooterPrimary() {
         <Options>
           <Option onClick={() => { navigateTo(PATH_HOME) }}>{t('menu.home')}</Option>
           <Option onClick={() => { navigateTo(PATH_PRIVACY_POLICY) }}>{t('menu.policy')}</Option>
+          <Option onClick={() => { navigateTo(PATH_TERMS_CONDITIONS) }}>{t('menu.terms')}</Option>
           <Option onClick={() => { navigateTo(PATH_HELP) }}>{t('menu.help')}</Option>
           <Option onClick={() => { navigateTo(PATH_ABOUT) }}>{t('menu.about')}</Option>
         </Options>

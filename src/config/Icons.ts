@@ -29,7 +29,7 @@ import { ReactComponent as PlusIcon } from "@assets/icons/plus.svg";
 import { ReactComponent as NewIcon } from "@assets/icons/new.svg";
 import { ReactComponent as TelegramIcon } from "@assets/icons/telegram.svg";
 import { ReactComponent as FlipIcon } from "@assets/icons/flip.svg";
-import { ReactComponent as UserCoveredIcon } from "@assets/icons/userCovered.svg";
+import { ReactComponent as UserCoveredIcon } from "@assets/icons/user-covered.svg";
 import { ReactComponent as PlansIcon } from "@assets/icons/plans.svg";
 import { ReactComponent as CloseIcon } from "@assets/icons/close.svg";
 import { ReactComponent as OkIcon } from "@assets/icons/ok.svg";

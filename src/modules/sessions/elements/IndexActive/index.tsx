@@ -28,7 +28,7 @@ export default function IndexActive({ session }:IIndexActiveSessions) {
             <IconNamed icon={'time'} title={getTimeFromNow(session.createdAt)} />
           </Footer>
         </Card>
-        <Action>
+        <Action className='hidden-action'>
           <IconMedium name={"next"} />
         </Action>
       </Content>

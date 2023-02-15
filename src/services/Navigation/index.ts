@@ -1,7 +1,5 @@
 export const PATH_HOME = "/";
 export const PATH_SESSIONS = "/sessions";
-
-
 export const PATH_FORGOT_PASSWORD = "/forgotpassword";
 export const PATH_SIGN_IN = "/signin";
 export const PATH_SIGN_UP = "/signup";
@@ -19,6 +17,7 @@ export const PATH_SEARCHDECK = "/search-deck";
 export const PATH_DECK = "/deck";
 export const PATH_REVIEW = "/review";
 export const PATH_PRIVACY_POLICY = "/privacy-policy";
+export const PATH_TERMS_CONDITIONS = "/terms-conditions";
 export const PATH_ADDCARD = "/add-card";
 export const PATH_EDITCARD = "/edit-card";
 export const PATH_SESSION = "/session";

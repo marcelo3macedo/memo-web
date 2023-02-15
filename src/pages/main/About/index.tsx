@@ -1,9 +1,10 @@
 import React from 'react';
 import { useTranslation } from 'react-multi-lang';
 
+import aboutSystem from "@assets/banners/about-system.png";
 import PageHeader from '@modules/headers/elements/PageHeader';
 
-import { Wrapper, Content, Paragraph } from './styles';
+import { Wrapper, Content, Paragraph, Footer, Picture } from './styles';
 
 export default function About() {
   const t = useTranslation();
@@ -16,6 +17,9 @@ export default function About() {
           <Paragraph key={i}>{x}</Paragraph>
         ))}
       </Content>
+      <Footer>
+        <Picture src={aboutSystem} />
+      </Footer>
     </Wrapper>
   ); 
 }

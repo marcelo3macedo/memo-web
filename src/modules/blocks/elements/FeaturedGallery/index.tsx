@@ -7,7 +7,7 @@ import SubTitle from '@components/elements/SubTitle';
 import List from '@modules/sessions/elements/List';
 import { RootState } from '@store/modules/rootReducer';
 
-import { Wrapper, Container } from './styles';
+import { Wrapper, Container, Details } from './styles';
 
 export default function FeaturedGallery() {
   const t = useTranslation()
@@ -21,6 +21,7 @@ export default function FeaturedGallery() {
     <Wrapper>
       <Container>
         <SubTitle title={t('blocks.featured')} />
+        <Details>{t('blocks.details')}</Details>
         <List sessions={featuredDecks} type={SESSIONS_LIST_FEATURED} />
       </Container>
     </Wrapper>

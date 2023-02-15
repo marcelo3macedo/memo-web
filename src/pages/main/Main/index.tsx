@@ -7,6 +7,7 @@ import ActionsWelcome from '@modules/blocks/elements/ActionsWelcome';
 import ActiveSessionWelcome from '@modules/blocks/elements/ActiveSessionWelcome';
 import SearchWelcome from '@modules/blocks/elements/SearchWelcome';
 import FeaturedGallery from '@modules/blocks/elements/FeaturedGallery';
+import BannerInfoArea from '@modules/blocks/elements/BannerInfoArea';
 import { RootState } from '@store/modules/rootReducer';
 import { loadAction } from '@store/mods/users/actions';
 
@@ -28,10 +29,11 @@ export default function Main() {
     <Wrapper>
       <Content>
         <MessageWelcome />
-        <ActionsWelcome />
         <ActiveSessionWelcome />
         <SearchWelcome />
+        <ActionsWelcome />
         <FeaturedGallery />
+        <BannerInfoArea />
       </Content>
     </Wrapper>
   ); 

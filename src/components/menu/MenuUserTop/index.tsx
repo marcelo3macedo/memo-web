@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 
 import IconMedium from '@components/icons/IconMedium';
-import { PATH_ACCOUNT, PATH_TUTORIAL } from '@services/Navigation';
+import { PATH_ACCOUNT, PATH_HELP } from '@services/Navigation';
 import { navigatePush } from '@store/mods/navigate/actions';
 
 import { Wrapper, Content, Info, Options, Option } from './styles';
@@ -15,7 +15,7 @@ export default function MenuUserTop() {
   }
 
   function goToTutorial() {
-    dispatch(navigatePush({ path: PATH_TUTORIAL }))
+    dispatch(navigatePush({ path: PATH_HELP }))
   }
   
   return (

@@ -5,5 +5,5 @@ export const Wrapper = styled.div`
 `;
 
 export const Content = styled.h3`
-    font-weight: normal;
+    font-weight: bold;
 `;

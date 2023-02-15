@@ -9,6 +9,8 @@ import { Wrapper, Content, Title, Message, Image } from './styles';
 export default function CardFront({ session, position, action }) {
   const t = useTranslation()
   const card = session && session.cards ? session.cards[position] : null
+
+  if (!card) return <></>;
   
   return (
     <Wrapper>

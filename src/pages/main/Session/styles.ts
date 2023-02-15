@@ -16,9 +16,11 @@ export const Description = styled.h4`
 export const Action = styled.div`
     width: 100%;
     margin: 30px 0;
+    text-align: center;
 
     button {
-        width: 350px;
+        width: 450px;
+        max-width: 100%;
         text-transform: uppercase;
     }
 `;

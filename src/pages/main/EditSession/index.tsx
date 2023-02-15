@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { useTranslation } from 'react-multi-lang';
 
@@ -14,14 +14,19 @@ import EditComboBox from '@modules/frequencies/elements/EditComboBox';
 import EditCards from '@modules/blocks/elements/EditCards';
 import { RootState } from '@store/modules/rootReducer';
 import { openAction } from '@store/mods/modals/actions';
+import { loadAction } from '@store/mods/options/actions';
 
 import { Wrapper, Content, Action, Modals } from './styles';
 
 export default function EditSession() {
   const dispatch = useDispatch()
   const t = useTranslation()
-
   const { selected } = useSelector((state:RootState) => state.decks)
+
+  useEffect(() => {
+    dispatch(loadAction());
+  }, [dispatch]);
+
   if (!selected) {
     return <LoadingPage />;
   }

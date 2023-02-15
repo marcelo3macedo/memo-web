@@ -16,5 +16,5 @@ export const Title = styled.h4`
 `;
 
 export const Action = styled.div`
-    padding: 10px 0px;  
+    padding: 40px 0px;  
 `;
