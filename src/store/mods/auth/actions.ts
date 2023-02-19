@@ -71,3 +71,9 @@ export function logoutAction() {
         type: '@auth/LOGOUT'
     }
 }
+export function newPasswordAction({ token, password }) {
+    return {
+        type: '@auth/NEW_PASSWORD',
+        payload: { token, password }
+    }
+}

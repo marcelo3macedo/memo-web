@@ -7,10 +7,10 @@ import { redirectAction, setRedirectUrlAction } from "../redirect/actions";
 import { setInvalidAction } from "../validation/actions";
 import { REQUESTER_POST } from "@constants/Requester";
 import { authenticate, request } from "@services/Api/requester";
-import { API_ACTIVATE, API_SESSION, API_USERS } from "@services/Api/routes";
+import { API_ACTIVATE, API_PASSWORD_FORGOT, API_PASSWORD_RESET, API_SESSION, API_USERS } from "@services/Api/routes";
 import { renewToken } from "@services/Api/validation";
 import { parseToken } from "@services/Authentication";
-import { PATH_EMAIL_VALIDATION, PATH_HOME, PATH_SIGN_IN } from "@services/Navigation";
+import { PATH_EMAIL_VALIDATION, PATH_HOME, PATH_RECOVERED, PATH_SIGN_IN } from "@services/Navigation";
 import { activateFailed, activateSuccess, signInFailureAction, signInSuccessAction } from "./actions";
 import { getErrorMessage } from "@helpers/ErrorHandlerHelper";
 
@@ -140,7 +140,38 @@ function* activated() {
     yield put(redirectAction());
 }
 
-function forgotPassword({ payload }:any) {
+function* forgotPassword({ payload }:any) {
+    const response = yield request({ 
+        type: REQUESTER_POST,
+        method: API_PASSWORD_FORGOT, 
+        data: {
+            email: payload.user
+        }
+    })
+
+    if (response.status !== 200) {
+        yield put(signInFailureAction({ type: getErrorMessage(response) }));
+        return
+    }
+
+    yield put(navigatePush({ path: PATH_RECOVERED }))
+}
+
+function* newPassword({ payload }:any) {
+    const response = yield request({ 
+        type: REQUESTER_POST,
+        method: `${API_PASSWORD_RESET}?authToken=${payload.token}`,
+        data: {
+            password: payload.password
+        }
+    })
+
+    if (response.status !== 200) {
+        yield put(signInFailureAction({ type: getErrorMessage(response) }));
+        return
+    }
+
+    yield put(navigatePush({ path: PATH_SIGN_IN }))
 }
 
 function* logout() {
@@ -161,4 +192,5 @@ export default all([
     takeLatest('@auth/ACTIVATE', activate),
     takeLatest('@auth/ACTIVATE_SUCCESS', activated),
     takeLatest('@auth/FORGOT_PASSWORD', forgotPassword),
+    takeLatest('@auth/NEW_PASSWORD', newPassword),
 ]);

@@ -1,11 +1,20 @@
 import React from 'react';
 import { useTranslation } from 'react-multi-lang';
+import { useDispatch } from 'react-redux';
+
+import ButtonPrimary from '@components/button/ButtonPrimary';
+import { navigatePush } from '@store/mods/navigate/actions';
+import { PATH_SIGN_IN } from '@services/Navigation';
 
 import { Wrapper, Content, Title, ActionArea, Fields, Message } from './styles';
-import TextLinked from '@components/link/TextLinked';
 
 export default function Recovered() {
   const t = useTranslation()
+  const dispatch = useDispatch()
+
+  function goToLogin() {
+    dispatch(navigatePush({ path: PATH_SIGN_IN }))
+  }
 
   return (
     <Wrapper>
@@ -15,7 +24,7 @@ export default function Recovered() {
             <Message>{t('auth.recoveredMessage')}</Message>
           </Fields>
           <ActionArea>
-              <TextLinked content={t('auth.goToLogin')} />
+              <ButtonPrimary content={t('auth.goToLogin')} action={goToLogin} />
           </ActionArea>
         </Content>
     </Wrapper>

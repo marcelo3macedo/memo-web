@@ -53,3 +53,11 @@ export const ActionArea = styled.div`
     padding: 15px 0;
 `;
 
+export const FormArea = styled.div`
+    background: #fff;
+    padding: 20px;
+`;
+
+export const InputText = styled.h5`
+    margin-top: 10px;    
+`;

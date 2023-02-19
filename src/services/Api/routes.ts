@@ -23,3 +23,5 @@ export const API_PAYMENTS = "/payments";
 export const API_PAYMENTS_DETAILS = "/payments/details";
 export const API_PLANS_OPTION = "/plans/options";
 export const API_TRANSACTIONS = "/transactions";
+export const API_PASSWORD_FORGOT = "/password/forgot";
+export const API_PASSWORD_RESET = "/password/reset";
