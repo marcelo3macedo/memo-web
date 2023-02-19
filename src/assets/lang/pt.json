@@ -474,6 +474,7 @@
     },
     "validationMessages": {
         "validation_required": "Acesse o link de validação enviado por e-mail.",
-        "email_or_password_incorrect": "Usuário ou senha inválidos"
+        "email_or_password_incorrect": "Usuário ou senha inválidos",
+        "email_already_in_use": "O e-mail solicitado já está em uso"
     }
 }

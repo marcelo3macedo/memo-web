@@ -66,6 +66,7 @@ function* signUp({ payload }:any) {
     })
 
     if (response.status !== 201) {
+        yield put(signInFailureAction({ type: getErrorMessage(response) }));
         return
     }
 
