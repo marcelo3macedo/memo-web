@@ -7,6 +7,8 @@ export const GlobalStyle = createGlobalStyle`
         --pallete03: #004369;
         --pallete04: #db1f48;
 
+        --light: #fff;
+
         --primary: #4a4a4a;
         --secondaryDark: #01949a;
         --secondary100: #21b3af;

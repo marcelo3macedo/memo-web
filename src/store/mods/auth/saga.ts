@@ -1,15 +1,18 @@
+import { all, put, select, takeLatest } from "redux-saga/effects";
 import * as selectors from './selectors';
 import { createBrowserHistory } from "history";
+
+import { navigatePush } from "../navigate/actions";
+import { redirectAction, setRedirectUrlAction } from "../redirect/actions";
+import { setInvalidAction } from "../validation/actions";
 import { REQUESTER_POST } from "@constants/Requester";
 import { authenticate, request } from "@services/Api/requester";
 import { API_ACTIVATE, API_SESSION, API_USERS } from "@services/Api/routes";
 import { renewToken } from "@services/Api/validation";
 import { parseToken } from "@services/Authentication";
 import { PATH_EMAIL_VALIDATION, PATH_HOME, PATH_SIGN_IN } from "@services/Navigation";
-import { all, put, select, takeLatest } from "redux-saga/effects";
-import { navigatePush } from "../navigate/actions";
-import { redirectAction, setRedirectUrlAction } from "../redirect/actions";
 import { activateFailed, activateSuccess, signInFailureAction, signInSuccessAction } from "./actions";
+import { getErrorMessage } from "@helpers/ErrorHandlerHelper";
 
 function* signIn({ payload }:any) {
     const response = yield request({ 
@@ -22,7 +25,7 @@ function* signIn({ payload }:any) {
     });
 
     if (response.status !== 200) {
-        yield put(signInFailureAction({ type: 'auth.invalidAuth' }));
+        yield put(signInFailureAction({ type: getErrorMessage(response) }));
         return;
     }
 
@@ -40,6 +43,10 @@ function* signIn({ payload }:any) {
 
 function* signInSuccess() {
     yield put(redirectAction())
+}
+
+function* signInFailure({ payload }:any) {
+    yield put(setInvalidAction({ message: payload.type }))
 }
 
 function* signOut() {
@@ -144,6 +151,7 @@ function* logout() {
 export default all([
     takeLatest('@auth/SIGN_IN', signIn),
     takeLatest('@auth/SIGN_IN_SUCCESS', signInSuccess),
+    takeLatest('@auth/SIGN_IN_FAILURE', signInFailure),
     takeLatest('@auth/SIGN_UP', signUp),
     takeLatest('@auth/SIGN_OUT', signOut),
     takeLatest('@auth/LOGOUT', logout),

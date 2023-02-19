@@ -7,6 +7,7 @@ export const Wrapper = styled.div`
     flex-direction: column;
     justify-content: center;
     box-shadow: 0 0 1px 1px var(--neutral50);
+    background: var(--light);
 
     @media (max-width: 768px) {
         width: 100%;
@@ -60,6 +61,6 @@ export const SubTitle = styled.h5`
 
 export const HomeLink = styled.div`
     max-width: 200px;
-    margin-top: 20px;
+    margin-top: 40px;
 `;
 

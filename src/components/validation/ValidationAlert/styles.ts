@@ -28,16 +28,21 @@ export const Title = styled.h3`
 `;
 
 export const MessageArea = styled.div`
-    padding: 10px 0;
+    padding: 20px 0;
 `;
 
 export const Message = styled.h5`
     line-height: 20px;
+    padding: 3px 0;
 `;
 
 export const Actions = styled.div`
     padding: 10px;
     max-width: 70%;
     margin: auto;
+
+    button {
+        width: 100%;
+    }
 `;
 
