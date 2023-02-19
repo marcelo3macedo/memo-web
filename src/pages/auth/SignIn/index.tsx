@@ -55,8 +55,7 @@ export default function SignIn() {
                 <ValidationMessage name="password" />
               </Fields>
               <ActionArea>
-                  <TextLinked content={t('auth.forgotPassword')} action={forgotPasswordClick}/>
-                  <ButtonPrimary type="submit" content={t('auth.enter')} loading={isLoading}/>
+                <ButtonPrimary type="submit" content={t('auth.enter')} loading={isLoading}/>
               </ActionArea>
             </FormArea>
           </Form>
