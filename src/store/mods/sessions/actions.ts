@@ -41,6 +41,15 @@ export function loadListSuccessAction({ data }) {
     }
 }
 
+export function updateListSuccessAction({ sessions }) {
+    return {
+        type: '@sessions/UPDATE_LIST_SUCCESS',
+        payload: {
+            sessions
+        }
+    }
+}
+
 export function removeFromListAction({ id }) {
     return {
         type: '@sessions/REMOVE_FROM_LIST',

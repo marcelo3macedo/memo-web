@@ -31,7 +31,7 @@ export default function Private({ session }) {
             <Detail icon={'time'} title={ frequencyName } />
           </Footer>
         </Info>
-        <Action>
+        <Action className='hidden-action'>
           <IconMedium name={"next"} />
         </Action>        
       </Content>

@@ -30,6 +30,8 @@ export default function ModalEditDeck() {
   }
 
   function reviewClick() {
+    if (selected.cardsCount === 0) return;
+    
     dispatch(reviewAction({ deck: selected }));
     dispatch(navigatePush({ path: PATH_REVIEW }));
   }
@@ -38,7 +40,7 @@ export default function ModalEditDeck() {
     return <></>;
   }
 
-   return (
+  return (
     <Wrapper show={show}>
       <Content>
         <Header>
@@ -48,7 +50,7 @@ export default function ModalEditDeck() {
         <Description>{selected.description}</Description>
         <StatusPrivateDeck frequency={frequencyName} visibility={statusTitle} />
         <Action className='review' onClick={reviewClick}>
-          <ButtonPrimary content={t('decks.actions.review')}/>
+          <ButtonPrimary content={t('decks.actions.review')} disabled={selected.cardsCount === 0}/>
         </Action>
         <Options>
           <EditOption id={selected.id} />

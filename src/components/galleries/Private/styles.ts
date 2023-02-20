@@ -11,15 +11,27 @@ export const Wrapper = styled.div`
 export const Content = styled.div`
     background: var(--neutral0);
     box-shadow: 0 0 1px 1px var(--neutral50);
-    border-radius: 10px;
-    padding: 15px;
-    margin: 10px;
+    border-radius: 5px;
+    margin: 20px;
+    padding: 30px 10px;
     display: flex;
     justify-content: space-between;
 
     &:hover {
         cursor: pointer;
-        opacity: 0.8;
+        opacity: var(--opacity);
+
+        .hidden-action {
+            visibility: visible;
+        }
+    }
+
+    .hidden-action {
+        visibility: hidden;
+    }
+
+    @media (max-width: 768px) {
+        margin: 10px;
     }
 `;
 
@@ -35,11 +47,12 @@ export const Action = styled.div`
 `;
 
 export const Info = styled.div`        
+    text-align: center;
     width: 100%;
 `;
 
 export const Header = styled.div`
-    padding: 5px 0;
+    padding: 10px 0;
 `;
 
 export const Title = styled.h4`
@@ -48,5 +61,7 @@ export const Title = styled.h4`
 
 export const Footer = styled.div`
     display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 5px 0;
 `;

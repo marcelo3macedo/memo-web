@@ -13,7 +13,7 @@ export const Wrapper = styled.div<ConfirmRemove>`
 `;
 
 export const Content = styled.div`
-    padding: 20px;
+    padding: 40px;
     padding-bottom: 10px;
     text-align: center;
     background: var(--neutral0);
@@ -39,7 +39,7 @@ export const Title = styled.h2`
 export const Description = styled.h5`
     color: var(--neutral100);
     text-align: left;
-    padding: 10px 0;
+    padding: 20px 0;
     width: 100%;
 `;
 
