@@ -1,5 +1,6 @@
 import AuthLayout from "@layouts/Auth";
 import FullLayout from "@layouts/Full";
+import GuestLayout from "@layouts/Guest";
 import MainLayout from "@layouts/Main";
 import PublicLayout from "@layouts/Public";
 import ReviewLayout from "@layouts/Review";
@@ -11,5 +12,6 @@ export const Layouts = {
     Full: FullLayout,
     Public: PublicLayout,
     Visitor: VisitorLayout,
-    Review: ReviewLayout
+    Review: ReviewLayout,
+    Guest: GuestLayout
 }

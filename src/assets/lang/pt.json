@@ -329,6 +329,7 @@
         "createdAt": "Criado em:",
         "created": "Criado",
         "removeConfirm": "Tem certeza que deseja remover essa sessão?",
+        "notFound": "A sessão não foi encontrada",
         "noCards": "Nenhum card encontrado. Adicione um Card.",
         "availableCards": "cards disponíveis",
         "doubtAboutReview": "Dúvidas de como fazer a revisão?",
@@ -491,6 +492,7 @@
         "user_not_found": "Usuário não encontrado"
     },
     "share": {
-        "description": "Compartilhe com seus amigos"
+        "description": "Compartilhe com seus amigos",
+        "changePublic": "Mudar para Público"
     }
 }

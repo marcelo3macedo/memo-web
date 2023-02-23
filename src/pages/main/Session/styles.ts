@@ -7,6 +7,16 @@ export const Wrapper = styled.div`
 export const Content = styled.div`
 `;
 
+export const Title = styled.h4`
+`;
+
+export const NotFound = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vH;
+`;
+
 export const Description = styled.h4`
     color: var(--neutral100); 
     white-space: pre-line;  

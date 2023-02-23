@@ -15,7 +15,7 @@ import { RootState } from '@store/modules/rootReducer';
 import { loadIndexAction } from '@store/mods/sessions/actions';
 import { loadAction } from '@store/mods/review/actions';
 
-import { Wrapper, Content, Action, TutorialArea } from './styles';
+import { Wrapper, Content, Action, TutorialArea, Title, NotFound } from './styles';
 
 export default function Session() {
   const dispatch = useDispatch();
@@ -31,10 +31,20 @@ export default function Session() {
     dispatch(loadIndexAction({ id }))
   }, [dispatch, id])
 
-  if (isLoading || !index || !index.deck) {
+  if (isLoading) {
     return (
       <Wrapper>
         <PageLoading />
+      </Wrapper>
+    )
+  }
+
+  if (!index || !index.deck) {
+    return (
+      <Wrapper>
+        <NotFound>
+          <Title>{t('session.notFound')}</Title>
+        </NotFound>
       </Wrapper>
     )
   }

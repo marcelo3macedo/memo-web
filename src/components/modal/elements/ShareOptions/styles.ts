@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { ShareOption } from "@interfaces/Deck/shareOption.interface";
 
 export const Wrapper = styled.div`
     margin-top: 10px;
@@ -11,8 +12,12 @@ export const Content = styled.div`
     
 `;
 
-export const Options = styled.div`
+export const Action = styled.div<ShareOption>`
+    display: ${props => props.show ? 'block': 'none'};
     padding: 20px 0;
+`;
+
+export const Options = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;

@@ -11,8 +11,9 @@ import { Wrapper, Content, Header, Title, Description, Footer, Card, Action, Gro
 export default function IndexGallery({ session }:IIndexGallerySessions) {
   const dispatch = useDispatch()
 
-  function sessionClick() {    
-    dispatch(redirectAction({ id: session.id }))
+  function sessionClick() {
+    const { id, path } = session || {}
+    dispatch(redirectAction({ id, path }))
   }
 
   return (

@@ -92,8 +92,8 @@ function* removeActionSuccess({ payload }:any) {
 }
 
 function* redirectAction({ payload }:any) {
-    const { id } = payload || {}
-    yield put(navigatePush({ path: `${PATH_SESSIONPUBLIC}/${id}` }))
+    const { id, path } = payload || {}
+    yield put(navigatePush({ path: `${PATH_SESSIONPUBLIC}/${path}/${id}` }))
 }
 
 function* cloneAction({ payload }:any) {
