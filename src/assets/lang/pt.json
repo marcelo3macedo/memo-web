@@ -489,5 +489,8 @@
         "email_or_password_incorrect": "Usuário ou senha inválidos",
         "email_already_in_use": "O e-mail solicitado já está em uso",
         "user_not_found": "Usuário não encontrado"
+    },
+    "share": {
+        "description": "Compartilhe com seus amigos"
     }
 }

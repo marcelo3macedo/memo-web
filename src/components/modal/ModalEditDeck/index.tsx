@@ -14,6 +14,7 @@ import { reviewAction } from '@store/modules/deck/actions';
 import { PATH_REVIEW } from '@services/Navigation';
 
 import { Wrapper, Content, Header, Title, Description, Action, Options } from './styles';
+import ShareOptions from '../elements/ShareOptions';
 
 export default function ModalEditDeck() {
   const t = useTranslation()
@@ -55,6 +56,7 @@ export default function ModalEditDeck() {
         <Options>
           <ExtraOptions id={selected.id} />
         </Options>
+        <ShareOptions session={selected} />
       </Content>
     </Wrapper>
   );

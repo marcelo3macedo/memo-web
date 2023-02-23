@@ -33,8 +33,16 @@ import { ReactComponent as UserCoveredIcon } from "@assets/icons/user-covered.sv
 import { ReactComponent as PlansIcon } from "@assets/icons/plans.svg";
 import { ReactComponent as CloseIcon } from "@assets/icons/close.svg";
 import { ReactComponent as OkIcon } from "@assets/icons/ok.svg";
+import { ReactComponent as FacebookIcon } from "@assets/icons/facebook.svg";
+import { ReactComponent as TwitterIcon } from "@assets/icons/twitter.svg";
+import { ReactComponent as WhatsappIcon } from "@assets/icons/whatsapp.svg";
+import { ReactComponent as LinkedinIcon } from "@assets/icons/linkedin.svg";
 
 export const Icons = {
+    facebook: FacebookIcon,
+    twitter: TwitterIcon,
+    whatsapp: WhatsappIcon,
+    linkedin: LinkedinIcon,
     user: UserIcon,
     users: UsersIcon,
     password: PasswordIcon,
