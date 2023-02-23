@@ -4,7 +4,7 @@ import HistoricItem from '../HistoricItem';
 
 import { Wrapper, Content, Title, Options } from './styles';
 
-export default function Historic({ historic }) {
+export default function Historic({ historic }:any) {
   const t = useTranslation()
 
   if (!historic) {

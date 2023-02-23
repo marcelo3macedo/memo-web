@@ -7,7 +7,7 @@ import { closeAction } from '@store/mods/modals/actions';
 import { Wrapper, Content, Title, Action, ActionTitle } from './styles';
 import { removeSubmitAction } from '@store/mods/decks/actions';
 
-export default function RemoveOption({ id }) {
+export default function RemoveOption({ id }:any) {
   const t = useTranslation()
   const dispatch = useDispatch()
 

@@ -7,7 +7,7 @@ import { signOutAction } from '@store/mods/auth/actions';
 
 import { Wrapper, Content, Title, User, Action } from './styles';
 
-export default function MenuUser({ name }) {
+export default function MenuUser({ name }:any) {
   const t = useTranslation()
   const dispatch = useDispatch()
 

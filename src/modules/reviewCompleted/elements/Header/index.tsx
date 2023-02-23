@@ -5,7 +5,7 @@ import congrats from "@assets/banners/happyBoy.png";
 
 import { Wrapper, Content, Title, SubTitle, Image } from './styles';
 
-export default function Header({ session }) {
+export default function Header({ session }:any) {
   const t = useTranslation()
   const subTitle = t('reviewCompleted.subTitle').replace("{{sessionName}}", session.deck.name)
   

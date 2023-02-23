@@ -3,7 +3,7 @@ import { useTranslation } from 'react-multi-lang';
 
 import { Wrapper, Content, Option, Title, Quantity } from './styles';
 
-export default function Options({ options, answered }) {
+export default function Options({ options, answered }:any) {
   const t = useTranslation()
 
   if (!answered || !options) return <></>

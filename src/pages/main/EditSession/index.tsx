@@ -16,7 +16,9 @@ import { RootState } from '@store/modules/rootReducer';
 import { openAction } from '@store/mods/modals/actions';
 import { loadAction } from '@store/mods/options/actions';
 
-import { Wrapper, Content, Action, Modals } from './styles';
+import { Wrapper, Content, Action, Modals, ActionButton } from './styles';
+import PageHeader from '@modules/headers/elements/PageHeader';
+import ButtonSecondary from '@components/button/ButtonSecondary';
 
 export default function EditSession() {
   const dispatch = useDispatch()
@@ -42,10 +44,15 @@ export default function EditSession() {
   return (
     <Wrapper>
       <Content>
-        <EditHeader name={selected.name} description={selected.description} action={editHeaderClick} />
+        <PageHeader title={selected.name} subTitle={selected.description} />
         <EditComboBox deck={selected} />
         <Action>
-          <ButtonPrimary content={t('actions.addCard')} action={addCardClick}></ButtonPrimary>
+          <ActionButton>
+            <ButtonSecondary content={t('actions.editTitle')} action={editHeaderClick} />
+          </ActionButton>
+          <ActionButton>
+            <ButtonPrimary content={t('actions.addCard')} action={addCardClick} />
+          </ActionButton>
         </Action>
         <EditCards />
       </Content>

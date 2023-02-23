@@ -50,8 +50,9 @@ export const Actions = styled.div`
     display: flex;    
 `;
 
-export const ActionTitle = styled.h5`
+export const ActionTitle = styled.h6`
     color: var(--neutral0);
+    font-weight: normal;
 `;
 
 export const ActionArea = styled.div`

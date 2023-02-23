@@ -3,7 +3,7 @@ import IconSmall from '@components/icons/IconSmall';
 
 import { Wrapper, Content, Title } from './styles';
 
-export default function IconNamed({ icon, title }) {
+export default function IconNamed({ icon, title }:any) {
   return (
     <Wrapper>
       <Content>

@@ -17,6 +17,8 @@ export default function IndexActive({ session }:IIndexActiveSessions) {
     dispatch(navigateTo({ sessionId: session.id }))
   }
 
+  if (!deck) return <></>
+
   return (
     <Wrapper onClick={sessionClick}>
       <Content>

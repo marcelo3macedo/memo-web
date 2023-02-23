@@ -4,7 +4,7 @@ import IconMedium from '@components/icons/IconMedium';
 
 import { Wrapper, Content, Header, Info, Title } from './styles';
 
-export default function MenuSidebarOption({ icon, content, action=null }) {
+export default function MenuSidebarOption({ icon, content, action=null }:any) {
   return (
     <Wrapper className="no-select" onClick={action}>
       <Content>

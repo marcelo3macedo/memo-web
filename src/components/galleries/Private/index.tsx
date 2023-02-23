@@ -9,7 +9,7 @@ import { Wrapper, Content, Action, Header, Info, Title, Footer } from './styles'
 import { SESSIONMODAL_EDITDECK } from '@constants/SessionModal';
 import { setAction } from '@store/mods/decks/actions';
 
-export default function Private({ session }) {
+export default function Private({ session }:any) {
   const dispatch = useDispatch();
   const { frequency } = session || {}
   const { name: frequencyName } = frequency || {}

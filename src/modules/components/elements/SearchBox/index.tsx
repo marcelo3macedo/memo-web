@@ -4,7 +4,7 @@ import { useTranslation } from 'react-multi-lang';
 import IconSmall from '@components/icons/IconSmall';
 import { Wrapper, Content, Search, SearchInput, SearchIcon } from './styles';
 
-export default function SearchBox({ action }) {
+export default function SearchBox({ action }:any) {
   const t = useTranslation();
   const [ term, setTerm ] = useState("");
 

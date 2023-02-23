@@ -185,6 +185,7 @@
         "featured": "Em Destaque",
         "themeTitle": "Temas Abordados:",
         "frequency": "Frequência: ",
+        "frequencyReview": "Frequência de Revisão: ",
         "theme": "Tema",
         "view": "Visualizar",
         "empty": "Nenhuma sessão encontrada",
@@ -195,7 +196,9 @@
             "permanentRemove": "Remover permanentemente essa sessão",
             "edit": "Editar",
             "view": "Visualizar",
-            "review": "Revisar"
+            "review": "Revisar",
+            "reviewNow": "Revisar Agora",
+            "change": "Alterar Sessão"
         },
         "editMessage": "Deseja realizar alterações em sua sessão?",
         "removeMessage": "Não quer mais visualizar essa sessão?"
@@ -275,6 +278,7 @@
         "addCard": "Adicionar Card",
         "delete": "Remover",
         "edit": "Editar",
+        "editTitle": "Editar Título e Descrição",
         "save": "Salvar",
         "update": "Atualizar",
         "review": "Revisar",

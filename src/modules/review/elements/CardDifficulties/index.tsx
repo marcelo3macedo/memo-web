@@ -6,7 +6,7 @@ import { setOptionAction } from '@store/modules/review/actions';
 
 import { Wrapper, Content, Action, ActionValue, ActionWrapper, Message, Info } from './styles';
 
-export default function CardDifficulties({ card, options, action }) {
+export default function CardDifficulties({ card, options, action }:any) {
   const t = useTranslation()
   const dispatch = useDispatch()
   

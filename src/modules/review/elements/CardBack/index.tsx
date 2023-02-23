@@ -4,7 +4,7 @@ import CardDifficulties from '../CardDifficulties';
 
 import { Wrapper, Content, Message, Title } from './styles';
 
-export default function CardBack({ session, position, options, flip, action }) {
+export default function CardBack({ session, position, options, flip, action }:any) {
   const t = useTranslation()
   const card = session && session.cards ? session.cards[position] : null
 

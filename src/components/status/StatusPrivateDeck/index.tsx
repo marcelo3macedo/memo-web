@@ -1,21 +1,15 @@
 import React from 'react';
 
-import IconSmall from '@components/icons/IconSmall';
+import StatusDeckItem from '../StatusDeckItem';
 
-import { Wrapper, Content, Status, Title } from './styles';
+import { Wrapper, Content } from './styles';
 
-export default function StatusPrivateDeck({ visibility, frequency }) {
+export default function StatusPrivateDeck({ visibility, frequency }:any) {
   return (
     <Wrapper>
       <Content>
-        <Status>
-          <IconSmall name="visibility" />
-          <Title>{visibility}</Title>
-        </Status>
-        <Status>
-          <IconSmall name="time" />
-          <Title>{frequency}</Title>
-        </Status>
+        <StatusDeckItem icon="visibility" value={visibility} />
+        <StatusDeckItem icon="time" value={frequency} />
       </Content>
     </Wrapper>
   );

@@ -8,7 +8,7 @@ import { closeAction } from '@store/mods/modals/actions';
 
 import { Wrapper, Content, Title, Action } from './styles';
 
-export default function EditOption({ id }) {
+export default function EditOption({ id }:any) {
   const t = useTranslation()
   const dispatch = useDispatch()
 

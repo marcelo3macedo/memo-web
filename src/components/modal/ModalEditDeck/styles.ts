@@ -17,12 +17,18 @@ export const Content = styled.div`
     padding-bottom: 10px;
     text-align: center;
     background: var(--neutral0);
-    width: 80%;
-    max-width: 500px;
+    width: 550px;
+    max-width: 100%;
     margin: 80px auto;
     display: flex;
     align-items: end;
     flex-direction: column;
+
+    @media (max-width: 768px) {
+        padding: 40px 20px;
+        margin: 20px auto;
+        max-width: 300px;
+    }
 `;
 
 export const Header = styled.div`
@@ -33,7 +39,11 @@ export const Header = styled.div`
 `;
 
 export const Title = styled.h2`
-    color: var(--neutral100);    
+    color: var(--neutral100); 
+    
+    @media (max-width: 768px) {
+        text-align: left;
+    }
 `;
 
 export const Description = styled.h5`
@@ -58,6 +68,6 @@ export const Action = styled.div`
 `;
 
 export const Options = styled.div`
-    margin-top: 40px;
+    margin: 20px 0;
     width: 100%;
 `;

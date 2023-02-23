@@ -6,7 +6,7 @@ import { getTimeFromNow } from '@helpers/DateHelper';
 
 import { Wrapper, Content, Title, Item } from './styles';
 
-export default function Details({ session }) {
+export default function Details({ session }:any) {
   const t = useTranslation()
   const cardNumber = session && session.cards ? session.cards.length : 0
   const cardMessage = `${cardNumber} ${t('session.availableCards')}`

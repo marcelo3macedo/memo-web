@@ -3,7 +3,7 @@ import { Field } from "formik";
 
 import { Wrapper, Content } from './styles';
 
-export default function InputTextArea({ name=null, placeholder=null, type="text", theme="default" }) {
+export default function InputTextArea({ name=null, placeholder=null, type="text", theme="default" }:any) {
   return (
     <Wrapper>
         <Content theme={theme}>

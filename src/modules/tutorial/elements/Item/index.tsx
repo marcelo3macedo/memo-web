@@ -3,7 +3,7 @@ import React from 'react';
 
 import { Wrapper, Content, Title, Description } from './styles';
 
-export default function Item({ title, description, action=null }) {
+export default function Item({ title, description, action=null }:any) {
   return (
     <Wrapper className='no-select' onClick={action}>
       <Content>
