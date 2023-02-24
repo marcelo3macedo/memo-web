@@ -31,7 +31,7 @@ export default function UpdateProfileForm() {
           <Form>
             <Content>
               <Field type={FIELD_INPUT} name="name" title={t('newDeck.fields.name')} placeholder={t('profile.fields.name')} />
-              <Field type={FIELD_INPUT} name="email" title={t('profile.fields.email')} placeholder={t('profile.fields.email')} />
+              <Field type={FIELD_INPUT_HIDDEN} name="email" title={t('profile.fields.email')} placeholder={t('profile.fields.email')} />
               <Field type={FIELD_INPUT_HIDDEN} name="createdAt" title={t('profile.fields.createdAt')} placeholder={t('profile.fields.createdAt')} />
             </Content>
             <Action>
