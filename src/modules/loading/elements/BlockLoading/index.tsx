@@ -5,7 +5,7 @@ import IconLarge from '@components/icons/IconLarge';
 
 import { Wrapper, Content, Title } from './styles';
 
-export default function BlockLoading({ loading }) {
+export default function BlockLoading({ loading }:any) {
   const t = useTranslation();
 
   if (!loading) return <></>

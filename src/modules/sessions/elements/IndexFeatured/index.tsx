@@ -27,7 +27,7 @@ export default function IndexFeatured({ session }:IIndexActiveSessions) {
             <IconNamed icon={'card'} title={deck.cardsCount} />
           </Footer>
         </Card>
-        <Action>
+        <Action className='hidden-action'>
           <IconMedium name={"next"} />
         </Action>
       </Content>

@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { validate as isValidUUID } from 'uuid';
 import { useDispatch, useSelector } from "react-redux";
 import { useTranslation } from 'react-multi-lang';
 import { useParams } from 'react-router-dom';
@@ -11,7 +12,8 @@ import { formatDateField } from '@services/Format';
 import { RootState } from '@store/modules/rootReducer';
 import { cloneAction, loadAction } from '@store/mods/decks/actions';
 
-import { Wrapper, Content, Description, Action } from './styles';
+import { Wrapper, Content, Description, Action, Share } from './styles';
+import ShareOptions from '@components/modal/elements/ShareOptions';
 
 export default function SessionPublic() {
   const dispatch = useDispatch();
@@ -41,8 +43,11 @@ export default function SessionPublic() {
         <PageHeader title={selected.name} subTitle={`${t('session.createdAt')} ${formatDateField(selected.createdAt)}`} />
         <Description>{selected.description}</Description>
         <Action>
-          <ButtonPrimary content={t('actions.review')} action={reviewClick} />
+          <ButtonPrimary content={t('actions.add')} action={reviewClick} />
         </Action>
+        <Share>
+          <ShareOptions session={selected} />
+        </Share>
         <ViewCards />
       </Content>
     </Wrapper>

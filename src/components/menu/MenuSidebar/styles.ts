@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div`
     background: var(--neutral10);
-    box-shadow: 0 0 1px 1px var(--neutral50);
     width: 100px;
     
     @media (max-width: 768px) {

@@ -4,6 +4,10 @@ export const Wrapper = styled.div`
     padding: 15px 0;
     max-width: 800px;    
     margin: auto;
+
+    @media (max-width: 768px) {
+        padding: 0;
+    }
 `;
 
 export const Content = styled.div`
@@ -16,6 +20,11 @@ export const Content = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
+
+    @media (max-width: 768px) {
+        border-radius: 0;
+        min-height: 100vH;
+    }
 `;
 
 export const Actions = styled.div`

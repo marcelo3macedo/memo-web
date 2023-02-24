@@ -19,10 +19,10 @@ export function setAction({ deck }) {
     }
 }
 
-export function redirectAction({ id }) {
+export function redirectAction({ id, path }) {
     return {
         type: '@decks/REDIRECT',
-        payload: { id }
+        payload: { id, path }
     }
 }
 

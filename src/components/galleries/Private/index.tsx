@@ -9,7 +9,7 @@ import { Wrapper, Content, Action, Header, Info, Title, Footer } from './styles'
 import { SESSIONMODAL_EDITDECK } from '@constants/SessionModal';
 import { setAction } from '@store/mods/decks/actions';
 
-export default function Private({ session }) {
+export default function Private({ session }:any) {
   const dispatch = useDispatch();
   const { frequency } = session || {}
   const { name: frequencyName } = frequency || {}
@@ -31,7 +31,7 @@ export default function Private({ session }) {
             <Detail icon={'time'} title={ frequencyName } />
           </Footer>
         </Info>
-        <Action>
+        <Action className='hidden-action'>
           <IconMedium name={"next"} />
         </Action>        
       </Content>

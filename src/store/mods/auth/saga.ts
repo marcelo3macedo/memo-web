@@ -1,15 +1,18 @@
+import { all, put, select, takeLatest } from "redux-saga/effects";
 import * as selectors from './selectors';
 import { createBrowserHistory } from "history";
-import { REQUESTER_POST } from "@constants/Requester";
-import { authenticate, request } from "@services/Api/requester";
-import { API_ACTIVATE, API_SESSION, API_USERS } from "@services/Api/routes";
-import { renewToken } from "@services/Api/validation";
-import { parseToken } from "@services/Authentication";
-import { PATH_EMAIL_VALIDATION, PATH_HOME, PATH_SIGN_IN } from "@services/Navigation";
-import { all, put, select, takeLatest } from "redux-saga/effects";
+
 import { navigatePush } from "../navigate/actions";
 import { redirectAction, setRedirectUrlAction } from "../redirect/actions";
+import { setInvalidAction } from "../validation/actions";
+import { REQUESTER_POST } from "@constants/Requester";
+import { authenticate, request } from "@services/Api/requester";
+import { API_ACTIVATE, API_PASSWORD_FORGOT, API_PASSWORD_RESET, API_SESSION, API_USERS } from "@services/Api/routes";
+import { renewToken } from "@services/Api/validation";
+import { parseToken } from "@services/Authentication";
+import { PATH_EMAIL_VALIDATION, PATH_HOME, PATH_RECOVERED, PATH_SIGN_IN } from "@services/Navigation";
 import { activateFailed, activateSuccess, signInFailureAction, signInSuccessAction } from "./actions";
+import { getErrorMessage } from "@helpers/ErrorHandlerHelper";
 
 function* signIn({ payload }:any) {
     const response = yield request({ 
@@ -22,7 +25,7 @@ function* signIn({ payload }:any) {
     });
 
     if (response.status !== 200) {
-        yield put(signInFailureAction({ type: 'auth.invalidAuth' }));
+        yield put(signInFailureAction({ type: getErrorMessage(response) }));
         return;
     }
 
@@ -42,6 +45,10 @@ function* signInSuccess() {
     yield put(redirectAction())
 }
 
+function* signInFailure({ payload }:any) {
+    yield put(setInvalidAction({ message: payload.type }))
+}
+
 function* signOut() {
     localStorage.clear()
     yield put(navigatePush({ path: PATH_HOME }))
@@ -59,6 +66,7 @@ function* signUp({ payload }:any) {
     })
 
     if (response.status !== 201) {
+        yield put(signInFailureAction({ type: getErrorMessage(response) }));
         return
     }
 
@@ -132,7 +140,38 @@ function* activated() {
     yield put(redirectAction());
 }
 
-function forgotPassword({ payload }:any) {
+function* forgotPassword({ payload }:any) {
+    const response = yield request({ 
+        type: REQUESTER_POST,
+        method: API_PASSWORD_FORGOT, 
+        data: {
+            email: payload.user
+        }
+    })
+
+    if (response.status !== 200) {
+        yield put(signInFailureAction({ type: getErrorMessage(response) }));
+        return
+    }
+
+    yield put(navigatePush({ path: PATH_RECOVERED }))
+}
+
+function* newPassword({ payload }:any) {
+    const response = yield request({ 
+        type: REQUESTER_POST,
+        method: `${API_PASSWORD_RESET}?authToken=${payload.token}`,
+        data: {
+            password: payload.password
+        }
+    })
+
+    if (response.status !== 200) {
+        yield put(signInFailureAction({ type: getErrorMessage(response) }));
+        return
+    }
+
+    yield put(navigatePush({ path: PATH_SIGN_IN }))
 }
 
 function* logout() {
@@ -144,6 +183,7 @@ function* logout() {
 export default all([
     takeLatest('@auth/SIGN_IN', signIn),
     takeLatest('@auth/SIGN_IN_SUCCESS', signInSuccess),
+    takeLatest('@auth/SIGN_IN_FAILURE', signInFailure),
     takeLatest('@auth/SIGN_UP', signUp),
     takeLatest('@auth/SIGN_OUT', signOut),
     takeLatest('@auth/LOGOUT', logout),
@@ -152,4 +192,5 @@ export default all([
     takeLatest('@auth/ACTIVATE', activate),
     takeLatest('@auth/ACTIVATE_SUCCESS', activated),
     takeLatest('@auth/FORGOT_PASSWORD', forgotPassword),
+    takeLatest('@auth/NEW_PASSWORD', newPassword),
 ]);

@@ -5,6 +5,7 @@ export const Wrapper = styled.div`
 `;
 
 export const Content = styled.div`
+    padding: 20px 0;
 `;
 
 export const Frequency = styled.div`
@@ -16,13 +17,29 @@ export const Frequency = styled.div`
 export const Action = styled.div`
     padding: 10px 0;
     text-align: center;
-
+    display: flex;
+    
     button {
         width: 80%;
-    }    
-    
-    @media (min-width: 768px) {
-        max-width: 500px;
+    }
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        max-width: 100%;
+    }
+`;
+
+export const ActionButton = styled.div`
+    padding: 20px;
+    width: 100%;
+
+    @media (max-width: 768px) {
+        padding: 0;
+        margin: 10px 0;
+
+        button {
+            width: 100%;
+        }
     }
 `;
 

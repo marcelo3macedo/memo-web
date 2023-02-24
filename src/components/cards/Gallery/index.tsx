@@ -4,7 +4,7 @@ import Private from '../Private';
 
 import { Wrapper, Content, ThemeTitle, Message, Card, CardName } from './styles';
 
-export default function Gallery({ cards=[], type, actions={} }) {
+export default function Gallery({ cards=[], type, actions={} }:any) {
   const t = useTranslation();
   const hasCards = cards && cards.length > 0;
   

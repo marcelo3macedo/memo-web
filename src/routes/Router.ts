@@ -11,6 +11,7 @@ import { verifyAction } from "@store/mods/auth/actions";
 export default function RouteWrapper({
     component: Component,
     layout = Layouts.Main,
+    // eslint-disable-next-line react/prop-types
     isPublic = false,
     ...rest
 }){

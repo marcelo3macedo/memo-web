@@ -4,7 +4,7 @@ import IconSmall from '@components/icons/IconSmall';
 
 import { Wrapper, Container, Header, Area, Title, Content, SecretContent, RemoveArea } from './styles';
 
-export default function Private({ card, actions }) {
+export default function Private({ card, actions }:any) {
   function actionOpenClick(screen) {
     if (!actions.open) {
       return;

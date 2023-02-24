@@ -5,9 +5,9 @@ import ButtonSecondary from '@components/button/ButtonSecondary';
 
 import { Wrapper, Content } from './styles';
 
-export default function MorePages({ pages, actualPage, action }) {  
+export default function MorePages({ pages, actualPage, action }:any) {  
   const t = useTranslation()  
-  if (actualPage >= pages) return <></>
+  if (actualPage >= pages || pages === 1) return <></>
 
   return (
     <Wrapper>

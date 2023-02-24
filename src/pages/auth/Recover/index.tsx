@@ -30,9 +30,9 @@ export default function Recover() {
     <Wrapper>
         <Content>
           <Formik 
-                initialValues={initialValues}
-                onSubmit={handleSubmit}
-                validationSchema={schema}>
+              initialValues={initialValues}
+              onSubmit={handleSubmit}
+              validationSchema={schema}>
             <Form>
               <FormArea>
                 <Fields>

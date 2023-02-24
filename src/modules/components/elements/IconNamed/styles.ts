@@ -6,8 +6,8 @@ export const Wrapper = styled.div`
 
 export const Content = styled.div`
     display: flex;
-    align-items: initial;
-    justify-content: initial;
+    align-items: center;
+    justify-content: center;
 
     svg {
         path {

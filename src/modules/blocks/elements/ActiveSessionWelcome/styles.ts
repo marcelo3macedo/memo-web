@@ -11,3 +11,8 @@ export const Wrapper = styled.div`
 
 export const Content = styled.div`
 `;
+
+export const Details = styled.h4`
+    padding-bottom: 20px;
+`;
+

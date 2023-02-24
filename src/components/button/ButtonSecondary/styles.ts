@@ -1,10 +1,9 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-    padding: 10px 15px;
+    padding: 15px 0;
     border-radius: 5px;
     background: var(--neutral50);
-    box-shadow: 0 0 1px 1px var(--neutral90);
     min-width: 100px;
     text-align: center;
     

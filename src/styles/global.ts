@@ -7,6 +7,8 @@ export const GlobalStyle = createGlobalStyle`
         --pallete03: #004369;
         --pallete04: #db1f48;
 
+        --light: #fff;
+
         --primary: #4a4a4a;
         --secondaryDark: #01949a;
         --secondary100: #21b3af;
@@ -94,6 +96,17 @@ export const GlobalStyle = createGlobalStyle`
 
     input {
         background: transparent;
+    }
+
+    input:disabled {
+        pointer-events:none;
+        opacity: 0.8;
+        -webkit-touch-callout: none;
+          -webkit-user-select: none;
+           -khtml-user-select: none;
+             -moz-user-select: none;
+              -ms-user-select: none;
+                  user-select: none;
     }
 
     .no-select {

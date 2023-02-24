@@ -23,7 +23,6 @@ export default function MenuOptions() {
         <MenuOption icon="home" content={t('menu.home')} action={() => { navigate(PATH_MAIN) } }/>
         <MenuOption icon="card" content={t('menu.sessions')} action={() => { navigate(PATH_SESSIONS) } }/>
         <MenuOption icon="gallery" content={t('menu.gallery')} action={() => { navigate(PATH_GALLERY) } }/>
-        <MenuOption icon="next" content={t('menu.integrations')} action={() => { navigate(PATH_INTEGRATION) } }/>
         
         <SubTitle>{t('menu.company')}</SubTitle>
         <MenuOption icon="info" content={t('menu.policy')} action={() => { navigate(PATH_PRIVACY_POLICY) } }/>

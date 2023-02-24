@@ -4,10 +4,10 @@ import { useDispatch } from 'react-redux';
 
 import PageHeader from '@modules/headers/elements/PageHeader';
 import Subtitle from '@modules/headers/elements/Subtitle';
-import { PATH_ABOUT, PATH_HELP, PATH_HISTORY, PATH_INTEGRATION, PATH_PRIVACY_POLICY, PATH_PROFILE, PATH_SESSIONS } from '@services/Navigation';
 import Option from '@modules/actions/elements/Option';
 import { navigatePush } from '@store/mods/navigate/actions';
 import { logoutAction } from '@store/mods/auth/actions';
+import { PATH_ABOUT, PATH_HELP, PATH_HISTORY, PATH_PRIVACY_POLICY, PATH_PROFILE, PATH_SESSIONS } from '@services/Navigation';
 
 import { Wrapper, Content, Options } from './styles';
 
@@ -36,7 +36,6 @@ export default function Account() {
 
         <Subtitle title={t('account.settings')} />
         <Options>
-          <Option title={t('account.actions.integrations')} action={() => { navigate(PATH_INTEGRATION) }} />
           <Option title={t('account.actions.personal')} action={() => { navigate(PATH_PROFILE) }} />
           <Option title={t('account.actions.policy')} action={() => { navigate(PATH_PRIVACY_POLICY) }} />
           <Option title={t('account.actions.help')} action={() => { navigate(PATH_HELP) }} />
@@ -45,7 +44,7 @@ export default function Account() {
 
         <Subtitle title={t('account.system')} />
         <Options>
-          <Option title={`${t('account.actions.version')} - `} />
+          <Option title={`${t('account.actions.version')} - ${process.env.REACT_APP_VERSION}`} />
           <Option title={t('account.actions.about')} action={() => { navigate(PATH_ABOUT) }} />
         </Options>
       </Content>

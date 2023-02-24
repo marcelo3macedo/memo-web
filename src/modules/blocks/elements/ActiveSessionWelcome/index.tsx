@@ -7,7 +7,7 @@ import Subtitle from '@modules/headers/elements/Subtitle';
 import { RootState } from '@store/modules/rootReducer';
 import List from '@modules/sessions/elements/List';
 
-import { Wrapper, Content } from './styles';
+import { Wrapper, Content, Details } from './styles';
 
 export default function ActiveSessionWelcome() {
   const t = useTranslation()
@@ -20,7 +20,8 @@ export default function ActiveSessionWelcome() {
   return (
     <Wrapper>
       <Content>
-        <Subtitle title={t('session.active')} />
+        <Subtitle title={t('session.active')} />        
+        <Details>{t('session.activeDetails')}</Details>
         <List sessions={sessions} type={SESSIONS_LIST_TIMEPASSED} />
       </Content>
     </Wrapper>

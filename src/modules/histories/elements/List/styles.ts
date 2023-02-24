@@ -27,16 +27,17 @@ export const HistoryArea = styled.div`
 `;
 
 export const History = styled.div`
-    background: var(--neutral30);
+    background: var(--neutral0);
     box-shadow: 0 0 1px 1px var(--neutral60);
     border-radius: 5px;
-    padding: 12px 10px;
+    padding: 20px 10px;
     max-width: 100%;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 `;
 
 export const Title = styled.h5`
     color: var(--neutral100);
+    padding: 5px;
 `;
 
 export const Info = styled.span`

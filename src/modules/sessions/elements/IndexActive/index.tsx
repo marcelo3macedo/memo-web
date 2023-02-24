@@ -17,6 +17,8 @@ export default function IndexActive({ session }:IIndexActiveSessions) {
     dispatch(navigateTo({ sessionId: session.id }))
   }
 
+  if (!deck) return <></>
+
   return (
     <Wrapper onClick={sessionClick}>
       <Content>
@@ -28,7 +30,7 @@ export default function IndexActive({ session }:IIndexActiveSessions) {
             <IconNamed icon={'time'} title={getTimeFromNow(session.createdAt)} />
           </Footer>
         </Card>
-        <Action>
+        <Action className='hidden-action'>
           <IconMedium name={"next"} />
         </Action>
       </Content>

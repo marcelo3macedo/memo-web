@@ -5,11 +5,11 @@ export const Wrapper = styled.div`
 `;
 
 export const Content = styled.div`
-    padding: 0 10px;
+    padding: 0px 10px;
 `;
 
 export const Options = styled.div`
-    padding: 10px 0;
+    padding: 20px 0 40px 0;
 `;
 
 export const Title = styled.h4`

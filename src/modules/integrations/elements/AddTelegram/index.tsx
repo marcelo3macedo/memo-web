@@ -9,7 +9,7 @@ import { RootState } from '@store/modules/rootReducer';
 
 import { Wrapper, Content, Title, SubTitle, Action} from './styles';
 
-export default function AddTelegram({ id }) {
+export default function AddTelegram({ id }:any) {
   const dispatch = useDispatch()
   const t = useTranslation()
   const { index } = useSelector((state:RootState) => state.integrations)

@@ -3,6 +3,12 @@ import styled from "styled-components";
 export const Wrapper = styled.div`    
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    width: 100%;
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+    }
 `;
 
 export const Content = styled.div`
@@ -27,11 +33,11 @@ export const Name = styled.h1`
 `;
 
 export const Image = styled.img`
-    max-width: 120px;
+    max-width: 200px;
     padding: 0 0 0 40px;
 
     @media (max-width: 768px) {
-        max-width: 70px;
+        max-width: 200px;
         padding: 0 0 0 20px;
     }
 `;

@@ -6,7 +6,7 @@ import { editSubmitAction } from '@store/mods/decks/actions';
 
 import { Wrapper, Content, Title, Options } from './styles';
 
-export default function EditComboBox({ deck }) {
+export default function EditComboBox({ deck }:any) {
   const t = useTranslation()
   const dispatch = useDispatch()
   const { frequencies } = useSelector((state:RootState) => state.options)
@@ -23,7 +23,7 @@ export default function EditComboBox({ deck }) {
   return (
     <Wrapper className='no-select'>
       <Content>
-        <Title>{t('decks.frequency')}</Title>
+        <Title>{t('decks.frequencyReview')}</Title>
         <Options name={"frequencyId"} defaultValue={deck.frequencyId} onChange={frequencyChanged}>
           {frequencies ? frequencies.map(f => (
             <option key={f.id} value={f.id}>{f.name}</option>  

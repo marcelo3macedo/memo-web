@@ -13,3 +13,7 @@ export const Content = styled.div`
 export const Section = styled.div`
     
 `;
+
+export const Header = styled.div`
+    
+`;

@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
+    padding: 40px 0;
 `;
 
 export const Container = styled.div`
@@ -13,6 +14,10 @@ export const Options = styled.div`
     padding: 30px 0;
     display: flex;
     align-items: center;
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+    }
 `;
 
 export const Option = styled.div`

@@ -6,7 +6,7 @@ import { CHART_AREA } from '@constants/Chart';
 
 import { Wrapper, Content, Title } from './styles';
 
-export default function AreaChart({ seriesName, items, height=350, width='100%' }) {
+export default function AreaChart({ seriesName, items, height=350, width='100%' }:any) {
   const t = useTranslation()
   const indexes = items.map((r,i) => { return i+1 });
   const data = {

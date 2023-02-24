@@ -4,7 +4,7 @@ import QrCode from 'react-qrcode-svg';
 
 import { Wrapper, Container, Title, CodeArea, Subtitle, Steps, Info, CodeText, CodeTextInfo, CodeInputInfo } from "./styles";
 
-export default function PixCode({ payment }) {
+export default function PixCode({ payment }:any) {
   const t = useTranslation()
 
   return (

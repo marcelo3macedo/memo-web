@@ -34,6 +34,10 @@ export default function auth(state = INITIAL_STATE, action) {
                 draft.isLoading = false;
                 break;
             }
+            case "@sessions/UPDATE_LIST_SUCCESS": {
+                draft.sessions = action.payload.sessions;
+                break;
+            }
             case "@sessions/LOAD_MORE_LIST_SUCCESS": {
                 draft.sessions = action.payload.data;
                 draft.actualPage = action.payload.actualPage;                

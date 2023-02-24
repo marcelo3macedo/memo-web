@@ -1,7 +1,7 @@
 import { all, put, select, takeLatest } from "redux-saga/effects";
 
 import * as selectors from './selectors';
-import { loadIndexSuccess, loadListSuccessAction, loadMoreListSuccessAction } from "./actions";
+import { loadIndexSuccess, loadListSuccessAction, loadMoreListSuccessAction, updateListSuccessAction } from "./actions";
 import { API_DECKS, API_SESSION, API_SESSIONS } from "@services/Api/routes";
 import { navigatePush } from "@store/mods/navigate/actions";
 import { REQUESTER_GET } from "@constants/Requester";
@@ -61,7 +61,7 @@ function* removeFromList({ payload }:any) {
         return i.id !== id
     })
 
-    yield put(loadListSuccessAction({ data: { result } }));
+    yield put(updateListSuccessAction({ sessions: result }));
 }
 
 function getMethod(search, nextPage) {

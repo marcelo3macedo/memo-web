@@ -27,3 +27,13 @@ export const Paragraph = styled.h4`
     }
 `;
 
+
+export const Footer = styled.div`
+    text-align: center;
+    padding: 40px 0 120px 0;
+`;
+
+export const Picture = styled.img`
+    max-width: 100%;
+    width: 600px;
+`;

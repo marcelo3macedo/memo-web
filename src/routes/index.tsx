@@ -38,7 +38,9 @@ import Plans from "@pages/public/Plans";
 import PlanType from "@pages/main/PlanType";
 import Transaction from "@pages/main/Transaction";
 
-import { PATH_FORGOT_PASSWORD, PATH_SESSION, PATH_SIGN_IN, PATH_SIGN_UP, PATH_RECOVERED, PATH_SESSION_COMPLETED, PATH_PRIVACY_POLICY, PATH_ABOUT, PATH_HELP, PATH_MYACCOUNT, PATH_DECK, PATH_REVIEW, PATH_MAIN, PATH_HOME, PATH_ACCOUNT, PATH_PROFILE, PATH_HISTORY, PATH_GALLERY, PATH_ACTIVE, PATH_EMAIL_VALIDATION, PATH_GALLERYDECK, PATH_SESSIONS, PATH_CREATESESSION, PATH_EDITSESSION, PATH_FEATURED, PATH_INTEGRATION, PATH_INTEGRATION_TELEGRAM, PATH_TUTORIAL, PATH_TUTORIAL_CARDS, PATH_PLANS, PATH_TRANSACTIONS } from "@services/Navigation";
+import { PATH_FORGOT_PASSWORD, PATH_SESSION, PATH_SIGN_IN, PATH_SIGN_UP, PATH_RECOVERED, PATH_SESSION_COMPLETED, PATH_PRIVACY_POLICY, PATH_ABOUT, PATH_HELP, PATH_MYACCOUNT, PATH_DECK, PATH_REVIEW, PATH_MAIN, PATH_HOME, PATH_ACCOUNT, PATH_PROFILE, PATH_HISTORY, PATH_GALLERY, PATH_ACTIVE, PATH_EMAIL_VALIDATION, PATH_GALLERYDECK, PATH_SESSIONS, PATH_CREATESESSION, PATH_EDITSESSION, PATH_FEATURED, PATH_INTEGRATION, PATH_INTEGRATION_TELEGRAM, PATH_TUTORIAL, PATH_TUTORIAL_CARDS, PATH_PLANS, PATH_TRANSACTIONS, PATH_TERMS_CONDITIONS, PATH_PASSWORD_RESET, PATH_SESSIONPUBLIC } from "@services/Navigation";
+import TermsConditions from "@pages/main/TermsConditions";
+import Reset from "@pages/auth/Reset";
 
 
 export default function Routes() {
@@ -48,6 +50,7 @@ export default function Routes() {
 
     return (
         <Switch location={location}>
+            <Router path={PATH_SESSIONPUBLIC + "/:path/:id"} component={SessionPublic} layout={Layouts.Main} isPublic={true}/>
             <Router path={PATH_MAIN} exact component={Main} layout={Layouts.Main} />
             <Router path={PATH_SESSIONS} component={Sessions} layout={Layouts.Main}/>     
             <Router path={PATH_GALLERY + "/:search"} component={Gallery} layout={Layouts.Main}/>
@@ -59,7 +62,7 @@ export default function Routes() {
             <Router path={PATH_DECK + "/:path/:id"} component={Deck} layout={Layouts.Main}/>  
             <Router path={PATH_EDITSESSION} component={EditSession} layout={Layouts.Main}/>
             <Router path={PATH_PRIVACY_POLICY} component={PrivacyPolicy} layout={Layouts.Main}/>  
-            <Router path={PATH_SESSION + "/public/:id"} component={SessionPublic} layout={Layouts.Main}/>
+            <Router path={PATH_TERMS_CONDITIONS} component={TermsConditions} layout={Layouts.Main}/> 
             <Router path={PATH_SESSION + "/:id"} component={Session} layout={Layouts.Main}/>
             <Router path={PATH_FEATURED + "/:id"} component={Featured} layout={Layouts.Main}/>
             <Router path={PATH_ACCOUNT} component={Account} layout={Layouts.Main}/>
@@ -74,9 +77,10 @@ export default function Routes() {
             <Router path={PATH_PLANS + "/:type"} component={PlanType} layout={Layouts.Main} />
             <Router path={PATH_PLANS} component={Plans} layout={Layouts.Main} />
             <Router path={PATH_TRANSACTIONS} component={Transaction} layout={Layouts.Main} />
-                        
+                                    
             <Router path={PATH_REVIEW} component={Review} layout={Layouts.Full}/>              
-            <Router path={PATH_SESSION_COMPLETED} component={SessionCompleted} layout={Layouts.Full}/>
+            <Router path={PATH_SESSION_COMPLETED} component={SessionCompleted} layout={Layouts.Review}/>
+            
             
             <Router path={PATH_SIGN_IN} component={SignIn} layout={Layouts.Auth}/>    
             <Router path={PATH_FORGOT_PASSWORD} component={Recover} layout={Layouts.Auth}/>
@@ -84,6 +88,7 @@ export default function Routes() {
             <Router path={PATH_RECOVERED} component={Recovered} layout={Layouts.Auth}/>
             <Router path={PATH_ACTIVE} component={Activate} layout={Layouts.Auth}/>
             <Router path={PATH_EMAIL_VALIDATION} component={Validation} layout={Layouts.Auth}/>
+            <Router path={PATH_PASSWORD_RESET} component={Reset} layout={Layouts.Auth}/>
 
             <Router path={PATH_HOME} exact component={Main} layout={Layouts.Main}  />
         </Switch>

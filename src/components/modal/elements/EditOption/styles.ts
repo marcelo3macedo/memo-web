@@ -1,14 +1,14 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-    padding: 5px 0;
+    padding: 10px 0;
 `;
 
 export const Content = styled.div`
-    text-align: left;
+    text-align: center;
 `;
 
-export const Title = styled.h5`
+export const Title = styled.h4`
     color: var(--neutral100);
 `;
 

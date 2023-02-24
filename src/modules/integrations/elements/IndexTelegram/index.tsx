@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Wrapper, Content, Title, Card, Header, Footer, Action, SubTitle} from './styles';
 
-export default function IndexTelegram({ item }) {
+export default function IndexTelegram({ item }:any) {
   return (
     <Wrapper>
       <Content>

@@ -1,31 +1,33 @@
 import React from 'react';
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useTranslation } from 'react-multi-lang';
 
-import ButtonSecondary from '@components/button/ButtonSecondary';
-import { closeAlertAction } from '@store/modules/auth/actions';
+import ButtonPrimary from '@components/button/ButtonPrimary';
+import { RootState } from '@store/modules/rootReducer';
+import { clearAction } from '@store/mods/validation/actions';
 
 import { Wrapper, Content, Title, MessageArea, Message, Actions } from './styles';
 
 export default function ValidationAlert() {  
   const t = useTranslation()
-  const dispatch = useDispatch();
-  const validation = null;//useSelector((state:RootState) => state.auth.validation);
-
+  const dispatch = useDispatch()
+  const { invalid, message } = useSelector((state:RootState) => state.validations);
+  const info = (!message || !t(message)) ? t('auth.defaultError') : t(message)
+  
   function closeAlert() {
-    dispatch(closeAlertAction());
+    dispatch(clearAction());
   }
 
   return (
-    <Wrapper show={validation && validation.visible}> 
+    <Wrapper show={invalid}> 
       <Content>
         <Title>{t('alert.title')}</Title>
         <MessageArea>
-          <Message>{validation && validation.type ? t(validation.type) : null}</Message>
+          <Message>{t(info)}</Message>
           <Message>{t('auth.tryAgain')}</Message>
         </MessageArea>
         <Actions>
-          <ButtonSecondary content="Ok" action={closeAlert} />
+          <ButtonPrimary content="Ok" action={closeAlert} />
         </Actions>
       </Content>
     </Wrapper>

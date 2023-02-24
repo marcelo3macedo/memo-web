@@ -2,19 +2,19 @@ import React from 'react';
 import { useTranslation } from 'react-multi-lang';
 import { useDispatch, useSelector } from 'react-redux';
 
+import ModalClose from '../elements/ModalClose';
+import ExtraOptions from '../elements/ExtraOptions';
+import StatusPrivateDeck from '@components/status/StatusPrivateDeck';
 import ButtonPrimary from '@components/button/ButtonPrimary';
+import { SESSIONMODAL_EDITDECK } from '@constants/SessionModal';
 import { RootState } from '@store/modules/rootReducer';
 import { closeAction } from '@store/mods/modals/actions';
 import { navigatePush } from '@store/mods/navigate/actions';
-import { PATH_REVIEW } from '@services/Navigation';
 import { reviewAction } from '@store/modules/deck/actions';
+import { PATH_REVIEW } from '@services/Navigation';
 
 import { Wrapper, Content, Header, Title, Description, Action, Options } from './styles';
-import ModalClose from '../elements/ModalClose';
-import StatusPrivateDeck from '@components/status/StatusPrivateDeck';
-import EditOption from '../elements/EditOption';
-import RemoveOption from '../elements/RemoveOption';
-import { SESSIONMODAL_EDITDECK } from '@constants/SessionModal';
+import ShareOptions from '../elements/ShareOptions';
 
 export default function ModalEditDeck() {
   const t = useTranslation()
@@ -24,12 +24,15 @@ export default function ModalEditDeck() {
   const show = (name === SESSIONMODAL_EDITDECK)
   const statusTitle = selected && selected.isPublic ? t('session.public') : t('session.private');
   const frequencyName = selected && selected.frequency ? selected.frequency.name : null;
+  const isDisabled = (!selected || selected.cardsCount === 0) ? true : false;
 
   function modalCloseAction() {
     dispatch(closeAction());
   }
 
   function reviewClick() {
+    if (isDisabled) return;
+    
     dispatch(reviewAction({ deck: selected }));
     dispatch(navigatePush({ path: PATH_REVIEW }));
   }
@@ -38,7 +41,7 @@ export default function ModalEditDeck() {
     return <></>;
   }
 
-   return (
+  return (
     <Wrapper show={show}>
       <Content>
         <Header>
@@ -48,12 +51,12 @@ export default function ModalEditDeck() {
         <Description>{selected.description}</Description>
         <StatusPrivateDeck frequency={frequencyName} visibility={statusTitle} />
         <Action className='review' onClick={reviewClick}>
-          <ButtonPrimary content={t('decks.actions.review')}/>
+          <ButtonPrimary content={t('decks.actions.reviewNow')} disabled={isDisabled}/>
         </Action>
         <Options>
-          <EditOption id={selected.id} />
-          <RemoveOption id={selected.id} />
+          <ExtraOptions id={selected.id} />
         </Options>
+        <ShareOptions session={selected} />
       </Content>
     </Wrapper>
   );

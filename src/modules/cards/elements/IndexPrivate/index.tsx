@@ -2,13 +2,13 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-multi-lang';
 
+import ActionBox from '../ActionBox';
 import { SESSIONMODAL_EDITCARD, SESSIONMODAL_REMOVECARD } from '@constants/SessionModal';
 import IIndexPrivateCard from '@modules/cards/dtos/IIndexPrivateCard';
-import IconSmall from '@components/icons/IconSmall';
 import { editAction, removeAction } from '@store/mods/cards/actions';
 import { openAction } from '@store/mods/modals/actions';
 
-import { Wrapper, Content, Card, Header, Title, Footer, Action, CardContent, SecretContent, ActionBox, ActionTitle } from './styles';
+import { Wrapper, Content, Card, Header, Title, Footer, Action, CardContent, SecretContent } from './styles';
 
 export default function IndexPrivate({ card }:IIndexPrivateCard) {
   const t = useTranslation()
@@ -41,14 +41,8 @@ export default function IndexPrivate({ card }:IIndexPrivateCard) {
           </Footer>
         </Card>
         <Action>
-          <ActionBox onClick={editClick}>
-            <IconSmall name={"edit"} />
-            <ActionTitle>{t('decks.actions.edit')}</ActionTitle>
-          </ActionBox>
-          <ActionBox onClick={removeClick}>
-            <IconSmall name={"delete"} />
-            <ActionTitle>{t('decks.actions.remove')}</ActionTitle>
-          </ActionBox>
+          <ActionBox action={editClick} title={t('decks.actions.edit')} />
+          <ActionBox action={removeClick} title={t('decks.actions.remove')} />
         </Action>
       </Content>
     </Wrapper>

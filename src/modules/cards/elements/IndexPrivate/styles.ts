@@ -1,16 +1,20 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`    
-    margin: 5px 0;
+    margin: 20px 0;
 `;
 
 export const Content = styled.div`
-    background: var(--neutral10);
+    background: var(--neutral0);
     box-shadow: 0 0 1px 1px var(--neutral50);
     border-radius: 10px;
     padding: 15px;
     display: flex;
     justify-content: space-between;
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+    }
 `;
 
 export const Card = styled.div`   
@@ -43,28 +47,10 @@ export const Footer = styled.div`
 export const Action = styled.div`
     display: flex;
     flex-direction: column;
-    padding-left: 10px;
+    max-width: 100%;
     
-    svg {
-        path {
-            fill: var(--neutral80);
-        }
+    @media (max-width: 768px) {
+        flex-direction: row;
+        justify-content: space-between;    
     }
-`;
-
-export const ActionBox = styled.div`
-    margin: 5px 0;
-    padding: 5px;
-    border: 1px solid var(--neutral60);
-    border-radius: 5px;
-    text-align: center;
-
-    &:hover {
-        cursor: pointer;
-        opacity: var(--opacity);
-    }
-`;
-
-export const ActionTitle = styled.h6`
-    padding: 2px 0;
 `;

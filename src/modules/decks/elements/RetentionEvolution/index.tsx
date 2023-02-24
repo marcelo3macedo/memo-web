@@ -6,7 +6,7 @@ import AreaChart from '@modules/charts/elements/AreaChart';
 import { Wrapper, Content, Title, ChartArea } from './styles';
 import { formatStringAsArray } from '@helpers/ArrayHelper';
 
-export default function RetentionEvolution({ historic }) {
+export default function RetentionEvolution({ historic }:any) {
   const t = useTranslation()
   
   if (!historic || !historic.lastRetentions) {

@@ -6,7 +6,7 @@ import IconLarge from '@components/icons/IconLarge';
 
 import { Wrapper, Content, Title, Actions } from './styles';
 
-export default function Empty({ action=null }) {
+export default function Empty({ action=null }:any) {
   const t = useTranslation();
 
   return (

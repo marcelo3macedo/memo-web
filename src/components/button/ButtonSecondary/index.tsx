@@ -4,7 +4,7 @@ import IconSmall from '@components/icons/IconSmall';
 
 import { Wrapper, TextValue, Loading } from './styles';
 
-export default function ButtonSecondary({ content, action=null, loading=false }) {
+export default function ButtonSecondary({ content, action=null, loading=false }:any) {
   if (loading) {
     return(
       <Loading>

@@ -6,7 +6,7 @@ import { Wrapper, Content } from './styles';
 import Private from '../Private';
 import Public from '../Public';
 
-export default function List({ sessions, type }) {
+export default function List({ sessions, type }:any) {
   if (!sessions || sessions.length === 0) {
     return <></>;
   }

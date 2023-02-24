@@ -2,6 +2,7 @@
 export const API_SESSION = "/session";
 export const API_USERS = "/users";
 export const API_DECKS = "/decks";
+export const API_DECKS_PATH = "/decks/path";
 export const API_PERSONALDECKS = "/decks/personal";
 export const API_DECKSCLONE = "/decks/clone";
 export const API_DECKSOPTIONS = "/decks/options";
@@ -23,3 +24,5 @@ export const API_PAYMENTS = "/payments";
 export const API_PAYMENTS_DETAILS = "/payments/details";
 export const API_PLANS_OPTION = "/plans/options";
 export const API_TRANSACTIONS = "/transactions";
+export const API_PASSWORD_FORGOT = "/password/forgot";
+export const API_PASSWORD_RESET = "/password/reset";

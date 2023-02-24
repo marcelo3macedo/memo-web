@@ -19,7 +19,7 @@ export const Content = styled.div`
     justify-content: space-around;
 
     @media (max-width: 768px) {
-        padding: 40px;
+        padding: 20px;
     }
 `;
 

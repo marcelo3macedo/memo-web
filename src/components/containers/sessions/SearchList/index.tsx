@@ -16,7 +16,7 @@ import { RootState } from '@store/modules/rootReducer';
 import { Content, Wrapper } from './styles';
 import { loadMoreListAction } from '@store/mods/sessions/actions';
 
-export default function SessionList({ sessions }) {
+export default function SessionList({ sessions }:any) {
     const dispatch = useDispatch()
     const location = useLocation()
     const { pages, actualPage } = useSelector((state:RootState) => state.sessions)

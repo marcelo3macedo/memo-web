@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-multi-lang';
 import { useDispatch } from 'react-redux';
 
-import ButtonSecondary from '@components/button/ButtonSecondary';
+import ButtonPrimary from '@components/button/ButtonPrimary';
 import { PATH_HOME } from '@services/Navigation';
 import { navigatePush } from '@store/mods/navigate/actions';
 
@@ -23,7 +23,7 @@ export default function Validation() {
           <SubTitle>{t('auth.activateMail')}</SubTitle>
 
           <HomeLink>
-            <ButtonSecondary content={t('auth.goToHome')} action={homeClick} />
+            <ButtonPrimary content={t('auth.goToHome')} action={homeClick} />
           </HomeLink>
         </Content>
     </Wrapper>

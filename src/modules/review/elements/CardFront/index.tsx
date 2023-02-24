@@ -6,9 +6,11 @@ import question from "@assets/pages/review/question.png";
 
 import { Wrapper, Content, Title, Message, Image } from './styles';
 
-export default function CardFront({ session, position, action }) {
+export default function CardFront({ session, position, action }:any) {
   const t = useTranslation()
   const card = session && session.cards ? session.cards[position] : null
+
+  if (!card) return <></>;
   
   return (
     <Wrapper>
