@@ -3,7 +3,10 @@ module.exports = {
         "browser": true,
         "es2021": true
     },
-    "extends": "plugin:react/recommended",
+    "extends": [
+      "eslint:recommended",
+      "plugin:react/recommended"
+    ],
     "overrides": [
     ],
     "parser": "@typescript-eslint/parser",
@@ -11,10 +14,22 @@ module.exports = {
         "ecmaVersion": "latest",
         "sourceType": "module"
     },
+    "settings": {
+      "react": {
+        "version": "detect"
+      }
+    },
     "plugins": [
         "react",
+        'react-hooks',
         "@typescript-eslint"
     ],
     "rules": {
-    }
+        'no-unused-vars': [
+          'warn',
+          {
+            varsIgnorePattern: '^React$',
+          },
+        ],
+    },
 }
