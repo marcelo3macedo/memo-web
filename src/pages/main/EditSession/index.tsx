@@ -1,24 +1,21 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from "react-redux";
-import { useTranslation } from 'react-multi-lang';
-
-import { SESSIONMODAL_ADDCARD, SESSIONMODAL_TITLEDECK } from '@constants/SessionModal';
 import ButtonPrimary from '@components/button/ButtonPrimary';
-import AddCardModal from '@modules/modals/elements/AddCardModal';
-import EditDeckModal from '@modules/modals/elements/EditDeckModal';
-import EditHeader from '@modules/blocks/elements/EditHeader';
-import LoadingPage from '@modules/loading/elements/LoadingPage';
-import EditCardModal from '@modules/modals/elements/EditCardModal';
-import RemoveCardModal from '@modules/modals/elements/RemoveCardModal';
-import EditComboBox from '@modules/frequencies/elements/EditComboBox';
+import ButtonSecondary from '@components/button/ButtonSecondary';
+import { SESSIONMODAL_ADDCARD, SESSIONMODAL_TITLEDECK } from '@constants/SessionModal';
 import EditCards from '@modules/blocks/elements/EditCards';
-import { RootState } from '@store/modules/rootReducer';
+import EditComboBox from '@modules/frequencies/elements/EditComboBox';
+import PageHeader from '@modules/headers/elements/PageHeader';
+import LoadingPage from '@modules/loading/elements/LoadingPage';
+import AddCardModal from '@modules/modals/elements/AddCardModal';
+import EditCardModal from '@modules/modals/elements/EditCardModal';
+import EditDeckModal from '@modules/modals/elements/EditDeckModal';
+import RemoveCardModal from '@modules/modals/elements/RemoveCardModal';
 import { openAction } from '@store/mods/modals/actions';
 import { loadAction } from '@store/mods/options/actions';
-
-import { Wrapper, Content, Action, Modals, ActionButton } from './styles';
-import PageHeader from '@modules/headers/elements/PageHeader';
-import ButtonSecondary from '@components/button/ButtonSecondary';
+import { RootState } from '@store/modules/rootReducer';
+import { useEffect } from 'react';
+import { useTranslation } from 'react-multi-lang';
+import { useDispatch, useSelector } from "react-redux";
+import { Action, ActionButton, Content, Modals, Wrapper } from './styles';
 
 export default function EditSession() {
   const dispatch = useDispatch()

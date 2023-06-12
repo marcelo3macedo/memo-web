@@ -1,7 +1,5 @@
-import React from 'react';
-
 import IconSmall from "@components/icons/IconSmall";
-import { Wrapper, Content, Header, Info, Title } from './styles';
+import { Content, Header, Info, Title, Wrapper } from './styles';
 
 export default function MenuOption({ icon, content, action=null }:any) {
   return (

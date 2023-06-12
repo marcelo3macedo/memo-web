@@ -1,8 +1,6 @@
-import React from 'react';
+import { Content, Wrapper } from './styles';
 
-import { Wrapper, Content } from './styles';
-
-export default function Public({ session }:any) {
+export default function Public() {
   return (
     <Wrapper>
       <Content>

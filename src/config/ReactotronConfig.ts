@@ -2,12 +2,6 @@ import Reacotron from "reactotron-react-js";
 import { reactotronRedux } from "reactotron-redux";
 import reactotronSaga from "reactotron-redux-saga";
 
-declare global {
-    interface Console {
-        tron: any
-    }
-}
-
 if (process.env.NODE_ENV === "development") {
     const tron = Reacotron.configure()
         .use(reactotronRedux())

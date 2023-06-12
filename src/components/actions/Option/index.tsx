@@ -1,10 +1,7 @@
-import React from 'react';
-
-import IconMedium from '@components/icons/IconMedium';
 import IconFull from '@components/icons/IconFull';
+import IconMedium from '@components/icons/IconMedium';
 import IOption from 'src/dtos/IOption';
-
-import { Wrapper, Content, Details, Action, Title, SubTitle } from './styles';
+import { Action, Content, Details, SubTitle, Title, Wrapper } from './styles';
 
 export default function Option({ title, subTitle, icon, action, template }:IOption) {
   return (

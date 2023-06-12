@@ -1,19 +1,16 @@
-import React, { useEffect } from 'react';
-import { validate as isValidUUID } from 'uuid';
-import { useDispatch, useSelector } from "react-redux";
-import { useTranslation } from 'react-multi-lang';
-import { useParams } from 'react-router-dom';
-
 import ButtonPrimary from '@components/button/ButtonPrimary';
 import PageLoading from '@components/loading/PageLoading';
-import PageHeader from '@modules/headers/elements/PageHeader';
-import ViewCards from '@modules/blocks/elements/ViewCards';
-import { formatDateField } from '@services/Format';
-import { RootState } from '@store/modules/rootReducer';
-import { cloneAction, loadAction } from '@store/mods/decks/actions';
-
-import { Wrapper, Content, Description, Action, Share } from './styles';
 import ShareOptions from '@components/modal/elements/ShareOptions';
+import ViewCards from '@modules/blocks/elements/ViewCards';
+import PageHeader from '@modules/headers/elements/PageHeader';
+import { formatDateField } from '@services/Format';
+import { cloneAction, loadAction } from '@store/mods/decks/actions';
+import { RootState } from '@store/modules/rootReducer';
+import { useEffect } from 'react';
+import { useTranslation } from 'react-multi-lang';
+import { useDispatch, useSelector } from "react-redux";
+import { useParams } from 'react-router-dom';
+import { Action, Content, Description, Share, Wrapper } from './styles';
 
 export default function SessionPublic() {
   const dispatch = useDispatch();

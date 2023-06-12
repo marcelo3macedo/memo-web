@@ -25,11 +25,6 @@ module.exports = {
         "@typescript-eslint"
     ],
     "rules": {
-        'no-unused-vars': [
-          'warn',
-          {
-            varsIgnorePattern: '^React$',
-          },
-        ],
+      "react/react-in-jsx-scope": "off"
     },
 }

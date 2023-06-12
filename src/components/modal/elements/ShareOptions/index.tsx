@@ -1,14 +1,11 @@
-import React, { useState } from 'react';
-import { useTranslation } from 'react-multi-lang';
-import { LinkedinShareButton, WhatsappShareButton, FacebookShareButton, TelegramShareButton, TwitterShareButton } from 'react-share';
-import { useDispatch } from 'react-redux';
-
-import IconLarge from '@components/icons/IconLarge';
 import ButtonSecondary from '@components/button/ButtonSecondary';
+import IconLarge from '@components/icons/IconLarge';
 import { PATH_SESSIONPUBLIC } from '@services/Navigation';
 import { editSubmitAction } from '@store/mods/decks/actions';
-
-import { Wrapper, Content, Title, Options, Option, Action } from './styles';
+import { useTranslation } from 'react-multi-lang';
+import { useDispatch } from 'react-redux';
+import { FacebookShareButton, LinkedinShareButton, TelegramShareButton, TwitterShareButton, WhatsappShareButton } from 'react-share';
+import { Action, Content, Option, Options, Title, Wrapper } from './styles';
 
 export default function ShareOptions({ session }:any) {
   const t = useTranslation()

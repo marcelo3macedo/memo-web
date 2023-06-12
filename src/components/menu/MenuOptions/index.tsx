@@ -1,12 +1,9 @@
-import React from 'react';
+import { PATH_ABOUT, PATH_GALLERY, PATH_HELP, PATH_MAIN, PATH_PRIVACY_POLICY, PATH_SESSIONS } from '@services/Navigation';
+import { navigatePush } from '@store/mods/navigate/actions';
 import { useTranslation } from 'react-multi-lang';
 import { useDispatch } from 'react-redux';
-
 import MenuOption from '../MenuOption';
-import { navigatePush } from '@store/mods/navigate/actions';
-
-import { Wrapper, Content, SubTitle } from './styles';
-import { PATH_ABOUT, PATH_GALLERY, PATH_HELP, PATH_INTEGRATION, PATH_MAIN, PATH_PRIVACY_POLICY, PATH_SESSIONS } from '@services/Navigation';
+import { Content, SubTitle, Wrapper } from './styles';
 
 export default function MenuOptions() {
   const dispatch = useDispatch()
