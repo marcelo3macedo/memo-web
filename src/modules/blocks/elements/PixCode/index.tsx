@@ -2,35 +2,50 @@ import React from 'react';
 import { useTranslation } from 'react-multi-lang';
 import QrCode from 'react-qrcode-svg';
 
-import { Wrapper, Container, Title, CodeArea, Subtitle, Steps, Info, CodeText, CodeTextInfo, CodeInputInfo } from "./styles";
+import {
+  Wrapper,
+  Container,
+  Title,
+  CodeArea,
+  Subtitle,
+  Steps,
+  Info,
+  CodeText,
+  CodeTextInfo,
+  CodeInputInfo,
+} from './styles';
 
-export default function PixCode({ payment }:any) {
-  const t = useTranslation()
+export default function PixCode({ payment }: any) {
+  const t = useTranslation();
 
   return (
     <Wrapper>
-        <Container>
-          <Title>{t('planOptions.pix.payNow')}</Title>
+      <Container>
+        <Title>{t('planOptions.pix.payNow')}</Title>
 
-          <CodeArea>
-            <QrCode data={payment.qrCode} height="200" width="200" />
-            <Info>
-              {t('planOptions.pix.subtitle').split("|").map((v, index) =>(
+        <CodeArea>
+          <QrCode data={payment.qrCode} height='200' width='200' />
+          <Info>
+            {t('planOptions.pix.subtitle')
+              .split('|')
+              .map((v, index) => (
                 <Subtitle key={index}>{v}</Subtitle>
               ))}
-              <Steps>
-                {t('planOptions.pix.steps').split("|").map((v, index) =>(
+            <Steps>
+              {t('planOptions.pix.steps')
+                .split('|')
+                .map((v, index) => (
                   <Subtitle key={index}>{v}</Subtitle>
                 ))}
-              </Steps>
-            </Info>
-          </CodeArea>
+            </Steps>
+          </Info>
+        </CodeArea>
 
-          <CodeText>
-            <CodeTextInfo>{t('planOptions.pix.useCode')}</CodeTextInfo>
-            <CodeInputInfo value={payment.qrCode} />
-          </CodeText>
-        </Container>
+        <CodeText>
+          <CodeTextInfo>{t('planOptions.pix.useCode')}</CodeTextInfo>
+          <CodeInputInfo value={payment.qrCode} />
+        </CodeText>
+      </Container>
     </Wrapper>
   );
 }

@@ -1,4 +1,4 @@
 export default interface IListCards {
-    cards: any;
-    type: string;
- }
+  cards: any;
+  type: string;
+}

@@ -1,9 +1,11 @@
-import * as Yup from "yup";
+import * as Yup from 'yup';
 
 export const initialValues = {
-    user: "",
-  };
+  user: '',
+};
 
 export const schema = Yup.object().shape({
-    user: Yup.string().required("O usuário é obrigatorio").email("Insira um e-mail válido"),
+  user: Yup.string()
+    .required('O usuário é obrigatorio')
+    .email('Insira um e-mail válido'),
 });

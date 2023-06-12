@@ -1,1 +1,1 @@
-export const url = (state) => state.redirect.url;
+export const url = state => state.redirect.url;

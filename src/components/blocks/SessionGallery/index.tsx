@@ -1,9 +1,9 @@
-import React from 'react';
 import Session from '@components/blocks/Session';
+import React from 'react';
 
 import { Wrapper, Content } from './styles';
 
-export default function SessionGallery({sessions=[]}) {
+export default function SessionGallery({ sessions = [] }) {
   if (!sessions || sessions.length === 0) {
     return <></>;
   }
@@ -11,7 +11,7 @@ export default function SessionGallery({sessions=[]}) {
   return (
     <Wrapper>
       <Content>
-        {sessions.map(s=> (
+        {sessions.map(s => (
           <Session key={s.id} data={s} />
         ))}
       </Content>

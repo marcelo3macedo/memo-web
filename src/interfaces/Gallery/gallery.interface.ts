@@ -1,3 +1,3 @@
 export type Gallery = {
-    visible?: boolean
-}
+  visible?: boolean;
+};

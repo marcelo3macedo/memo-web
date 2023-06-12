@@ -1,15 +1,24 @@
-import React from 'react';
-import { useDispatch } from "react-redux";
-import { useTranslation } from 'react-multi-lang';
-
 import banner from '@assets/banners/banner02.png';
-
 import IconSmall from '@components/icons/IconSmall';
 import { editAction, removeAction } from '@store/modules/card/actions';
+import React from 'react';
+import { useTranslation } from 'react-multi-lang';
+import { useDispatch } from 'react-redux';
 
-import { Wrapper, Content, Header, CardArea, CardTitle, CardContent, CardSecretContent, Actions, Action, ActionName } from './styles';
+import {
+  Wrapper,
+  Content,
+  Header,
+  CardArea,
+  CardTitle,
+  CardContent,
+  CardSecretContent,
+  Actions,
+  Action,
+  ActionName,
+} from './styles';
 
-export default function Card({card=null, preview=false }) {
+export default function Card({ card = null, preview = false }) {
   const dispatch = useDispatch();
   const t = useTranslation();
 
@@ -33,16 +42,24 @@ export default function Card({card=null, preview=false }) {
 
           {!preview ? (
             <Actions>
-              <Action onClick={() => { editClick(card) }}>
-                <IconSmall name={"edit"}/>
+              <Action
+                onClick={() => {
+                  editClick(card);
+                }}>
+                <IconSmall name={'edit'} />
                 <ActionName>{t('actions.edit')}</ActionName>
               </Action>
-              <Action onClick={() => { deleteClick(card) }}>
-                <IconSmall name={"delete"}/>
+              <Action
+                onClick={() => {
+                  deleteClick(card);
+                }}>
+                <IconSmall name={'delete'} />
                 <ActionName>{t('actions.delete')}</ActionName>
-              </Action>            
+              </Action>
             </Actions>
-          ) : <></>}
+          ) : (
+            <></>
+          )}
         </CardArea>
       </Content>
     </Wrapper>

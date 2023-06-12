@@ -1,3 +1,3 @@
 export type IContainer = {
-    backgroundColor?: string;
-}
+  backgroundColor?: string;
+};

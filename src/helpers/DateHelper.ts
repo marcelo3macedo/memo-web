@@ -1,22 +1,18 @@
-import Moment from "moment";
+import Moment from 'moment';
 import 'moment/locale/pt-br';
 
-Moment.locale('pt-br')
-    
+Moment.locale('pt-br');
+
 function getTimeFromNow(date) {
-    return Moment(date).fromNow()
+  return Moment(date).fromNow();
 }
 
 function formatTimeAsString(date) {
-    return Moment(date).format("DD/MM/YYYY")
+  return Moment(date).format('DD/MM/YYYY');
 }
 
 function formatDateTimeAsString(date) {
-    return Moment(date).format("DD/MM/YYYY HH:mm:ss")
+  return Moment(date).format('DD/MM/YYYY HH:mm:ss');
 }
 
-export {
-    getTimeFromNow,
-    formatTimeAsString,
-    formatDateTimeAsString
-} 
+export { formatDateTimeAsString, formatTimeAsString, getTimeFromNow };

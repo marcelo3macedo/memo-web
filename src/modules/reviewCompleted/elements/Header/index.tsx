@@ -1,14 +1,12 @@
-import React from 'react';
+import congrats from '@assets/banners/happyBoy.png';
 import { useTranslation } from 'react-multi-lang';
 
-import congrats from "@assets/banners/happyBoy.png";
+import { Content, Image, SubTitle, Title, Wrapper } from './styles';
 
-import { Wrapper, Content, Title, SubTitle, Image } from './styles';
+export default function Header({ session }: any) {
+  const t = useTranslation();
+  const subTitle = session;
 
-export default function Header({ session }:any) {
-  const t = useTranslation()
-  const subTitle = t('reviewCompleted.subTitle').replace("{{sessionName}}", session.deck.name)
-  
   return (
     <Wrapper>
       <Content>

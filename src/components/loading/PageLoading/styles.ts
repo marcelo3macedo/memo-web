@@ -1,17 +1,17 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-    min-height: 100vH;
-    margin-top: 200px;
+  min-height: 100vh;
+  margin-top: 200px;
 `;
 
 export const Content = styled.div`
-    text-align: center;
-    max-width: 300px;
-    margin: auto;
+  text-align: center;
+  max-width: 300px;
+  margin: auto;
 `;
 
 export const Title = styled.h2`
-    padding: 15px 0;
-    color: var(--neutral100);
+  padding: 15px 0;
+  color: var(--neutral100);
 `;

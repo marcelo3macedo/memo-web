@@ -1,12 +1,11 @@
+import question from '@assets/help/question.png';
 import React from 'react';
 import { useTranslation } from 'react-multi-lang';
-
-import question from '@assets/help/question.png';
 
 import { Wrapper, Content, Picture, Message, Title, Subtitle } from './styles';
 
 export default function SessionDoubt() {
-  const t = useTranslation()
+  const t = useTranslation();
 
   return (
     <Wrapper>

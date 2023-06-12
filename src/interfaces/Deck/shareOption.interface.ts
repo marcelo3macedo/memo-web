@@ -1,3 +1,3 @@
 export type ShareOption = {
-    show: boolean
-}
+  show: boolean;
+};

@@ -1,4 +1,4 @@
 export default interface IOptionAction {
-    title: string;
-    action?: any;
- }
+  title: string;
+  action?: any;
+}

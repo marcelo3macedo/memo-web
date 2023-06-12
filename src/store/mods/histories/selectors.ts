@@ -1,1 +1,1 @@
-export const histories = (state) => state.histories;
+export const histories = state => state.histories;

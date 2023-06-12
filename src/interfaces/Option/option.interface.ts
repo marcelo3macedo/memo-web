@@ -1,3 +1,3 @@
 export type IOption = {
-    template?: boolean;
-}
+  template?: boolean;
+};

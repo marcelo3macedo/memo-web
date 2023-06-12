@@ -1,4 +1,4 @@
 export default interface IListSessions {
-    sessions: any;
-    type: string;
- }
+  sessions: any;
+  type: string;
+}

@@ -1,15 +1,16 @@
-import React from 'react';
-import { useSelector } from "react-redux";
-import { RootState } from '@store/modules/rootReducer';
-
+import Footer from '@modules/reviewCompleted/elements/Footer';
 import Header from '@modules/reviewCompleted/elements/Header';
 import Options from '@modules/reviewCompleted/elements/Options';
-import Footer from '@modules/reviewCompleted/elements/Footer';
+import { RootState } from '@store/modules/rootReducer';
+import React from 'react';
+import { useSelector } from 'react-redux';
 
 import { Wrapper, Content } from './styles';
 
 export default function SessionCompleted() {
-  const { options, answered, session } = useSelector((state:RootState) => state.review);
+  const { options, answered, session } = useSelector(
+    (state: RootState) => state.review
+  );
 
   return (
     <Wrapper>
@@ -19,5 +20,5 @@ export default function SessionCompleted() {
         <Footer />
       </Content>
     </Wrapper>
-  ); 
+  );
 }

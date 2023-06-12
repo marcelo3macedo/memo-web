@@ -1,3 +1,3 @@
 export default interface IIndexActiveSessions {
-    session: any;
- }
+  session: any;
+}

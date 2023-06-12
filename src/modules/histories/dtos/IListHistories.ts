@@ -1,3 +1,3 @@
 export default interface IListHistories {
-    sessions: any;
- }
+  sessions: any;
+}

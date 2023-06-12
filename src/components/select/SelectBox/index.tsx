@@ -1,6 +1,5 @@
-import React from 'react';
-
 import Select from 'react-select';
+
 import { groupStyles, Wrapper } from './styles';
 
 export default function SelectBox({ options }) {
@@ -13,10 +12,7 @@ export default function SelectBox({ options }) {
 
   return (
     <Wrapper>
-      <Select
-        options={options}
-        formatGroupLabel={formatGroupLabel}
-      />
+      <Select options={options} formatGroupLabel={formatGroupLabel} />
     </Wrapper>
   );
 }

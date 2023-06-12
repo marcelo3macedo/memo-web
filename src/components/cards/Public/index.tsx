@@ -1,6 +1,14 @@
 import React from 'react';
 
-import { Wrapper, Container, Header, Area, Title, Content, SecretContent } from './styles';
+import {
+  Wrapper,
+  Container,
+  Header,
+  Area,
+  Title,
+  Content,
+  SecretContent,
+} from './styles';
 
 export default function Public({ card }) {
   return (

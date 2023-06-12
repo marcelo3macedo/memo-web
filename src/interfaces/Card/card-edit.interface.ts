@@ -1,3 +1,3 @@
 export type ICardEdit = {
-    show?: boolean;
-}
+  show?: boolean;
+};

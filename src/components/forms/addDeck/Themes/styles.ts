@@ -1,35 +1,35 @@
-import styled from "styled-components";
-import { AddDeckCard } from "@interfaces/Deck/addDeckCard.interface";
+import { AddDeckCard } from '@interfaces/Deck/addDeckCard.interface';
+import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-    padding: 10px 0;
+  padding: 10px 0;
 `;
 
-export const Content = styled.div`
-`;
+export const Content = styled.div``;
 
 export const Title = styled.h4`
-    color: var(--neutral90);
+  color: var(--neutral90);
 `;
 
 export const Area = styled.div`
-    position:relative;
+  position: relative;
 `;
 
 export const Options = styled.div`
-    overflow-x: auto;
-    display: inline-block;
-    white-space: nowrap;
-    padding-top: 10px;
+  overflow-x: auto;
+  display: inline-block;
+  white-space: nowrap;
+  padding-top: 10px;
 `;
 
 export const Option = styled.div`
-    width: 60px;
-    padding: 10px;
-    float: left;
+  width: 60px;
+  padding: 10px;
+  float: left;
 `;
 
 export const Picture = styled.img<AddDeckCard>`
-    border: 3px solid ${props=>props.selected ? "var(--purple)": "transparent"}; 
-    max-width: 100%;
+  border: 3px solid
+    ${props => (props.selected ? 'var(--purple)' : 'transparent')};
+  max-width: 100%;
 `;

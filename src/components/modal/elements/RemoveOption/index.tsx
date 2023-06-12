@@ -1,19 +1,17 @@
-import React from 'react';
+import { removeSubmitAction } from '@store/mods/decks/actions';
+import { closeAction } from '@store/mods/modals/actions';
 import { useTranslation } from 'react-multi-lang';
 import { useDispatch } from 'react-redux';
 
-import { closeAction } from '@store/mods/modals/actions';
+import { Action, ActionTitle, Content, Title, Wrapper } from './styles';
 
-import { Wrapper, Content, Title, Action, ActionTitle } from './styles';
-import { removeSubmitAction } from '@store/mods/decks/actions';
-
-export default function RemoveOption({ id }:any) {
-  const t = useTranslation()
-  const dispatch = useDispatch()
+export default function RemoveOption({ id }: any) {
+  const t = useTranslation();
+  const dispatch = useDispatch();
 
   function removeClick() {
-    dispatch(removeSubmitAction({ id }))
-    dispatch(closeAction())
+    dispatch(removeSubmitAction({ id }));
+    dispatch(closeAction());
   }
 
   return (

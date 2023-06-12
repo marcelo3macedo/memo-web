@@ -1,3 +1,3 @@
 export type IActions = {
-    show?: boolean
-}
+  show?: boolean;
+};

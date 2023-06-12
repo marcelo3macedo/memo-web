@@ -1,19 +1,15 @@
-import React from 'react';
-import PropTypes from "prop-types";
-
-import HeaderPublic from '@components/header/HeaderPublic';
 import FooterPrimary from '@components/footer/FooterPrimary';
+import HeaderPublic from '@components/header/HeaderPublic';
+import PropTypes from 'prop-types';
 
-import { Wrapper, Content, Section } from './styles';
+import { Content, Section, Wrapper } from './styles';
 
-export default function GuestLayout ({ children }) {
+export default function GuestLayout({ children }) {
   return (
     <Wrapper>
       <Content>
         <HeaderPublic />
-        <Section>
-          {children}
-        </Section>
+        <Section>{children}</Section>
         <FooterPrimary />
       </Content>
     </Wrapper>
@@ -21,5 +17,5 @@ export default function GuestLayout ({ children }) {
 }
 
 GuestLayout.propTypes = {
-    children: PropTypes.element.isRequired
+  children: PropTypes.element.isRequired,
 };

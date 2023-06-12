@@ -1,3 +1,3 @@
 export type SessionItem = {
-    layout: string;
-}
+  layout: string;
+};

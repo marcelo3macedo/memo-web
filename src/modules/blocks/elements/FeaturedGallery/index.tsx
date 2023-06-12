@@ -1,18 +1,17 @@
+import SubTitle from '@components/elements/SubTitle';
+import { SESSIONS_LIST_FEATURED } from '@constants/SessionLists';
+import List from '@modules/sessions/elements/List';
+import { RootState } from '@store/modules/rootReducer';
 import React from 'react';
 import { useTranslation } from 'react-multi-lang';
 import { useSelector } from 'react-redux';
 
-import { SESSIONS_LIST_FEATURED } from '@constants/SessionLists';
-import SubTitle from '@components/elements/SubTitle';
-import List from '@modules/sessions/elements/List';
-import { RootState } from '@store/modules/rootReducer';
-
 import { Wrapper, Container, Details } from './styles';
 
 export default function FeaturedGallery() {
-  const t = useTranslation()
-  const { featuredDecks } = useSelector((state:RootState) => state.users);
-  
+  const t = useTranslation();
+  const { featuredDecks } = useSelector((state: RootState) => state.users);
+
   if (!featuredDecks || featuredDecks.length === 0) {
     return <></>;
   }

@@ -1,70 +1,70 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-    background: var(--pallete01);
-    height: 100vH;
-    padding: 40px 0;
+  background: var(--pallete01);
+  height: 100vh;
+  padding: 40px 0;
 
-    @media (max-width: 768px) {
-        padding: 20px;
-    }
+  @media (max-width: 768px) {
+    padding: 20px;
+  }
 `;
 
 export const Content = styled.div`
-    overflow: hidden;
-    max-width: 800px;
-    min-height: 500px;
-    margin: auto;
-    margin-top: 55px;
-    display: flex;
-    border-radius: 10px;
-    
-    @media (max-width: 768px) {
-        flex-direction: column;
-        border-radius: 0px;
-    }
+  overflow: hidden;
+  max-width: 800px;
+  min-height: 500px;
+  margin: auto;
+  margin-top: 55px;
+  display: flex;
+  border-radius: 10px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    border-radius: 0px;
+  }
 `;
 
 export const Header = styled.div`
-    width: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    background: var(--pallete02);
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: var(--pallete02);
 
-    @media (max-width: 768px) {
-        width: 100%;
-        padding: 20px 0;
-        background: none;
-    }
+  @media (max-width: 768px) {
+    width: 100%;
+    padding: 20px 0;
+    background: none;
+  }
 `;
 
 export const Logo = styled.img`
-    width: 180px;
-    padding: 20px 0;
+  width: 180px;
+  padding: 20px 0;
 
-    @media (max-width: 768px) {
-        width: 120px;
-        padding: 10px 0;
-    }
+  @media (max-width: 768px) {
+    width: 120px;
+    padding: 10px 0;
+  }
 `;
 
 export const Title = styled.h1`
-    color: var(--pallete03);
-    
-    @media (min-width: 768px) {
-        color: var(--neutral10);
-    }
+  color: var(--pallete03);
+
+  @media (min-width: 768px) {
+    color: var(--neutral10);
+  }
 `;
 
 export const Background = styled.img`
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 50%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 50%;
 
-    @media (min-width: 768px) {
-        display: none;
-    }
+  @media (min-width: 768px) {
+    display: none;
+  }
 `;

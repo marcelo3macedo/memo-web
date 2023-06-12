@@ -1,21 +1,32 @@
-import React from 'react';
-import { useDispatch } from 'react-redux';
-import { useTranslation } from 'react-multi-lang';
-
 import tutorials from '@assets/banners/tutorials.png';
+import ButtonPrimary from '@components/button/ButtonPrimary';
 import PageHeader from '@modules/headers/elements/PageHeader';
 import { PATH_TUTORIAL } from '@services/Navigation';
 import { navigatePush } from '@store/mods/navigate/actions';
+import React from 'react';
+import { useTranslation } from 'react-multi-lang';
+import { useDispatch } from 'react-redux';
 
-import { Wrapper, Content, Description, Options, Option, Picture, OptionDescription, SubTitle, Action, ActionDescription, Link } from './styles';
-import ButtonPrimary from '@components/button/ButtonPrimary';
+import {
+  Wrapper,
+  Content,
+  Description,
+  Options,
+  Option,
+  Picture,
+  OptionDescription,
+  SubTitle,
+  Action,
+  ActionDescription,
+  Link,
+} from './styles';
 
 export default function Help() {
-  const t = useTranslation()
-  const dispatch = useDispatch()
+  const t = useTranslation();
+  const dispatch = useDispatch();
 
   function goToTutorial() {
-    dispatch(navigatePush({ path: PATH_TUTORIAL }))
+    dispatch(navigatePush({ path: PATH_TUTORIAL }));
   }
 
   return (
@@ -34,18 +45,17 @@ export default function Help() {
           <Option onClick={goToTutorial}>
             <OptionDescription>{t('help.contact')}</OptionDescription>
             <OptionDescription>{t('help.contactThanks')}</OptionDescription>
-            
+
             <SubTitle>{t('help.mail')}</SubTitle>
             <Action>
               <ActionDescription>{t('help.whatsapp')}</ActionDescription>
-              <Link href="https://wa.me/5514997764993?text=Ol%C3%A1%2C%20estou%20com%20d%C3%BAvidas%20com%20a%20plataforma%20Memorizou">
+              <Link href='https://wa.me/5514997764993?text=Ol%C3%A1%2C%20estou%20com%20d%C3%BAvidas%20com%20a%20plataforma%20Memorizou'>
                 <ButtonPrimary content={t('help.whats')} />
               </Link>
             </Action>
-
           </Option>
         </Options>
       </Content>
     </Wrapper>
-  ); 
+  );
 }

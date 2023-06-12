@@ -1,11 +1,9 @@
-import React from 'react';
+import { Content, Wrapper } from './styles';
 
-import { Wrapper, Content } from './styles';
-
-export default function SubTitle({ title }:any) {
+export default function SubTitle({ title }: any) {
   return (
     <Wrapper>
-      <Content>{ title }</Content>
+      <Content>{title}</Content>
     </Wrapper>
   );
 }

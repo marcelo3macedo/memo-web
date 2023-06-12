@@ -1,4 +1,4 @@
 export const Integrations = {
-    telegramBot: "@Memorizou_bot",
-    telegramUrl: "https://t.me/Memorizou_bot"
-}
+  telegramBot: '@Memorizou_bot',
+  telegramUrl: 'https://t.me/Memorizou_bot',
+};

@@ -1,4 +1,4 @@
 export default interface IIconNamed {
-    icon: string;
-    title: string;
- }
+  icon: string;
+  title: string;
+}

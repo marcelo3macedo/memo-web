@@ -1,12 +1,12 @@
 export function openAction({ name }) {
-    return {
-        type: '@modal/OPEN',
-        payload: { name }
-    }
+  return {
+    type: '@modal/OPEN',
+    payload: { name },
+  };
 }
 
 export function closeAction() {
-    return {
-        type: '@modal/CLOSE'
-    }
+  return {
+    type: '@modal/CLOSE',
+  };
 }

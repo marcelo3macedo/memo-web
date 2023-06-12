@@ -1,18 +1,18 @@
-import produce from "immer";
+import produce from 'immer';
 
 const INITIAL_STATE = {
-    frequencies: []
+  frequencies: [],
 };
 
 export default function auth(state = INITIAL_STATE, action) {
-    return produce(state, draft => {
-        switch (action.type) {
-            case "@options/LOAD_SUCCESS": {
-                draft.frequencies = action.payload.frequencies;
-                break;
-            }
-            default:
-                return state;
-        }
-    });
+  return produce(state, draft => {
+    switch (action.type) {
+      case '@options/LOAD_SUCCESS': {
+        draft.frequencies = action.payload.frequencies;
+        break;
+      }
+      default:
+        return state;
+    }
+  });
 }

@@ -1,11 +1,9 @@
-const validationTsPath = 'validationMessages'
+const validationTsPath = 'validationMessages';
 
 function getErrorMessage(response) {
-    if (!response || !response.data || !response.data.error) return;
+  if (!response || !response.data || !response.data.error) return;
 
-    return `${validationTsPath}.${response.data.error}`
+  return `${validationTsPath}.${response.data.error}`;
 }
 
-export {
-    getErrorMessage
-} 
+export { getErrorMessage };

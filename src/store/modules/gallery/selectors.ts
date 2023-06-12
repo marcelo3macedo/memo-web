@@ -1,1 +1,1 @@
-export const gallery = (state) => state.gallery;
+export const gallery = state => state.gallery;

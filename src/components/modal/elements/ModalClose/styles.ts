@@ -1,11 +1,10 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-   &:hover {
-       cursor: pointer;
-       opacity: 0.8;
-   }
+  &:hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }
 `;
 
-export const Content = styled.div`
-`;
+export const Content = styled.div``;

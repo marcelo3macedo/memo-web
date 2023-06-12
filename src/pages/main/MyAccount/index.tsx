@@ -9,5 +9,5 @@ export default function MyAccount() {
         <Title>Minha Conta</Title>
       </Content>
     </Wrapper>
-  ); 
+  );
 }

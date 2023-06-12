@@ -1,3 +1,3 @@
 export const Errors = {
-    emailAlreadyInUse: 'Email already in use'
-}
+  emailAlreadyInUse: 'Email already in use',
+};

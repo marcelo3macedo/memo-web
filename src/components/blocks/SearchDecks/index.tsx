@@ -1,13 +1,12 @@
+import SearchDeck from '@components/decks/Search';
 import React from 'react';
 import { useTranslation } from 'react-multi-lang';
-
-import SearchDeck from '@components/decks/Search';
 
 import { Wrapper, Content, Title } from './styles';
 
 export default function SearchDecks({ action }) {
   const t = useTranslation();
-  
+
   return (
     <Wrapper>
       <Content>

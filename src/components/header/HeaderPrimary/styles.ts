@@ -1,26 +1,27 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-    padding: 15px 10px;
+  padding: 15px 10px;
 
-    @media (min-width: 768px) {
-        display: none;
-    }
+  @media (min-width: 768px) {
+    display: none;
+  }
 `;
 
-export const Content = styled.div`
-`;
+export const Content = styled.div``;
 
 export const Header = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: space-between;   
-    
-    svg path, svg polygon {
-        fill: var(--neutral100);
-    }
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
-    svg.list path, svg.list polygon {
-        fill: var(--neutral100);
-    }
+  svg path,
+  svg polygon {
+    fill: var(--neutral100);
+  }
+
+  svg.list path,
+  svg.list polygon {
+    fill: var(--neutral100);
+  }
 `;

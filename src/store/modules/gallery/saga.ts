@@ -1,26 +1,29 @@
+import { REQUESTER_GET } from '@constants/Requester';
+import { request } from '@services/Api/requester';
+import { API_SEARCH } from '@services/Api/routes';
+import { all, put, select, takeLatest } from 'redux-saga/effects';
 
-import { all, put, select, takeLatest } from "redux-saga/effects";
-import { API_SEARCH } from "@services/Api/routes";
-import { loadFailedAction, loadSuccessAction } from "./actions";
+import { loadFailedAction, loadSuccessAction } from './actions';
 import * as selectors from './selectors';
-import { request } from "@services/Api/requester";
-import { REQUESTER_GET } from "@constants/Requester";
 
 function* load() {
-    const { query, page } = yield select(selectors.gallery);
-    const params = `${query ? ("/" + query):""}?page=${page}`;
-    const response = yield request({ type: REQUESTER_GET, method: `${API_SEARCH}${params}` });
+  const { query, page } = yield select(selectors.gallery);
+  const params = `${query ? '/' + query : ''}?page=${page}`;
+  const response = yield request({
+    type: REQUESTER_GET,
+    method: `${API_SEARCH}${params}`,
+  });
 
-    if (response.status !== 200 || !response.data) {
-        return yield put(loadFailedAction());
-    }
+  if (response.status !== 200 || !response.data) {
+    return yield put(loadFailedAction());
+  }
 
-    const { decks, categories, featured } = response.data;
-    yield put(loadSuccessAction({ decks, categories, featured }));
+  const { decks, categories, featured } = response.data;
+  yield put(loadSuccessAction({ decks, categories, featured }));
 }
 
 export default all([
-    takeLatest('@gallery/LOAD', load),
-    takeLatest('@gallery/QUERY', load),
-    takeLatest('@gallery/LOAD_MORE', load)
+  takeLatest('@gallery/LOAD', load),
+  takeLatest('@gallery/QUERY', load),
+  takeLatest('@gallery/LOAD_MORE', load),
 ]);

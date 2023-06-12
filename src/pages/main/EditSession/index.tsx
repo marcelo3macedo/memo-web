@@ -1,6 +1,9 @@
 import ButtonPrimary from '@components/button/ButtonPrimary';
 import ButtonSecondary from '@components/button/ButtonSecondary';
-import { SESSIONMODAL_ADDCARD, SESSIONMODAL_TITLEDECK } from '@constants/SessionModal';
+import {
+  SESSIONMODAL_ADDCARD,
+  SESSIONMODAL_TITLEDECK,
+} from '@constants/SessionModal';
 import EditCards from '@modules/blocks/elements/EditCards';
 import EditComboBox from '@modules/frequencies/elements/EditComboBox';
 import PageHeader from '@modules/headers/elements/PageHeader';
@@ -14,13 +17,14 @@ import { loadAction } from '@store/mods/options/actions';
 import { RootState } from '@store/modules/rootReducer';
 import { useEffect } from 'react';
 import { useTranslation } from 'react-multi-lang';
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from 'react-redux';
+
 import { Action, ActionButton, Content, Modals, Wrapper } from './styles';
 
 export default function EditSession() {
-  const dispatch = useDispatch()
-  const t = useTranslation()
-  const { selected } = useSelector((state:RootState) => state.decks)
+  const dispatch = useDispatch();
+  const t = useTranslation();
+  const { selected } = useSelector((state: RootState) => state.decks);
 
   useEffect(() => {
     dispatch(loadAction());
@@ -31,11 +35,11 @@ export default function EditSession() {
   }
 
   function editHeaderClick() {
-    dispatch(openAction({ name: SESSIONMODAL_TITLEDECK }))
+    dispatch(openAction({ name: SESSIONMODAL_TITLEDECK }));
   }
 
   function addCardClick() {
-    dispatch(openAction({ name: SESSIONMODAL_ADDCARD }))
+    dispatch(openAction({ name: SESSIONMODAL_ADDCARD }));
   }
 
   return (
@@ -45,10 +49,16 @@ export default function EditSession() {
         <EditComboBox deck={selected} />
         <Action>
           <ActionButton>
-            <ButtonSecondary content={t('actions.editTitle')} action={editHeaderClick} />
+            <ButtonSecondary
+              content={t('actions.editTitle')}
+              action={editHeaderClick}
+            />
           </ActionButton>
           <ActionButton>
-            <ButtonPrimary content={t('actions.addCard')} action={addCardClick} />
+            <ButtonPrimary
+              content={t('actions.addCard')}
+              action={addCardClick}
+            />
           </ActionButton>
         </Action>
         <EditCards />
@@ -60,5 +70,5 @@ export default function EditSession() {
         <RemoveCardModal />
       </Modals>
     </Wrapper>
-  ); 
+  );
 }

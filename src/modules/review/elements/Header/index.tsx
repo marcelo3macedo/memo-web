@@ -1,17 +1,17 @@
+import { RootState } from '@store/modules/rootReducer';
 import React from 'react';
 import { useTranslation } from 'react-multi-lang';
 import { useSelector } from 'react-redux';
 
-import { RootState } from '@store/modules/rootReducer';
-
-import { Wrapper, Content, SubTitle, Title } from './styles';
 import Position from '../Position';
 
+import { Wrapper, Content, SubTitle, Title } from './styles';
+
 export default function Header() {
-  const t = useTranslation()
-  const { session, position } = useSelector((state:RootState) => state.review)
+  const t = useTranslation();
+  const { session, position } = useSelector((state: RootState) => state.review);
   const actual = position + 1;
-  
+
   return (
     <Wrapper>
       <Content>

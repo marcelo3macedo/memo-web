@@ -1,3 +1,3 @@
 export type IReviewCard = {
-    flip?: boolean;
-}
+  flip?: boolean;
+};

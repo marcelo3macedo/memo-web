@@ -1,3 +1,3 @@
 export type AddDeckCard = {
-    selected?: boolean;
-}
+  selected?: boolean;
+};

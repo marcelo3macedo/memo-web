@@ -1,10 +1,22 @@
+import IReviewItem from '@modules/tutorial/dtos/IReviewItem';
 import React from 'react';
 
-import IReviewItem from '@modules/tutorial/dtos/IReviewItem';
+import {
+  Wrapper,
+  Content,
+  Title,
+  Header,
+  Position,
+  Description,
+  Image,
+} from './styles';
 
-import { Wrapper, Content, Title, Header, Position, Description, Image } from './styles';
-
-export default function ReviewItem({ position, title, description, imageUrl }:IReviewItem) {
+export default function ReviewItem({
+  position,
+  title,
+  description,
+  imageUrl,
+}: IReviewItem) {
   return (
     <Wrapper>
       <Content>
@@ -13,8 +25,8 @@ export default function ReviewItem({ position, title, description, imageUrl }:IR
           <Title>{title}</Title>
         </Header>
         {description.split('|').map((d, i) => {
-          return (<Description key={i}>{d}</Description>)
-        })}        
+          return <Description key={i}>{d}</Description>;
+        })}
         <Image src={imageUrl} />
       </Content>
     </Wrapper>

@@ -1,18 +1,29 @@
-import React from 'react';
+import IconSmall from '@components/icons/IconSmall';
 import { useTranslation } from 'react-multi-lang';
 
-import IconSmall from '@components/icons/IconSmall';
+import {
+  Action,
+  ActionTitle,
+  Actions,
+  Content,
+  Header,
+  Message,
+  Title,
+  Wrapper,
+} from './styles';
 
-import { Wrapper, Content, Title, Header, Message, Actions, Action, ActionTitle } from './styles';
-
-export default function ModalRemoveDeck({ show, submitAction, closeAction }) {
+export default function ModalRemoveDeck({
+  show,
+  submitAction,
+  closeAction,
+}: any) {
   const t = useTranslation();
 
   return (
     <Wrapper show={show}>
       <Content>
         <Header onClick={closeAction}>
-          <IconSmall name="delete"/>
+          <IconSmall name='delete' />
         </Header>
         <Title>{t('removeDeck.title')}</Title>
         <Message>{t('removeDeck.message')}</Message>
@@ -20,7 +31,7 @@ export default function ModalRemoveDeck({ show, submitAction, closeAction }) {
           <Action onClick={submitAction}>
             <ActionTitle>{t('removeDeck.positive')}</ActionTitle>
           </Action>
-          <Action onClick={closeAction}>            
+          <Action onClick={closeAction}>
             <ActionTitle>{t('removeDeck.negative')}</ActionTitle>
           </Action>
         </Actions>

@@ -1,7 +1,15 @@
 import React from 'react';
 import { useTranslation } from 'react-multi-lang';
 
-import { Wrapper, Content, Group, SubTitle, Title, TitleArea, TextContainer } from './styles';
+import {
+  Wrapper,
+  Content,
+  Group,
+  SubTitle,
+  Title,
+  TitleArea,
+  TextContainer,
+} from './styles';
 
 export default function Methods() {
   const t = useTranslation();
@@ -10,19 +18,22 @@ export default function Methods() {
     <Wrapper>
       <Content>
         <Group>
-            <TitleArea>
-              {t('home.blockMethods.title').split("|").map((v, index) =>(
+          <TitleArea>
+            {t('home.blockMethods.title')
+              .split('|')
+              .map((v, index) => (
                 <Title key={index}>{v}</Title>
               ))}
-              <SubTitle>{t('home.blockMethods.subTitle')}</SubTitle>
+            <SubTitle>{t('home.blockMethods.subTitle')}</SubTitle>
 
-              {t('home.blockMethods.textContainer').split("|").map((v, index) =>(
+            {t('home.blockMethods.textContainer')
+              .split('|')
+              .map((v, index) => (
                 <TextContainer key={index}>{v}</TextContainer>
               ))}
-            </TitleArea>
+          </TitleArea>
         </Group>
-        <Group>
-        </Group>
+        <Group></Group>
       </Content>
     </Wrapper>
   );

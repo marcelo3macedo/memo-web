@@ -1,17 +1,27 @@
-import React from 'react';
-import { useDispatch } from "react-redux";
-
-import IconSmall from "@components/icons/IconSmall";
-import { Wrapper, Content, Info, Quantity, ReviewTitle, Title, Opacity, Data, TitleInfo } from './styles';
-import { openAction } from '@store/modules/session/actions';
+import IconSmall from '@components/icons/IconSmall';
 import { randomBackground } from '@config/Backgrounds';
+import { openAction } from '@store/modules/session/actions';
+import React from 'react';
 import { useTranslation } from 'react-multi-lang';
+import { useDispatch } from 'react-redux';
+
+import {
+  Wrapper,
+  Content,
+  Info,
+  Quantity,
+  ReviewTitle,
+  Title,
+  Opacity,
+  Data,
+  TitleInfo,
+} from './styles';
 
 export default function Session({ data }) {
   const t = useTranslation();
   const dispatch = useDispatch();
   const background = randomBackground();
-  const icon = "card";
+  const icon = 'card';
 
   function openSessionClick() {
     dispatch(openAction({ sessionId: data.id }));

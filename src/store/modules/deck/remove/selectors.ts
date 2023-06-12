@@ -1,1 +1,1 @@
-export const deckRemove = (state) => state.deckRemove;
+export const deckRemove = state => state.deckRemove;

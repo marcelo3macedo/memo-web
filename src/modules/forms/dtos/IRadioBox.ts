@@ -1,4 +1,4 @@
 export default interface IRadioBox {
-    name: string;
-    options: any;
- }
+  name: string;
+  options: any;
+}

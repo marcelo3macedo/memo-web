@@ -1,1 +1,1 @@
-export const signed = (state) => state.auth.signed;
+export const signed = state => state.auth.signed;

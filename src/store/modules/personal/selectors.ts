@@ -1,1 +1,1 @@
-export const deck = (state) => state.personal.deck;
+export const deck = state => state.personal.deck;

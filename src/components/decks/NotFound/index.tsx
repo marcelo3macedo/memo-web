@@ -1,9 +1,7 @@
-import React from 'react';
+import notFound from '@assets/notFound.png';
 import { useTranslation } from 'react-multi-lang';
 
-import notFound from '@assets/notFound.png';
-
-import { Wrapper, Content, Title, Picture } from './styles';
+import { Content, Picture, Title, Wrapper } from './styles';
 
 export default function NotFound() {
   const t = useTranslation();

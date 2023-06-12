@@ -1,10 +1,9 @@
-import React, { useEffect } from 'react';
-import { useDispatch } from "react-redux";
-import { useTranslation } from 'react-multi-lang';
-
-import PageHeader from '@modules/headers/elements/PageHeader';
 import CreateSessionForm from '@modules/forms/elements/CreateSessionForm';
+import PageHeader from '@modules/headers/elements/PageHeader';
 import { loadAction } from '@store/mods/options/actions';
+import React, { useEffect } from 'react';
+import { useTranslation } from 'react-multi-lang';
+import { useDispatch } from 'react-redux';
 
 import { Wrapper, Content } from './styles';
 export default function CreateSession() {
@@ -12,7 +11,7 @@ export default function CreateSession() {
   const t = useTranslation();
 
   useEffect(() => {
-    dispatch(loadAction());  
+    dispatch(loadAction());
   }, [dispatch]);
 
   return (
@@ -22,5 +21,5 @@ export default function CreateSession() {
         <CreateSessionForm />
       </Content>
     </Wrapper>
-  ); 
+  );
 }

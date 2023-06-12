@@ -1,17 +1,28 @@
-import React from 'react';
-import { useDispatch } from "react-redux";
-import { useTranslation } from 'react-multi-lang';
-
-import { Wrapper, Content, Header, Details, Title, Status, StatusTitle, RemoveArea, Deck } from './styles';
 import IconSmall from '@components/icons/IconSmall';
-import { setTargetAction } from '@store/modules/deck/remove/actions';
 import { setTargetAction as setEditTargetAction } from '@store/modules/deck/edit/actions';
+import { setTargetAction } from '@store/modules/deck/remove/actions';
+import React from 'react';
+import { useTranslation } from 'react-multi-lang';
+import { useDispatch } from 'react-redux';
 
+import {
+  Wrapper,
+  Content,
+  Header,
+  Details,
+  Title,
+  Status,
+  StatusTitle,
+  RemoveArea,
+  Deck,
+} from './styles';
 
 export default function Private({ deck }) {
   const t = useTranslation();
   const dispatch = useDispatch();
-  const statusTitle = deck.isPublic ? t('session.public') : t('session.private');
+  const statusTitle = deck.isPublic
+    ? t('session.public')
+    : t('session.private');
   const frequencyName = deck.frequency ? deck.frequency.name : '';
 
   function removeAction() {
@@ -21,7 +32,7 @@ export default function Private({ deck }) {
   function editAction() {
     dispatch(setEditTargetAction({ target: deck }));
   }
-  
+
   if (!deck) {
     return <></>;
   }
@@ -30,7 +41,7 @@ export default function Private({ deck }) {
     <Wrapper className='no-select'>
       <Content>
         <RemoveArea className='remove-area' onClick={removeAction}>
-          <IconSmall name="delete" />
+          <IconSmall name='delete' />
         </RemoveArea>
         <Deck onClick={editAction}>
           <Header>
@@ -38,11 +49,11 @@ export default function Private({ deck }) {
           </Header>
           <Details>
             <Status>
-              <IconSmall name="visibility" />
+              <IconSmall name='visibility' />
               <StatusTitle>{statusTitle}</StatusTitle>
             </Status>
             <Status>
-              <IconSmall name="repeat" />
+              <IconSmall name='repeat' />
               <StatusTitle>{frequencyName}</StatusTitle>
             </Status>
           </Details>

@@ -1,3 +1,3 @@
 export type PendingDecks = {
-    show?: boolean
-}
+  show?: boolean;
+};

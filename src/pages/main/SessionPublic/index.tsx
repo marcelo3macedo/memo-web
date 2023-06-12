@@ -8,36 +8,42 @@ import { cloneAction, loadAction } from '@store/mods/decks/actions';
 import { RootState } from '@store/modules/rootReducer';
 import { useEffect } from 'react';
 import { useTranslation } from 'react-multi-lang';
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
+
 import { Action, Content, Description, Share, Wrapper } from './styles';
 
 export default function SessionPublic() {
   const dispatch = useDispatch();
   const t = useTranslation();
-  const { selected } = useSelector((state:RootState) => state.decks);
+  const { selected } = useSelector((state: RootState) => state.decks);
   const { id } = useParams() as any;
 
   function reviewClick() {
-    dispatch(cloneAction({ id }))
+    dispatch(cloneAction({ id }));
   }
-  
+
   useEffect(() => {
-    dispatch(loadAction({ id }))
-  }, [dispatch, id])
+    dispatch(loadAction({ id }));
+  }, [dispatch, id]);
 
   if (!selected) {
     return (
       <Wrapper>
         <PageLoading />
       </Wrapper>
-    )
+    );
   }
 
   return (
     <Wrapper>
       <Content>
-        <PageHeader title={selected.name} subTitle={`${t('session.createdAt')} ${formatDateField(selected.createdAt)}`} />
+        <PageHeader
+          title={selected.name}
+          subTitle={`${t('session.createdAt')} ${formatDateField(
+            selected.createdAt
+          )}`}
+        />
         <Description>{selected.description}</Description>
         <Action>
           <ButtonPrimary content={t('actions.add')} action={reviewClick} />
@@ -48,5 +54,5 @@ export default function SessionPublic() {
         <ViewCards />
       </Content>
     </Wrapper>
-  ); 
+  );
 }

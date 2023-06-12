@@ -6,8 +6,8 @@ export default function HeaderPage({ title, subTitle }) {
   return (
     <Wrapper>
       <Content>
-        <Title>{ title }</Title>
-        <Message>{ subTitle }</Message>
+        <Title>{title}</Title>
+        <Message>{subTitle}</Message>
       </Content>
     </Wrapper>
   );

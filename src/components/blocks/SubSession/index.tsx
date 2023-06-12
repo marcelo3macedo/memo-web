@@ -1,11 +1,11 @@
-import React from 'react';
 import IconSmall from '@components/icons/IconSmall';
+import React from 'react';
 
 import { Wrapper, Content, Title, Info, Quantity } from './styles';
 
 export default function SubSession({ data }) {
-  const icon = "card";
-  
+  const icon = 'card';
+
   return (
     <Wrapper>
       <Content>

@@ -1,13 +1,11 @@
-import React from 'react';
-import PropTypes from "prop-types";
-
 import logo from '@assets/logo.png';
-import background from "@assets/pages/auth/background.png";
+import background from '@assets/pages/auth/background.png';
 import ValidationAlert from '@components/validation/ValidationAlert';
+import PropTypes from 'prop-types';
 
-import { Wrapper, Content, Header, Logo, Background } from './styles';
+import { Background, Content, Header, Logo, Wrapper } from './styles';
 
-export default function AuthLayout ({ children }) {
+export default function AuthLayout({ children }) {
   return (
     <Wrapper>
       <Background src={background} />
@@ -16,12 +14,12 @@ export default function AuthLayout ({ children }) {
           <Logo src={logo}></Logo>
         </Header>
         {children}
-        <ValidationAlert/>
+        <ValidationAlert />
       </Content>
     </Wrapper>
   );
 }
 
 AuthLayout.propTypes = {
-    children: PropTypes.element.isRequired
+  children: PropTypes.element.isRequired,
 };

@@ -1,9 +1,7 @@
-import React from 'react';
+import IconLarge from '@components/icons/IconLarge';
 import { useTranslation } from 'react-multi-lang';
 
-import IconLarge from '@components/icons/IconLarge';
-
-import { Wrapper, Content, Title } from './styles';
+import { Content, Title, Wrapper } from './styles';
 
 export default function PageLoading() {
   const t = useTranslation();
@@ -11,7 +9,7 @@ export default function PageLoading() {
   return (
     <Wrapper>
       <Content>
-        <IconLarge name={"loading"} />  
+        <IconLarge name={'loading'} />
         <Title>{t('loading.message')}</Title>
       </Content>
     </Wrapper>

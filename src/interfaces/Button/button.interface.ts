@@ -1,3 +1,3 @@
 export type Button = {
-    disabled?: boolean;
-}
+  disabled?: boolean;
+};

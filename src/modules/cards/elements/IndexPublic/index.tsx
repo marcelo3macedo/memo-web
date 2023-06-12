@@ -1,12 +1,20 @@
+import IIndexPrivateCard from '@modules/cards/dtos/IIndexPrivateCard';
 import React from 'react';
 
-import IIndexPrivateCard from '@modules/cards/dtos/IIndexPrivateCard';
+import {
+  Wrapper,
+  Content,
+  Card,
+  Header,
+  Title,
+  Footer,
+  CardContent,
+  SecretContent,
+} from './styles';
 
-import { Wrapper, Content, Card, Header, Title, Footer, CardContent, SecretContent } from './styles';
-
-export default function IndexPublic({ card }:IIndexPrivateCard) {
+export default function IndexPublic({ card }: IIndexPrivateCard) {
   if (!card) {
-    return <></>
+    return <></>;
   }
 
   return (
@@ -14,11 +22,11 @@ export default function IndexPublic({ card }:IIndexPrivateCard) {
       <Content>
         <Card>
           <Header>
-            <Title>{ card.title }</Title>
+            <Title>{card.title}</Title>
           </Header>
           <Footer>
-            <CardContent>{ card.content }</CardContent>
-            <SecretContent>{ card.secretContent }</SecretContent>
+            <CardContent>{card.content}</CardContent>
+            <SecretContent>{card.secretContent}</SecretContent>
           </Footer>
         </Card>
       </Content>

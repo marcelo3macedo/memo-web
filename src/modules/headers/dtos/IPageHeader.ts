@@ -1,4 +1,4 @@
 export default interface IPageHeader {
-    title: string;
-    subTitle: string;
- }
+  title: string;
+  subTitle: string;
+}

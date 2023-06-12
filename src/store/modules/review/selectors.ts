@@ -1,1 +1,1 @@
-export const review = (state) => state.review;
+export const review = state => state.review;

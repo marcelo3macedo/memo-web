@@ -1,3 +1,3 @@
 export type IBox = {
-    active?: string;
-}
+  active?: string;
+};

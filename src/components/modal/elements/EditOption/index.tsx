@@ -1,20 +1,18 @@
-import React from 'react';
-import { useDispatch } from 'react-redux';
-import { useTranslation } from 'react-multi-lang';
-
 import ButtonSecondary from '@components/button/ButtonSecondary';
 import { openAction } from '@store/mods/decks/actions';
 import { closeAction } from '@store/mods/modals/actions';
+import { useTranslation } from 'react-multi-lang';
+import { useDispatch } from 'react-redux';
 
-import { Wrapper, Content, Title, Action } from './styles';
+import { Action, Content, Title, Wrapper } from './styles';
 
-export default function EditOption({ id }:any) {
-  const t = useTranslation()
-  const dispatch = useDispatch()
+export default function EditOption({ id }: any) {
+  const t = useTranslation();
+  const dispatch = useDispatch();
 
   function editAction() {
-    dispatch(openAction({ id }))
-    dispatch(closeAction())
+    dispatch(openAction({ id }));
+    dispatch(closeAction());
   }
 
   return (
@@ -22,7 +20,7 @@ export default function EditOption({ id }:any) {
       <Content>
         <Title>{t('decks.editMessage')}</Title>
         <Action className='review' onClick={editAction}>
-          <ButtonSecondary content={t('decks.actions.edit')}/>
+          <ButtonSecondary content={t('decks.actions.edit')} />
         </Action>
       </Content>
     </Wrapper>

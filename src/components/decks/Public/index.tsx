@@ -1,10 +1,17 @@
+import IconSmall from '@components/icons/IconSmall';
+import { openAction } from '@store/modules/deck/open/actions';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 
-import IconSmall from '@components/icons/IconSmall';
-import { openAction } from '@store/modules/deck/open/actions';
-
-import { Wrapper, Content, Title, Header, Details, Status, StatusTitle } from './styles';
+import {
+  Wrapper,
+  Content,
+  Title,
+  Header,
+  Details,
+  Status,
+  StatusTitle,
+} from './styles';
 
 export default function Public({ deck }) {
   const dispatch = useDispatch();
@@ -25,7 +32,7 @@ export default function Public({ deck }) {
         </Header>
         <Details>
           <Status>
-            <IconSmall name="card" />
+            <IconSmall name='card' />
             <StatusTitle>{deck.cardsCount}</StatusTitle>
           </Status>
         </Details>

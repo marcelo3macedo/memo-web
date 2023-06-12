@@ -1,6 +1,6 @@
 export default interface IReviewItem {
-    position: string;
-    title: string;
-    description: string;
-    imageUrl?: any;
- }
+  position: string;
+  title: string;
+  description: string;
+  imageUrl?: any;
+}

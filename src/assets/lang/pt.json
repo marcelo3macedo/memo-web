@@ -121,6 +121,7 @@
     "auth": {
         "loginTitle": "Login",
         "registerTitle": "Registrar",
+        "socialGoogle": "Entrar com o Google",
         "user": "Usuário",
         "password": "Senha",
         "recoverTitle": "Recuperar Senha",

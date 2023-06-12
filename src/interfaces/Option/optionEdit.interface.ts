@@ -1,3 +1,3 @@
 export type IOptionEdit = {
-    show?: boolean;
-}
+  show?: boolean;
+};

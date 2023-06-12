@@ -1,14 +1,21 @@
-import React from 'react';
-import { useDispatch } from 'react-redux';
-import { useTranslation } from 'react-multi-lang';
-
-import project1 from "@assets/banners/project1.png";
-
+import project1 from '@assets/banners/project1.png';
 import ButtonPrimary from '@components/button/ButtonPrimary';
 import { PATH_SIGN_IN } from '@services/Navigation';
 import { navigatePush } from '@store/mods/navigate/actions';
+import React from 'react';
+import { useTranslation } from 'react-multi-lang';
+import { useDispatch } from 'react-redux';
 
-import { Wrapper, Content, Group, Picture, Title, Info, SubTitle, Actions } from './styles';
+import {
+  Wrapper,
+  Content,
+  Group,
+  Picture,
+  Title,
+  Info,
+  SubTitle,
+  Actions,
+} from './styles';
 
 export default function Highlight() {
   const t = useTranslation();
@@ -17,27 +24,33 @@ export default function Highlight() {
   function signIn() {
     dispatch(navigatePush({ path: PATH_SIGN_IN }));
   }
-  
+
   return (
     <Wrapper>
       <Content>
         <Group>
-            {t('home.block01.title').split("|").map((v, index) =>(
+          {t('home.block01.title')
+            .split('|')
+            .map((v, index) => (
               <Title key={index}>{v}</Title>
             ))}
 
-            <Info>              
-                {t('home.block01.subTitle').split("|").map((v, index) =>(
-                  <SubTitle key={index}>{v}</SubTitle>
-                ))}
-            </Info>
+          <Info>
+            {t('home.block01.subTitle')
+              .split('|')
+              .map((v, index) => (
+                <SubTitle key={index}>{v}</SubTitle>
+              ))}
+          </Info>
 
-            <Actions>
-                <ButtonPrimary content={t('home.access')} action={signIn}></ButtonPrimary>
-            </Actions>
+          <Actions>
+            <ButtonPrimary
+              content={t('home.access')}
+              action={signIn}></ButtonPrimary>
+          </Actions>
         </Group>
         <Group>
-            <Picture src={project1} alt={t('application.name')}/>
+          <Picture src={project1} alt={t('application.name')} />
         </Group>
       </Content>
     </Wrapper>

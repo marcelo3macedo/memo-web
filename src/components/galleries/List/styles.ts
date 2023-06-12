@@ -1,11 +1,9 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-export const Wrapper = styled.div`    
-    
-`;
+export const Wrapper = styled.div``;
 
 export const Content = styled.div`
-    padding: 15px 0;
-    display: flex;
-    flex-wrap: wrap;
+  padding: 15px 0;
+  display: flex;
+  flex-wrap: wrap;
 `;

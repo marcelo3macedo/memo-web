@@ -1,8 +1,6 @@
-import React from 'react';
+import { TextValue, Wrapper } from './styles';
 
-import { Wrapper, TextValue } from './styles';
-
-export default function TextLinked({ content, action=null }:any) {
+export default function TextLinked({ content, action = null }: any) {
   return (
     <Wrapper onClick={action}>
       <TextValue>{content}</TextValue>

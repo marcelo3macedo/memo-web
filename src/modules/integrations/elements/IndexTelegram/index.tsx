@@ -1,21 +1,29 @@
 import React from 'react';
 
-import { Wrapper, Content, Title, Card, Header, Footer, Action, SubTitle} from './styles';
+import {
+  Wrapper,
+  Content,
+  Title,
+  Card,
+  Header,
+  Footer,
+  Action,
+  SubTitle,
+} from './styles';
 
-export default function IndexTelegram({ item }:any) {
+export default function IndexTelegram({ item }: any) {
   return (
     <Wrapper>
       <Content>
         <Card>
           <Header>
-            <SubTitle>{ item.externalId }</SubTitle>
+            <SubTitle>{item.externalId}</SubTitle>
           </Header>
           <Footer>
-            <Title>{ item.externalName }</Title>
+            <Title>{item.externalName}</Title>
           </Footer>
         </Card>
-        <Action>
-        </Action>
+        <Action></Action>
       </Content>
     </Wrapper>
   );

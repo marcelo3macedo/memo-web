@@ -1,4 +1,4 @@
 export type IBanner = {
-    background?: string;
-    backgroundColor?: string;
-}
+  background?: string;
+  backgroundColor?: string;
+};

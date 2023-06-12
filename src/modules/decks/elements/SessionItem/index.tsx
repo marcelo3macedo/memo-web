@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Wrapper, Content, Title, Description } from './styles';
 
-export default function SessionItem({ title, description, layout='middle' }) {
+export default function SessionItem({ title, description, layout = 'middle' }) {
   return (
     <Wrapper layout={layout}>
       <Content>

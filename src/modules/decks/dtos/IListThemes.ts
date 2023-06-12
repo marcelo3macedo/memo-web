@@ -1,3 +1,3 @@
 export default interface IListThemes {
-    cards: any;
- }
+  cards: any;
+}

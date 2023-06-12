@@ -1,5 +1,5 @@
-import * as Yup from "yup";
+import * as Yup from 'yup';
 
 export const schema = Yup.object().shape({
-  name: Yup.string()
+  name: Yup.string(),
 });

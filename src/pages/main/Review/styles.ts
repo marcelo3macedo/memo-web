@@ -1,16 +1,16 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vH;
-    background: var(--secondary20);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: var(--secondary20);
 `;
 
 export const Content = styled.div`
-    height: 100vH;
-    width: 100%;
-    max-width: var(--maxWidth);
-    margin: auto;
+  height: 100vh;
+  width: 100%;
+  max-width: var(--maxWidth);
+  margin: auto;
 `;

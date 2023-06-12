@@ -1,20 +1,19 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-export const Wrapper = styled.div`    
-    display: flex;
-    align-items: center;
+export const Wrapper = styled.div`
+  display: flex;
+  align-items: center;
 `;
 
 export const Content = styled.div`
-    text-align: center;
+  text-align: center;
 `;
 
-
 export const Title = styled.h4`
-    color: var(--primary);
-    padding: 5px 20px;  
+  color: var(--primary);
+  padding: 5px 20px;
 `;
 
 export const Action = styled.div`
-    padding: 40px 0px;  
+  padding: 40px 0px;
 `;

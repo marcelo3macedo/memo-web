@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Wrapper, Content, Title, Description } from './styles';
 
-export default function HistoricItem({ title, description }:any) {
+export default function HistoricItem({ title, description }: any) {
   return (
     <Wrapper>
       <Content>

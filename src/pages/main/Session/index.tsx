@@ -1,42 +1,50 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from "react-redux";
-import { useTranslation } from 'react-multi-lang';
-import { useParams } from 'react-router-dom';
-
 import ButtonPrimary from '@components/button/ButtonPrimary';
 import PageLoading from '@components/loading/PageLoading';
-import PageHeader from '@modules/headers/elements/PageHeader';
-import Review from '@modules/tutorial/elements/Review';
-import Details from '@modules/decks/elements/Details';
 import SessionDoubt from '@modules/blocks/elements/SessionDoubt';
+import Details from '@modules/decks/elements/Details';
 import Historic from '@modules/decks/elements/Historic';
 import RetentionEvolution from '@modules/decks/elements/RetentionEvolution';
-import { RootState } from '@store/modules/rootReducer';
-import { loadIndexAction } from '@store/mods/sessions/actions';
+import PageHeader from '@modules/headers/elements/PageHeader';
+import Review from '@modules/tutorial/elements/Review';
 import { loadAction } from '@store/mods/review/actions';
+import { loadIndexAction } from '@store/mods/sessions/actions';
+import { RootState } from '@store/modules/rootReducer';
+import React, { useEffect } from 'react';
+import { useTranslation } from 'react-multi-lang';
+import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
 
-import { Wrapper, Content, Action, TutorialArea, Title, NotFound } from './styles';
+import {
+  Wrapper,
+  Content,
+  Action,
+  TutorialArea,
+  Title,
+  NotFound,
+} from './styles';
 
 export default function Session() {
   const dispatch = useDispatch();
   const t = useTranslation();
-  const { isLoading, index } = useSelector((state:RootState) => state.sessions);
+  const { isLoading, index } = useSelector(
+    (state: RootState) => state.sessions
+  );
   const { id } = useParams() as any;
-  
+
   function reviewClick() {
-    dispatch(loadAction({ session: index }))
+    dispatch(loadAction({ session: index }));
   }
 
   useEffect(() => {
-    dispatch(loadIndexAction({ id }))
-  }, [dispatch, id])
+    dispatch(loadIndexAction({ id }));
+  }, [dispatch, id]);
 
   if (isLoading) {
     return (
       <Wrapper>
         <PageLoading />
       </Wrapper>
-    )
+    );
   }
 
   if (!index || !index.deck) {
@@ -46,7 +54,7 @@ export default function Session() {
           <Title>{t('session.notFound')}</Title>
         </NotFound>
       </Wrapper>
-    )
+    );
   }
 
   return (
@@ -55,7 +63,7 @@ export default function Session() {
         <PageHeader title={index.deck.name} subTitle={index.deck.description} />
         <Details session={index} />
         <Action>
-          <ButtonPrimary content={t('actions.review')} action={reviewClick}/>
+          <ButtonPrimary content={t('actions.review')} action={reviewClick} />
         </Action>
         <SessionDoubt />
         <Historic historic={index.historic} />
@@ -65,5 +73,5 @@ export default function Session() {
         </TutorialArea>
       </Content>
     </Wrapper>
-  ); 
+  );
 }

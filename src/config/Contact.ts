@@ -1,3 +1,3 @@
 export const Contact = {
-    mail: process.env.REACT_APP_CONTACT
-}
+  mail: process.env.REACT_APP_CONTACT,
+};
