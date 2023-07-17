@@ -16,8 +16,10 @@ module.exports = function override(config) {
       '@pages': path.resolve(__dirname, 'src/pages'),
       '@services': path.resolve(__dirname, 'src/services'),
       '@store': path.resolve(__dirname, 'src/store'),
-      '@routes': path.resolve(__dirname, 'src/routes')
-    },
+      '@styles': path.resolve(__dirname, 'src/styles'),
+      '@routes': path.resolve(__dirname, 'src/routes'),
+      '@themes': path.resolve(__dirname, 'src/themes')
+    }
   };
 
   return config;

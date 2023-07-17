@@ -1,0 +1,90 @@
+{
+    "home": {
+        "title": "Olá, ",
+        "subTitle": "O que iremos fazer hoje?",
+        "search": "Pesquise por tema, concurso ou categoria...",
+        "titleSearch": "Pesquise por tema, concurso ou categoria"
+    },
+    "validation": {
+        "user": {
+            "required": "Usuário é obrigatório"
+        },
+        "password": {
+            "required": "Senha é obrigatória"
+        }
+    },
+    "auth": {
+        "loginTitle": "Login",
+        "registerTitle": "Registrar",
+        "socialGoogle": "Entrar com o Google",
+        "user": "Usuário",
+        "password": "Senha",
+        "email": "E-mail",
+        "confirmPassword": "Confirme sua Senha",
+        "fullName": "Nome Completo",
+        "recoverTitle": "Recuperar Senha",
+        "namePlaceholder": "Digite seu nome...",
+        "mailPlaceholder": "Digite seu e-mail...",
+        "passwordPlaceholder": "Digite sua senha...",
+        "confirmpasswordPlaceholder": "Confirme sua senha...",
+        "forgotPassword": "Esqueceu sua senha?",
+        "goToLogin": "Ir para login",
+        "goToHome": "Ir para Home",
+        "enter": "Entrar",
+        "signUp": "Cadastrar",
+        "register": "Quero participar!",
+        "recover": "Recuperar",
+        "notRegistered": "Não tem uma conta?",
+        "newAccount": "Crie uma agora!",
+        "haveAccount": "Já tenho uma conta",
+        "recoveredMessage": "Um e-mail foi enviado com as instruções para a restauração da senha",
+        "defaultError": "Ocorreu um erro ao realizar a ação.",
+        "invalidAuth": "Usuário ou senha inválidos.",
+        "tryAgain": "Por favor, tente novamente.",
+        "activateTitle": "Ativação de Usuário",
+        "activateCheck": "Estamos ativando seu usuário. Aguarde um momento",
+        "activateFailed": "Falha ao Ativar o usuário. Não encontramos seu usuário, verifique o link de acesso.",
+        "activateSuccess": "Usuário ativado com sucesso. Agora você poderá acessar o aplicativo do Memorizou.",
+        "activateMail": "Acesse o link enviado via e-mail para confirmar o seu cadastro.",
+        "restorePassword": "Resetar senha"
+    },
+    "menu": {
+        "featured": "Favoritos",
+        "featuredDescription": "Principais rotas da aplicação",
+        "home": "Home",
+        "sessions": "Sessões",
+        "mySessions": "Minhas Sessões",
+        "gallery": "Galeria",
+        "search": "Pesquisar",
+        "account": "Conta",
+        "help": "Ajuda",
+        "exit": "Sair",
+        "areas": "Áreas",
+        "integrations": "Integrações",
+        "company": "Institucional",
+        "policy": "Políticas de Privacidade",
+        "terms": "Termos e Condições",
+        "about": "Sobre",
+        "new": "Criar Sessão",
+        "plans": "Planos",
+        "progress": "Progresso",
+        "config": "Configurações",
+        "optionsDescription": "Detalhes e configurações",
+        "option": "Opções",
+        "options": {
+            "gallery": "Galeria",
+            "sessions": "Sessões",
+            "progress": "Progresso",
+            "config": "Configurações",
+            "help": "Ajuda",
+            "privacyPolicy": "Políticas de Privacidade",
+            "about": "Sobre",
+            "createSession": "Criar Sessão",
+            "checkTutorials": "Entenda como funciona a aplicação",
+            "sessionsToReview": "Sessões para revisão",
+            "searchAtGallery": "Pesquisar na galeria",
+            "createNewSession": "Criar uma nova sessão",
+            "viewMyProgress": "Visualizar meu progresso"
+        }
+    }
+}

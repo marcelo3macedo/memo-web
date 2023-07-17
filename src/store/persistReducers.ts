@@ -6,22 +6,7 @@ const persistor = reducers => {
     {
       key: 'memo',
       storage,
-      whitelist: [
-        'auth',
-        'users',
-        'session',
-        'redirect',
-        'deck',
-        'personal',
-        'frequencies',
-        'themes',
-        'review',
-        'sessions',
-        'navigate',
-        'decks',
-        'cards',
-        'featured',
-      ],
+      whitelist: []
     },
     reducers
   );

@@ -8,7 +8,7 @@ import persistReducers from './persistReducers';
 
 const sagaMonitor = null;
 const sagaMiddleware = createSagaMiddleware({
-  sagaMonitor,
+  sagaMonitor
 });
 
 const enhancer = applyMiddleware(sagaMiddleware);

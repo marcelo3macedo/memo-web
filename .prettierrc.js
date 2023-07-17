@@ -2,7 +2,22 @@ module.exports = {
   arrowParens: 'avoid',
   bracketSameLine: true,
   bracketSpacing: true,
-  jsxSingleQuote: true,
   singleQuote: true,
-  trailingComma: "es5"
+  trailingComma: 'none',
+  endOfLine: 'auto',
+  noMultiSpaces: true,
+  useTabs: false,
+  overrides: [
+    {
+      files: '*.ts',
+      options: {
+        parser: 'typescript',
+        'no-mixed-spaces-and-tabs': true,
+      },
+    },
+  ],
+  plugins: ['prettier'],
+  rules: {
+    'prettier/prettier': 'error',
+  },
 };

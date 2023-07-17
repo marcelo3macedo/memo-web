@@ -1,34 +1,41 @@
 module.exports = {
   env: {
     browser: true,
-    es2021: true,
+    es2021: true
   },
-  extends: [
-    'eslint:recommended',
-    'plugin:react/recommended',
-    'plugin:prettier/recommended',
-  ],
+  extends: ['eslint:recommended', 'plugin:prettier/recommended'],
   overrides: [],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 'latest',
-    sourceType: 'module',
+    sourceType: 'module'
   },
   settings: {
     react: {
-      version: 'detect',
-    },
+      version: 'detect'
+    }
   },
   plugins: ['react', 'react-hooks', '@typescript-eslint', 'import'],
   rules: {
     'react/react-in-jsx-scope': 0,
-    'object-curly-spacing': ['error', 'always'],
+    'object-curly-spacing': 'off',
+    'no-undef': 'off',
+    'no-mixed-spaces-and-tabs': 'off',
+    'prettier/prettier': [
+      'error',
+      {
+        endOfLine: 'auto',
+        trailingComma: 'none',
+        noMultiSpaces: true,
+        useTabs: false
+      }
+    ],
     quotes: ['error', 'single'],
     'import/order': [
       'error',
       {
         alphabetize: {
-          order: 'asc',
+          order: 'asc'
         },
         groups: [
           'builtin',
@@ -36,10 +43,10 @@ module.exports = {
           'internal',
           'parent',
           'sibling',
-          'index',
+          'index'
         ],
-        'newlines-between': 'always',
-      },
-    ],
-  },
+        'newlines-between': 'always'
+      }
+    ]
+  }
 };
