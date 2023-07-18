@@ -16,8 +16,8 @@ export function ValueInput({
       value={value}
       placeholder={placeholder}
       styleName={styled}
-      onChangeText={onChangeText}
-      onEndEditing={onEndEditing}
+      onChange={onChangeText}
+      onBlur={onEndEditing}
       placeholderTextColor={theme.PRIMARY_COLOR}
     />
   );

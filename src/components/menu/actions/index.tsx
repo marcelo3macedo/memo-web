@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { ItemMenu } from '../item';
 import { ItemFeaturedMenu } from '../itemFeatured';
 
-import { Content, Wrapper } from './styles';
+import { Content, Item, Wrapper } from './styles';
 
 export function ActionsMenu() {
   const { t } = useTranslation();
@@ -23,10 +23,16 @@ export function ActionsMenu() {
   return (
     <Wrapper>
       <Content>
-        {loadSessionToReview()}
-        <ItemMenu title={t('menu.options.createNewSession')} />
-        <ItemMenu title={t('menu.options.searchAtGallery')} />
-        <ItemMenu title={t('menu.options.viewMyProgress')} />
+        <Item>{loadSessionToReview()}</Item>
+        <Item>
+          <ItemMenu title={t('menu.options.createNewSession')} />
+        </Item>
+        <Item>
+          <ItemMenu title={t('menu.options.searchAtGallery')} />
+        </Item>
+        <Item>
+          <ItemMenu title={t('menu.options.viewMyProgress')} />
+        </Item>
       </Content>
     </Wrapper>
   );

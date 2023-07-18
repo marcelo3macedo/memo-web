@@ -10,5 +10,6 @@ export interface ValueProps {
 export enum Styles {
   Default,
   DarkBorder,
-  DarkSmallBorder
+  DarkSmallBorder,
+  NoBorder
 }

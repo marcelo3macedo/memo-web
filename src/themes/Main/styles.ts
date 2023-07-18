@@ -9,7 +9,16 @@ export const Wrapper = styled.div`
 
 export const Content = styled.div`
   width: 100%;
-  padding: 10px;
+  max-width: 1200px;
+  display: grid;
+  align-items: flex-end;
+`;
+
+export const Page = styled.div`
+  max-width: 100%;
+  min-height: 100%;
+  padding: 0px 10px;
+  overflow-x: hidden;
 `;
 
 export const Header = styled.div`
@@ -26,3 +35,5 @@ export const Header = styled.div`
     background: none;
   }
 `;
+
+export const Footer = styled.div``;

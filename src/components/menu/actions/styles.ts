@@ -9,4 +9,9 @@ export const Content = styled.div`
   padding: 20px 0;
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
+`;
+
+export const Item = styled.div`
+  width: 50%;
 `;

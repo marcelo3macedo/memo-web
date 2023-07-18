@@ -21,6 +21,14 @@ export const TextInput = styled.input<any>`
             paddingHorizontal: 20px;
             paddingVertical: 10px;
         `;
+      case Styles.NoBorder:
+        return `
+          background-color: ${theme.LIGHT_COLOR};
+          color: ${theme.PRIMARY_COLOR};
+          border-radius: 5px;
+          min-width: 300px;
+          padding: 15px;
+          `;
       default:
         return `
           background-color: ${theme.LIGHT_COLOR};

@@ -1,10 +1,15 @@
 import { ValueInput } from '@components/elements/input/values';
+import IconMedium from '@components/icons/IconMedium';
+import { Styles } from '@interfaces/elements/inputs/ValueProps';
 import { initialValues, schema } from '@services/Validation/search.schema';
 import { Formik } from 'formik';
+import { useTheme } from 'styled-components';
 
-import { Search, Wrapper } from './styles';
+import { Search, SearchIcon, Wrapper } from './styles';
 
 export function SearchPrimary({ placeholder, action }: any) {
+  const theme = useTheme() as any;
+
   function onSubmit({ value }: any) {
     action(value);
   }
@@ -23,7 +28,15 @@ export function SearchPrimary({ placeholder, action }: any) {
               placeholder={placeholder}
               onEndEditing={handleSubmit}
               onChangeText={handleChange('value')}
+              styled={Styles.NoBorder}
             />
+            <SearchIcon>
+              <IconMedium
+                name={'search'}
+                fill={theme.LIGHT_COLOR}
+                action={handleSubmit}
+              />
+            </SearchIcon>
           </Search>
         )}
       </Formik>

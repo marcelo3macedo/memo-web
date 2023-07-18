@@ -4,7 +4,6 @@ export const Wrapper = styled.div`
   background-color: ${({ theme }) => theme.PALLETE03_COLOR};
   min-width: 300px;
   border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
 `;
 
 export const Content = styled.div``;
