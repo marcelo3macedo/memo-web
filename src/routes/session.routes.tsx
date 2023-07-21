@@ -1,4 +1,4 @@
-import { Login } from '@pages/authentication/login';
+import { CreateSession } from '@pages/sessions/create';
 import { PATH_CREATESESSION } from '@services/Navigation';
 import { MainTheme } from '@themes/Main';
 import { Route, Switch, useRouteMatch } from 'react-router-dom';
@@ -13,7 +13,7 @@ export function SessionRoutes() {
   return (
     <MainTheme>
       <Switch>
-        <Route path={getPath(PATH_CREATESESSION)} component={Login} />
+        <Route path={getPath(PATH_CREATESESSION)} component={CreateSession} />
       </Switch>
     </MainTheme>
   );

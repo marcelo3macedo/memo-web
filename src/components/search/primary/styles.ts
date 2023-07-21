@@ -20,9 +20,8 @@ export const Search = styled.div`
   justify-content: space-between;
   border: 1px solid var(--neutral60);
   border-radius: 10px;
-  width: 90%;
+  width: 100%;
   margin: auto;
-  max-width: 450px;
   margin-top: 15px;
   margin-bottom: 15px;
   background-color: ${({ theme }) => theme.LIGHT_COLOR};

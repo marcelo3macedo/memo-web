@@ -128,5 +128,86 @@
         "mail": "contato@memorizou.com.br",
         "available": "Estamos disponíveis também no WhatsApp:",
         "contact_whatsApp": "Contatar via WhatsApp"
+    },
+    "config": {
+        "title": "Configurações",
+        "subTitle": "Personalizações gerais sobre o sistema",
+        "notifications": "Notificações",
+        "themes": "Temas",
+        "language": "Idioma",
+        "data": "Dados",
+        "account": "Conta",
+        "alertNewSessions": "Alerta de Novas Sessões",
+        "soundEffects": "Efeitos Sonoros",
+        "nightMode": "Modo Noturno",
+        "fontSize": "Tamanho da Fonte",
+        "languageApplication": "Idioma da Aplicação",
+        "downloadData": "Download dos meus dados",
+        "changePassword": "Alterar Senha",
+        "excludeAccount": "Excluir Conta Permanentemente"
+    },
+    "progress": {
+        "title": "Meu Progresso",
+        "subTitle": "Visualização do progresso de seus estudos",
+        "generalStatitics": "Estatísticas Gerais",
+        "reviewMade": "Revisões feitas",
+        "sessionReviewed": "Sessões Revisadas",
+        "lastReview": "Última Revisão",
+        "studyTime": "Tempo de Estudo",
+        "progress": "Progresso",
+        "points": "Pontos",
+        "level": "Nível",
+        "evolution": "Evolução"
+    },    
+    "create": {
+        "title": "Nova Sessão",
+        "subTitle": "Informe os dados da sua nova sessão"
+    },
+    "fields": {
+        "user": "Usuário",
+        "userPlaceholder": "Digite aqui seu usuário",
+        "password": "Senha",
+        "passwordPlaceholder": "Digite aqui sua senha",
+        "fullName": "Nome",
+        "fullNamePlaceholder": "Digite aqui seu nome",
+        "mail": "E-mail",
+        "mailPlaceholder": "Digite aqui seu e-mail",
+        "confirmPassword": "Confirme sua senha",
+        "confirmPasswordPlaceholder": "Confirme sua senha",
+        "sessionName": "Nome",
+        "sessionNamePlaceholder": "Escolha um nome para a sua sessão...",
+        "sessionDescription": "Descrição",
+        "sessionDescriptionPlaceholder": "Descreva sobre o que é a sua sessão...",
+        "frequency": "Frequência",
+        "title": "Tema",
+        "titlePlaceholder": "Digite aqui o tema da pergunta",
+        "content": "Conteúdo",
+        "contentPlaceholder": "Digite aqui o conteúdo da pergunta",
+        "secretContent": "Resposta",
+        "secretContentPlaceholder": "Digite aqui a resposta da pergunta",
+        "visibility": "Visibilidade"
+    },
+    "gallery": {
+        "title": "Galeria",
+        "subTitle": "Coleção de sessões disponibilizadas por usuários",
+        "titleSearch": "Procure por nome, tema ou categoria",
+        "filters": "Filtros"
+    },
+    "actions": {
+        "add": "Adicionar",
+        "review": "Revisar",
+        "update": "Atualizar",
+        "reviewNow": "Revisar Agora",
+        "save": "Salvar",
+        "updateStatus": "Atualizar",
+        "editDeck": "Editar Sessão",
+        "addCard": "Adicionar Card",
+        "ok": "Ok, entendi"
+    },
+    "privacy": {
+        "public": "Público",
+        "private": "Privado",
+        "publicDescription": "Qualquer pessoa poderá visualizar sua sessão.",
+        "privateDescription": "Somente você visualizará sua sessão."
     }
 }

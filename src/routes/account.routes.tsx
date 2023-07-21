@@ -1,7 +1,8 @@
-import { Login } from '@pages/authentication/login';
 import { About } from '@pages/main/about';
+import { Config } from '@pages/main/config';
 import { Help } from '@pages/main/help';
 import { PrivacyPolicy } from '@pages/main/privacyPolicy';
+import { Progress } from '@pages/main/progress';
 import {
   PATH_ABOUT,
   PATH_CONFIGS,
@@ -22,11 +23,11 @@ export function AccountRoutes() {
   return (
     <MainTheme>
       <Switch>
-        <Route path={getPath(PATH_CONFIGS)} component={Login} />
+        <Route path={getPath(PATH_CONFIGS)} component={Config} />
         <Route path={getPath(PATH_HELP)} component={Help} />
         <Route path={getPath(PATH_PRIVACYPOLICY)} component={PrivacyPolicy} />
         <Route path={getPath(PATH_ABOUT)} component={About} />
-        <Route path={getPath(PATH_PROGRESS)} component={Login} />
+        <Route path={getPath(PATH_PROGRESS)} component={Progress} />
       </Switch>
     </MainTheme>
   );

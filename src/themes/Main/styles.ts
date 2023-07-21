@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-  background-color: ${({ theme }) => theme.PALLETE01_COLOR};
+  background-color: ${({ theme }) => theme.BACKGROUND_COLOR};
   min-height: 100vh;
   display: flex;
   flex-direction: row;
@@ -17,7 +17,7 @@ export const Content = styled.div`
 export const Page = styled.div`
   max-width: 100%;
   min-height: 100%;
-  padding: 0px 10px;
+  padding: 0px 40px;
   overflow-x: hidden;
 `;
 

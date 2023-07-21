@@ -16,6 +16,10 @@ export const Text = styled.h4<any>`
         return `
           color: ${theme.PALLETE02_COLOR};
         `;
+      case Styles.Alert:
+        return `
+          color: ${theme.ALERT_COLOR};
+        `;
       default:
         return `
           color: ${theme.PRIMARY_COLOR};

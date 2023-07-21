@@ -1,3 +1,4 @@
+import { Gallery } from '@pages/main/gallery';
 import { Home } from '@pages/main/home';
 import { PATH_GALLERY, PATH_HOME, PATH_SESSIONS } from '@services/Navigation';
 import { MainTheme } from '@themes/Main';
@@ -8,8 +9,8 @@ export function MainRoutes() {
     <MainTheme>
       <Switch>
         <Route exact path={PATH_HOME} component={Home} />
-        <Route path={PATH_GALLERY} component={Home} />
         <Route path={PATH_SESSIONS} component={Home} />
+        <Route path={PATH_GALLERY} component={Gallery} />
       </Switch>
     </MainTheme>
   );

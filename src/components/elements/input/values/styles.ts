@@ -6,11 +6,11 @@ export const TextInput = styled.input<any>`
     switch (styleName) {
       case Styles.DarkBorder:
         return `          
-            borderColor: ${theme.PALLETE01_COLOR};
-            borderWidth: 2px;
-            backgroundColor: ${theme.LIGHT_COLOR};
-            paddingHorizontal: 20px;
+            border: 2px solid ${theme.PALLETE01_COLOR};
+            background-color: ${theme.LIGHT_COLOR};
+            padding: 15px;
             color: ${theme.PRIMARY_COLOR};
+            width: 100%;
         `;
       case Styles.DarkSmallBorder:
         return `

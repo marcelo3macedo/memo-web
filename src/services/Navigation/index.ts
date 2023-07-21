@@ -1,9 +1,9 @@
 export const PATH_ABOUT = 'about';
 export const PATH_ACCOUNT = 'account';
 export const PATH_HOME = '/';
-export const PATH_GALLERY = 'gallery';
+export const PATH_GALLERY = '/gallery';
+export const PATH_SESSIONS = '/sessions';
 export const PATH_PRIVACYPOLICY = 'privacy-police';
-export const PATH_SESSIONS = 'sessions';
 export const PATH_MYSESSIONS = 'my-sessions';
 export const PATH_TERMSANDCONDITIONS = 'terms-and-conditions';
 export const PATH_HISTORY = 'history';

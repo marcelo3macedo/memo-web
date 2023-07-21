@@ -4,6 +4,7 @@ import { ReactComponent as DeleteIcon } from '@assets/icons/delete.svg';
 import { ReactComponent as EditIcon } from '@assets/icons/edit.svg';
 import { ReactComponent as ExitIcon } from '@assets/icons/exit.svg';
 import { ReactComponent as FeaturedIcon } from '@assets/icons/featured.svg';
+import { ReactComponent as FilteredIcon } from '@assets/icons/filtered.svg';
 import { ReactComponent as GalleryIcon } from '@assets/icons/gallery.svg';
 import { ReactComponent as HomeIcon } from '@assets/icons/home.svg';
 import { ReactComponent as InfoIcon } from '@assets/icons/info.svg';
@@ -37,6 +38,7 @@ export const Icons = {
   back: BackIcon,
   exit: ExitIcon,
   rotate: RotateIcon,
+  filtered: FilteredIcon,
   privacy: PrivacyIcon,
   info: InfoIcon,
   question: QuestionIcon,

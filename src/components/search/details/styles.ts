@@ -8,6 +8,8 @@ export const Wrapper = styled.div`
 export const Content = styled.div`
   padding: 10px 0;
   text-align: center;
+  max-width: 500px;
+  margin: auto;
 `;
 
 export const Header = styled.div``;

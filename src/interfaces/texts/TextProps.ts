@@ -9,5 +9,6 @@ export enum Styles {
   Default,
   Light,
   Pallete01,
-  Pallete02
+  Pallete02,
+  Alert
 }
