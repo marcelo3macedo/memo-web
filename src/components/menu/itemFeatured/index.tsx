@@ -1,21 +1,21 @@
-import { HeaderText } from '@components/elements/texts/header';
-import IconSmall from '@components/icons/IconSmall';
+import { SubtitleText } from '@components/elements/texts/subtitle';
+import IconMedium from '@components/icons/IconMedium';
 import { Styles } from '@interfaces/texts/TextProps';
 import { useTheme } from 'styled-components';
 
 import { Content, Footer, Header, Wrapper } from './styles';
 
-export function ItemFeaturedMenu({ title }: any) {
+export function ItemFeaturedMenu({ title, action }: any) {
   const theme = useTheme() as any;
 
   return (
-    <Wrapper className="no-select">
+    <Wrapper className="no-select" onClick={action}>
       <Content>
         <Header>
-          <HeaderText value={title} styled={Styles.Light} />
+          <SubtitleText value={title} styled={Styles.Light} />
         </Header>
         <Footer>
-          <IconSmall name={'nextRepo'} fill={theme.LIGHT_COLOR} />
+          <IconMedium name={'nextRepo'} fill={theme.LIGHT_COLOR} />
         </Footer>
       </Content>
     </Wrapper>

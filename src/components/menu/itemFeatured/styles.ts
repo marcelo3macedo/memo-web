@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
 export const Content = styled.div`
   background-color: ${({ theme }) => theme.PALLETE02_COLOR};
   border: 1px solid ${({ theme }) => theme.LIGHT_COLOR};
-  border-radius: 10px;
+  border-radius: 20px;
   padding: 20px 15px 15px 20px;
 
   &:hover {

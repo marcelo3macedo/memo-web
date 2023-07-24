@@ -1,9 +1,16 @@
 import { getUnixFromDatetime } from '@helpers/DateHelper';
 import { ResponseGenerator } from '@interfaces/api/ResponseGeneratorProps';
+import { RouteOptions } from '@interfaces/routes/SessionRoutesProps';
+import { PATH_LOGIN } from '@services/Navigation';
 import { LS_REFRESHTOKEN, LS_TOKEN } from '@services/Storage';
+import { navigatePush } from '@store/modules/navigate/actions';
 import jwt_decode from 'jwt-decode';
+import { put } from 'redux-saga/effects';
 
-import { ERR_TOKENNOTFOUND } from '../../constants/errorMessage';
+import {
+  ERR_TOKENINVALID,
+  ERR_TOKENNOTFOUND
+} from '../../constants/errorMessage';
 
 import { authenticate, request } from './requester';
 import { API_REFRESHTOKEN } from './routes';
@@ -59,7 +66,8 @@ function* renewToken(refreshToken: any) {
 
     return token;
   } catch (e) {
-    console.log(e);
+    yield put(navigatePush({ route: RouteOptions.auth, path: PATH_LOGIN }));
+    throw new Error(ERR_TOKENINVALID);
   }
 }
 

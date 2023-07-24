@@ -68,7 +68,7 @@ function* signUp({ payload }: any) {
 function* signInSuccess() {
   yield put(
     navigatePush({
-      route: RouteOptions.main,
+      route: RouteOptions.home,
       path: PATH_HOME
     })
   );

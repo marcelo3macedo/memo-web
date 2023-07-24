@@ -10,6 +10,7 @@ import {
   PATH_PROGRESS,
   PATH_SESSIONS
 } from '@services/Navigation';
+import { signOutAction } from '@store/modules/auth/actions';
 import { navigatePush } from '@store/modules/navigate/actions';
 import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
@@ -25,6 +26,10 @@ export default function MenuPrimary() {
 
   function navigateTo(path, route = null) {
     dispatch(navigatePush({ route, path }));
+  }
+
+  function signOff() {
+    dispatch(signOutAction());
   }
 
   return (
@@ -111,7 +116,7 @@ export default function MenuPrimary() {
                 navigateTo(PATH_ABOUT, RouteOptions.account);
               }}
             />
-            <MenuOption icon="exit" content={t('menu.exit')} />
+            <MenuOption icon="exit" content={t('menu.exit')} action={signOff} />
           </Options>
         </Block>
       </Content>

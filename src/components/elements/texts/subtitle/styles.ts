@@ -12,6 +12,10 @@ export const Text = styled.h2<any>`
         return `
           color: ${theme.PALLETE01_COLOR};
         `;
+      case Styles.Neutral90:
+        return `
+          color: ${theme.SECONDARY_COLOR};
+        `;
       default:
         return `
           color: ${theme.PRIMARY_COLOR};

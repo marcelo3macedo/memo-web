@@ -1,20 +1,20 @@
-import { HeaderText } from '@components/elements/texts/header';
-import IconSmall from '@components/icons/IconSmall';
+import { SubtitleText } from '@components/elements/texts/subtitle';
+import IconMedium from '@components/icons/IconMedium';
 import { useTheme } from 'styled-components';
 
 import { Content, Footer, Header, Wrapper } from './styles';
 
-export function ItemMenu({ title }: any) {
+export function ItemMenu({ title, action }: any) {
   const theme = useTheme() as any;
 
   return (
-    <Wrapper className="no-select">
+    <Wrapper className="no-select" onClick={action}>
       <Content>
         <Header>
-          <HeaderText value={title} />
+          <SubtitleText value={title} />
         </Header>
         <Footer>
-          <IconSmall name={'nextRepo'} fill={theme.PRIMARY_COLOR} />
+          <IconMedium name={'nextRepo'} fill={theme.GRAY_COLOR} />
         </Footer>
       </Content>
     </Wrapper>

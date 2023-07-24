@@ -1,4 +1,13 @@
+import { RouteOptions } from '@interfaces/routes/SessionRoutesProps';
+import {
+  PATH_CREATESESSION,
+  PATH_GALLERY,
+  PATH_PROGRESS
+} from '@services/Navigation';
+import { navigatePush } from '@store/modules/navigate/actions';
+import { RootState } from '@store/modules/rootReducer';
 import { useTranslation } from 'react-i18next';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { ItemMenu } from '../item';
 import { ItemFeaturedMenu } from '../itemFeatured';
@@ -6,18 +15,25 @@ import { ItemFeaturedMenu } from '../itemFeatured';
 import { Content, Item, Wrapper } from './styles';
 
 export function ActionsMenu() {
+  const dispatch = useDispatch();
   const { t } = useTranslation();
-  const countSessions = 0;
+  const { numberOfSessions } = useSelector(
+    (state: RootState) => state.featuredUser
+  );
   const sessionsToReview = `${t(
     'menu.options.sessionsToReview'
-  )} (${countSessions})`;
+  )} (${numberOfSessions})`;
 
   function loadSessionToReview() {
-    return countSessions > 0 ? (
+    return numberOfSessions > 0 ? (
       <ItemFeaturedMenu title={sessionsToReview} />
     ) : (
       <ItemFeaturedMenu title={t('menu.options.checkTutorials')} />
     );
+  }
+
+  function navigateTo(screen: string, route: string = null) {
+    dispatch(navigatePush({ route, path: screen }));
   }
 
   return (
@@ -25,13 +41,28 @@ export function ActionsMenu() {
       <Content>
         <Item>{loadSessionToReview()}</Item>
         <Item>
-          <ItemMenu title={t('menu.options.createNewSession')} />
+          <ItemMenu
+            title={t('menu.options.createNewSession')}
+            action={() => {
+              navigateTo(PATH_CREATESESSION, RouteOptions.session);
+            }}
+          />
         </Item>
         <Item>
-          <ItemMenu title={t('menu.options.searchAtGallery')} />
+          <ItemMenu
+            title={t('menu.options.searchAtGallery')}
+            action={() => {
+              navigateTo(PATH_GALLERY);
+            }}
+          />
         </Item>
         <Item>
-          <ItemMenu title={t('menu.options.viewMyProgress')} />
+          <ItemMenu
+            title={t('menu.options.viewMyProgress')}
+            action={() => {
+              navigateTo(PATH_PROGRESS, RouteOptions.account);
+            }}
+          />
         </Item>
       </Content>
     </Wrapper>
