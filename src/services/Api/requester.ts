@@ -1,14 +1,17 @@
-import { ERR_TOKENNOTFOUND } from '@constants/errorMessage';
+import {
+  ERR_REQUEST_FAILED_401,
+  ERR_TOKENNOTFOUND
+} from '@constants/errorMessage';
 import { STATUS_UNAUTHORIZED } from '@constants/statusCode';
 import { RequesterProps } from '@interfaces/api/RequesterProps';
 import { TokensProps } from '@interfaces/auth/TokensProps';
 import { HttpError } from '@interfaces/errors/HttpError';
 import { RouteOptions } from '@interfaces/routes/SessionRoutesProps';
 import { PATH_LOGIN } from '@services/Navigation';
-import { navigate } from '@services/Navigation/root';
 import { LS_REFRESHTOKEN, LS_TOKEN } from '@services/Storage';
+import { navigatePush } from '@store/modules/navigate/actions';
 import jwt_decode from 'jwt-decode';
-import { call } from 'redux-saga/effects';
+import { call, put } from 'redux-saga/effects';
 
 import { verifyToken } from './validation';
 
@@ -45,9 +48,11 @@ export function getByType(type: string) {
 export function* validateError(e: any, authNeeded: boolean) {
   if (
     authNeeded &&
-    (e.message === ERR_TOKENNOTFOUND || e.status === STATUS_UNAUTHORIZED)
+    (e.message === ERR_TOKENNOTFOUND ||
+      e.message == ERR_REQUEST_FAILED_401 ||
+      e.status === STATUS_UNAUTHORIZED)
   ) {
-    yield navigate(RouteOptions.auth, { screen: PATH_LOGIN });
+    yield put(navigatePush({ route: RouteOptions.auth, path: PATH_LOGIN }));
   }
 
   const message = e?.response?.data?.error;
