@@ -6,6 +6,8 @@ import featuredUser from './featuredUser/reducer';
 import filters from './filters/reducer';
 import galleries from './galleries/reducer';
 import navigate from './navigate/reducer';
+import progress from './progress/reducer';
+import sessions from './sessions/reducer';
 
 export const rootReducer = combineReducers({
   auth,
@@ -13,7 +15,9 @@ export const rootReducer = combineReducers({
   navigate,
   galleries,
   filters,
-  featuredUser
+  featuredUser,
+  progress,
+  sessions
 });
 
 export type RootState = ReturnType<typeof rootReducer>;

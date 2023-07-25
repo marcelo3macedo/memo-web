@@ -1,16 +1,20 @@
 import ListGallery from '@components/gallery/list';
 import { TopHeader } from '@components/header/top';
 import { SearchWithFilter } from '@components/search/withFilters';
-import { loadAction } from '@store/modules/featuredUser/actions';
+import { RootState } from '@store/modules/rootReducer';
+import { loadAction } from '@store/modules/sessions/actions';
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { Content, Wrapper } from './styles';
 
 export function Session() {
   const { t } = useTranslation();
   const dispatch = useDispatch();
+  const { results, pages, actualPage, loading } = useSelector(
+    (state: RootState) => state.sessions
+  );
 
   useEffect(() => {
     dispatch(loadAction());
@@ -25,11 +29,11 @@ export function Session() {
         />
         <SearchWithFilter />
         <ListGallery
-          sessions={[]}
-          type="public"
-          loading={false}
-          actualPage={0}
-          pages={0}
+          sessions={results}
+          type="private"
+          loading={loading}
+          actualPage={actualPage}
+          pages={pages}
         />
       </Content>
     </Wrapper>

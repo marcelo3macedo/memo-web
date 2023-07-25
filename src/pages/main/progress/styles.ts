@@ -17,3 +17,11 @@ export const Item = styled.div`
 export const Row = styled.div`
   padding: 20px;
 `;
+
+export const RowFlex = styled.div`
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+`;

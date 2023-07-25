@@ -25,7 +25,7 @@ function* verifyToken() {
   }
 
   const expiresAt = getExpiresAt(token);
-  const isExpired = expiresAt < getUnixFromDatetime(Date.now()) ? true : false;
+  const isExpired = expiresAt > getUnixFromDatetime(Date.now()) ? true : false;
 
   if (isExpired) {
     const refreshToken: string = yield localStorage.getItem(LS_REFRESHTOKEN);

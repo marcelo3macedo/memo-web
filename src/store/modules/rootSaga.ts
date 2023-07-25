@@ -6,7 +6,18 @@ import featuredUser from './featuredUser/saga';
 import filters from './filters/saga';
 import galleries from './galleries/saga';
 import navigate from './navigate/saga';
+import progress from './progress/saga';
+import sessions from './sessions/saga';
 
 export default function* rootSaga(): any {
-  return yield all([navigate, config, auth, filters, galleries, featuredUser]);
+  return yield all([
+    navigate,
+    config,
+    auth,
+    filters,
+    galleries,
+    progress,
+    featuredUser,
+    sessions
+  ]);
 }

@@ -12,7 +12,7 @@ export const Content = styled.div`
   align-items: center;
   background: ${({ theme }) => theme.LIGHT_COLOR};
   border: 1px solid ${({ theme }) => theme.BORDER_COLOR};
-  border-radius: 5px;
+  border-radius: 20px;
   padding: 10px 20px;
   margin: 5px 0;
   flex-direction: column;
