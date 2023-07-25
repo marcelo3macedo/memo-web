@@ -4,28 +4,32 @@ import IconMedium from '@components/icons/IconMedium';
 import { RouteOptions } from '@interfaces/routes/SessionRoutesProps';
 import { Styles } from '@interfaces/texts/TextProps';
 import { PATH_PUBLICSESSION } from '@services/Navigation';
-import { navigate } from '@services/Navigation/root';
+import { navigatePush } from '@store/modules/navigate/actions';
 import { useTranslation } from 'react-i18next';
+import { useDispatch } from 'react-redux';
 import { useTheme } from 'styled-components';
 
 import { Box, Content, Details, Headers, Wrapper } from './styles';
 
 export function ItemFeatured({ id, name, institution, category, cards }: any) {
+  const dispatch = useDispatch();
   const { t } = useTranslation();
   const theme = useTheme() as any;
   const numberOfCards = `${cards || 0} ${t('deck.cards')}`;
 
   function featuredClick() {
-    navigate(RouteOptions.session, {
-      screen: PATH_PUBLICSESSION,
-      params: { id }
-    });
+    dispatch(
+      navigatePush({
+        route: RouteOptions.session,
+        path: `${PATH_PUBLICSESSION}/${id}`
+      })
+    );
   }
 
   return (
-    <Wrapper>
+    <Wrapper className="no-select" onClick={featuredClick}>
       <Box>
-        <Content onClick={featuredClick}>
+        <Content>
           <Headers>
             <SubtitleText value={name} />
           </Headers>

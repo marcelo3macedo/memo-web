@@ -12,4 +12,6 @@ export const Content = styled.div`
   margin: auto;
 `;
 
-export const Header = styled.div``;
+export const Header = styled.div`
+  padding: 10px 0;
+`;

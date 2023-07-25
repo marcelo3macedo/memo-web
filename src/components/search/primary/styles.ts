@@ -22,9 +22,8 @@ export const Search = styled.div`
   border-radius: 10px;
   width: 100%;
   margin: auto;
-  margin-top: 15px;
-  margin-bottom: 15px;
   background-color: ${({ theme }) => theme.LIGHT_COLOR};
+  border: 1px solid ${({ theme }) => theme.GRAY_COLOR};
 `;
 
 export const SearchIcon = styled.div`

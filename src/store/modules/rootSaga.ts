@@ -2,6 +2,7 @@ import { all } from 'redux-saga/effects';
 
 import auth from './auth/saga';
 import config from './config/saga';
+import deck from './deck/saga';
 import featuredUser from './featuredUser/saga';
 import filters from './filters/saga';
 import galleries from './galleries/saga';
@@ -18,6 +19,7 @@ export default function* rootSaga(): any {
     galleries,
     progress,
     featuredUser,
-    sessions
+    sessions,
+    deck
   ]);
 }
