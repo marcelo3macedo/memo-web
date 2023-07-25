@@ -495,5 +495,27 @@
     "share": {
         "description": "Compartilhe com seus amigos",
         "changePublic": "Mudar para Público"
+    },
+    "sessions": {
+        "title": "Minhas Sessões",
+        "subTitle": "Lista de suas sessões disponíveis para estudos",
+        "titleSearch": "Procure por nome, tema ou categoria",
+        "frequencyNotSpecified": "Não especificado",
+        "categoryNotSpecified": "Não especificada",
+        "institutionNotSpecified": "Não especificado",
+        "areaNotSpecified": "Não especificado",
+        "yearNotSpecified": "Não especificado",
+        "details": "Detalhes da Sessão",
+        "description": "Descrição",
+        "institution": "Instituição",
+        "area": "Área",
+        "category": "Categoria",
+        "frequency": "Frequência",
+        "visibility": "Visibilidade",
+        "cardsCount": "Quantidade de Cartas",
+        "createdAt": "Criado em:",
+        "year": "Ano",
+        "notFound": "Não encontramos essa sessão",
+        "goGallery": "Ir para a Galeria"
     }
 }

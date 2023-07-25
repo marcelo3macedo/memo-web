@@ -1,38 +1,37 @@
-import {
-  Block,
-  Content,
-  Description,
-  Details,
-  Header,
-  Opacity,
-  Title,
-  Wrapper
-} from './styles';
+import { SubtitleText } from '@components/elements/texts/subtitle';
+import IconMedium from '@components/icons/IconMedium';
+import { CategoryInfo } from '@components/infos/category';
+import { InstitutionInfo } from '@components/infos/institution';
+import { NumberOfCardsInfo } from '@components/infos/numberOfCards';
+import { useTheme } from 'styled-components';
+
+import { Content, Header, InfoBlock, Infos, Wrapper } from './styles';
 
 export default function Public({ deck }) {
   if (!deck) {
     return <></>;
   }
 
-  function openDeckClick() {}
+  const { name: categoryName } = deck.category || ({} as any);
+  const { name: institutionName } = deck.institution || ({} as any);
+  const theme = useTheme() as any;
 
   return (
-    <Wrapper
-      className="no-select"
-      onClick={() => {
-        openDeckClick();
-      }}>
+    <Wrapper className="no-select">
       <Content>
-        <Opacity></Opacity>
-
-        <Block>
-          <Header>
-            <Details>
-              <Title>{deck.name}</Title>
-              <Description>{deck.description}</Description>
-            </Details>
-          </Header>
-        </Block>
+        <Header>
+          <SubtitleText value={deck.name} />
+        </Header>
+        <Infos>
+          <InfoBlock>
+            <CategoryInfo text={categoryName} />
+            <InstitutionInfo text={institutionName} />
+          </InfoBlock>
+          <InfoBlock>
+            <NumberOfCardsInfo text={deck.cardsCount} />
+            <IconMedium name={'nextRepo'} style={{ fill: theme.GRAY_COLOR }} />
+          </InfoBlock>
+        </Infos>
       </Content>
     </Wrapper>
   );

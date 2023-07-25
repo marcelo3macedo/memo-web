@@ -16,16 +16,16 @@ export const Box = styled.div`
 `;
 
 export const Headers = styled.div`
-  min-height: 80px;
+  min-height: 100px;
   display: flex;
   align-items: center;
 `;
 
 export const Content = styled.div`
   background-color: ${({ theme }) => theme.LIGHT_COLOR};
-  border-color: ${({ theme }) => theme.GRAY_COLOR};
+  border: 1px solid ${({ theme }) => theme.GRAY_COLOR};
   border-width: 1px;
-  border-radius: 5px;
+  border-radius: 20px;
   padding: 10px 20px;
   display: flex;
   flex-direction: column;
@@ -39,5 +39,5 @@ export const Details = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding: 10px 0;
+  padding: 20px 0;
 `;

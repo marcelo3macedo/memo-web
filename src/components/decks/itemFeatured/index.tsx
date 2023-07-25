@@ -1,7 +1,8 @@
 import { FeaturedText } from '@components/elements/texts/featured';
 import { SubtitleText } from '@components/elements/texts/subtitle';
-import IconSmall from '@components/icons/IconSmall';
+import IconMedium from '@components/icons/IconMedium';
 import { RouteOptions } from '@interfaces/routes/SessionRoutesProps';
+import { Styles } from '@interfaces/texts/TextProps';
 import { PATH_PUBLICSESSION } from '@services/Navigation';
 import { navigate } from '@services/Navigation/root';
 import { useTranslation } from 'react-i18next';
@@ -29,12 +30,12 @@ export function ItemFeatured({ id, name, institution, category, cards }: any) {
             <SubtitleText value={name} />
           </Headers>
           <Details>
-            <FeaturedText value={institution} />
-            <FeaturedText value={category} />
+            <FeaturedText value={institution} styled={Styles.Pallete02} />
+            <FeaturedText value={category} styled={Styles.Pallete02} />
           </Details>
           <Details>
             <FeaturedText value={numberOfCards} />
-            <IconSmall name={'nextRepo'} fill={theme.GRAY_COLOR} />
+            <IconMedium name={'nextRepo'} fill={theme.GRAY_COLOR} />
           </Details>
         </Content>
       </Box>

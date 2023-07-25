@@ -1,41 +1,35 @@
 import ListGallery from '@components/gallery/list';
 import { TopHeader } from '@components/header/top';
 import { SearchWithFilter } from '@components/search/withFilters';
-import { loadAction as loadFilterAction } from '@store/modules/filters/actions';
-import { loadAction } from '@store/modules/galleries/actions';
-import { RootState } from '@store/modules/rootReducer';
+import { loadAction } from '@store/modules/featuredUser/actions';
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import { Content, Wrapper } from './styles';
 
-export function Gallery() {
+export function Session() {
   const { t } = useTranslation();
-  const { results, loading, pages, actualPage } = useSelector(
-    (state: RootState) => state.galleries
-  );
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(loadAction());
-    dispatch(loadFilterAction());
   }, [dispatch]);
 
   return (
     <Wrapper>
       <Content>
         <TopHeader
-          title={t('gallery.title')}
-          description={t('gallery.subTitle')}
+          title={t('sessions.title')}
+          description={t('sessions.subTitle')}
         />
         <SearchWithFilter />
         <ListGallery
-          sessions={results}
+          sessions={[]}
           type="public"
-          loading={loading}
-          pages={pages}
-          actualPage={actualPage}
+          loading={false}
+          actualPage={0}
+          pages={0}
         />
       </Content>
     </Wrapper>

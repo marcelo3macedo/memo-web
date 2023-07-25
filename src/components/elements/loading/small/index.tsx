@@ -1,17 +1,18 @@
-import { TitleText } from '@components/elements/texts/title';
-import IconMedium from '@components/icons/IconMedium';
-import { Styles } from '@interfaces/texts/TextProps';
+import { SubtitleText } from '@components/elements/texts/subtitle';
+import IconHigh from '@components/icons/IconHigh';
 import { useTranslation } from 'react-i18next';
 
-import { Container } from './styles';
+import { Block, Container } from './styles';
 
 export function SmallLoading() {
   const { t } = useTranslation();
 
   return (
     <Container>
-      <IconMedium name={'loading'} />
-      <TitleText value={t('loading.message')} styled={Styles.Default} />
+      <IconHigh name={'loading'} />
+      <Block>
+        <SubtitleText value={t('loading.message')} />
+      </Block>
     </Container>
   );
 }

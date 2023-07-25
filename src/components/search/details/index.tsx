@@ -14,7 +14,7 @@ export function DetailsSearch() {
         <Header>
           <SubtitleText value={t('home.search')} />
         </Header>
-        <SearchPrimary />
+        <SearchPrimary placeholder={t('home.search')} />
       </Content>
     </Wrapper>
   );

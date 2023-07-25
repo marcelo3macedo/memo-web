@@ -4,6 +4,11 @@ export const Wrapper = styled.div`
   background-color: ${({ theme }) => theme.PALLETE03_COLOR};
   min-width: 300px;
   border-top-right-radius: 10px;
+
+  @media (max-width: 768px) {
+    position: absolute;
+    display: none;
+  }
 `;
 
 export const Content = styled.div``;

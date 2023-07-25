@@ -12,6 +12,14 @@ export const Text = styled.h1<any>`
         return `
           color: ${theme.PALLETE01_COLOR};
         `;
+      case Styles.Pallete02:
+        return `
+          color: ${theme.PALLETE02_COLOR};
+        `;
+      case Styles.Pallete03:
+        return `
+          color: ${theme.PALLETE03_COLOR};
+        `;
       default:
         return `
         color: ${theme.PRIMARY_COLOR};

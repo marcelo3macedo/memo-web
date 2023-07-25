@@ -1,9 +1,34 @@
+import { SmallLoading } from '@components/elements/loading/small';
+import { PrimaryPagination } from '@components/elements/pagination/primary';
+
 import Private from '../Private';
 import Public from '../Public';
 
-import { Content, DeckComponent, DeckWrapper, Wrapper } from './styles';
+import {
+  Content,
+  DeckComponent,
+  DeckWrapper,
+  Pagination,
+  Wrapper
+} from './styles';
 
-export default function ListGallery({ sessions = [], type }) {
+export default function ListGallery({
+  sessions = [],
+  loading,
+  type,
+  pages,
+  actualPage
+}) {
+  if (loading) {
+    return <SmallLoading />;
+  }
+
+  if (!sessions || sessions.length === 0) {
+    return <></>;
+  }
+
+  function loadMore() {}
+
   return (
     <Wrapper>
       <Content>
@@ -15,6 +40,13 @@ export default function ListGallery({ sessions = [], type }) {
           </DeckWrapper>
         ))}
       </Content>
+      <Pagination>
+        <PrimaryPagination
+          actualPage={actualPage}
+          pages={pages}
+          action={loadMore}
+        />
+      </Pagination>
     </Wrapper>
   );
 }

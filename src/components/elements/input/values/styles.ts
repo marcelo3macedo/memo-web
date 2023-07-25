@@ -28,6 +28,7 @@ export const TextInput = styled.input<any>`
           border-radius: 5px;
           min-width: 300px;
           padding: 15px;
+          width: 100%;
           `;
       default:
         return `
