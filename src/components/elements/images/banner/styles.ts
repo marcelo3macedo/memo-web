@@ -6,7 +6,6 @@ export const Wrapper = styled.div`
 
 export const Picture = styled.img`
   display: flex;
-  resizemode: contain;
   max-width: 100%;
-  height: 150px;
+  height: 250px;
 `;

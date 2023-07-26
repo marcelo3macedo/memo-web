@@ -9,6 +9,7 @@ import galleries from './galleries/saga';
 import navigate from './navigate/saga';
 import progress from './progress/saga';
 import sessions from './sessions/saga';
+import users from './users/saga';
 
 export default function* rootSaga(): any {
   return yield all([
@@ -20,6 +21,7 @@ export default function* rootSaga(): any {
     progress,
     featuredUser,
     sessions,
-    deck
+    deck,
+    users
   ]);
 }

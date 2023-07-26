@@ -33,8 +33,8 @@ export function FontSizeModal({ modal, closeAction }: any) {
           <TitleText value={t('modal.fontSize')} />
         </Header>
 
-        {fontAvailable.map((s: any) => (
-          <Item>
+        {fontAvailable.map((s: any, i: number) => (
+          <Item key={i}>
             <SecondaryButton
               content={getName(s)}
               action={() => {

@@ -7,7 +7,7 @@
         "blockFooter": {
             "title": "Memorizou",
             "subTitle": "Esse é um projeto Open-source|Contribuições com o projeto em:",
-            "footer": "2021 Memorizou - @ Todos os direitores reservados"
+            "footer": "2021 Memorizou - @ Todos os direitos reservados"
         }
     },
     "validation": {
@@ -261,5 +261,31 @@
         "categories": "Categorias",
         "areas": "Áreas",
         "institutions": "Instituições"
+    },    
+    "tutorial": {
+        "title": "Tutorial de Revisão",
+        "subTitle": "Seleção de tutoriais sobre como utilizar a aplicação",
+        "checkCard": {
+            "order": "1",
+            "title": "Analise o card apresentado",
+            "description": "Leia o tema e a questão apresentada, poderá vir em forma de pergunta ou para que seja completado uma sentença. Recomendamos que você reflita por um momento sobre qual pode ser a resposta da questão."
+        },
+        "checkAnswer": {
+            "order": "2",
+            "title": "Analise o card apresentado",
+            "description": "Clique em ver resposta. Com essa ação, o card será virado e a resposta da pergunta será exibida."
+        },
+        "avaliate": {
+            "order": "3",
+            "title": "Avalie",
+            "description": "Analise a resposta apresentada e avalie como foi para você relembrar o conteúdo. Algumas opções será mostradas: Não lembrei, Fácil, Médio e Difícil. Com base na sua resposta, o memorizou irá criar no futuro uma nova sessão visando a melhor memorização do tema em questão."
+        },
+        "list": [
+            {
+                "title": "Como revisar os cards?",
+                "description": "Veja como realizar a revisão dos cards da sua sessão",
+                "screen": "tutorial-cards"
+            }
+        ]
     }
 }

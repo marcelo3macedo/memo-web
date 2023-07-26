@@ -33,8 +33,8 @@ export function LanguageModal({ modal, closeAction }: any) {
           <TitleText value={t('language.title')} />
         </Header>
 
-        {languageAvailable.map((s: any) => (
-          <Item>
+        {languageAvailable.map((s: any, i: number) => (
+          <Item key={i}>
             <SecondaryButton
               content={getName(s)}
               action={() => {

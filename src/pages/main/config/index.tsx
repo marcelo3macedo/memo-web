@@ -10,8 +10,13 @@ import {
   CONFIGMODAL_FONT,
   CONFIGMODAL_LANGUAGEM
 } from '@constants/configModal';
+import { RouteOptions } from '@interfaces/routes/SessionRoutesProps';
+import { PATH_FORGOTPASSWORD } from '@services/Navigation';
+import { downloadMyData } from '@services/Personal';
 import { updateAction } from '@store/modules/config/actions';
+import { navigatePush } from '@store/modules/navigate/actions';
 import { RootState } from '@store/modules/rootReducer';
+import { removeAction } from '@store/modules/users/actions';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
@@ -40,6 +45,23 @@ export function Config() {
 
   function closeModal() {
     setModal('');
+  }
+
+  function downloadAction() {
+    downloadMyData();
+  }
+
+  function changePasswordHandler() {
+    dispatch(
+      navigatePush({
+        route: RouteOptions.auth,
+        path: PATH_FORGOTPASSWORD
+      })
+    );
+  }
+
+  function removeUserAction() {
+    dispatch(removeAction());
   }
 
   return (
@@ -103,16 +125,25 @@ export function Config() {
           <Item>
             <SubtitleText value={t('config.data')} />
             <BlockSmall>
-              <SecondaryButton content={t('config.downloadData')} />
+              <SecondaryButton
+                content={t('config.downloadData')}
+                action={downloadAction}
+              />
             </BlockSmall>
           </Item>
           <Item>
             <SubtitleText value={t('config.account')} />
             <BlockSmall>
-              <SecondaryButton content={t('config.changePassword')} />
+              <SecondaryButton
+                content={t('config.changePassword')}
+                action={changePasswordHandler}
+              />
             </BlockSmall>
             <BlockSmall>
-              <DangerButton content={t('config.excludeAccount')} />
+              <DangerButton
+                content={t('config.excludeAccount')}
+                action={removeUserAction}
+              />
             </BlockSmall>
           </Item>
         </Items>

@@ -261,5 +261,31 @@
         "categories": "Categories",
         "areas": "Areas",
         "institutions": "Institutions"
+    },
+    "tutorial": {
+        "title": "Review Tutorial",
+        "subTitle": "Selection of tutorials on how to use the application",
+        "checkCard": {
+            "order": "1",
+            "title": "Analyze the presented card",
+            "description": "Read the topic and the question presented, it may come in the form of a question or to complete a sentence. We recommend that you reflect for a moment on what the answer to the question might be."
+        },
+        "checkAnswer": {
+            "order": "2",
+            "title": "Analyze the presented card",
+            "description": "Click view answer. With this action, the card will be flipped over and the answer to the question will be displayed."
+        },
+        "evaluate": {
+            "order": "3",
+            "title": "Rate",
+            "description": "Analyze the presented answer and evaluate how it was for you to remember the content. Some options will be shown: I didn't remember, Easy, Medium and Difficult. Based on your answer, the memorized will create a new session in the future aiming at better memorization of the theme in question."
+        },
+        "list": [
+            {
+                "title": "How do I review cards?",
+                "description": "See how to review cards in your session",
+                "screen": "tutorial-cards"
+            }
+        ]
     }
 }
