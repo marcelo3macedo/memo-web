@@ -5,11 +5,12 @@ import { all, takeLatest } from 'redux-saga/effects';
 function* push({ payload }: any) {
   const { route, path } = payload || {};
   const historyPath = route ? `${route}/${path}` : path;
-  console.log(historyPath);
 
   if (route == path && path == ROUTES_HOME) {
     return yield history.push(ROUTES_HOME);
   }
+
+  window.scrollTo(0, 0);
 
   return yield history.push(historyPath);
 }

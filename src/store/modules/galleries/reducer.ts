@@ -22,6 +22,10 @@ export default function sessions(state = INITIAL_STATE, action: any) {
         draft.loading = false;
         break;
       }
+      case '@galleries/SEARCH': {
+        draft.loading = true;
+        break;
+      }
       default:
         return state;
     }

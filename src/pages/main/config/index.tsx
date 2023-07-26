@@ -4,8 +4,15 @@ import DangerButton from '@components/elements/buttons/Danger';
 import SecondaryButton from '@components/elements/buttons/Secondary';
 import { SubtitleText } from '@components/elements/texts/subtitle';
 import { TopHeader } from '@components/header/top';
+import { FontSizeModal } from '@components/modals/fontSize';
+import { LanguageModal } from '@components/modals/language';
+import {
+  CONFIGMODAL_FONT,
+  CONFIGMODAL_LANGUAGEM
+} from '@constants/configModal';
 import { updateAction } from '@store/modules/config/actions';
 import { RootState } from '@store/modules/rootReducer';
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -14,6 +21,7 @@ import { Block, BlockSmall, Content, Item, Items, Wrapper } from './styles';
 export function Config() {
   const dispatch = useDispatch();
   const { t } = useTranslation();
+  const [modal, setModal] = useState('');
 
   const { alertNewSessions, fontSize, language, nightMode, soundEffects } =
     useSelector((state: RootState) => state.config);
@@ -28,6 +36,10 @@ export function Config() {
 
   function changeConfig(target: string, value: any) {
     dispatch(updateAction({ target, value }));
+  }
+
+  function closeModal() {
+    setModal('');
   }
 
   return (
@@ -70,6 +82,9 @@ export function Config() {
               <ItemButton
                 title={t('config.fontSize')}
                 value={getFontName(fontSize)}
+                action={() => {
+                  setModal(CONFIGMODAL_FONT);
+                }}
               />
             </Block>
           </Item>
@@ -79,6 +94,9 @@ export function Config() {
               <ItemButton
                 title={t('config.languageApplication')}
                 value={getLanguageName(language)}
+                action={() => {
+                  setModal(CONFIGMODAL_LANGUAGEM);
+                }}
               />
             </Block>
           </Item>
@@ -99,6 +117,8 @@ export function Config() {
           </Item>
         </Items>
       </Content>
+      <FontSizeModal modal={modal} closeAction={closeModal} />
+      <LanguageModal modal={modal} closeAction={closeModal} />
     </Wrapper>
   );
 }

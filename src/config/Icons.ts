@@ -1,6 +1,8 @@
 import { ReactComponent as BackIcon } from '@assets/icons/back.svg';
 import { ReactComponent as CardIcon } from '@assets/icons/cards.svg';
+import { ReactComponent as CloseIcon } from '@assets/icons/close.svg';
 import { ReactComponent as DeleteIcon } from '@assets/icons/delete.svg';
+import { ReactComponent as DownIcon } from '@assets/icons/down.svg';
 import { ReactComponent as EditIcon } from '@assets/icons/edit.svg';
 import { ReactComponent as ExitIcon } from '@assets/icons/exit.svg';
 import { ReactComponent as FeaturedIcon } from '@assets/icons/featured.svg';
@@ -27,6 +29,7 @@ import { ReactComponent as UserIcon } from '@assets/icons/user.svg';
 import { ReactComponent as VisibilityIcon } from '@assets/icons/visibility.svg';
 
 export const Icons = {
+  close: CloseIcon,
   user: UserIcon,
   password: PasswordIcon,
   home: HomeIcon,
@@ -53,5 +56,6 @@ export const Icons = {
   repeat: RepeatIcon,
   progress: ProgressIcon,
   new: NewIcon,
-  nextRepo: NextRepoIcon
+  nextRepo: NextRepoIcon,
+  down: DownIcon
 };
