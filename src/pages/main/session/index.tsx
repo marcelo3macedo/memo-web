@@ -1,6 +1,6 @@
 import ListGallery from '@components/gallery/list';
 import { TopHeader } from '@components/header/top';
-import { SearchWithFilter } from '@components/search/withFilters';
+import { SearchPrivate } from '@components/search/private';
 import { RootState } from '@store/modules/rootReducer';
 import { loadAction } from '@store/modules/sessions/actions';
 import { useEffect } from 'react';
@@ -27,7 +27,7 @@ export function Session() {
           title={t('sessions.title')}
           description={t('sessions.subTitle')}
         />
-        <SearchWithFilter />
+        <SearchPrivate />
         <ListGallery
           sessions={results}
           type="private"
