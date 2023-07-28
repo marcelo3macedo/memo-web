@@ -6,7 +6,7 @@ import { useTheme } from 'styled-components';
 
 import { Action, Card, Content, Description, Wrapper } from './styles';
 
-export function CardItem({ card }: any) {
+export function CardItem({ card, editAction, removeCard }: any) {
   const { t } = useTranslation();
 
   if (!card) {
@@ -19,13 +19,19 @@ export function CardItem({ card }: any) {
   return (
     <Wrapper>
       <Content>
-        <Card>
+        <Card
+          onClick={() => {
+            editAction(card);
+          }}>
           <SubtitleText value={detailedTitle} />
           <Description>
             <FeaturedText value={content} />
           </Description>
         </Card>
-        <Action>
+        <Action
+          onClick={() => {
+            removeCard(card);
+          }}>
           <IconMedium name="delete" style={{ fill: theme.GRAY_COLOR }} />
         </Action>
       </Content>

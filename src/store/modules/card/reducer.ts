@@ -19,7 +19,7 @@ export default function sessions(state = INITIAL_STATE, action: any) {
         const { card } = action.payload;
         const index = draft.cards.findIndex((obj: any) => obj.id === card?.id);
 
-        if (index > 0) {
+        if (index >= 0) {
           draft.cards[index] = card;
         }
         break;

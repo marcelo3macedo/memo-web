@@ -9,7 +9,12 @@ import { AddCardModal } from '@components/modals/addCard';
 import { EditCardModal } from '@components/modals/editCard';
 import { EditDeckModal } from '@components/modals/editDeck';
 import { RemoveCardModal } from '@components/modals/removeCard';
-import { MODAL_EDITSESSION } from '@constants/modals';
+import {
+  MODAL_ADDCARD,
+  MODAL_EDITCARD,
+  MODAL_EDITSESSION,
+  MODAL_REMOVECARD
+} from '@constants/modals';
 import { loadAction as loadCardsAction } from '@store/modules/card/actions';
 import { loadAction } from '@store/modules/deck/actions';
 import { loadAction as loadFrequenciesAction } from '@store/modules/frequencies/actions';
@@ -28,7 +33,7 @@ export function EditSession() {
   const { deck, loading } = useSelector((state: RootState) => state.deck);
   const { frequencies } = useSelector((state: RootState) => state.frequencies);
   const [modal, setModal] = useState('');
-  const [card] = useState('');
+  const [card, setCard] = useState('');
 
   useEffect(() => {
     dispatch(loadAction({ id }));
@@ -42,6 +47,16 @@ export function EditSession() {
 
   function openModal(m: string) {
     setModal(m);
+  }
+
+  function editCardAction(c) {
+    setCard(c);
+    openModal(MODAL_EDITCARD);
+  }
+
+  function removeCardAction(c) {
+    setCard(c);
+    openModal(MODAL_REMOVECARD);
   }
 
   function getFrequencyName(id: string) {
@@ -81,20 +96,37 @@ export function EditSession() {
             />
           </Action>
           <Action>
-            <PrimaryButton content={t('actions.addCard')} />
+            <PrimaryButton
+              content={t('actions.addCard')}
+              action={() => {
+                openModal(MODAL_ADDCARD);
+              }}
+            />
           </Action>
         </Actions>
 
-        <CardList />
+        <CardList editCard={editCardAction} removeCard={removeCardAction} />
       </Content>
       <EditDeckModal
         show={modal === MODAL_EDITSESSION}
         deck={deck}
         closeAction={closeModal}
       />
-      <AddCardModal modal={modal} deck={deck} closeAction={closeModal} />
-      <EditCardModal modal={modal} card={card} closeAction={closeModal} />
-      <RemoveCardModal modal={modal} card={card} closeAction={closeModal} />
+      <AddCardModal
+        show={modal === MODAL_ADDCARD}
+        deck={deck}
+        closeAction={closeModal}
+      />
+      <EditCardModal
+        show={modal === MODAL_EDITCARD}
+        card={card}
+        closeAction={closeModal}
+      />
+      <RemoveCardModal
+        show={modal === MODAL_REMOVECARD}
+        card={card}
+        closeAction={closeModal}
+      />
     </Wrapper>
   );
 }
