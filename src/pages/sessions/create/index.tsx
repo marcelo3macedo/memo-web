@@ -6,19 +6,26 @@ import { FeaturedText } from '@components/elements/texts/featured';
 import { HeaderText } from '@components/elements/texts/header';
 import { TopHeader } from '@components/header/top';
 import IconMedium from '@components/icons/IconMedium';
+import { DECK_PUBLIC } from '@constants/deckVisibility';
 import { Styles as InputStyle } from '@interfaces/elements/inputs/ValueProps';
 import { Styles } from '@interfaces/texts/TextProps';
 import {
   initialValues,
   schema
 } from '@services/Validation/createSession.schema';
+import { saveAction } from '@store/modules/deck/actions';
+import { loadAction } from '@store/modules/frequencies/actions';
+import { RootState } from '@store/modules/rootReducer';
 import { Field, Formik } from 'formik';
+import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useDispatch, useSelector } from 'react-redux';
 
 import {
   Content,
   Group,
   Item,
+  ItemFooter,
   Items,
   RadioArea,
   RadioDescription,
@@ -30,14 +37,23 @@ import {
 } from './styles';
 
 export function CreateSession() {
+  const dispatch = useDispatch();
   const { t } = useTranslation();
-  const frequencies = [
-    { id: 1, name: 'teste ' },
-    { id: 2, name: 'teste 2' }
-  ];
+  const { frequencies } = useSelector((state: RootState) => state.frequencies);
+
+  useEffect(() => {
+    dispatch(loadAction());
+  }, [dispatch]);
 
   function onSubmit(data: any) {
-    console.log(data);
+    const deck = {
+      name: data.name,
+      description: data.description,
+      isPublic: data.visibility === DECK_PUBLIC,
+      frequencyId: data.frequency || frequencies[0].id
+    };
+
+    dispatch(saveAction(deck));
   }
 
   return (
@@ -87,6 +103,16 @@ export function CreateSession() {
               </Item>
               <Item>
                 <Row>
+                  <HeaderText value={t('fields.frequency')} />
+                </Row>
+                <SelectBoxInput
+                  name="frequency"
+                  options={frequencies}
+                  onChange={handleChange('frequency')}
+                />
+              </Item>
+              <Item>
+                <Row>
                   <HeaderText value={t('fields.visibility')} />
                 </Row>
                 <Group>
@@ -95,6 +121,7 @@ export function CreateSession() {
                     type="radio"
                     className="input"
                     value="public"
+                    checked={values.visibility === 'public'}
                   />
                   <RadioArea>
                     <RadioIcon>
@@ -114,6 +141,7 @@ export function CreateSession() {
                     type="radio"
                     className="input"
                     value="private"
+                    checked={values.visibility === 'private'}
                   />
                   <RadioArea>
                     <RadioIcon>
@@ -128,22 +156,12 @@ export function CreateSession() {
                   </RadioArea>
                 </Group>
               </Item>
-              <Item>
-                <Row>
-                  <HeaderText value={t('fields.frequency')} />
-                </Row>
-                <SelectBoxInput
-                  name="frequency"
-                  options={frequencies}
-                  onChange={handleChange('frequency')}
-                />
-              </Item>
-              <Item>
+              <ItemFooter>
                 <PrimaryButton
                   content={t('actions.save')}
                   action={handleSubmit}
                 />
-              </Item>
+              </ItemFooter>
             </Items>
           )}
         </Formik>

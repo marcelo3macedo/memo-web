@@ -18,6 +18,10 @@
             "required": "Senha é obrigatória"
         }
     },
+    "card": {
+        "title": "Título",
+        "confirmRemove": "Tem certeza que deseja remover esse card?"
+    },
     "auth": {
         "loginTitle": "Login",
         "registerTitle": "Registrar",

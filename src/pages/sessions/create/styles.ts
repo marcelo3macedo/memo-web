@@ -10,6 +10,12 @@ export const Item = styled.div`
   padding: 5px 10px;
 `;
 
+export const ItemFooter = styled.div`
+  padding: 40px 10px;
+  max-width: 450px;
+  margin: auto;
+`;
+
 export const Row = styled.div`
   padding: 10px 0;
 `;

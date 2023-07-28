@@ -8,8 +8,9 @@ import {
   REQUESTER_PUT
 } from '@services/Api/types';
 import { PATH_EDITSESSION } from '@services/Navigation';
-import { navigate } from '@services/Navigation/root';
 import { all, put, takeLatest } from 'redux-saga/effects';
+
+import { navigatePush } from '../navigate/actions';
 
 import { loadSuccessAction, saveSuccessAction } from './actions';
 
@@ -58,10 +59,12 @@ function* edit({ payload }: any) {
 function* saveSuccess({ payload }: any) {
   const { id } = payload || {};
 
-  yield navigate(RouteOptions.session, {
-    screen: PATH_EDITSESSION,
-    params: { id }
-  });
+  yield put(
+    navigatePush({
+      route: RouteOptions.session,
+      path: `${PATH_EDITSESSION}/${id}`
+    })
+  );
 }
 
 export default all([
