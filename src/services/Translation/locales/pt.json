@@ -291,5 +291,22 @@
                 "screen": "tutorial-cards"
             }
         ]
+    },
+    "review": {
+        "title": "Sessão",
+        "question": "Pergunta:",
+        "questionNumber": "Pergunta",
+        "questionOf": "de",
+        "seeAnswer": "Ver resposta",
+        "theme": "Tema:",
+        "before": "Antes de visualizar a resposta, recomendamos analisar a pergunta por alguns segundos",
+        "yourAnswer": "Sua resposta irá auxiliar o memorizou para criar suas futuras sessões. Ao selecionar uma resposta você será redirecionado a próxima pergunta"
+    },
+    "reviewCompleted": {
+        "congrats": "Meus Parabéns",
+        "sessionFinished": "A sessão foi completada com sucesso!",
+        "seeResults": "Veja como foi seu desempenho nessa sessão:",
+        "moreInfo": "Iremos analisar suas respostas e em breve selecionar novas perguntas para auxiliar na memorização desse tema",
+        "backHome": "Voltar a tela inicial"
     }
 }

@@ -291,5 +291,22 @@
                 "screen": "tutorial-cards"
             }
         ]
+    },
+    "review": {
+        "title": "Session",
+        "question": "Question:",
+        "questionNumber": "Question",
+        "questionOf": "from",
+        "seeAnswer": "View answer",
+        "theme": "Theme:",
+        "before": "Before viewing the answer, we recommend reviewing the question for a few seconds",
+        "yourAnswer": "Your answer will help me memorize it to create your future sessions. By selecting an answer you will be redirected to the next question"
+    },
+    "reviewCompleted": {
+        "congrats": "Congratulations",
+        "sessionFinished": "Session completed successfully!",
+        "seeResults": "See how you performed in this session:",
+        "moreInfo": "We will analyze your answers and soon select new questions to help you remember this topic",
+        "backHome": "Back to home screen"
     }
 }

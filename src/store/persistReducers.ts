@@ -6,7 +6,7 @@ const persistor = reducers => {
     {
       key: 'memo',
       storage,
-      whitelist: ['config']
+      whitelist: ['config', 'review', 'session']
     },
     reducers
   );

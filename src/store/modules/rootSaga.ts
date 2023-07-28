@@ -10,6 +10,8 @@ import frequencies from './frequencies/saga';
 import galleries from './galleries/saga';
 import navigate from './navigate/saga';
 import progress from './progress/saga';
+import review from './review/saga';
+import session from './session/saga';
 import sessions from './sessions/saga';
 import users from './users/saga';
 
@@ -26,6 +28,8 @@ export default function* rootSaga(): any {
     sessions,
     deck,
     frequencies,
-    users
+    users,
+    session,
+    review
   ]);
 }

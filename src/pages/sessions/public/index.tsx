@@ -5,8 +5,12 @@ import { SmallLoading } from '@components/elements/loading/small';
 import { SubtitleText } from '@components/elements/texts/subtitle';
 import { TitleText } from '@components/elements/texts/title';
 import { formatTimeAsString } from '@helpers/DateHelper';
+import { RouteOptions } from '@interfaces/routes/SessionRoutesProps';
+import { PATH_REVIEWSESSION } from '@services/Navigation';
 import { loadAction } from '@store/modules/deck/actions';
+import { navigatePush } from '@store/modules/navigate/actions';
 import { RootState } from '@store/modules/rootReducer';
+import { feedAction } from '@store/modules/session/actions';
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
@@ -44,6 +48,15 @@ export function PublicSession() {
     dispatch(loadAction({ id }));
   }, [dispatch, id]);
 
+  function action() {
+    dispatch(feedAction({ deckId: id }));
+    dispatch(
+      navigatePush({
+        route: RouteOptions.review,
+        path: PATH_REVIEWSESSION
+      })
+    );
+  }
   if (loading) {
     return <SmallLoading />;
   }
@@ -60,7 +73,7 @@ export function PublicSession() {
             <SubtitleText value={subTitle} />
           </Details>
           <Action>
-            <PrimaryButton content={t('actions.review')} />
+            <PrimaryButton content={t('actions.review')} action={action} />
           </Action>
         </Header>
         <Body>

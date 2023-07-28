@@ -20,6 +20,10 @@ export const Text = styled.h4<any>`
         return `
           color: ${theme.ALERT_COLOR};
         `;
+      case Styles.Neutral90:
+        return `
+          color: ${theme.NEUTRAL90};
+        `;
       default:
         return `
           color: ${theme.PRIMARY_COLOR};

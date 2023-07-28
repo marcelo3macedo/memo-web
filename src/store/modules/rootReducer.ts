@@ -10,6 +10,8 @@ import frequencies from './frequencies/reducer';
 import galleries from './galleries/reducer';
 import navigate from './navigate/reducer';
 import progress from './progress/reducer';
+import review from './review/reducer';
+import session from './session/reducer';
 import sessions from './sessions/reducer';
 import users from './users/reducer';
 
@@ -25,7 +27,9 @@ export const rootReducer = combineReducers({
   sessions,
   card,
   users,
-  frequencies
+  frequencies,
+  session,
+  review
 });
 
 export type RootState = ReturnType<typeof rootReducer>;
