@@ -15,10 +15,14 @@ import {
   MODAL_EDITSESSION,
   MODAL_REMOVECARD
 } from '@constants/modals';
+import { RouteOptions } from '@interfaces/routes/SessionRoutesProps';
+import { PATH_REVIEWSESSION } from '@services/Navigation';
 import { loadAction as loadCardsAction } from '@store/modules/card/actions';
 import { loadAction } from '@store/modules/deck/actions';
 import { loadAction as loadFrequenciesAction } from '@store/modules/frequencies/actions';
+import { navigatePush } from '@store/modules/navigate/actions';
 import { RootState } from '@store/modules/rootReducer';
+import { feedAction } from '@store/modules/session/actions';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
@@ -34,6 +38,7 @@ export function EditSession() {
   const { frequencies } = useSelector((state: RootState) => state.frequencies);
   const [modal, setModal] = useState('');
   const [card, setCard] = useState('');
+  const { cards } = useSelector((state: RootState) => state.card);
 
   useEffect(() => {
     dispatch(loadAction({ id }));
@@ -68,6 +73,16 @@ export function EditSession() {
     );
   }
 
+  function reviewSession() {
+    dispatch(feedAction({ deckId: id }));
+    dispatch(
+      navigatePush({
+        route: RouteOptions.review,
+        path: PATH_REVIEWSESSION
+      })
+    );
+  }
+
   if (loading) {
     return <SmallLoading />;
   }
@@ -85,6 +100,19 @@ export function EditSession() {
         <Info>
           <DetailsDecks title={t('sessions.frequency')} value={frequencyName} />
         </Info>
+
+        <Actions>
+          {cards && cards.length > 0 ? (
+            <Action>
+              <PrimaryButton
+                content={t('actions.review')}
+                action={reviewSession}
+              />
+            </Action>
+          ) : (
+            <></>
+          )}
+        </Actions>
 
         <Actions>
           <Action>

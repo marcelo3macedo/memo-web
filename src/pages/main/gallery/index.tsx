@@ -3,25 +3,29 @@ import { TopHeader } from '@components/header/top';
 import { FiltersModal } from '@components/modals/filters';
 import { SearchWithFilter } from '@components/search/withFilters';
 import { DECK_FILTER_MODAL } from '@constants/deck';
+import getQueryValue from '@helpers/QueryHelper';
 import { loadAction as loadFilterAction } from '@store/modules/filters/actions';
-import { loadAction } from '@store/modules/galleries/actions';
+import { loadAction, searchAction } from '@store/modules/galleries/actions';
 import { RootState } from '@store/modules/rootReducer';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
+import { useLocation } from 'react-router-dom';
 
 import { Content, Wrapper } from './styles';
 
 export function Gallery() {
   const [modal, setModal] = useState('');
   const { t } = useTranslation();
+  const location = useLocation();
   const { results, loading, pages, actualPage } = useSelector(
     (state: RootState) => state.galleries
   );
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(loadAction());
+    const value = getQueryValue('query', location);
+    value ? dispatch(searchAction({ value })) : dispatch(loadAction());
     dispatch(loadFilterAction());
   }, [dispatch]);
 
