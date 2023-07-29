@@ -1,6 +1,6 @@
 import { Option, Select } from './styles';
 
-export function SelectBoxInput({ options, name, onChange, value = null }: any) {
+export function SelectBoxInput({ options, name, onChange, value = '' }: any) {
   if (!options || options.length === 0) {
     return <></>;
   }
