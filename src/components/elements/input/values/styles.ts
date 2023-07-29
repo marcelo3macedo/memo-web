@@ -7,7 +7,7 @@ export const TextInput = styled.input<any>`
       case Styles.DarkBorder:
         return `          
             border: 2px solid ${theme.PALLETE01_COLOR};
-            background-color: ${theme.BACKGROUND_COLOR};
+            background-color: ${theme.LIGHT_COLOR};
             padding: 15px;
             color: ${theme.PRIMARY_COLOR};
             width: 100%;
@@ -17,13 +17,13 @@ export const TextInput = styled.input<any>`
             color: ${theme.PRIMARY_COLOR};
             borderColor: ${theme.PALLETE01_COLOR};
             borderWidth: 2px;
-            backgroundColor: ${theme.BACKGROUND_COLOR};
+            backgroundColor: ${theme.LIGHT_COLOR};
             paddingHorizontal: 20px;
             paddingVertical: 10px;
         `;
       case Styles.NoBorder:
         return `
-          background-color: ${theme.BACKGROUND_COLOR};
+          background-color: ${theme.LIGHT_COLOR};
           color: ${theme.PRIMARY_COLOR};
           border-radius: 5px;
           min-width: 300px;
@@ -36,7 +36,7 @@ export const TextInput = styled.input<any>`
           `;
       default:
         return `
-          background-color: ${theme.BACKGROUND_COLOR};
+          background-color: ${theme.LIGHT_COLOR};
           color: ${theme.PRIMARY_COLOR};
           border: 1px solid ${theme.GRAY_COLOR};
           border-radius: 5px;

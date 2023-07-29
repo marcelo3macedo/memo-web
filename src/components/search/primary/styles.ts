@@ -27,7 +27,7 @@ export const Search = styled.div`
   border-radius: 10px;
   width: 100%;
   margin: auto;
-  background-color: ${({ theme }) => theme.BACKGROUND_COLOR};
+  background-color: ${({ theme }) => theme.LIGHT_COLOR};
   border: 1px solid ${({ theme }) => theme.GRAY_COLOR};
 `;
 

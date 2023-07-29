@@ -13,7 +13,7 @@ export const Container = styled.div<ModalIndexProps>`
 `;
 
 export const Modal = styled.div`
-  background-color: ${({ theme }) => theme.BACKGROUND_COLOR};
+  background-color: ${({ theme }) => theme.LIGHT_COLOR};
   padding: 30px 20px;
   margin: auto;
   width: 80%;

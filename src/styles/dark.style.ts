@@ -15,7 +15,7 @@ export const theme: DefaultTheme = {
   SECONDARY_COLOR: '#7a7a7a',
   BORDER_COLOR: '#636363',
   ALERT_COLOR: '#630b1e',
-  LIGHT_COLOR: '#ffffff',
+  LIGHT_COLOR: '#282a36',
   TITLE_COLOR: '#cfcccc',
   PALLETE01_COLOR: '#e5ddc8',
   PALLETE02_COLOR: '#069b9f',

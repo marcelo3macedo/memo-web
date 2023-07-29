@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
 export const Content = styled.div`
   display: flex;
   align-items: center;
-  background: ${({ theme }) => theme.BACKGROUND_COLOR};
+  background: ${({ theme }) => theme.LIGHT_COLOR};
   border: 1px solid ${({ theme }) => theme.BORDER_COLOR};
   border-radius: 20px;
   padding: 10px 20px;

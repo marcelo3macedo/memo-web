@@ -26,7 +26,7 @@ export const Headers = styled.div`
 `;
 
 export const Content = styled.div`
-  background-color: ${({ theme }) => theme.BACKGROUND_COLOR};
+  background-color: ${({ theme }) => theme.LIGHT_COLOR};
   border: 1px solid ${({ theme }) => theme.GRAY_COLOR};
   border-width: 1px;
   border-radius: 20px;
