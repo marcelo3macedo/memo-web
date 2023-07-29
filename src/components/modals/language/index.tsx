@@ -27,7 +27,7 @@ export function LanguageModal({ modal, closeAction }: any) {
   }
 
   return (
-    <Container show={modal === CONFIGMODAL_LANGUAGEM}>
+    <Container show={modal === CONFIGMODAL_LANGUAGEM} onClick={closeAction}>
       <Modal>
         <Header>
           <TitleText value={t('language.title')} />

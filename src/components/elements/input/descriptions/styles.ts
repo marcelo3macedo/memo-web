@@ -7,7 +7,7 @@ export const TextInput = styled.textarea<any>`
       case Styles.DarkBorder:
         return `          
           border: 2px solid ${theme.PALLETE01_COLOR};
-          background-color: ${theme.LIGHT_COLOR};
+          background-color: ${theme.BACKGROUND_COLOR};
           padding: 15px;
           color: ${theme.PRIMARY_COLOR};
           width: 100%;
@@ -19,7 +19,7 @@ export const TextInput = styled.textarea<any>`
             color: ${theme.PRIMARY_COLOR};
             borderColor: ${theme.PALLETE01_COLOR};
             borderWidth: 2px;
-            backgroundColor: ${theme.LIGHT_COLOR};
+            backgroundColor: ${theme.BACKGROUND_COLOR};
             padding: 20px;
             textAlignVertical: top;
         `;
