@@ -1,4 +1,15 @@
+import { MobModalProps } from '@interfaces/menu/MobModalProps';
 import styled from 'styled-components';
+
+export const Background = styled.div<MobModalProps>`
+  @media (max-width: 768px) {
+    display: ${props => (props.show ? 'block' : 'none')};
+    background-color: rgba(0, 0, 0, 0.4);
+    width: 100%;
+    position: absolute;
+    height: 100vh;
+  }
+`;
 
 export const Wrapper = styled.div`
   background-color: ${({ theme }) => theme.PALLETE03_COLOR};
@@ -7,7 +18,7 @@ export const Wrapper = styled.div`
 
   @media (max-width: 768px) {
     position: absolute;
-    display: none;
+    z-index: 2;
   }
 `;
 
