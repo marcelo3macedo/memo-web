@@ -6,8 +6,8 @@ export const Background = styled.div<MobModalProps>`
     display: ${props => (props.show ? 'block' : 'none')};
     background-color: rgba(0, 0, 0, 0.4);
     width: 100%;
-    position: absolute;
-    height: 100vh;
+    position: fixed;
+    height: 100%;
   }
 `;
 
@@ -17,7 +17,7 @@ export const Wrapper = styled.div`
   border-top-right-radius: 10px;
 
   @media (max-width: 768px) {
-    position: absolute;
+    position: fixed;
     z-index: 2;
   }
 `;
@@ -27,6 +27,10 @@ export const Content = styled.div``;
 export const Header = styled.div`
   text-align: center;
   padding: 20px;
+
+  @media (max-width: 768px) {
+    padding: 10px;
+  }
 `;
 
 export const Infos = styled.div`
@@ -36,4 +40,8 @@ export const Infos = styled.div`
 
 export const MenuArea = styled.div`
   padding: 10px 0;
+
+  @media (max-width: 768px) {
+    padding: 5px 0;
+  }
 `;

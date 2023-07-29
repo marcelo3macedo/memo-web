@@ -7,6 +7,10 @@ export const Wrapper = styled.div`
     cursor: pointer;
     opacity: 0.8;
   }
+
+  @media (max-width: 768px) {
+    padding: 7px 0;
+  }
 `;
 
 export const Content = styled.div`

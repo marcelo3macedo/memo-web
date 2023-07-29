@@ -23,6 +23,10 @@ export const Block = styled.div`
 
 export const Header = styled.div`
   padding: 10px 0;
+
+  @media (max-width: 768px) {
+    padding: 5px 0;
+  }
 `;
 
 export const Options = styled.div`
