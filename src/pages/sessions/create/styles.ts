@@ -2,12 +2,24 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.div``;
 
-export const Content = styled.div``;
+export const Content = styled.div`
+  @media (max-width: 768px) {
+    max-width: 100%;
+  }
+`;
 
 export const Items = styled.div``;
 
 export const Item = styled.div`
   padding: 5px 10px;
+
+  @media (max-width: 768px) {
+    input,
+    textarea {
+      max-width: 100%;
+      padding: 15px 0px;
+    }
+  }
 `;
 
 export const ItemFooter = styled.div`

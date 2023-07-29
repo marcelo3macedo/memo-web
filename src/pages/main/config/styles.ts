@@ -10,6 +10,10 @@ export const Infos = styled.div``;
 
 export const Items = styled.div`
   padding: 20px;
+
+  @media (max-width: 768px) {
+    padding: 10px 0;
+  }
 `;
 
 export const Item = styled.div`
@@ -18,6 +22,10 @@ export const Item = styled.div`
 
 export const Block = styled.div`
   padding: 20px;
+
+  @media (max-width: 768px) {
+    padding: 10px;
+  }
 `;
 
 export const BlockSmall = styled.div`
