@@ -15,6 +15,7 @@ export const Wrapper = styled.div`
   background-color: ${({ theme }) => theme.PALLETE03_COLOR};
   min-width: 300px;
   border-top-right-radius: 10px;
+  height: 100%;
 
   @media (max-width: 768px) {
     position: fixed;
