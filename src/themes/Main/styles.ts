@@ -19,6 +19,10 @@ export const Page = styled.div`
   min-height: 100%;
   padding: 0px 40px;
   overflow-x: hidden;
+
+  @media (max-width: 768px) {
+    padding: 0px 10px;
+  }
 `;
 
 export const Header = styled.div`

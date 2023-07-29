@@ -5,7 +5,6 @@ import { all, takeLatest } from 'redux-saga/effects';
 function* push({ payload }: any) {
   const { route, path } = payload || {};
   const historyPath = route ? `${route}/${path}` : path;
-  console.log(historyPath);
 
   if (route == path && path == ROUTES_HOME) {
     return yield history.push(ROUTES_HOME);

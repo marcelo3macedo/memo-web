@@ -19,6 +19,10 @@ export const Headers = styled.div`
   min-height: 100px;
   display: flex;
   align-items: center;
+
+  @media (max-width: 768px) {
+    min-height: 80px;
+  }
 `;
 
 export const Content = styled.div`
@@ -31,6 +35,10 @@ export const Content = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+
+  @media (max-width: 768px) {
+    padding: 10px;
+  }
 `;
 
 export const Details = styled.div`
@@ -40,4 +48,8 @@ export const Details = styled.div`
   align-items: center;
   width: 100%;
   padding: 20px 0;
+
+  @media (max-width: 768px) {
+    padding: 10px 0;
+  }
 `;

@@ -29,6 +29,10 @@ export const TextInput = styled.input<any>`
           min-width: 300px;
           padding: 15px;
           width: 100%;
+          
+          @media (max-width: 768px) {
+            min-width: auto;
+          }
           `;
       default:
         return `
@@ -38,6 +42,10 @@ export const TextInput = styled.input<any>`
           border-radius: 5px;
           min-width: 300px;
           padding: 15px;
+
+          @media (max-width: 768px) {
+            min-width: auto;
+          }
         `;
     }
   }}

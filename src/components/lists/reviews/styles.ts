@@ -12,6 +12,10 @@ export const Items = styled.div`
   display: flex;
   align-items: center;
   flex-wrap: wrap;
+
+  @media (max-width: 768px) {
+    padding: 15px 0;
+  }
 `;
 
 export const Item = styled.div`

@@ -44,4 +44,54 @@ export const GlobalStyle = createGlobalStyle`
         background-color: #333;
         border-radius: 1px;
     }
+
+    h1 {
+        font-size: ${({ theme }: any) => theme.FONT_SIZE_H1};
+    }
+
+    h2 {
+        font-size: ${({ theme }: any) => theme.FONT_SIZE_H2};
+    }
+
+    h3 {
+        font-size: ${({ theme }: any) => theme.FONT_SIZE_H3};
+    }
+
+    h4 {
+        font-size: ${({ theme }: any) => theme.FONT_SIZE_H4};
+    }
+
+    h5 {
+        font-size: ${({ theme }: any) => theme.FONT_SIZE_H5};
+    }
+
+    h6 {
+        font-size: ${({ theme }: any) => theme.FONT_SIZE_H6};
+    }
+
+    @media (max-width: 768px) {
+        h1 {
+            font-size: ${({ theme }: any) => theme.FONT_SIZE_H1_MOB};
+        }
+    
+        h2 {
+            font-size: ${({ theme }: any) => theme.FONT_SIZE_H2_MOB};
+        }
+    
+        h3 {
+            font-size: ${({ theme }: any) => theme.FONT_SIZE_H3_MOB};
+        }
+    
+        h4 {
+            font-size: ${({ theme }: any) => theme.FONT_SIZE_H4_MOB};
+        }
+    
+        h5 {
+            font-size: ${({ theme }: any) => theme.FONT_SIZE_H5_MOB};
+        }
+    
+        h6 {
+            font-size: ${({ theme }: any) => theme.FONT_SIZE_H6_MOB};
+        }
+    }
 `;
