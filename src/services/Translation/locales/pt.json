@@ -308,5 +308,9 @@
         "seeResults": "Veja como foi seu desempenho nessa sessão:",
         "moreInfo": "Iremos analisar suas respostas e em breve selecionar novas perguntas para auxiliar na memorização desse tema",
         "backHome": "Voltar a tela inicial"
+    },    
+    "pendingReview": {
+        "title": "Revisões Ativas",
+        "description": "Sessões criadas para reforçar o conteúdo"
     }
 }

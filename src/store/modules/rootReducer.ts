@@ -9,6 +9,7 @@ import filters from './filters/reducer';
 import frequencies from './frequencies/reducer';
 import galleries from './galleries/reducer';
 import navigate from './navigate/reducer';
+import pending from './pending/reducer';
 import progress from './progress/reducer';
 import review from './review/reducer';
 import session from './session/reducer';
@@ -26,6 +27,7 @@ export const rootReducer = combineReducers({
   progress,
   sessions,
   card,
+  pending,
   users,
   frequencies,
   session,

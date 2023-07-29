@@ -2,7 +2,9 @@ import { RouteOptions } from '@interfaces/routes/SessionRoutesProps';
 import {
   PATH_CREATESESSION,
   PATH_GALLERY,
-  PATH_PROGRESS
+  PATH_PROGRESS,
+  PATH_REVIEWPENDING,
+  PATH_TUTORIAL
 } from '@services/Navigation';
 import { navigatePush } from '@store/modules/navigate/actions';
 import { RootState } from '@store/modules/rootReducer';
@@ -26,9 +28,19 @@ export function ActionsMenu() {
 
   function loadSessionToReview() {
     return numberOfSessions > 0 ? (
-      <ItemFeaturedMenu title={sessionsToReview} />
+      <ItemFeaturedMenu
+        title={sessionsToReview}
+        action={() => {
+          navigateTo(PATH_REVIEWPENDING, RouteOptions.review);
+        }}
+      />
     ) : (
-      <ItemFeaturedMenu title={t('menu.options.checkTutorials')} />
+      <ItemFeaturedMenu
+        title={t('menu.options.checkTutorials')}
+        action={() => {
+          navigateTo(PATH_TUTORIAL, RouteOptions.account);
+        }}
+      />
     );
   }
 

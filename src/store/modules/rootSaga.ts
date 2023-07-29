@@ -9,6 +9,7 @@ import filters from './filters/saga';
 import frequencies from './frequencies/saga';
 import galleries from './galleries/saga';
 import navigate from './navigate/saga';
+import pending from './pending/saga';
 import progress from './progress/saga';
 import review from './review/saga';
 import session from './session/saga';
@@ -26,6 +27,7 @@ export default function* rootSaga(): any {
     progress,
     featuredUser,
     sessions,
+    pending,
     deck,
     frequencies,
     users,

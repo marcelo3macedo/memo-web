@@ -308,5 +308,9 @@
         "seeResults": "See how you performed in this session:",
         "moreInfo": "We will analyze your answers and soon select new questions to help you remember this topic",
         "backHome": "Back to home screen"
+    },
+    "pendingReview": {
+        "title": "Active Reviews",
+        "description": "Sessions created to reinforce content"
     }
 }
