@@ -55,7 +55,9 @@
         "activateFailed": "Failed to activate user. We couldn't find your user, check the access link.",
         "activateSuccess": "User successfully activated. Now you can access Memorizou application.",
         "activateMail": "Access the link sent via email to confirm your registration.",
-        "restorePassword": "Reset password"
+        "restorePassword": "Reset password",
+        "guestSession": "Sign in as a guest",
+        "guest": "Guest"
     },
     "deck": {
         "createdAt": "Created at:",

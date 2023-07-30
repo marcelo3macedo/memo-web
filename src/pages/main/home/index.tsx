@@ -1,3 +1,4 @@
+import AdBanner from '@components/ads/banner';
 import { TitleApp } from '@components/app/title';
 import { FeaturedDecks } from '@components/decks/featured';
 import { ActionsMenu } from '@components/menu/actions';
@@ -20,6 +21,7 @@ export function Home() {
       <Content>
         <TitleApp />
         <ActionsMenu />
+        <AdBanner id="ca-pub-9829912735551664" slot="3331571158" />
         <DetailsSearch />
         <FeaturedDecks />
       </Content>

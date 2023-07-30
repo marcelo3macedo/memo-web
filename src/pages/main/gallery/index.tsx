@@ -1,3 +1,4 @@
+import AdBanner from '@components/ads/banner';
 import ListGallery from '@components/gallery/list';
 import { TopHeader } from '@components/header/top';
 import { FiltersModal } from '@components/modals/filters';
@@ -45,6 +46,7 @@ export function Gallery() {
           description={t('gallery.subTitle')}
         />
         <SearchWithFilter action={showFilter} />
+        <AdBanner id="ca-pub-9829912735551664" slot="6923331807" />
         <ListGallery
           sessions={results}
           type="public"

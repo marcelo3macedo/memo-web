@@ -1,3 +1,4 @@
+import AdBanner from '@components/ads/banner';
 import { SmallLoading } from '@components/elements/loading/small';
 import { BackDeckReview } from '@components/reviews/backDeck';
 import { FrontDeckReview } from '@components/reviews/frontDeck';
@@ -58,6 +59,7 @@ export function Review() {
           )}
         </Card>
       </Content>
+      <AdBanner id="ca-pub-9829912735551664" slot="1671005123" />
     </Wrapper>
   );
 }

@@ -55,7 +55,9 @@
         "activateFailed": "Falha ao Ativar o usuário. Não encontramos seu usuário, verifique o link de acesso.",
         "activateSuccess": "Usuário ativado com sucesso. Agora você poderá acessar o aplicativo do Memorizou.",
         "activateMail": "Acesse o link enviado via e-mail para confirmar o seu cadastro.",
-        "restorePassword": "Resetar senha"
+        "restorePassword": "Resetar senha",
+        "guestSession": "Entrar como convidado",
+        "guest": "Convidado"
     },
     "deck": {
         "createdAt": "Criado em:",

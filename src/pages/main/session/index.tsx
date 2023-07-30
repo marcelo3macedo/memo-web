@@ -1,3 +1,4 @@
+import AdBanner from '@components/ads/banner';
 import ListGallery from '@components/gallery/list';
 import { TopHeader } from '@components/header/top';
 import { SearchPrivate } from '@components/search/private';
@@ -28,6 +29,7 @@ export function Session() {
           description={t('sessions.subTitle')}
         />
         <SearchPrivate />
+        <AdBanner id="ca-pub-9829912735551664" slot="5720881027" />
         <ListGallery
           sessions={results}
           type="private"
