@@ -1,45 +1,74 @@
-import jwt_decode from "jwt-decode";
-import { LS_REFRESHTOKEN, LS_TOKEN } from "@services/LocalStorage";
-import { authenticate, request } from "./requester";
-import { API_REFRESHTOKEN } from "./routes";
-import { REQUESTER_POST } from "@constants/Requester";
+import { getUnixFromDatetime } from '@helpers/DateHelper';
+import { ResponseGenerator } from '@interfaces/api/ResponseGeneratorProps';
+import { RouteOptions } from '@interfaces/routes/SessionRoutesProps';
+import { PATH_LOGIN } from '@services/Navigation';
+import { LS_REFRESHTOKEN, LS_TOKEN } from '@services/Storage';
+import { navigatePush } from '@store/modules/navigate/actions';
+import jwt_decode from 'jwt-decode';
+import { put } from 'redux-saga/effects';
+
+import {
+  ERR_TOKENINVALID,
+  ERR_TOKENNOTFOUND
+} from '../../constants/errorMessage';
+
+import { authenticate, request } from './requester';
+import { API_REFRESHTOKEN } from './routes';
+import { REQUESTER_POST } from './types';
+
+import api from '.';
 
 function* verifyToken() {
-    const token = localStorage.getItem(LS_TOKEN)
-    if (!token) {
-        return
-    }
-    
-    const expiresAt = getExpiresAt(token)
-    const isExpired = expiresAt > Date.now() ? true: false
-    const refreshToken = localStorage.getItem(LS_REFRESHTOKEN)
+  const token: string = yield localStorage.getItem(LS_TOKEN);
+  if (!token) {
+    throw new Error(ERR_TOKENNOTFOUND);
+  }
 
-    if (isExpired) {
-        yield renewToken({ refreshToken })
-    } 
+  const expiresAt = getExpiresAt(token);
+  const isExpired = expiresAt < getUnixFromDatetime(Date.now()) ? true : false;
+
+  if (isExpired) {
+    const refreshToken: string = yield localStorage.getItem(LS_REFRESHTOKEN);
+    const newToken: string = yield renewToken(refreshToken);
+    setApiToken(newToken);
+    return;
+  }
+
+  return setApiToken(token);
 }
 
-function getExpiresAt(token) {
-    const obj = jwt_decode(token)    
-    return obj ? obj['exp'] : null
+function setApiToken(token: string) {
+  api.defaults.headers.Authorization = `Bearer ${token}`;
 }
 
-function* renewToken({ refreshToken }) {
-    const response = yield request({ type: REQUESTER_POST, method: API_REFRESHTOKEN, data: {
+function getExpiresAt(token: string) {
+  const obj = jwt_decode(token) as any;
+  return obj ? obj.exp : null;
+}
+
+function* renewToken(refreshToken: any) {
+  try {
+    const response: ResponseGenerator = yield request({
+      type: REQUESTER_POST,
+      method: API_REFRESHTOKEN,
+      data: {
         token: refreshToken
-    }});
+      },
+      authNeeded: false
+    });
 
     if (response.status !== 200) {
-        return;
+      throw new Error();
     }
 
-    const { token, refreshToken:newRefreshToken } = response.data
-    yield authenticate({ token, refreshToken: newRefreshToken })
+    const { token, refreshToken: newRefreshToken } = response.data;
+    yield authenticate({ token, refreshToken: newRefreshToken });
 
-    return token
+    return token;
+  } catch (e) {
+    yield put(navigatePush({ route: RouteOptions.auth, path: PATH_LOGIN }));
+    throw new Error(ERR_TOKENINVALID);
+  }
 }
 
-export {
-    verifyToken,
-    renewToken
-};
+export { renewToken, verifyToken };

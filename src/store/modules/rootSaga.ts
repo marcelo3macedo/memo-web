@@ -1,39 +1,37 @@
-import { all } from "redux-saga/effects";
-import deck from "./deck/saga";
-import menu from "./menu/saga";
-import personal from "./personal/saga";
-import session from "./session/saga";
-import search from "./search/saga";
-import profile from "./profile/saga";
-import validation from "./validation/saga";
-import frequencies from "./frequencies/saga";
-import themes from "./themes/saga";
-import user from "./user/saga";
-import deckRemove from "./deck/remove/saga";
-import deckEdit from "./deck/edit/saga";
-import deckOpen from "./deck/open/saga";
+import { all } from 'redux-saga/effects';
 
-import auth from "../mods/auth/saga";
-import gallery from "../mods/gallery/saga";
-import cards from "../mods/cards/saga";
-import decks from "../mods/decks/saga";
-import options from "../mods/options/saga";
-import sessions from "../mods/sessions/saga";
-import review from "../mods/review/saga";
-import navigate from "../mods/navigate/saga";
-import featured from "../mods/featured/saga";
-import redirect from "../mods/redirect/saga";
-import histories from "../mods/histories/saga";
-import integrations from "../mods/integrations/saga";
-import users from "../mods/users/saga";
-import plans from "../mods/plans/saga";
-import planOptions from "../mods/planOptions/saga";
-import transactions from "../mods/transactions/saga";
-import validations from "../mods/validation/saga";
+import auth from './auth/saga';
+import card from './card/saga';
+import config from './config/saga';
+import deck from './deck/saga';
+import featuredUser from './featuredUser/saga';
+import filters from './filters/saga';
+import frequencies from './frequencies/saga';
+import galleries from './galleries/saga';
+import navigate from './navigate/saga';
+import pending from './pending/saga';
+import progress from './progress/saga';
+import review from './review/saga';
+import session from './session/saga';
+import sessions from './sessions/saga';
+import users from './users/saga';
 
-export default function* rootSaga() {
-    return yield all([
-        cards, decks, options, sessions, featured, histories, redirect, integrations, users, plans, planOptions, transactions, validations,
-        auth, user, deckRemove, deckEdit, deckOpen, personal, deck, menu, navigate, validation, gallery, session, search, profile, frequencies, review, themes
-    ])
+export default function* rootSaga(): any {
+  return yield all([
+    navigate,
+    config,
+    auth,
+    card,
+    filters,
+    galleries,
+    progress,
+    featuredUser,
+    sessions,
+    pending,
+    deck,
+    frequencies,
+    users,
+    session,
+    review
+  ]);
 }

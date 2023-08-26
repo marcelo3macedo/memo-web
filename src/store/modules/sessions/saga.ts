@@ -1,50 +1,86 @@
+/* eslint-disable prettier/prettier */
+import { ResponseGenerator } from '@interfaces/api/ResponseGeneratorProps';
+import { request } from '@services/Api/requester';
+import { API_DECKS, API_SESSIONS } from '@services/Api/routes';
+import { REQUESTER_GET } from '@services/Api/types';
+import { all, put, takeLatest } from 'redux-saga/effects';
 
-import { REQUESTER_GET } from "@constants/Requester";
-import { request } from "@services/Api/requester";
-import { API_DECKS, API_SESSIONS } from "@services/Api/routes";
-import { all, put, takeLatest } from "redux-saga/effects";
-import { indexFailedAction, indexSuccessAction, loadFailedAction, loadSuccessAction } from "./actions";
+import {
+    indexSuccessAction,
+    loadMoreSuccessAction,
+    loadSuccessAction
+} from './actions';
 
-function* load({ payload }:any) {
-    const { search } = payload || {}
-    const method = getMethod(search)
-    const response = yield request({ type: REQUESTER_GET, method });
-    
-    if (response.status !== 200 || !response.data) {
-        return yield put(loadFailedAction());
-    }
+function* load() {
+  try {
+    const response: ResponseGenerator = yield request({
+      type: REQUESTER_GET,
+      method: API_DECKS
+    });
+    const { results, total, pages } = response.data || {};
 
-    yield put(loadSuccessAction({ sessions: response.data }));
+    yield put(loadSuccessAction({ results, total, pages }));
+  } catch (e) {
+    console.log(e);
+  }
 }
 
-function* index({ payload }:any) {
-    const { id } = payload;
-    const response = yield request({ type: REQUESTER_GET, method: `${API_SESSIONS}/${id}` });
-    
-    if (response.status !== 200 || !response.data) {
-        return yield put(indexFailedAction());
+function* loadMore({ payload }: any) {
+  try {
+    const { page, query } = payload || {};
+    const method = `${API_DECKS}?page=${page}${query ? `&name=${query}` : ''}`;
+    if (!page) {
+      return;
     }
+
+    const response: ResponseGenerator = yield request({
+      type: REQUESTER_GET,
+      method
+    });
+
+    const { results, total, pages } = response.data;
+    yield put(
+      loadMoreSuccessAction({ actualPage: page, results, total, pages })
+    );
+  } catch (e) {
+    console.log(e);
+  }
+}
+
+function* search({ payload }: any) {
+  try {
+    const { value } = payload || {};
+    const method = `${API_DECKS}?name=${value}`;
+    const response: ResponseGenerator = yield request({
+      type: REQUESTER_GET,
+      method
+    });
+    const { results, total, pages } = response.data || {};
+
+    yield put(loadSuccessAction({ results, total, pages }));
+  } catch (e) {
+    console.log(e);
+  }
+}
+
+function* index({ payload }: any) {
+  try {
+    const { id } = payload || {};
+    const method = `${API_SESSIONS}/${id}`;
+    const response: ResponseGenerator = yield request({
+      type: REQUESTER_GET,
+      method
+    });
 
     yield put(indexSuccessAction({ session: response.data }));
-}
-
-function* search({ payload }:any) {
-    const { term } = payload;
-    const response = yield request({ type: REQUESTER_GET, method: `${API_DECKS}?name=${term}` });
-    
-    if (response.status !== 200 || !response.data) {
-        return yield put(loadFailedAction());
-    }
-
-    yield put(loadSuccessAction({ sessions: response.data }));
-}
-
-function getMethod(search) {
-    return search ? `${API_DECKS}?name=${search}` : API_DECKS
+  } catch (e) {
+    console.log(e);
+  }
 }
 
 export default all([
-    takeLatest('@sessions/LOAD', load),
-    takeLatest('@sessions/INDEX', index),
-    takeLatest('@sessions/SEARCH', search),
+  takeLatest('@sessions/LOAD', load),
+  takeLatest('@sessions/LOAD_MORE', loadMore),
+  takeLatest('@sessions/SEARCH', search),
+  takeLatest('@sessions/INDEX', index)
 ]);

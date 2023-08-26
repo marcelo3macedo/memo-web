@@ -1,62 +1,61 @@
+import { getFirstFromSession } from '@helpers/CardHelper';
+import { ResponseGenerator } from '@interfaces/api/ResponseGeneratorProps';
+import { request } from '@services/Api/requester';
+import { API_SESSIONS, API_SESSIONSFEED } from '@services/Api/routes';
+import { REQUESTER_GET } from '@services/Api/types';
+import { loadAction as loadReviewAction } from '@store/modules/review/actions';
+import { all, put, takeLatest } from 'redux-saga/effects';
 
-import { all, put, takeLatest, select } from "redux-saga/effects";
-import { openSuccessAction, optionActionSuccess, reviewAction } from "./actions";
-import { navigatePush } from "@store/mods/navigate/actions";
-import { API_SESSIONS } from "@services/Api/routes";
-import { PATH_REVIEW, PATH_SESSION, PATH_SESSION_COMPLETED } from "@services/Navigation";
-import * as selectors from './selectors';
-import { REQUESTER_GET, REQUESTER_PUT } from "@constants/Requester";
-import { request } from "@services/Api/requester";
+import { loadAction, loadSuccessAction } from './actions';
 
-function* open(data) {    
-    const response = yield request({ type: REQUESTER_GET, method: `${API_SESSIONS}/${data.payload.sessionId}` });
-    
-    if (response.status !== 200) {
-        return;
+function* load({ payload }: any) {
+  try {
+    const { id } = payload || {};
+    const method = `${API_SESSIONS}/${id}`;
+    const response: ResponseGenerator = yield request({
+      type: REQUESTER_GET,
+      method
+    });
+
+    const session = response.data;
+    yield put(loadSuccessAction({ session }));
+  } catch (e) {
+    console.log(e);
+  }
+}
+
+function* feed({ payload }: any) {
+  try {
+    const { deckId } = payload || {};
+    const response: ResponseGenerator = yield request({
+      type: REQUESTER_GET,
+      method: `${API_SESSIONSFEED}/${deckId}`
+    });
+
+    const { id: sessionId } = response.data || {};
+    yield put(loadAction({ id: sessionId }));
+  } catch (e) {
+    console.log(e);
+  }
+}
+
+function* loadSuccess({ payload }: any) {
+  try {
+    const { session } = payload || {};
+
+    if (!session) {
+      return;
     }
 
-    yield put(openSuccessAction({ session: response.data}));
-}
-
-function* openSuccess() {
-    yield put(navigatePush({ path: PATH_SESSION }));  
-}
-
-function* openDeckSuccess() {
-    yield put(reviewAction()); 
-}
-
-function* review() {
-    yield put(navigatePush({ path: PATH_REVIEW })); 
-}
-
-function* option() {
-    const session = yield select(selectors.session);
-    const element = yield select(selectors.element);
-
-    if (!session || !session.cards || element.cardPosition < session.cards.length) {
-        return;
-    }
-
-    const answered = yield select(selectors.answered);
-    const response = yield request({ type: REQUESTER_PUT, method: `${API_SESSIONS}/${session.id}/cards`, data: { cards: answered } });
-    
-    if (response.status !== 204) {
-        return;
-    }
-
-    yield put(optionActionSuccess()); 
-}
-
-function* optionSuccess() {
-    yield put(navigatePush({ path: PATH_SESSION_COMPLETED }));     
+    const cardSelected = getFirstFromSession(session);
+    yield put(loadReviewAction({ session, card: cardSelected }));
+  } catch (e) {
+    console.log(e);
+  }
 }
 
 export default all([
-    takeLatest('@session/OPEN', open),
-    takeLatest('@session/OPEN_SUCCESS', openSuccess),
-    takeLatest('@session/OPEN_DECK_SUCCESS', openDeckSuccess),
-    takeLatest('@session/REVIEW', review),
-    takeLatest('@session/OPTION', option),    
-    takeLatest('@session/OPTION_SUCCESS', optionSuccess),
+  takeLatest('@session/LOAD', load),
+  takeLatest('@session/FEED', feed),
+  takeLatest('@session/LOAD_SUCCESS', loadSuccess)
 ]);

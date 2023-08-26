@@ -1,42 +1,29 @@
-export function openAction({ sessionId }) {
-    return {
-        type: '@session/OPEN',
-        payload: {
-            sessionId
-        }
-    }
+import {
+  SessionLoadProps,
+  SessionLoadSuccessProps
+} from '@interfaces/store/SessionProps';
+
+export function loadAction({ id }: SessionLoadProps) {
+  return {
+    type: '@session/LOAD',
+    payload: { id }
+  };
 }
-export function openSuccessAction({ session }) {
-    return {
-        type: '@session/OPEN_SUCCESS',
-        payload: {
-            session
-        }
+
+export function loadSuccessAction({ session }: SessionLoadSuccessProps) {
+  return {
+    type: '@session/LOAD_SUCCESS',
+    payload: {
+      session
     }
+  };
 }
-export function openDeckSuccessAction({ session }) {
-    return {
-        type: '@session/OPEN_DECK_SUCCESS',
-        payload: {
-            session
-        }
+
+export function feedAction({ deckId }: any) {
+  return {
+    type: '@session/FEED',
+    payload: {
+      deckId
     }
-}
-export function reviewAction() {
-    return {
-        type: '@session/REVIEW'
-    }
-}
-export function optionAction({ option }) {
-    return {
-        type: '@session/OPTION',
-        payload: {
-            option
-        }
-    }
-}
-export function optionActionSuccess() {
-    return {
-        type: '@session/OPTION_SUCCESS'
-    }
+  };
 }

@@ -1,185 +1,75 @@
+import { ResponseGenerator } from '@interfaces/api/ResponseGeneratorProps';
+import { RouteOptions } from '@interfaces/routes/SessionRoutesProps';
+import { request } from '@services/Api/requester';
+import { API_DECKS } from '@services/Api/routes';
+import {
+  REQUESTER_GET,
+  REQUESTER_POST,
+  REQUESTER_PUT
+} from '@services/Api/types';
+import { PATH_EDITSESSION } from '@services/Navigation';
+import { all, put, takeLatest } from 'redux-saga/effects';
 
-import { all, put, takeLatest } from "redux-saga/effects";
-import { navigatePush } from "@store/mods/navigate/actions";
-import { PATH_DECK, PATH_ADDDECK, PATH_EDITSESSION } from '@services/Navigation';
-import { API_DECKS, API_SESSIONSFEED, API_DECKSCLONE, API_DECKSOPTIONS, API_DECKSPATH, API_CARDS } from "@services/Api/routes";
-import { openSuccessAction, saveSuccessAction, reviewAction, openPathFailure, openPathSuccess, editFailedAction, editSuccessAction, addCardFailure, addCardSuccess, updateCardFailure, updateCardSuccess, deleteCardFailure, deleteCardSuccess, openFailureAction } from "./actions";
-import { loadFrequenciesSuccess } from "../frequencies/actions";
-import { loadThemesSuccess } from "../themes/actions";
-import { loadAction } from "../review/actions";
-import { REQUESTER_DELETE, REQUESTER_GET, REQUESTER_POST, REQUESTER_PUT } from "@constants/Requester";
-import { request } from "@services/Api/requester";
+import { navigatePush } from '../navigate/actions';
 
-function* loadOptions() {
-    const response = yield request({ type: REQUESTER_GET, method: API_DECKSOPTIONS });
+import { loadSuccessAction, saveSuccessAction } from './actions';
 
-    if (response.status !== 200 || !response.data) {
-        return;
+function* load({ payload }: any) {
+  try {
+    const { id } = payload || {};
+    if (!id) {
+      yield put(loadSuccessAction({ deck: null }));
+      return;
     }
 
-    const { frequencies, themes } = response.data;
-    yield put(loadFrequenciesSuccess({ frequencies }));
-    yield put(loadThemesSuccess({ themes }));
+    const response: ResponseGenerator = yield request({
+      type: REQUESTER_GET,
+      method: `${API_DECKS}/${id}`
+    });
+
+    yield put(loadSuccessAction({ deck: response.data }));
+  } catch (e) {
+    console.log(e);
+  }
 }
 
-function* save({ payload }:any) {
-    const response = yield request({ type: REQUESTER_POST, method: `${API_DECKS}`, data: payload });
-    
-    if (response.status !== 201) {
-        return;
-    }
+function* save({ payload }: any) {
+  const { name, description, frequencyId, isPublic } = payload || {};
 
-    yield put(saveSuccessAction({ deck: response.data }));
+  const response: ResponseGenerator = yield request({
+    type: REQUESTER_POST,
+    method: `${API_DECKS}`,
+    data: { name, description, frequencyId, isPublic }
+  });
+
+  const { id } = response.data || {};
+  yield put(saveSuccessAction({ id }));
 }
 
-function* edit({ payload }:any) {
-    const { deck } = payload;
-    const response = yield request({ type: REQUESTER_PUT ,method: `${API_DECKS}/${deck.id}`, data: deck });
-     
-    if (response.status !== 200) {
-        yield put(editFailedAction());
-        return;
-    }
+function* edit({ payload }: any) {
+  const { id, name, description, frequencyId, isPublic } = payload || {};
 
-    yield put(editSuccessAction());
+  yield request({
+    type: REQUESTER_PUT,
+    method: `${API_DECKS}/${id}`,
+    data: { name, description, frequencyId, isPublic }
+  });
 }
 
-function* saveSuccess() {
-    yield put(navigatePush({ path: PATH_EDITSESSION }));
-}
+function* saveSuccess({ payload }: any) {
+  const { id } = payload || {};
 
-function* open({ payload }:any) {
-    const response = yield request({ type: REQUESTER_GET, method: `${API_DECKS}/${payload.deck.id}` });
-    
-    if (response.status !== 200) {
-        yield put(openFailureAction());
-        return;
-    }
-
-    yield put(openSuccessAction({ deck: response.data}));
-}
-
-function* openPublic({ payload }:any) {
-    const response = yield request({ type: REQUESTER_GET, method: `${API_DECKS}/${payload.deck.id}?isPublic=true` });
-    
-    if (response.status !== 200) {
-        return;
-    }
-
-    yield put(openSuccessAction({ deck: response.data}));
-}
-
-function* add() {
-    yield put(navigatePush({ path: PATH_ADDDECK }));
-}
-
-function* review(data) {
-    const { deck } = data.payload;
-
-    const response = yield request({ type: REQUESTER_GET, method: `${API_SESSIONSFEED}/${deck.id}` });
-
-    if (response.status !== 200) {
-        return;
-    }
-
-    yield put(loadAction({ session: response.data }));
-}
-
-function* finish() {
-    yield put(navigatePush({ path: PATH_DECK }));
-}
-
-function* clone(data) {
-    const { deck } = data.payload;
-    const response = yield request({type: REQUESTER_GET,  method: `${API_DECKSCLONE}/${deck.id}` });
-
-    if (response.status !== 201) {
-        return;
-    }
-
-    yield put(reviewAction({ deck: response.data }));
-}
-
-function* openPath({ payload }:any) {
-    const { path } = payload;
-    const response = yield request({ type: REQUESTER_GET, method: `${API_DECKSPATH}/${path}` });
-
-    if (response.status !== 200) {
-        yield put(openPathFailure())
-        return;
-    }    
-
-    yield put(openPathSuccess({ deck: response.data }))
-}
-
-function* addCard({ payload }:any) {
-    const { deck, card } = payload;
-
-    if (!deck) {
-        yield put(addCardFailure());
-        return;
-    }
-
-    const response = yield request({ type: REQUESTER_POST, method: `${API_CARDS}/${deck.id}`, data: card});
-    
-    if (response.status !== 201) {
-        yield put(addCardFailure());
-        return;
-    }
-
-    yield put(addCardSuccess({ card: response.data }));    
-}
-
-function* updateCard({ payload }:any) {
-    const { card } = payload;
-
-    if (!card || !card.id) {
-        yield put(updateCardFailure());
-        return;
-    }
-
-    const response = yield request({ type: REQUESTER_PUT, method: `${API_CARDS}/${card.id}`, data: card});
-    
-    if (response.status !== 200) {
-        yield put(updateCardFailure());
-        return;
-    }
-
-    yield put(updateCardSuccess({ card }));    
-}
-
-function* deleteCard({ payload }:any) {
-    const { card } = payload;
-
-    if (!card || !card.id) {
-        yield put(deleteCardFailure());
-        return;
-    }
-
-    const response = yield request({ type: REQUESTER_DELETE, method: `${API_CARDS}/${card.id}`});
-    
-    if (response.status !== 200) {
-        yield put(deleteCardFailure());
-        return;
-    }
-
-    yield put(deleteCardSuccess({ card }));    
+  yield put(
+    navigatePush({
+      route: RouteOptions.session,
+      path: `${PATH_EDITSESSION}/${id}`
+    })
+  );
 }
 
 export default all([
-    takeLatest('@deck/OPEN', open),
-    takeLatest('@deck/SAVE', save),
-    takeLatest('@deck/EDIT', edit),
-    takeLatest('@deck/SAVE_SUCCESS', saveSuccess),  
-    takeLatest('@deck/ADD_CARD', addCard),
-    takeLatest('@deck/UPDATE_CARD', updateCard),
-    takeLatest('@deck/DELETE_CARD', deleteCard),
-    
-    takeLatest('@deck/LOAD_OPTIONS', loadOptions),
-    takeLatest('@deck/OPEN_PUBLIC', openPublic),
-    takeLatest('@deck/REVIEW', review),
-    takeLatest('@deck/CLONE', clone),
-    takeLatest('@deck/ADD', add),
-    takeLatest('@deck/FINISH', finish),
-    takeLatest('@deck/OPEN_PATH', openPath),
+  takeLatest('@deck/LOAD', load),
+  takeLatest('@deck/SAVE', save),
+  takeLatest('@deck/SAVE_SUCCESS', saveSuccess),
+  takeLatest('@deck/EDIT', edit)
 ]);

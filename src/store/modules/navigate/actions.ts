@@ -1,13 +1,15 @@
-
-export function navigatePush({ path }) {
-    return {
-        type: '@navigate/PUSH',
-        path
+export function navigatePush({ route, path }) {
+  return {
+    type: '@navigate/PUSH',
+    payload: {
+      route,
+      path
     }
+  };
 }
 
 export function backAction() {
-    return {
-        type: '@navigate/BACK_ACTION'
-    }
+  return {
+    type: '@navigate/BACK_ACTION'
+  };
 }

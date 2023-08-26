@@ -1,54 +1,88 @@
+import { ResponseGenerator } from '@interfaces/api/ResponseGeneratorProps';
+import { request } from '@services/Api/requester';
+import { API_CARDS } from '@services/Api/routes';
+import {
+  REQUESTER_DELETE,
+  REQUESTER_GET,
+  REQUESTER_POST,
+  REQUESTER_PUT
+} from '@services/Api/types';
+import { all, put, takeLatest } from 'redux-saga/effects';
 
-import { all, put, takeLatest, select } from "redux-saga/effects";
-import * as selectors from './selectors';
-import { API_CARDS } from "@services/Api/routes";
-import { loadDeckAction } from "../personal/actions";
-import { REQUESTER_DELETE, REQUESTER_POST, REQUESTER_PUT } from "@constants/Requester";
-import { request } from "@services/Api/requester";
+import {
+  loadSuccessAction,
+  removeSuccessAction,
+  saveSuccessAction,
+  updateSuccessAction
+} from './actions';
 
-function* save(payload) {
-    const deck = yield select(selectors.deck);
-    
-    if (!deck) {
-        return;
-    }
+function* load({ payload }: any) {
+  try {
+    const { id } = payload || {};
 
-    const response = yield request({  
-        type: REQUESTER_POST, method: `${API_CARDS}/${deck.id}`, data: payload.card});
-    
-    if (response.status !== 201) {
-        return;
-    }
+    const response: ResponseGenerator = yield request({
+      type: REQUESTER_GET,
+      method: `${API_CARDS}/${id}`
+    });
+    const cards = response.data;
 
-    yield put(loadDeckAction())
+    yield put(loadSuccessAction({ cards }));
+  } catch (e) {
+    console.log(e);
+  }
 }
 
-function* editCard({ payload }:any) {
-    const response = yield request({ 
-        type: REQUESTER_PUT, method: `${API_CARDS}/${payload.card.id}`, data: payload.card});
+function* save({ payload }: any) {
+  try {
+    const { id, title, content, secretContent } = payload || {};
 
-    if (response.status !== 200) {
-        return;
-    }
+    const response: ResponseGenerator = yield request({
+      type: REQUESTER_POST,
+      method: `${API_CARDS}/${id}`,
+      data: { title, content, secretContent }
+    });
+    const card = response.data;
 
-    yield put(loadDeckAction())
+    yield put(saveSuccessAction({ card }));
+  } catch (e) {
+    console.log(e);
+  }
 }
 
-function* removeCard() {
-    const card = yield select(selectors.card);
+function* update({ payload }: any) {
+  try {
+    const { id, title, content, secretContent } = payload || {};
 
-    const response = yield request({ 
-        type: REQUESTER_DELETE, method: `${API_CARDS}/${card.id}`});
+    yield request({
+      type: REQUESTER_PUT,
+      method: `${API_CARDS}/${id}`,
+      data: { title, content, secretContent }
+    });
 
-    if (response.status !== 200) {
-        return;
-    }
+    yield put(updateSuccessAction({ card: payload }));
+  } catch (e) {
+    console.log(e);
+  }
+}
 
-    yield put(loadDeckAction())
+function* remove({ payload }: any) {
+  try {
+    const { id } = payload || {};
+
+    yield request({
+      type: REQUESTER_DELETE,
+      method: `${API_CARDS}/${id}`
+    });
+
+    yield put(removeSuccessAction({ card: payload }));
+  } catch (e) {
+    console.log(e);
+  }
 }
 
 export default all([
-    takeLatest('@card/CONFIRM_REMOVE', removeCard),
-    takeLatest('@card/CONFIRM_EDIT', editCard),
-    takeLatest('@card/SAVE', save),    
+  takeLatest('@card/LOAD', load),
+  takeLatest('@card/SAVE', save),
+  takeLatest('@card/UPDATE', update),
+  takeLatest('@card/REMOVE', remove)
 ]);

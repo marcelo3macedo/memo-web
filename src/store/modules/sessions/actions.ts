@@ -1,50 +1,69 @@
-export function loadAction(search=null) {
-    return {
-        type: '@sessions/LOAD',
-        payload: {
-            search
-        }
-    }
+export function loadAction() {
+  return {
+    type: '@sessions/LOAD'
+  };
 }
-export function loadSuccessAction({ sessions }) {
-    return {
-        type: '@sessions/LOAD_SUCCESS',
-        payload: {
-            sessions
-        }
+
+export function loadSuccessAction({ pages, total, results }: any) {
+  return {
+    type: '@sessions/LOAD_SUCCESS',
+    payload: {
+      pages,
+      total,
+      results
     }
+  };
 }
-export function loadFailedAction() {
-    return {
-        type: '@sessions/LOAD_FAILED'
+
+export function loadMoreAction({ page }: any) {
+  return {
+    type: '@sessions/LOAD_MORE',
+    payload: {
+      page
     }
+  };
 }
-export function searchAction({ term }) {
-    return {
-        type: '@sessions/SEARCH',
-        payload: {
-            term
-        }
+
+export function loadMoreSuccessAction({
+  actualPage,
+  pages,
+  total,
+  results
+}: any) {
+  return {
+    type: '@sessions/LOAD_MORE_SUCCESS',
+    payload: {
+      actualPage,
+      pages,
+      total,
+      results
     }
+  };
 }
-export function indexAction({ id }) {
-    return {
-        type: '@sessions/INDEX',
-        payload: {
-            id
-        }
+
+export function searchAction({ value }: any) {
+  return {
+    type: '@sessions/SEARCH',
+    payload: {
+      value
     }
+  };
 }
-export function indexSuccessAction({ session }) {
-    return {
-        type: '@sessions/INDEX_SUCCESS',
-        payload: {
-            session
-        }
+
+export function indexAction({ id }: any) {
+  return {
+    type: '@sessions/INDEX',
+    payload: {
+      id
     }
+  };
 }
-export function indexFailedAction() {
-    return {
-        type: '@sessions/INDEX_FAILED'
+
+export function indexSuccessAction({ session }: any) {
+  return {
+    type: '@sessions/INDEX_SUCCESS',
+    payload: {
+      session
     }
+  };
 }

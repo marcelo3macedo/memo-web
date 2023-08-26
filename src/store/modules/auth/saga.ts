@@ -1,140 +1,135 @@
+import { getErrorTranslationKey } from '@helpers/ErrorHandlerHelper';
+import { ResponseGenerator } from '@interfaces/api/ResponseGeneratorProps';
+import { RouteOptions } from '@interfaces/routes/SessionRoutesProps';
+import { authenticate, decode, logoff, request } from '@services/Api/requester';
+import {
+  API_LOGIN,
+  API_PASSWORD_FORGOT,
+  API_SOCIAL,
+  API_USERS
+} from '@services/Api/routes';
+import { REQUESTER_POST } from '@services/Api/types';
+import { PATH_HOME, PATH_LOGIN } from '@services/Navigation';
+import { all, put, takeLatest } from 'redux-saga/effects';
 
-import { all, takeLatest, put, select } from "redux-saga/effects";
-import { authenticate, request } from "@services/Api/requester";
-import { API_ACTIVATE, API_REFRESHTOKEN, API_SESSION, API_USERS } from "@services/Api/routes";
-import { navigatePush } from "@store/mods/navigate/actions";
-import { PATH_EMAIL_VALIDATION, PATH_HOME, PATH_MAIN, PATH_SIGN_IN } from "@services/Navigation";
-import { loadActivateFailed, redirectClearUser, redirectUser, refreshTokenAction, serverFailureAction, setRedirectUrl, signInFailureAction, signInSuccessAction } from "./actions";
-import { LS_REFRESHTOKEN } from "@services/LocalStorage";
-import * as selectors from './selectors';
-import { createBrowserHistory } from "history";
-import { REQUESTER_POST } from "@constants/Requester";
+import { navigatePush } from '../navigate/actions';
 
-function* signIn({ payload }:any) {
-    const response = yield request({ 
-        type: REQUESTER_POST,
-        method: API_SESSION, 
-        data: {
-            email: payload.user,
-            password: payload.password
-        } 
-    });
-    
-    if (response.status === 401) {
-        yield put(signInFailureAction({ type: 'auth.invalidAuth' }));
-        return;
-    }
+import {
+  alertAction,
+  failedAction,
+  signInAction,
+  signInSuccessAction,
+  signOutSuccessAction
+} from './actions';
 
-    if (response.status !== 200) {
-        yield put(serverFailureAction());
-        return;
-    }
-
-    const { token, refreshToken, user } = response.data;
-    const { name, email } = user;
-
-    yield authenticate({ token, refreshToken});
-    yield put(signInSuccessAction({ name, email }));
-    yield put(redirectUser());
-}
-
-function* signUp({ payload }:any) {
-    yield request({ 
-        type: REQUESTER_POST,
-        method: API_USERS, 
-        data: {
-            name: payload.fullName,
-            email: payload.user,
-            password: payload.password
-        }
+function* signIn({ payload }: any) {
+  try {
+    const { user, password } = payload || {};
+    const response: ResponseGenerator = yield request({
+      type: REQUESTER_POST,
+      method: API_LOGIN,
+      data: {
+        email: user,
+        password: password
+      },
+      authNeeded: false
     });
 
-    yield put(navigatePush({ path: PATH_EMAIL_VALIDATION }));
-}
+    const { token, refreshToken } = response.data;
+    const { name, email } = decode(token);
 
-function forgotPassword({ payload }:any) {
-}
-
-function* logout() {
-    localStorage.clear();
-    
-    yield put(navigatePush({ path: PATH_HOME }));
-}
-
-function* checkAuth({ payload }:any) {
-    const signed = yield select(selectors.signed);
-    const history = createBrowserHistory()
-    
-    if (signed && !payload.force) {
-        return true;
-    }
-
-    const refreshToken = localStorage.getItem(LS_REFRESHTOKEN);
-    if (refreshToken) {
-        yield put(refreshTokenAction({ refreshToken }));
-        return;
-    }
-
-    yield put(setRedirectUrl({ redirectTo: history.location.pathname }))        
-    yield put(navigatePush({ path: PATH_SIGN_IN }));
-}
-
-function* refreshToken({ payload }:any) {
-    const response = yield request({ 
-        type: REQUESTER_POST, method: API_REFRESHTOKEN, data: {
-        token: payload.refreshToken
-    }});
-
-    if (response.status !== 200) {
-        yield put(navigatePush({ path: PATH_SIGN_IN }));
-        return;
-    }
-
-    const { token, refreshToken, user } = response.data;
-    const { name, email     } = user;
-
-    yield authenticate({ token, refreshToken});
-
+    yield authenticate({ token, refreshToken });
     yield put(signInSuccessAction({ name, email }));
+  } catch (error: any) {
+    yield put(failedAction({ message: getErrorTranslationKey(error.message) }));
+  }
 }
 
-function* activate({ payload }:any) {
-    if (!payload.token) {
-        return
-    }
+function* signUp({ payload }: any) {
+  try {
+    const { fullName, user, password } = payload || {};
+    yield request({
+      type: REQUESTER_POST,
+      method: API_USERS,
+      data: {
+        name: fullName,
+        email: user,
+        password: password
+      },
+      authNeeded: false
+    });
 
-    const response = yield request({ 
-        type: REQUESTER_POST, method: API_ACTIVATE, data: {
-        token: payload.token
-    }});
+    yield put(signInAction({ user, password }));
+  } catch (error: any) {
+    yield put(failedAction({ message: getErrorTranslationKey(error.message) }));
+  }
+}
 
-    if (response.status !== 200) {
-        yield put(loadActivateFailed());
-        return
-    }
+function* signInSuccess() {
+  yield put(
+    navigatePush({
+      route: RouteOptions.home,
+      path: PATH_HOME
+    })
+  );
+}
 
-    const { token, refreshToken, user } = response.data;
-    const { name, email } = user;
+function* signOut() {
+  yield logoff();
+  yield put(signOutSuccessAction());
+}
 
-    yield authenticate({ token, refreshToken});
+function* signOutSuccess() {
+  yield put(
+    navigatePush({
+      route: RouteOptions.auth,
+      path: PATH_LOGIN
+    })
+  );
+}
+
+function* forgotPassword({ payload }: any) {
+  try {
+    const { user } = payload || {};
+    yield request({
+      type: REQUESTER_POST,
+      method: API_PASSWORD_FORGOT,
+      data: {
+        email: user
+      },
+      authNeeded: false
+    });
+    yield put(alertAction({ message: 'auth.recoverPasswordContent' }));
+  } catch (error: any) {
+    yield put(failedAction({ message: getErrorTranslationKey(error.message) }));
+  }
+}
+
+function* social({ payload }: any) {
+  try {
+    const response: ResponseGenerator = yield request({
+      type: REQUESTER_POST,
+      method: API_SOCIAL,
+      data: payload,
+      authNeeded: false
+    });
+
+    const { token, refreshToken } = response.data;
+    const { name, email } = decode(token);
+
+    yield authenticate({ token, refreshToken });
     yield put(signInSuccessAction({ name, email }));
-    yield put(navigatePush({ path: PATH_MAIN }));
-}
-
-function* redirect() {
-    const redirectTo = yield select(selectors.redirectTo);
-    const path = redirectTo ? redirectTo : PATH_MAIN
-    yield put(redirectClearUser())
-    yield put(navigatePush({ path }))
+  } catch (error: any) {
+    yield put(failedAction({ message: getErrorTranslationKey(error.message) }));
+  }
 }
 
 export default all([
-    takeLatest('@auth/SIGN_IN', signIn),
-    takeLatest('@auth/SIGN_UP', signUp),
-    takeLatest('@auth/LOGOUT', logout),
-    takeLatest('@auth/FORGOT_PASSWORD', forgotPassword),
-    takeLatest('@auth/CHECK_AUTH', checkAuth),
-    takeLatest('@auth/REFRESH_TOKEN', refreshToken),
-    takeLatest('@auth/LOAD_ACTIVATE', activate),
-    takeLatest('@auth/REDIRECT_USER', redirect)
+  takeLatest('@auth/SIGNIN', signIn),
+  takeLatest('@auth/SIGNIN_SUCCESS', signInSuccess),
+  takeLatest('@auth/SIGNUP', signUp),
+  takeLatest('@auth/SIGNOUT', signOut),
+  takeLatest('@auth/SIGNOUT_SUCCESS', signOutSuccess),
+  takeLatest('@auth/SOCIAL', social),
+  takeLatest('@auth/FORGOT_PASSWORD', forgotPassword)
 ]);

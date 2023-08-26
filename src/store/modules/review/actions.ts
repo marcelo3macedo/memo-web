@@ -1,54 +1,38 @@
-export function loadAction({ session }) {
-    return {
-        type: '@review/LOAD',
-        payload: {
-            session
-        }
+export function loadAction({ session, card }: any) {
+  return {
+    type: '@review/LOAD',
+    payload: {
+      session,
+      card
     }
+  };
 }
-export function loadOptionsAction() {
-    return {
-        type: '@review/LOAD_OPTIONS'
+export function loadSuccess({ options }: any) {
+  return {
+    type: '@review/LOAD_SUCCESS',
+    payload: {
+      options
     }
+  };
 }
-export function loadOptionsSuccess({ options }) {
-    return {
-        type: '@review/LOAD_OPTIONS_SUCCESS',
-        payload: {
-            options
-        }
+export function optionSelectAction({ id }: any) {
+  return {
+    type: '@review/OPTION_SELECT',
+    payload: {
+      id
     }
+  };
 }
-export function loadOptionsFailure() {
-    return {
-        type: '@review/LOAD_OPTIONS_FAILURE'
+export function updateCardAction({ card }: any) {
+  return {
+    type: '@review/UPDATE_CARD',
+    payload: {
+      card
     }
+  };
 }
-export function setOptionAction({ card, option }) {
-    return {
-        type: '@review/SET_OPTION',
-        payload: {
-            card,
-            option
-        }
-    }
-}
-export function finishAction({ session, cards }) {
-    return {
-        type: '@review/FINISH',
-        payload: {
-            session,
-            cards
-        }
-    }
-}
-export function finishSuccess() {
-    return {
-        type: '@review/FINISH_SUCCESS'
-    }
-}
-export function finishFailure() {
-    return {
-        type: '@review/FINISH_FAILURE'
-    }
+export function finishAction() {
+  return {
+    type: '@review/FINISH'
+  };
 }

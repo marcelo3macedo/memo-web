@@ -1,26 +1,29 @@
-import React from 'react';
-import { Provider } from "react-redux";
+import Routes from '@routes/index.routes';
+import history from '@services/History';
+import i18n from '@services/Translation';
+import GlobalTheme from '@themes/Provider';
+import { I18nextProvider } from 'react-i18next';
+import { Provider } from 'react-redux';
 import { Router } from 'react-router-dom';
+import { PersistGate } from 'redux-persist/integration/react';
+
+import { persistor, store } from './store';
 import { GlobalStyle } from './styles/global';
-import { PersistGate } from "redux-persist/integration/react";
-import Message from '@components/errors/Message';
-import Routes from "./routes";
-import { store, persistor } from "./store";
-import history from "./services/History";
-import "./services/Language";
-import "./config/ReactotronConfig";
 
 function App() {
   return (
-    <Provider store={store}>
-      <PersistGate persistor={persistor}>
-        <Router history={history}>
-          <GlobalStyle />
-          <Message />
-          <Routes/>
-        </Router>
-      </PersistGate>
-    </Provider>
+    <GlobalTheme>
+      <I18nextProvider i18n={i18n}>
+        <Provider store={store}>
+          <PersistGate persistor={persistor}>
+            <Router history={history}>
+              <GlobalStyle />
+              <Routes />
+            </Router>
+          </PersistGate>
+        </Provider>
+      </I18nextProvider>
+    </GlobalTheme>
   );
 }
 

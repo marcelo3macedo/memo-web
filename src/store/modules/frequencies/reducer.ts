@@ -1,22 +1,32 @@
-import produce from "immer";
+import produce from 'immer';
 
 const INITIAL_STATE = {
-    all: [],
-    default: null
+  frequencies: [],
+  visibility: [
+    {
+      id: 1,
+      value: 'public',
+      label: 'frequencies.public.title',
+      description: 'frequencies.public.description'
+    },
+    {
+      id: 2,
+      value: 'private',
+      label: 'frequencies.private.title',
+      description: 'frequencies.private.description'
+    }
+  ]
 };
 
-export default function personal(state = INITIAL_STATE, action) {
-    return produce(state, draft => {
-        switch (action.type) {
-            case "@frequencies/LOAD_SUCCESS": {
-                const defaultFrequency = action.payload.frequencies.find(c=> c.default);
-
-                draft.all = action.payload.frequencies;
-                draft.default = defaultFrequency;
-                break;
-            }     
-            default:
-                return state;
-        }
-    });
+export default function navigate(state = INITIAL_STATE, action: any) {
+  return produce(state, draft => {
+    switch (action.type) {
+      case '@frequency/LOAD_SUCCESS': {
+        draft.frequencies = action.payload.frequencies;
+        break;
+      }
+      default:
+        return state;
+    }
+  });
 }

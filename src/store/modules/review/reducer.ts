@@ -1,45 +1,49 @@
-import produce from "immer";
+import produce from 'immer';
 
 const INITIAL_STATE = {
-    session: null,
-    isLoading: false,
-    position: 0,
-    options: [],
-    answered: []
+  session: null,
+  card: null,
+  loading: false,
+  position: 0,
+  options: [],
+  answered: []
 };
 
-export default function navigate(state = INITIAL_STATE, action) {
-    return produce(state, draft => {
-        switch (action.type) {
-            case "@review/LOAD": {
-                draft.session = action.payload.session;
-                draft.position = 0;
-                draft.answered = [];
-                break;
-            }
-            case "@review/LOAD_OPTIONS": {
-                draft.isLoading = true;
-                break;
-            }
-            case "@review/LOAD_OPTIONS_SUCCESS": {
-                draft.isLoading = false;
-                draft.options = action.payload.options;
-                break;
-            }
-            case "@review/LOAD_OPTIONS_FAILURE": {
-                draft.isLoading = false;
-                break;
-            }
-            case "@review/SET_OPTION": {
-                const answered = Object.assign({}, action.payload.card);
-                answered.difficultyId = action.payload.option.id;
-                
-                draft.answered.push(answered);
-                draft.position++;
-                break;
-            }
-            default:
-                return state;
-        }
-    });
+export default function navigate(state = INITIAL_STATE, action: any) {
+  return produce(state, draft => {
+    switch (action.type) {
+      case '@review/LOAD': {
+        draft.session = action.payload.session;
+        draft.card = action.payload.card;
+        draft.position = 0;
+        draft.answered = [];
+        draft.loading = true;
+        break;
+      }
+      case '@review/LOAD_SUCCESS': {
+        draft.options = action.payload.options;
+        draft.loading = false;
+        break;
+      }
+      case '@review/OPTION_SELECT': {
+        const answered = Object.assign({}, draft.card) as any;
+        answered.difficultyId = action.payload.id;
+
+        draft.answered.push(answered);
+        draft.position++;
+        break;
+      }
+      case '@review/UPDATE_CARD': {
+        draft.card = action.payload.card;
+        break;
+      }
+      case '@review/FINISH': {
+        draft.card = null;
+        draft.position = 0;
+        break;
+      }
+      default:
+        return state;
+    }
+  });
 }

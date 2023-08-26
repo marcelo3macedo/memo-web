@@ -1,43 +1,63 @@
-export function openModalAction(modal) {
-    return {
-        type: '@card/OPEN_MODAL',
-        payload: {
-            modal
-        }
-    }
+export function loadAction({ id }: any) {
+  return {
+    type: '@card/LOAD',
+    payload: { id }
+  };
 }
-export function saveAction(card) {
-    return {
-        type: '@card/SAVE',
-        card
+
+export function loadSuccessAction({ cards }: any) {
+  return {
+    type: '@card/LOAD_SUCCESS',
+    payload: {
+      cards
     }
+  };
 }
-export function editAction(card) {
-    return {
-        type: '@card/EDIT',
-        payload: {
-            card
-        }
-    }
+
+export function saveAction({ id, title, content, secretContent }: any) {
+  return {
+    type: '@card/SAVE',
+    payload: { id, title, content, secretContent }
+  };
 }
-export function confirmEditAction(card) {
-    return {
-        type: '@card/CONFIRM_EDIT',
-        payload: {
-            card
-        }
+
+export function saveSuccessAction({ card }: any) {
+  return {
+    type: '@card/SAVE_SUCCESS',
+    payload: {
+      card
     }
+  };
 }
-export function removeAction(card) {
-    return {
-        type: '@card/REMOVE',
-        payload: {
-            card
-        }
-    }
+
+export function updateAction({ id, title, content, secretContent }: any) {
+  return {
+    type: '@card/UPDATE',
+    payload: { id, title, content, secretContent }
+  };
 }
-export function confirmRemoveAction() {
-    return {
-        type: '@card/CONFIRM_REMOVE'
+
+export function updateSuccessAction({ card }: any) {
+  return {
+    type: '@card/UPDATE_SUCCESS',
+    payload: {
+      card
     }
+  };
+}
+
+export function removeAction({ id }: any) {
+  return {
+    type: '@card/REMOVE',
+    payload: { id }
+  };
+}
+
+export function removeSuccessAction({ card }: any) {
+  return {
+    type: '@card/REMOVE_SUCCESS',
+    payload: {
+      card
+    }
+  };
 }
