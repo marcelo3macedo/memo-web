@@ -21,6 +21,17 @@ export const GlobalStyle = createGlobalStyle`
         padding: 10px
     }
 
+    input:disabled {
+        pointer-events:none;
+        opacity: 0.8;
+        -webkit-touch-callout: none;
+          -webkit-user-select: none;
+           -khtml-user-select: none;
+             -moz-user-select: none;
+              -ms-user-select: none;
+                  user-select: none;
+    }
+
     .no-select {
         -webkit-touch-callout: none; /* iOS Safari */
           -webkit-user-select: none; /* Safari */
