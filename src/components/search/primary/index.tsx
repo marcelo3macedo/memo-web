@@ -14,9 +14,7 @@ export function SearchPrimary({ placeholder, action, value = null }: any) {
     action(value);
   }
 
-  if (value) {
-    initialValues.value = value;
-  }
+  initialValues.value = value;
 
   return (
     <Wrapper>
