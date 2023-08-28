@@ -4,6 +4,10 @@ export const Wrapper = styled.div`
   background-color: ${({ theme }) => theme.PALLETE01_COLOR};
   height: 100vh;
   overflow-y: hidden;
+
+  @media (max-width: 768px) {
+    padding: 0 10px;
+  }
 `;
 
 export const Content = styled.div`

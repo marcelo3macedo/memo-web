@@ -40,7 +40,13 @@ export function EditDeckModal({ deck, show, closeAction }: any) {
   const { name, description, frequencyId, isPublic } = deck;
 
   function onSubmit(data: any) {
-    dispatch(editAction({ ...data, id: deck.id }));
+    dispatch(
+      editAction({
+        ...data,
+        id: deck.id,
+        isPublic: data.visibility === DECK_PUBLIC
+      })
+    );
     closeAction();
   }
 
@@ -126,6 +132,7 @@ export function EditDeckModal({ deck, show, closeAction }: any) {
                       type="radio"
                       className="input"
                       value="public"
+                      onChange={handleChange('visibility')}
                       checked={values.visibility === 'public'}
                     />
                     <RadioArea>
@@ -146,6 +153,7 @@ export function EditDeckModal({ deck, show, closeAction }: any) {
                       type="radio"
                       className="input"
                       value="private"
+                      onChange={handleChange('visibility')}
                       checked={values.visibility === 'private'}
                     />
                     <RadioArea>

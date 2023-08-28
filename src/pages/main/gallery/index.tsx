@@ -19,8 +19,10 @@ export function Gallery() {
   const [modal, setModal] = useState('');
   const { t } = useTranslation();
   const location = useLocation();
-  const { results, loading, pages, actualPage } = useSelector(
-    (state: RootState) => state.galleries
+  const { results, loading, loadingMore, pages, actualPage, search } =
+    useSelector((state: RootState) => state.galleries);
+  const { active: menuMobActive }: any = useSelector(
+    (state: RootState) => state.menu
   );
   const dispatch = useDispatch();
 
@@ -45,12 +47,17 @@ export function Gallery() {
           title={t('gallery.title')}
           description={t('gallery.subTitle')}
         />
-        <SearchWithFilter action={showFilter} />
-        <AdBanner id="ca-pub-9829912735551664" slot="6923331807" />
+        <SearchWithFilter action={showFilter} value={search} />
+        <AdBanner
+          id="ca-pub-9829912735551664"
+          slot="6923331807"
+          active={!menuMobActive}
+        />
         <ListGallery
           sessions={results}
           type="public"
           loading={loading}
+          loadingMore={loadingMore}
           pages={pages}
           actualPage={actualPage}
         />

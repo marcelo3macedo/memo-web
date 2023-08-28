@@ -19,7 +19,7 @@ export const Wrapper = styled.div`
 
   @media (max-width: 768px) {
     position: fixed;
-    z-index: 2;
+    z-index: 9999;
   }
 `;
 

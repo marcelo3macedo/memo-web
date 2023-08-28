@@ -6,11 +6,11 @@ export const Wrapper = styled.div`
 
 export const Content = styled.div`
   background-color: ${({ theme }) => theme.LIGHT_COLOR};
-  border: 1px solid ${({ theme }) => theme.GRAY_COLOR};
-  padding: 20px;
-  border-radius: 20px;
+  border: 2px solid ${({ theme }) => theme.GRAY_COLOR};
+  padding: 15px 10px;
+  border-radius: 10px;
   display: flex;
-  align-items: baseline;
+  align-items: flex-start;
   flex-direction: row;
   justify-content: space-between;
 `;
@@ -18,7 +18,7 @@ export const Content = styled.div`
 export const Card = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: baseline;
+  align-items: flex-start;
   width: 100%;
 
   &:hover {
@@ -29,6 +29,10 @@ export const Card = styled.div`
 
 export const Description = styled.div`
   padding: 20px 0 0 0;
+
+  @media (max-width: 768px) {
+    padding: 10px 0 0 0;
+  }
 `;
 
 export const Action = styled.div`

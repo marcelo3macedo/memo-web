@@ -23,4 +23,5 @@ export const DeckComponent = styled.div`
 export const Pagination = styled.div`
   max-width: 400px;
   margin: auto;
+  padding: 40px 0;
 `;

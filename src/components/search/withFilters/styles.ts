@@ -17,4 +17,8 @@ export const Header = styled.div``;
 
 export const Button = styled.div`
   padding: 0 20px;
+
+  @media (max-width: 768px) {
+    padding: 0 5px;
+  }
 `;

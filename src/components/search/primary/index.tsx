@@ -7,11 +7,15 @@ import { useTheme } from 'styled-components';
 
 import { Search, SearchIcon, Wrapper } from './styles';
 
-export function SearchPrimary({ placeholder, action }: any) {
+export function SearchPrimary({ placeholder, action, value = null }: any) {
   const theme = useTheme() as any;
 
   function onSubmit({ value }: any) {
     action(value);
+  }
+
+  if (value) {
+    initialValues.value = value;
   }
 
   return (

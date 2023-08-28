@@ -70,6 +70,7 @@ export const GlobalStyle = createGlobalStyle`
 
     h4 {
         font-size: ${({ theme }: any) => theme.FONT_SIZE_H4};
+        line-height: 20px;
     }
 
     h5 {
@@ -95,6 +96,7 @@ export const GlobalStyle = createGlobalStyle`
     
         h4 {
             font-size: ${({ theme }: any) => theme.FONT_SIZE_H4_MOB};
+            line-height: 20px;
         }
     
         h5 {

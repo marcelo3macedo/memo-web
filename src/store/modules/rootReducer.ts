@@ -8,6 +8,7 @@ import featuredUser from './featuredUser/reducer';
 import filters from './filters/reducer';
 import frequencies from './frequencies/reducer';
 import galleries from './galleries/reducer';
+import menu from './menu/reducer';
 import navigate from './navigate/reducer';
 import pending from './pending/reducer';
 import progress from './progress/reducer';
@@ -26,6 +27,7 @@ export const rootReducer = combineReducers({
   featuredUser,
   progress,
   sessions,
+  menu,
   card,
   pending,
   users,

@@ -14,10 +14,14 @@ export const Item = styled.div`
   padding: 5px 10px;
 
   @media (max-width: 768px) {
+    padding: 5px 0px;
+    max-width: 100%;
+
     input,
     textarea {
       max-width: 100%;
-      padding: 15px 0px;
+      padding: 15px 10px;
+      box-sizing: border-box;
     }
   }
 `;

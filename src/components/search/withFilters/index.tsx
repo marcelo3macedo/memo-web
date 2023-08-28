@@ -7,7 +7,7 @@ import { SearchPrimary } from '../primary';
 
 import { Button, Content, Wrapper } from './styles';
 
-export function SearchWithFilter({ action }: any) {
+export function SearchWithFilter({ action, value = '' }: any) {
   const dispatch = useDispatch();
   const { t } = useTranslation();
 
@@ -19,6 +19,7 @@ export function SearchWithFilter({ action }: any) {
     <Wrapper className="no-select">
       <Content>
         <SearchPrimary
+          value={value}
           placeholder={t('gallery.titleSearch')}
           action={searchHandler}
         />

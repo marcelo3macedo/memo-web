@@ -45,6 +45,7 @@ export function AddCardModal({ show, deck, closeAction }: any) {
         <Formik
           initialValues={initialValues}
           onSubmit={onSubmit}
+          validateOnChange={false}
           validationSchema={schema}
           enableReinitialize={true}>
           {({ handleSubmit, handleChange, values, errors }) => (

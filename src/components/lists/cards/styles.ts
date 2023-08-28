@@ -6,4 +6,8 @@ export const Content = styled.div`
 
 export const Items = styled.div`
   padding: 20px 0;
+
+  @media (max-width: 768px) {
+    padding: 0;
+  }
 `;

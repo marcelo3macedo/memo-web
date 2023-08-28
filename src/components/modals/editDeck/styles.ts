@@ -3,21 +3,31 @@ import styled from 'styled-components';
 
 export const Container = styled.div<ModalIndexProps>`
   position: fixed;
-  left: 0;
-  top: 0;
+  left: 0px;
+  top: 0px;
   width: 100%;
   height: 100vh;
   background: rgba(0, 0, 0, 0.4);
   display: ${props => (props.show ? 'flex' : 'none')};
   align-items: center;
+  padding: 10px;
+  box-sizing: border-box;
+
+  @media (max-width: 768px) {
+    left: -5px;
+    top: -50px;
+    width: 100%;
+    width: calc(100% + 5px);
+    height: calc(100vh + 50px);
+  }
 `;
 
 export const Modal = styled.div`
   background-color: ${({ theme }) => theme.LIGHT_COLOR};
-  padding: 30px 20px;
+  padding: 30px 20px 10px 20px;
   margin: auto;
   width: 100%;
-  max-width: 600px;
+  max-width: 500px;
   border-radius: 10px;
 `;
 

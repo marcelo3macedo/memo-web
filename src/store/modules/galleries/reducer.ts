@@ -1,11 +1,13 @@
 import produce from 'immer';
 
 const INITIAL_STATE = {
-  actualPage: 1,
+  actualPage: 0,
   pages: 0,
   total: 0,
   results: [],
-  loading: false
+  loading: false,
+  loadingMore: false,
+  search: ''
 };
 
 export default function sessions(state = INITIAL_STATE, action: any) {
@@ -13,6 +15,12 @@ export default function sessions(state = INITIAL_STATE, action: any) {
     switch (action.type) {
       case '@galleries/LOAD': {
         draft.loading = true;
+        draft.search = '';
+        break;
+      }
+      case '@galleries/LOAD_MORE': {
+        draft.actualPage = action.payload.page;
+        draft.loadingMore = true;
         break;
       }
       case '@galleries/LOAD_SUCCESS': {
@@ -22,7 +30,15 @@ export default function sessions(state = INITIAL_STATE, action: any) {
         draft.loading = false;
         break;
       }
+      case '@galleries/LOAD_MORE_SUCCESS': {
+        draft.results = Object.assign([], draft.results).concat(
+          action.payload.results
+        );
+        draft.loadingMore = false;
+        break;
+      }
       case '@galleries/SEARCH': {
+        draft.search = action.payload.value;
         draft.loading = true;
         break;
       }

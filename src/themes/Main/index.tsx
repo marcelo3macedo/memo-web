@@ -1,20 +1,23 @@
 import FooterPrimary from '@components/footer/FooterPrimary';
 import HeaderMobile from '@components/header/mobile';
 import HeaderPrimary from '@components/header/primary';
-import { useState } from 'react';
+import { activeAction } from '@store/modules/menu/actions';
+import { RootState } from '@store/modules/rootReducer';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { Content, Footer, Page, Wrapper } from './styles';
 
 export function MainTheme({ children }: any) {
-  const [mobModal, setMobModal] = useState(false);
+  const dispatch = useDispatch();
+  const { active }: any = useSelector((state: RootState) => state.menu);
 
   function interactModal() {
-    setMobModal(!mobModal);
+    dispatch(activeAction());
   }
 
   return (
     <Wrapper>
-      <HeaderPrimary mobModal={mobModal} action={interactModal} />
+      <HeaderPrimary mobModal={active} action={interactModal} />
       <Content>
         <HeaderMobile
           action={() => {

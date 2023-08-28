@@ -1,4 +1,4 @@
-import { BannerImage } from '@components/elements/images/banner';
+import { TutorialImage } from '@components/elements/images/tutorial';
 import { FeaturedText } from '@components/elements/texts/featured';
 import { SubtitleText } from '@components/elements/texts/subtitle';
 import { ItemTutorialProps } from '@interfaces/tutorial/ItemTutorialProps';
@@ -24,7 +24,7 @@ export function ItemTutorial({
       </Body>
       {image ? (
         <Banner>
-          <BannerImage source={image} />
+          <TutorialImage source={image} />
         </Banner>
       ) : (
         <></>

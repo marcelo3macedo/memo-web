@@ -1,4 +1,5 @@
 import PrimaryButton from '@components/elements/buttons/Primary';
+import { SmallLoading } from '@components/elements/loading/small';
 import { PaginationListProps } from '@interfaces/lists/PaginationListProps';
 import { useTranslation } from 'react-i18next';
 
@@ -7,12 +8,17 @@ import { Container } from './styles';
 export function PrimaryPagination({
   actualPage,
   pages,
-  action
+  action,
+  loading
 }: PaginationListProps) {
   const { t } = useTranslation();
 
-  if (!actualPage || !pages || actualPage > pages - 1) {
+  if (!pages || actualPage >= pages - 1) {
     return <></>;
+  }
+
+  if (loading) {
+    return <SmallLoading />;
   }
 
   return (

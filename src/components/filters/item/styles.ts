@@ -10,7 +10,7 @@ export const Container = styled.div`
 `;
 
 export const Item = styled.div`
-  padding: 5px 0;
+  padding: 10px 0;
   display: flex;
   align-items: center;
   flex-direction: row;
@@ -27,5 +27,5 @@ export const Options = styled.div`
 `;
 
 export const Option = styled.div`
-  padding: 10px;
+  padding: 15px 10px;
 `;

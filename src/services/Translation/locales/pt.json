@@ -236,7 +236,10 @@
         "createdAt": "Criado em:",
         "year": "Ano",
         "notFound": "Não encontramos essa sessão",
-        "goGallery": "Ir para a Galeria"
+        "goGallery": "Ir para a Galeria",
+        "titleEdit": "Título da Sessão",
+        "descriptionEdit": "Descrição da Sessão",
+        "updates": "Alterações"
     },    
     "font": {
         "normal": "Padrão",

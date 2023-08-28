@@ -1,5 +1,7 @@
 import { SmallLoading } from '@components/elements/loading/small';
 import { PrimaryPagination } from '@components/elements/pagination/primary';
+import { loadMoreAction } from '@store/modules/galleries/actions';
+import { useDispatch } from 'react-redux';
 
 import Private from '../Private';
 import Public from '../Public';
@@ -15,10 +17,13 @@ import {
 export default function ListGallery({
   sessions = [],
   loading,
+  loadingMore = false,
   type,
   pages,
   actualPage
 }) {
+  const dispatch = useDispatch();
+
   if (loading) {
     return <SmallLoading />;
   }
@@ -27,7 +32,10 @@ export default function ListGallery({
     return <></>;
   }
 
-  function loadMore() {}
+  function loadMore() {
+    const page = actualPage + 1;
+    dispatch(loadMoreAction({ page }));
+  }
 
   return (
     <Wrapper>
@@ -45,6 +53,7 @@ export default function ListGallery({
           actualPage={actualPage}
           pages={pages}
           action={loadMore}
+          loading={loadingMore}
         />
       </Pagination>
     </Wrapper>

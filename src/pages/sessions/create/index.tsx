@@ -67,6 +67,7 @@ export function CreateSession() {
         <Formik
           initialValues={initialValues}
           validationSchema={schema}
+          validateOnChange={false}
           onSubmit={onSubmit}>
           {({ handleSubmit, handleChange, values, errors }) => (
             <Items>
@@ -121,6 +122,7 @@ export function CreateSession() {
                     type="radio"
                     className="input"
                     value="public"
+                    onChange={handleChange('visibility')}
                     checked={values.visibility === 'public'}
                   />
                   <RadioArea>
@@ -141,6 +143,7 @@ export function CreateSession() {
                     type="radio"
                     className="input"
                     value="private"
+                    onChange={handleChange('visibility')}
                     checked={values.visibility === 'private'}
                   />
                   <RadioArea>
