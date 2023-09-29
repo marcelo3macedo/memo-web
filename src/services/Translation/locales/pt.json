@@ -314,5 +314,14 @@
     "pendingReview": {
         "title": "Revisões Ativas",
         "description": "Sessões criadas para reforçar o conteúdo"
+    },
+    "activities": {
+        "actions": {
+            "startNow": "Começar Agora!"
+        },
+        "country": {
+            "title": "🌟 Sílabas Mágicas 🌟",
+            "description": "🚀 Você pode misturar e combinar sílabas para criar suas próprias palavras mágicas! Quem sabe que tesouros você vai descobrir? 🌈"
+        }
     }
 }

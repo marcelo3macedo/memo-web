@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
 
+import activities from './activities/reducer';
 import auth from './auth/reducer';
 import card from './card/reducer';
 import config from './config/reducer';
@@ -17,6 +18,7 @@ import sessions from './sessions/reducer';
 import users from './users/reducer';
 
 export const rootReducer = combineReducers({
+  activities,
   auth,
   deck,
   config,

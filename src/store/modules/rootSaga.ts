@@ -1,5 +1,6 @@
 import { all } from 'redux-saga/effects';
 
+import activities from './activities/saga';
 import auth from './auth/saga';
 import card from './card/saga';
 import config from './config/saga';
@@ -18,6 +19,7 @@ import users from './users/saga';
 
 export default function* rootSaga(): any {
   return yield all([
+    activities,
     navigate,
     config,
     auth,
