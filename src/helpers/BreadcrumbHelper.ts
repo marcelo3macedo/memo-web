@@ -5,4 +5,11 @@ function getMessage(t, actual, total) {
   return `${questionNumberText} ${actual} ${questionOfText} ${total}`;
 }
 
-export { getMessage };
+function getContentForMessages(t, actual, total) {
+  const messageNumberText = t('review.messageNumber');
+  const messageOfText = t('review.messageOf');
+
+  return `${messageNumberText} ${actual} ${messageOfText} ${total}`;
+}
+
+export { getMessage, getContentForMessages };

@@ -300,9 +300,13 @@
         "questionNumber": "Pergunta",
         "questionOf": "de",
         "seeAnswer": "Ver resposta",
+        "opinion": "O que você achou dessa mensagem?",
+        "messageNumber": "Mensagem",
+        "messageOf": "de",
         "theme": "Tema:",
         "before": "Antes de visualizar a resposta, recomendamos analisar a pergunta por alguns segundos",
-        "yourAnswer": "Sua resposta irá auxiliar o memorizou para criar suas futuras sessões. Ao selecionar uma resposta você será redirecionado a próxima pergunta"
+        "yourAnswer": "Sua resposta irá auxiliar o memorizou para criar suas futuras sessões. Ao selecionar uma resposta você será redirecionado a próxima pergunta",
+        "yourChoose": "Sua resposta irá auxiliar para escolhermos a próxima mensagem. Ao selecionar uma resposta você será redirecionado a próxima mensagem"
     },
     "reviewCompleted": {
         "congrats": "Meus Parabéns",
@@ -319,11 +323,16 @@
         "actions": {
             "startNow": "Começar Agora!",
             "back": "Voltar",
-            "selectOption": "Selecione a opção correta"
+            "selectOption": "Selecione a opção correta",
+            "download": "★ Baixar Mensagem ★"
         },
         "country": {
             "title": "🌟 Sílabas Mágicas 🌟",
             "description": "🚀 Você pode misturar e combinar sílabas para criar suas próprias palavras mágicas! Quem sabe que tesouros você vai descobrir? 🌈"
         }
+    },
+    "scoreboard": {
+        "title": "Placar de Líderes - Top 5",
+        "activity": "Atividade: "
     }
 }
