@@ -29,3 +29,4 @@ export const PATH_EMAIL_VALIDATION = 'mail-validation';
 export const PATH_RECOVERED = 'recovered';
 export const PATH_ACTIVE = 'activate';
 export const PATH_ACTIVITY_MAIN = 'main';
+export const PATH_ACTIVITY_ACTIVITY = 'activity';

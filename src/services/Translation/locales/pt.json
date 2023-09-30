@@ -317,7 +317,9 @@
     },
     "activities": {
         "actions": {
-            "startNow": "Começar Agora!"
+            "startNow": "Começar Agora!",
+            "back": "Voltar",
+            "selectOption": "Selecione a opção correta"
         },
         "country": {
             "title": "🌟 Sílabas Mágicas 🌟",
