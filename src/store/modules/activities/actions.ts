@@ -6,3 +6,19 @@ export function startAction({ slug }: any) {
     }
   };
 }
+
+export function createActionSuccess({ session, type }: any) {
+  return {
+    type: '@activities/CREATE_SUCCESS',
+    payload: {
+      session,
+      type
+    }
+  };
+}
+
+export function backAction() {
+  return {
+    type: '@activities/BACK'
+  };
+}
