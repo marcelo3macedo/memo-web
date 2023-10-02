@@ -7,4 +7,8 @@ function generateNewSession({ type }) {
   return shuffledContent.slice(0, 15);
 }
 
-export { generateNewSession };
+function isCorrectAnswer(option: string, answer: string) {
+  return option === answer;
+}
+
+export { generateNewSession, isCorrectAnswer };

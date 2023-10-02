@@ -1,14 +1,17 @@
 import { HeaderText } from '@components/elements/texts/header';
 import { SubtitleText } from '@components/elements/texts/subtitle';
 import { Styles } from '@interfaces/texts/TextProps';
+import { selectOptionAction } from '@store/modules/activities/actions';
+import { useDispatch } from 'react-redux';
 
 import { Content, Number, Option, Value, Wrapper } from './styles';
 
-export function EnumeratedOptions({ options }: any) {
+export function EnumeratedOptions({ options, answer }: any) {
+  const dispatch = useDispatch();
   if (!options) return <></>;
 
   function action(value) {
-    console.log(value);
+    dispatch(selectOptionAction({ option: value, answer }));
   }
 
   return (

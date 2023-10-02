@@ -1,7 +1,9 @@
 import { Activity } from '@pages/activities/activity';
+import { ActivityFinished } from '@pages/activities/finished';
 import { Main } from '@pages/activities/main';
 import {
   PATH_ACTIVITY_ACTIVITY,
+  PATH_ACTIVITY_FINISHED,
   PATH_ACTIVITY_MAIN
 } from '@services/Navigation';
 import { ActivitiesTheme } from '@themes/Activities';
@@ -21,6 +23,10 @@ export function ActivitiesRoutes() {
         <Route
           path={`${getPath(PATH_ACTIVITY_ACTIVITY)}`}
           component={Activity}
+        />
+        <Route
+          path={`${getPath(PATH_ACTIVITY_FINISHED)}`}
+          component={ActivityFinished}
         />
       </Switch>
     </ActivitiesTheme>

@@ -329,7 +329,9 @@
         "country": {
             "title": "🌟 Capitais do Mundo 🌟",
             "description": "🌍 Bem-vindo, aventureiro! Em sua jornada pelo mundo você descobrirá as capitais de diferentes países. Está pronto? 🚀"
-        }
+        },
+        "congratsCorrect": "Você acertou! Parabéns!",
+        "wrongAnswer": "Que pena, você errou essa pergunta."
     },
     "scoreboard": {
         "title": "Placar de Líderes - Top 5",

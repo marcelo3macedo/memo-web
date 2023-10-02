@@ -17,7 +17,7 @@ export function QuestionAnswers({ session }: any) {
           <TitleText value={session.question} />
         </Title>
         <FeaturedText value={t('activities.actions.selectOption')} />
-        <EnumeratedOptions options={session.options} />
+        <EnumeratedOptions options={session.options} answer={session.answer} />
       </Content>
     </Wrapper>
   );
