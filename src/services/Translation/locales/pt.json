@@ -187,6 +187,7 @@
         "frequency": "Frequência",
         "title": "Tema",
         "titlePlaceholder": "Digite aqui o tema da pergunta",
+        "namePlaceholder": "Digite aqui o seu nome...",
         "content": "Conteúdo",
         "contentPlaceholder": "Digite aqui o conteúdo da pergunta",
         "secretContent": "Resposta",
@@ -331,7 +332,20 @@
             "description": "🌍 Bem-vindo, aventureiro! Em sua jornada pelo mundo você descobrirá as capitais de diferentes países. Está pronto? 🚀"
         },
         "congratsCorrect": "Você acertou! Parabéns!",
-        "wrongAnswer": "Que pena, você errou essa pergunta."
+        "wrongAnswer": "Que pena, você errou essa pergunta.",
+        "yourName": "Qual é seu nome?"
+    },
+    "activityFinished": {
+        "message": "Parabéns {{name}}, Você conseguiu! 🤩🤩",
+        "tryAgain": "Tentar Novamente",
+        "points": "Sua pontuação final",
+        "share": "Compartilhe",
+        "whatsapp": "Whatsapp",
+        "facebook": "Facebook",
+        "wantMore": "Quer mais desafios? Baixe o App agora!",
+        "downloadApp": "Baixar App",
+        "shareMessage": "Fiz {{points}} pontos, consegue fazer mais que eu? Tente agora: ",
+        "ranking": "Ver Ranking"
     },
     "scoreboard": {
         "title": "Placar de Líderes - Top 5",

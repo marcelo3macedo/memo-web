@@ -1,39 +1,27 @@
 import SecondaryAnimatedButton from '@components/elements/buttons/SecondaryAnimated';
 import { HeaderText } from '@components/elements/texts/header';
 import { TitleText } from '@components/elements/texts/title';
+import { RouteOptions } from '@interfaces/routes/SessionRoutesProps';
+import { PATH_ACTIVITY_MAIN } from '@services/Navigation';
+import { navigatePush } from '@store/modules/navigate/actions';
 import { useTranslation } from 'react-i18next';
+import { useDispatch } from 'react-redux';
 
 import { Board } from '../board';
 
 import { BackAction, Content, Details, Scoreboard, Wrapper } from './styles';
 
-export function Score() {
+export function Score({ title, scores, target }) {
+  const dispatch = useDispatch();
   const { t } = useTranslation();
-  const score = [
-    {
-      name: 'Marcelo Macedo',
-      points: 3000
-    },
-    {
-      name: 'Marcelo Alberico',
-      points: 2000
-    },
-    {
-      name: 'Marcelo Alberico',
-      points: 2000
-    },
-    {
-      name: 'Marcelo Alberico',
-      points: 2000
-    },
-    {
-      name: 'Marcelo Alberico',
-      points: 2000
-    }
-  ];
 
   function goBack() {
-    console.log('go back...');
+    dispatch(
+      navigatePush({
+        route: RouteOptions.activities,
+        path: `${PATH_ACTIVITY_MAIN}/${target}`
+      })
+    );
   }
 
   return (
@@ -42,9 +30,9 @@ export function Score() {
         <Scoreboard>
           <TitleText value={t('scoreboard.title')} />
           <Details>
-            <HeaderText value={t('scoreboard.activity')} />
+            <HeaderText value={`${t('scoreboard.activity')} ${title}`} />
           </Details>
-          <Board score={score} />
+          <Board scores={scores} />
         </Scoreboard>
         <BackAction>
           <SecondaryAnimatedButton

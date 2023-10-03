@@ -30,3 +30,7 @@ export const Header = styled.div`
   justify-content: space-around;
   background: #ccc;
 `;
+
+export const Title = styled.div`
+  padding: 40px 0;
+`;

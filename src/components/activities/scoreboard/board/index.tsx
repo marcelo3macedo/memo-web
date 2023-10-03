@@ -1,8 +1,17 @@
 import { HeaderText } from '@components/elements/texts/header';
+import { SubtitleText } from '@components/elements/texts/subtitle';
 
-import { Column, Content, Header, Line, Wrapper } from './styles';
+import { Column, Content, Header, Line, Title, Wrapper } from './styles';
 
-export function Board({ score }: any) {
+export function Board({ scores }: any) {
+  if (!scores || scores.length === 0) {
+    return (
+      <Title>
+        <SubtitleText value={'Nenhuma pontuação recebida'} />
+      </Title>
+    );
+  }
+
   return (
     <Wrapper>
       <Content>
@@ -17,7 +26,7 @@ export function Board({ score }: any) {
             <HeaderText value={'Pontuação'} />
           </Column>
         </Header>
-        {score.map((s, i) => (
+        {scores.map((s, i) => (
           <Line key={i}>
             <Column>
               <HeaderText value={i + 1} />
@@ -26,7 +35,7 @@ export function Board({ score }: any) {
               <HeaderText value={s.name} />
             </Column>
             <Column>
-              <HeaderText value={s.points} />
+              <HeaderText value={s.score} />
             </Column>
           </Line>
         ))}

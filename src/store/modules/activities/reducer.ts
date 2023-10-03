@@ -8,7 +8,9 @@ const INITIAL_STATE = {
   isCorrect: false,
   correctAnswer: 0,
   initTime: new Date(),
-  finishTime: new Date()
+  finishTime: new Date(),
+  scores: [],
+  name: ''
 };
 
 export default function activities(state = INITIAL_STATE, action: any) {
@@ -16,6 +18,7 @@ export default function activities(state = INITIAL_STATE, action: any) {
     switch (action.type) {
       case '@activities/START': {
         draft.target = action.payload.slug;
+        draft.name = action.payload.name;
         draft.activeIndex = 0;
         draft.correctAnswer = 0;
         draft.initTime = new Date();
@@ -23,6 +26,10 @@ export default function activities(state = INITIAL_STATE, action: any) {
       }
       case '@activities/CREATE_SUCCESS': {
         draft.sessions = action.payload.session;
+        break;
+      }
+      case '@activities/GET_SCORE_SUCCESS': {
+        draft.scores = action.payload.scores;
         break;
       }
       case '@activities/SELECT_SUCCESS': {

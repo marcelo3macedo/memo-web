@@ -31,3 +31,5 @@ export const API_SOCIAL = '/social';
 export const API_LOGIN = '/login';
 export const API_FEATUREDUSER = '/featured/user';
 export const API_PROGRESS = '/progress';
+export const API_SCORE = '/score/:slug/results';
+export const API_SCORE_SAVE = '/score/:slug';

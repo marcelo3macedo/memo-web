@@ -31,3 +31,4 @@ export const PATH_ACTIVE = 'activate';
 export const PATH_ACTIVITY_MAIN = 'main';
 export const PATH_ACTIVITY_ACTIVITY = 'activity';
 export const PATH_ACTIVITY_FINISHED = 'finished';
+export const PATH_ACTIVITY_RANKING = 'ranking';

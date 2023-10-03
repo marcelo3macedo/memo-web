@@ -1,8 +1,9 @@
-export function startAction({ slug }: any) {
+export function startAction({ slug, name }: any) {
   return {
     type: '@activities/START',
     payload: {
-      slug
+      slug,
+      name
     }
   };
 }
@@ -45,5 +46,23 @@ export function selectSuccessAction({ isCorrect }: any) {
 export function nextAction() {
   return {
     type: '@activities/NEXT'
+  };
+}
+
+export function getScoreAction({ slug }: any) {
+  return {
+    type: '@activities/GET_SCORE',
+    payload: {
+      slug
+    }
+  };
+}
+
+export function getScoreSuccessAction({ scores }: any) {
+  return {
+    type: '@activities/GET_SCORE_SUCCESS',
+    payload: {
+      scores
+    }
   };
 }
