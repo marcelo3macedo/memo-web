@@ -340,6 +340,13 @@
         "title": "Escolha uma categoria"
     },
     "messages": {
+        "actions": {
+            "before": "Anterior",
+            "next": "Próximo",
+            "download": "Baixar Imagem",
+            "background": "Trocar Fundo",
+            "back": "Voltar"
+        },
         "biblic": {
             "title": "Teste",
             "description": "teste"
