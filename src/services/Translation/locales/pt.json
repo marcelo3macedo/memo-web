@@ -323,6 +323,7 @@
     "activities": {
         "actions": {
             "startNow": "Começar Agora!",
+            "seeMessages": "Ver Mensagens",
             "back": "Voltar",
             "selectOption": "Selecione a opção correta",
             "download": "★ Baixar Mensagem ★"
@@ -334,6 +335,15 @@
         "congratsCorrect": "Você acertou! Parabéns!",
         "wrongAnswer": "Que pena, você errou essa pergunta.",
         "yourName": "Qual é seu nome?"
+    },
+    "message": {
+        "title": "Escolha uma categoria"
+    },
+    "messages": {
+        "biblic": {
+            "title": "Teste",
+            "description": "teste"
+        }
     },
     "activityFinished": {
         "message": "Parabéns {{name}}, Você conseguiu! 🤩🤩",

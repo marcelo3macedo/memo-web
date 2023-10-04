@@ -4,6 +4,7 @@ export class RouteOptions {
   static activities = '/activities';
   static deck = '/deck';
   static main = '/main';
+  static message = '/message';
   static session = '/session';
   static review = '/review';
   static home = '/';
