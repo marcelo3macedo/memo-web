@@ -11,7 +11,7 @@ export const Title = styled.div`
 `;
 
 export const Info = styled.div`
-  padding: 10px 0;
+  padding: 20px 0;
 `;
 
 export const Action = styled.div`

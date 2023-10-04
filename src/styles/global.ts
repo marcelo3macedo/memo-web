@@ -51,6 +51,7 @@ export const GlobalStyle = createGlobalStyle`
 
     h2 {
         font-size: ${({ theme }: any) => theme.FONT_SIZE_H2};
+        line-height: 30px;
     }
 
     h3 {
