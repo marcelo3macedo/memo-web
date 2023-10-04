@@ -11,7 +11,7 @@ export const Container = styled.div`
   border: 1px solid #ccc;
   padding: 40px 0;
   border-radius: 20px;
-  background: #9fb9ff;
+  background: #b5c4eb;
 
   &:hover {
     cursor: pointer;
