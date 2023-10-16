@@ -53,7 +53,8 @@
     "react-error-overlay": "6.0.9"
   },
   "scripts": {
-    "start": "react-app-rewired --openssl-legacy-provider start",
+    "start": "react-app-rewired start",
+    "dev": "react-app-rewired --openssl-legacy-provider dev",
     "build": "react-app-rewired --openssl-legacy-provider build",
     "test": "react-app-rewired test",
     "eject": "react-app-rewired eject",
