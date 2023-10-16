@@ -1,0 +1,21 @@
+[
+    {
+        "type": "quiz",
+        "question": "Qual a capital do Brasil?",
+        "answer": "Brasília",
+        "options": [ 
+            {
+                "value": "São Paulo"
+            },
+            {
+                "value": "Rio de Janeiro"
+            },
+            {
+                "value": "Brasília"
+            },
+            {
+                "value": "Natal"
+            }
+        ]
+    }
+]

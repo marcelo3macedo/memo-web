@@ -187,6 +187,7 @@
         "frequency": "Frequência",
         "title": "Tema",
         "titlePlaceholder": "Digite aqui o tema da pergunta",
+        "namePlaceholder": "Digite aqui o seu nome...",
         "content": "Conteúdo",
         "contentPlaceholder": "Digite aqui o conteúdo da pergunta",
         "secretContent": "Resposta",
@@ -300,9 +301,13 @@
         "questionNumber": "Pergunta",
         "questionOf": "de",
         "seeAnswer": "Ver resposta",
+        "opinion": "O que você achou dessa mensagem?",
+        "messageNumber": "Mensagem",
+        "messageOf": "de",
         "theme": "Tema:",
         "before": "Antes de visualizar a resposta, recomendamos analisar a pergunta por alguns segundos",
-        "yourAnswer": "Sua resposta irá auxiliar o memorizou para criar suas futuras sessões. Ao selecionar uma resposta você será redirecionado a próxima pergunta"
+        "yourAnswer": "Sua resposta irá auxiliar o memorizou para criar suas futuras sessões. Ao selecionar uma resposta você será redirecionado a próxima pergunta",
+        "yourChoose": "Sua resposta irá auxiliar para escolhermos a próxima mensagem. Ao selecionar uma resposta você será redirecionado a próxima mensagem"
     },
     "reviewCompleted": {
         "congrats": "Meus Parabéns",
@@ -314,5 +319,53 @@
     "pendingReview": {
         "title": "Revisões Ativas",
         "description": "Sessões criadas para reforçar o conteúdo"
+    },
+    "activities": {
+        "actions": {
+            "startNow": "Começar Agora!",
+            "seeMessages": "Ver Mensagens",
+            "back": "Voltar",
+            "selectOption": "Selecione a opção correta",
+            "download": "★ Baixar Mensagem ★"
+        },
+        "country": {
+            "title": "🌟 Capitais do Mundo 🌟",
+            "description": "🌍 Bem-vindo, aventureiro! Em sua jornada pelo mundo você descobrirá as capitais de diferentes países. Está pronto? 🚀"
+        },
+        "congratsCorrect": "Você acertou! Parabéns!",
+        "wrongAnswer": "Que pena, você errou essa pergunta.",
+        "yourName": "Qual é seu nome?"
+    },
+    "message": {
+        "title": "Escolha uma categoria"
+    },
+    "messages": {
+        "actions": {
+            "before": "Anterior",
+            "next": "Próximo",
+            "download": "Baixar Imagem",
+            "background": "Trocar Fundo",
+            "back": "Voltar"
+        },
+        "biblic": {
+            "title": "Mensagens Celestiais",
+            "description": "Receba versículos inspiradores da Bíblia diretamente em seu dispositivo e fortaleça sua fé diariamente.|Uma dose diária de sabedoria e conforto para te aproximar ainda mais do Senhor. 🙏📖"
+        }
+    },
+    "activityFinished": {
+        "message": "Parabéns {{name}}, Você conseguiu! 🤩🤩",
+        "tryAgain": "Tentar Novamente",
+        "points": "Sua pontuação final",
+        "share": "Compartilhe",
+        "whatsapp": "Whatsapp",
+        "facebook": "Facebook",
+        "wantMore": "Quer mais desafios? Baixe o App agora!",
+        "downloadApp": "Baixar App",
+        "shareMessage": "Fiz {{points}} pontos, consegue fazer mais que eu? Tente agora: ",
+        "ranking": "Ver Ranking"
+    },
+    "scoreboard": {
+        "title": "Placar de Líderes - Top 5",
+        "activity": "Atividade: "
     }
 }
