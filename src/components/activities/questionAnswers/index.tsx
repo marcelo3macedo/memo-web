@@ -7,17 +7,21 @@ import { Content, Title, Wrapper } from './styles';
 
 export function QuestionAnswers({ session }: any) {
   const { t } = useTranslation();
+  const { question, answer, option1, option2, option3, option4 } =
+    session || {};
 
   if (!session) return <></>;
+
+  const options = [option1, option2, option3, option4];
 
   return (
     <Wrapper>
       <Content>
         <Title>
-          <TitleText value={session.question} />
+          <TitleText value={question} />
         </Title>
         <FeaturedText value={t('activities.actions.selectOption')} />
-        <EnumeratedOptions options={session.options} answer={session.answer} />
+        <EnumeratedOptions options={options} answer={answer} />
       </Content>
     </Wrapper>
   );

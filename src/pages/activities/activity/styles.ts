@@ -23,7 +23,7 @@ export const BackAction = styled.div`
 `;
 
 export const Breadcrumb = styled.div`
-  padding: 10px 0;
+  margin-top: 20px;
 `;
 
 export const Title = styled.div`
@@ -31,5 +31,5 @@ export const Title = styled.div`
 `;
 
 export const Body = styled.div`
-  padding: 10px 0;
+  padding: 0;
 `;

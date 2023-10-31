@@ -4,7 +4,7 @@ import storage from 'redux-persist/lib/storage';
 const persistor = reducers => {
   const persistedReducer = persistReducer(
     {
-      key: 'memo',
+      key: 'memo-web',
       storage,
       whitelist: [
         'config',

@@ -334,7 +334,8 @@
         },
         "congratsCorrect": "Você acertou! Parabéns!",
         "wrongAnswer": "Que pena, você errou essa pergunta.",
-        "yourName": "Qual é seu nome?"
+        "yourName": "Qual é seu nome?",
+        "difficulty": "Escolha o nível desejado"
     },
     "message": {
         "title": "Escolha uma categoria"

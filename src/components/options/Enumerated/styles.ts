@@ -14,13 +14,16 @@ export const Option = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: linear-gradient(rgb(237, 237, 237) 5%, rgb(223, 223, 223) 100%)
-    rgb(237, 237, 237);
-  margin: 10px 0;
-  border-radius: 10px;
+  margin: 15px 0;
   box-sizing: content-box;
   overflow: hidden;
-
+  border: 1px solid #ccc;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+  background: #c6e1ff;
+  background: linear-gradient(135deg, #c6e1ff, #d5ccff);
   &:hover {
     cursor: pointer;
     opacity: 0.8;
@@ -28,14 +31,19 @@ export const Option = styled.div`
 `;
 
 export const Number = styled.div`
-  padding: 20px 0;
+  padding: 17px 5px;
   width: 60px;
-  background: #666;
+  background: #939393;
   box-sizing: content-box;
-  border-radius: 10px;
+  border-radius: 0px;
 `;
 
 export const Value = styled.div`
   padding: 10px 0;
   width: 100%;
+
+  h3 {
+    margin-left: -20px;
+    padding: 0 20px;
+  }
 `;

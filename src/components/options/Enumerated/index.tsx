@@ -21,13 +21,13 @@ export function EnumeratedOptions({ options, answer }: any) {
           <Option
             key={i}
             onClick={() => {
-              action(o.value);
+              action(o);
             }}>
             <Number>
               <SubtitleText value={i + 1} styled={Styles.Light} />
             </Number>
             <Value>
-              <HeaderText value={o.value} />
+              <HeaderText value={o} />
             </Value>
           </Option>
         ))}

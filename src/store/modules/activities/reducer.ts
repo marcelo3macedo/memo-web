@@ -1,21 +1,35 @@
 import produce from 'immer';
 
 const INITIAL_STATE = {
+  name: '',
+  description: '',
+  levels: [],
   target: '',
   activeIndex: 0,
   sessions: null,
   validated: false,
   isCorrect: false,
+  failed: false,
   correctAnswer: 0,
   initTime: new Date(),
   finishTime: new Date(),
-  scores: [],
-  name: ''
+  scores: []
 };
 
 export default function activities(state = INITIAL_STATE, action: any) {
   return produce(state, draft => {
     switch (action.type) {
+      case '@activities/LOAD_SUCCESS': {
+        draft.name = action.payload.name;
+        draft.description = action.payload.description;
+        draft.levels = action.payload.levels;
+        draft.failed = false;
+        break;
+      }
+      case '@activities/LOAD_FAILED': {
+        draft.failed = true;
+        break;
+      }
       case '@activities/START': {
         draft.target = action.payload.slug;
         draft.name = action.payload.name;

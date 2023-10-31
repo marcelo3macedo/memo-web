@@ -1,9 +1,35 @@
-export function startAction({ slug, name }: any) {
+export function loadAction({ slug }: any) {
+  return {
+    type: '@activities/LOAD',
+    payload: {
+      slug
+    }
+  };
+}
+
+export function loadActionSuccess({ name, description, levels }: any) {
+  return {
+    type: '@activities/LOAD_SUCCESS',
+    payload: {
+      name,
+      description,
+      levels
+    }
+  };
+}
+
+export function loadActionFailed() {
+  return {
+    type: '@activities/LOAD_FAILED'
+  };
+}
+
+export function startAction({ slug, level }: any) {
   return {
     type: '@activities/START',
     payload: {
       slug,
-      name
+      level
     }
   };
 }

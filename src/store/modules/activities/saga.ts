@@ -1,3 +1,4 @@
+import { getInfoByKey } from '@helpers/ActivityHelper';
 import { getPoints } from '@helpers/points';
 import {
   generateNewSession,
@@ -19,16 +20,29 @@ import { all, put, select, takeLatest } from 'redux-saga/effects';
 import {
   createActionSuccess,
   getScoreSuccessAction,
+  loadActionFailed,
+  loadActionSuccess,
   nextAction,
   selectSuccessAction
 } from './actions';
 import * as selectors from './selectors';
 
+function* load({ payload }: any) {
+  try {
+    const { slug } = payload;
+    const { name, description, levels } = yield getInfoByKey(slug);
+
+    yield put(loadActionSuccess({ name, description, levels }));
+  } catch (e) {
+    yield put(loadActionFailed());
+  }
+}
+
 function* start({ payload }: any) {
-  const { slug } = payload;
-  const type = slug;
-  const session = generateNewSession({ type });
-  yield put(createActionSuccess({ session, type }));
+  const { slug, level } = payload;
+  const session = yield generateNewSession({ slug, level });
+
+  yield put(createActionSuccess({ session, type: slug }));
 }
 
 function* createSuccess() {
@@ -121,6 +135,7 @@ function* getScore({ payload }: any) {
 }
 
 export default all([
+  takeLatest('@activities/LOAD', load),
   takeLatest('@activities/START', start),
   takeLatest('@activities/CREATE_SUCCESS', createSuccess),
   takeLatest('@activities/BACK', back),

@@ -1,8 +1,10 @@
-import { getByType } from './type';
+import { getInfoByKey } from '@helpers/ActivityHelper';
 
-function generateNewSession({ type }) {
-  const content = getByType(type);
-  const shuffledContent = content.sort(() => 0.5 - Math.random());
+async function generateNewSession({ slug, level }) {
+  const { items } = await getInfoByKey(slug);
+  const filtered = items.filter(i => i.difficulty == level);
+
+  const shuffledContent = filtered.sort(() => 0.5 - Math.random());
 
   return shuffledContent.slice(0, 15);
 }
