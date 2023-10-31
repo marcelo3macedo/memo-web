@@ -12,13 +12,23 @@ export const Content = styled.div`
   justify-content: center;
 `;
 
-export const PointsArea = styled.div`
-  padding: 20px 0;
-  text-align: center;
+export const Title = styled.div`
+  padding-bottom: 20px;
 `;
+
+export const PointsArea = styled.div`
+  padding: 10px 0;
+  text-align: center;
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+`;
+
+export const PointsItem = styled.div``;
 
 export const Sharing = styled.div`
   text-align: center;
+  padding: 20px 0;
 `;
 
 export const SharingArea = styled.div`
@@ -38,10 +48,6 @@ export const More = styled.div`
 
 export const TryAgain = styled.div`
   padding-top: 20px;
-`;
-
-export const Title = styled.div`
-  padding: 10px 0;
 `;
 
 export const Ranking = styled.div`

@@ -33,3 +33,7 @@ export const Title = styled.div`
 export const Body = styled.div`
   padding: 0;
 `;
+
+export const Footer = styled.div`
+  padding: 20px 0 10px 0;
+`;

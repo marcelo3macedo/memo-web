@@ -1,5 +1,4 @@
 import SecondaryAnimatedButton from '@components/elements/buttons/SecondaryAnimated';
-import { HeaderText } from '@components/elements/texts/header';
 import { TitleText } from '@components/elements/texts/title';
 import { RouteOptions } from '@interfaces/routes/SessionRoutesProps';
 import { PATH_ACTIVITY_MAIN } from '@services/Navigation';
@@ -9,9 +8,9 @@ import { useDispatch } from 'react-redux';
 
 import { Board } from '../board';
 
-import { BackAction, Content, Details, Scoreboard, Wrapper } from './styles';
+import { BackAction, Content, Scoreboard, Wrapper } from './styles';
 
-export function Score({ title, scores, target }) {
+export function Score({ scores, target }) {
   const dispatch = useDispatch();
   const { t } = useTranslation();
 
@@ -29,11 +28,8 @@ export function Score({ title, scores, target }) {
       <Content>
         <Scoreboard>
           <TitleText value={t('scoreboard.title')} />
-          <Details>
-            <HeaderText value={`${t('scoreboard.activity')} ${title}`} />
-          </Details>
-          <Board scores={scores} />
         </Scoreboard>
+        <Board scores={scores} />
         <BackAction>
           <SecondaryAnimatedButton
             content={t('activities.actions.back')}

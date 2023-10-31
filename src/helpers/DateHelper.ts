@@ -24,9 +24,32 @@ function getUnixFromDatetime(unix: any) {
   return parseInt(newDate);
 }
 
+function calculateTimeDifference(pastDate, compareDate = new Date()) {
+  const now = new Date(compareDate);
+  const then = new Date(pastDate);
+  const differenceInMilliseconds = now - then;
+
+  const differenceInSeconds = Math.floor(differenceInMilliseconds / 1000);
+  const days = Math.floor(differenceInSeconds / (3600 * 24));
+  const hours = Math.floor((differenceInSeconds % (3600 * 24)) / 3600);
+  const minutes = Math.floor((differenceInSeconds % 3600) / 60);
+  const seconds = differenceInSeconds % 60;
+
+  return { days, hours, minutes, seconds };
+}
+function calculateTimeDifferenceString(pastDate, compareDate = new Date()) {
+  const date = calculateTimeDifference(pastDate, compareDate);
+
+  return `${String(date.minutes).padStart(2, '0')}:${String(
+    date.seconds
+  ).padStart(2, '0')}`;
+}
+
 export {
   formatDateTimeAsString,
   formatTimeAsString,
   getTimeFromNow,
-  getUnixFromDatetime
+  getUnixFromDatetime,
+  calculateTimeDifference,
+  calculateTimeDifferenceString
 };

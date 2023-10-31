@@ -13,7 +13,8 @@ const INITIAL_STATE = {
   correctAnswer: 0,
   initTime: new Date(),
   finishTime: new Date(),
-  scores: []
+  scores: [],
+  saved: false
 };
 
 export default function activities(state = INITIAL_STATE, action: any) {
@@ -36,6 +37,7 @@ export default function activities(state = INITIAL_STATE, action: any) {
         draft.activeIndex = 0;
         draft.correctAnswer = 0;
         draft.initTime = new Date();
+        draft.saved = false;
         break;
       }
       case '@activities/CREATE_SUCCESS': {
@@ -59,6 +61,10 @@ export default function activities(state = INITIAL_STATE, action: any) {
         draft.isCorrect = false;
         draft.activeIndex = draft.activeIndex + 1;
         draft.finishTime = new Date();
+        break;
+      }
+      case '@activities/SAVE_SCORE': {
+        draft.saved = true;
         break;
       }
       default:

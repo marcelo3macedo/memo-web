@@ -354,16 +354,21 @@
         }
     },
     "activityFinished": {
-        "message": "Parabéns {{name}}, Você conseguiu! 🤩🤩",
+        "message": "Parabéns, Você conseguiu! 🤩🤩",
         "tryAgain": "Tentar Novamente",
         "points": "Sua pontuação final",
+        "timeUsed": "Tempo Decorrido",
         "share": "Compartilhe",
         "whatsapp": "Whatsapp",
         "facebook": "Facebook",
         "wantMore": "Quer mais desafios? Baixe o App agora!",
         "downloadApp": "Baixar App",
         "shareMessage": "Fiz {{points}} pontos, consegue fazer mais que eu? Tente agora: ",
-        "ranking": "Ver Ranking"
+        "ranking": "Ver Ranking",
+        "hitScore": "🤩 Um novo recorde foi estabelecido 🤩",
+        "finalScore": "Sua pontuação de {{points}} entrou para a lista dos 5 melhores recordes!",
+        "sayYourName": "Informe seu nome para incluirmos no ranking",
+        "rankingAction": "Entrar no Ranking"
     },
     "scoreboard": {
         "title": "Placar de Líderes - Top 5",

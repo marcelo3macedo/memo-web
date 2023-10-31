@@ -92,3 +92,13 @@ export function getScoreSuccessAction({ scores }: any) {
     }
   };
 }
+
+export function saveScore({ name, points }: any) {
+  return {
+    type: '@activities/SAVE_SCORE',
+    payload: {
+      name,
+      points
+    }
+  };
+}

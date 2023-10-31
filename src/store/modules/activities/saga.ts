@@ -1,5 +1,4 @@
 import { getInfoByKey } from '@helpers/ActivityHelper';
-import { getPoints } from '@helpers/points';
 import {
   generateNewSession,
   isCorrectAnswer
@@ -82,31 +81,11 @@ function* selectSuccess() {
 }
 
 function* nextOption() {
-  const {
-    name,
-    sessions,
-    activeIndex,
-    target,
-    initTime,
-    finishTime,
-    correctAnswer
-  } = yield select(selectors.activities);
+  const { sessions, activeIndex } = yield select(selectors.activities);
 
   if (!sessions || sessions.length > activeIndex) {
     return;
   }
-
-  const score = getPoints(initTime, finishTime, correctAnswer);
-  const method = API_SCORE_SAVE.replace(':slug', target);
-  yield request({
-    type: REQUESTER_POST,
-    method,
-    data: {
-      name,
-      score
-    },
-    authNeeded: false
-  });
 
   yield put(
     navigatePush({
@@ -134,6 +113,26 @@ function* getScore({ payload }: any) {
   }
 }
 
+function* saveScore({ payload }: any) {
+  try {
+    const { target } = yield select(selectors.activities);
+    const { name, points } = payload;
+    const method = API_SCORE_SAVE.replace(':slug', target);
+
+    yield request({
+      type: REQUESTER_POST,
+      method,
+      data: {
+        name,
+        score: points
+      },
+      authNeeded: false
+    });
+  } catch (e) {
+    console.log(e);
+  }
+}
+
 export default all([
   takeLatest('@activities/LOAD', load),
   takeLatest('@activities/START', start),
@@ -142,5 +141,6 @@ export default all([
   takeLatest('@activities/SELECT_OPTION', selectOption),
   takeLatest('@activities/SELECT_SUCCESS', selectSuccess),
   takeLatest('@activities/NEXT', nextOption),
-  takeLatest('@activities/GET_SCORE', getScore)
+  takeLatest('@activities/GET_SCORE', getScore),
+  takeLatest('@activities/SAVE_SCORE', saveScore)
 ]);
