@@ -6,7 +6,7 @@ async function generateNewSession({ slug, level }) {
 
   const shuffledContent = filtered.sort(() => 0.5 - Math.random());
 
-  return shuffledContent.slice(0, 2);
+  return shuffledContent.slice(0, 15);
 }
 
 function isCorrectAnswer(option: string, answer: string) {
