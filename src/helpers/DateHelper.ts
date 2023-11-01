@@ -25,8 +25,8 @@ function getUnixFromDatetime(unix: any) {
 }
 
 function calculateTimeDifference(pastDate, compareDate = new Date()) {
-  const now = new Date(compareDate);
-  const then = new Date(pastDate);
+  const now = new Date(compareDate) as any;
+  const then = new Date(pastDate) as any;
   const differenceInMilliseconds = now - then;
 
   const differenceInSeconds = Math.floor(differenceInMilliseconds / 1000);
